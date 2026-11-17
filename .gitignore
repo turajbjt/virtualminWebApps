@@ -1,17 +1,154 @@
-# Temporary & downloaded files
-*.tar.gz
-*.tgz
-*.zip
-*.bz2
-/tmp/
-*.log
-*.swp
-*~
-.DS_Store
+# ==============================================================================
+# Virtualmin Web Apps Suite - .gitignore
+# Security & Secret Exclusion Standard (PCI DSS & Zero-Leakage Policy)
+# ==============================================================================
 
-# Test environment data
+# ------------------------------------------------------------------------------
+# 1. Environment & Credential Files
+# ------------------------------------------------------------------------------
+*.env
+*.env.*
+*.env.local
+*.env.development
+*.env.production
+*.env.stage
+*.env.test
+.env
+.env.*
+*.secret
+*.secrets
+*.token
+*.tokens
+*.credentials
+credentials.json
+auth.json
+token.json
+oauth*.json
+client_secret*.json
+secrets.yml
+secrets.yaml
+*.htpasswd
+*.netrc
+
+# ------------------------------------------------------------------------------
+# 2. Cryptographic Keys, Certificates & SSH
+# ------------------------------------------------------------------------------
+*.pem
+*.key
+*.pkcs12
+*.pfx
+*.p12
+*.crt
+*.cer
+*.der
+*.csr
+*.kdbx
+*.asc
+*.gpg
+*.sig
+
+# SSH keys
+id_rsa
+id_rsa*
+id_ed25519
+id_ed25519*
+id_ecdsa
+id_ecdsa*
+id_dsa
+id_dsa*
+known_hosts*
+authorized_keys*
+
+# ------------------------------------------------------------------------------
+# 3. Database Dumps, Data Stores & Runtime State
+# ------------------------------------------------------------------------------
+*.sql
+*.sql.gz
+*.sql.bz2
+*.dump
+*.rdb
+*.sqlite
+*.sqlite3
+*.db
+*.db-shm
+*.db-wal
+
+# Application state & data mounts
 /data/
 /vaultwarden-data/
 /nextcloud-data/
 /owncloud-data/
 /pihole-data/
+/uptime-kuma-data/
+/trilium-data/
+/umami-data/
+/netdata-config/
+/filebrowser/
+/forgejo/
+/navidrome/
+/mattermost/
+/paperless/
+*-data/
+
+# ------------------------------------------------------------------------------
+# 4. Archives & Downloaded Upstream Assets
+# ------------------------------------------------------------------------------
+*.tar.gz
+*.tgz
+*.tar.xz
+*.txz
+*.tar.bz2
+*.tbz2
+*.zip
+*.7z
+*.rar
+*.iso
+*.deb
+*.rpm
+
+# ------------------------------------------------------------------------------
+# 5. Temporary, Cache & Log Files
+# ------------------------------------------------------------------------------
+/tmp/
+*.tmp
+*.temp
+*.bak
+*.backup
+*.orig
+*.rej
+*.log
+logs/
+*.pid
+*.seed
+
+# ------------------------------------------------------------------------------
+# 6. Editor, IDE & OS Metadata
+# ------------------------------------------------------------------------------
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Editor swap files
+*.swp
+*.swo
+*~
+.*.swp
+.*.swo
+.*.sw?
+
+# IDE directories
+.idea/
+.vscode/
+.cursor/
+*.sublime-project
+*.sublime-workspace
+.project
+.settings/
+
+# Shell histories
+.bash_history
+.zsh_history

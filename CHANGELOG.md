@@ -7,6 +7,30 @@ and this project adheres to Semantic Versioning.
 
 ---
 
+## [1.10.1] - 2026-11-17
+
+### Security & Secret Leak Prevention
+- **Repository-Wide `.gitignore` Hardening**:
+  - Expanded `.gitignore` from 17 lines to 134 lines covering 6 critical security categories:
+    - Cryptographic private keys and certificates (`*.pem`, `*.key`, `*.pk8`, `*.pfx`, `*.p12`, `*.csr`, `*.crt`).
+    - SSH private and public keys (`id_rsa*`, `id_ecdsa*`, `id_ed25519*`, `known_hosts`, `authorized_keys`).
+    - Environment and credential files (`*.env`, `.env.*`, `*.env.local`, `*.credential*`, `*.token*`, `*.secret*`).
+    - Database dumps and sqlite data stores (`*.sql`, `*.sql.gz`, `*.sqlite`, `*.sqlite3`, `*.db`, `*.dump`).
+    - Temporary, session, and cache files (`*.log`, `*.tmp`, `*.cache`, `sessions/`, `cookies.txt`).
+    - Editor and IDE workspace metadata (`.vscode/`, `.idea/`, `.cursor/`, `*.swp`, `*.swo`).
+- **Automated Secret Leakage Prevention Test Suite (`tests/08_secret_leak_prevention.t`)**:
+  - Added 6 automated assertions executed during `./setup.sh test` and GitHub Actions CI:
+    1. Verification of `.gitignore` existence.
+    2. Coverage of all sensitive regex patterns in `.gitignore`.
+    3. Traversal check on all `git ls-files` ensuring zero tracked sensitive extensions.
+    4. Repository content scan ensuring zero private cryptographic key markers (`BEGIN ... PRIVATE KEY`).
+    5. Content scan checking against known cloud/service token signatures (AWS, GitHub PAT/OAuth, GitLab, Google Cloud, Stripe Live, Slack).
+    6. Exhaustive commit history audit (`git log --all --full-history`) ensuring no sensitive files were ever historically checked into git.
+- **Test Suite Expansion**:
+  - Expanded test suite from 1,035 to 1,041 automated unit, security, and PCI DSS compliance assertions across 8 test suites.
+
+---
+
 ## [1.10.0] - 2026-11-17
 
 ### Security & PCI DSS Compliance
