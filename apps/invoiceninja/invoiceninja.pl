@@ -22,7 +22,7 @@ require "Common.pl";
 
 sub script_invoiceninja_desc
 {
-    return "Invoice Ninja Invoicing & Payments Platform";
+    return "Invoice Ninja - Invoicing & Payments Platform";
 }
 
 sub script_invoiceninja_uses
@@ -52,7 +52,7 @@ sub script_invoiceninja_versions
 
 sub script_invoiceninja_release
 {
-    return 2;
+    return 3;
 }
 
 sub script_invoiceninja_passmode

@@ -25,7 +25,7 @@ require "ProxyHelper.pl";
 
 sub script_vaultwarden_desc
 {
-    return "Vaultwarden Password Manager";
+    return "Vaultwarden - Password Manager";
 }
 
 sub script_vaultwarden_uses
@@ -55,7 +55,7 @@ sub script_vaultwarden_versions
 
 sub script_vaultwarden_release
 {
-    return 2;
+    return 3;
 }
 
 sub script_vaultwarden_passmode

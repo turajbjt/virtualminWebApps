@@ -22,7 +22,7 @@ require "Common.pl";
 
 sub script_phpbb_desc
 {
-    return "phpBB Bulletin Board Forum";
+    return "phpBB - Bulletin Board Forum";
 }
 
 sub script_phpbb_uses
@@ -52,7 +52,7 @@ sub script_phpbb_versions
 
 sub script_phpbb_release
 {
-    return 2;
+    return 3;
 }
 
 sub script_phpbb_passmode

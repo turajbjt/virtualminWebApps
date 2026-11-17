@@ -25,7 +25,7 @@ require "ProxyHelper.pl";
 
 sub script_gotify_desc
 {
-    return "Gotify Real-Time Push Notification Server";
+    return "Gotify - Real-Time Push Notification Server";
 }
 
 sub script_gotify_uses
@@ -55,7 +55,7 @@ sub script_gotify_versions
 
 sub script_gotify_release
 {
-    return 2;
+    return 3;
 }
 
 sub script_gotify_passmode

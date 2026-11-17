@@ -22,7 +22,7 @@ require "Common.pl";
 
 sub script_grav_desc
 {
-    return "Grav Modern Flat-File Content Management System";
+    return "Grav - Modern Flat-File Content Management System";
 }
 
 sub script_grav_uses
@@ -52,7 +52,7 @@ sub script_grav_versions
 
 sub script_grav_release
 {
-    return 2;
+    return 3;
 }
 
 sub script_grav_passmode

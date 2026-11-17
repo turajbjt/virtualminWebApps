@@ -25,7 +25,7 @@ require "ProxyHelper.pl";
 
 sub script_umami_desc
 {
-    return "Umami Lightweight Privacy Analytics";
+    return "Umami - Lightweight Privacy Analytics";
 }
 
 sub script_umami_uses
@@ -55,7 +55,7 @@ sub script_umami_versions
 
 sub script_umami_release
 {
-    return 2;
+    return 3;
 }
 
 sub script_umami_passmode

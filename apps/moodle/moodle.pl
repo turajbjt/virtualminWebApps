@@ -22,7 +22,7 @@ require "Common.pl";
 
 sub script_moodle_desc
 {
-    return "Moodle Learning Management System";
+    return "Moodle - Learning Management System";
 }
 
 sub script_moodle_uses
@@ -52,7 +52,7 @@ sub script_moodle_versions
 
 sub script_moodle_release
 {
-    return 2;
+    return 3;
 }
 
 sub script_moodle_passmode

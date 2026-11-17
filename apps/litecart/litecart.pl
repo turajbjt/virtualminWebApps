@@ -22,7 +22,7 @@ require "Common.pl";
 
 sub script_litecart_desc
 {
-    return "LiteCart Lightweight E-Commerce";
+    return "LiteCart - Lightweight E-Commerce";
 }
 
 sub script_litecart_uses
@@ -52,7 +52,7 @@ sub script_litecart_versions
 
 sub script_litecart_release
 {
-    return 2;
+    return 3;
 }
 
 sub script_litecart_passmode

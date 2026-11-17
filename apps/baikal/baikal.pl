@@ -22,7 +22,7 @@ require "Common.pl";
 
 sub script_baikal_desc
 {
-    return "Baikal Lightweight CalDAV & CardDAV Server";
+    return "Baikal - Lightweight CalDAV & CardDAV Server";
 }
 
 sub script_baikal_uses
@@ -52,7 +52,7 @@ sub script_baikal_versions
 
 sub script_baikal_release
 {
-    return 2;
+    return 3;
 }
 
 sub script_baikal_passmode

@@ -25,7 +25,7 @@ require "ProxyHelper.pl";
 
 sub script_paperless_ngx_desc
 {
-    return "Paperless-ngx Document Management & OCR Archive";
+    return "Paperless-ngx - Document Management & OCR Archive";
 }
 
 sub script_paperless_ngx_uses
@@ -55,7 +55,7 @@ sub script_paperless_ngx_versions
 
 sub script_paperless_ngx_release
 {
-    return 2;
+    return 3;
 }
 
 sub script_paperless_ngx_passmode

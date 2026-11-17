@@ -25,7 +25,7 @@ require "ProxyHelper.pl";
 
 sub script_filebrowser_desc
 {
-    return "File Browser Lightweight Web Manager";
+    return "File Browser - Lightweight Web Manager";
 }
 
 sub script_filebrowser_uses
@@ -55,7 +55,7 @@ sub script_filebrowser_versions
 
 sub script_filebrowser_release
 {
-    return 2;
+    return 3;
 }
 
 sub script_filebrowser_passmode

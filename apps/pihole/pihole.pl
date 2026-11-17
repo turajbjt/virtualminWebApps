@@ -25,7 +25,7 @@ require "ProxyHelper.pl";
 
 sub script_pihole_desc
 {
-    return "Pi-hole Network-wide Ad Blocker";
+    return "Pi-hole - Network-wide Ad Blocker";
 }
 
 sub script_pihole_uses
@@ -55,7 +55,7 @@ sub script_pihole_versions
 
 sub script_pihole_release
 {
-    return 2;
+    return 3;
 }
 
 sub script_pihole_passmode

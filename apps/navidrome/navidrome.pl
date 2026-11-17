@@ -25,7 +25,7 @@ require "ProxyHelper.pl";
 
 sub script_navidrome_desc
 {
-    return "Navidrome Music Streaming Server";
+    return "Navidrome - Music Streaming Server";
 }
 
 sub script_navidrome_uses
@@ -55,7 +55,7 @@ sub script_navidrome_versions
 
 sub script_navidrome_release
 {
-    return 2;
+    return 3;
 }
 
 sub script_navidrome_passmode

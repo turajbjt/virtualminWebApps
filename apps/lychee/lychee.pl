@@ -22,7 +22,7 @@ require "Common.pl";
 
 sub script_lychee_desc
 {
-    return "Lychee Self-Hosted Photo Management & Gallery";
+    return "Lychee - Self-Hosted Photo Management & Gallery";
 }
 
 sub script_lychee_uses
@@ -52,7 +52,7 @@ sub script_lychee_versions
 
 sub script_lychee_release
 {
-    return 2;
+    return 3;
 }
 
 sub script_lychee_passmode

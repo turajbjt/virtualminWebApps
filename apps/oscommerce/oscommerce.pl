@@ -22,7 +22,7 @@ require "Common.pl";
 
 sub script_oscommerce_desc
 {
-    return "osCommerce Open-Source E-Commerce Platform";
+    return "osCommerce - Open-Source E-Commerce Platform";
 }
 
 sub script_oscommerce_uses
@@ -52,7 +52,7 @@ sub script_oscommerce_versions
 
 sub script_oscommerce_release
 {
-    return 2;
+    return 3;
 }
 
 sub script_oscommerce_passmode

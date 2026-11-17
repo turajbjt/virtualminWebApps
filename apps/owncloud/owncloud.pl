@@ -22,7 +22,7 @@ require "Common.pl";
 
 sub script_owncloud_desc
 {
-    return "ownCloud Classic Cloud Platform";
+    return "ownCloud - Classic Cloud Platform";
 }
 
 sub script_owncloud_uses
@@ -52,7 +52,7 @@ sub script_owncloud_versions
 
 sub script_owncloud_release
 {
-    return 2;
+    return 3;
 }
 
 sub script_owncloud_passmode

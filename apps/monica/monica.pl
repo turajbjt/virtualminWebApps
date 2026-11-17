@@ -22,7 +22,7 @@ require "Common.pl";
 
 sub script_monica_desc
 {
-    return "Monica Personal Relationship Management (PRM)";
+    return "Monica - Personal Relationship Management (PRM)";
 }
 
 sub script_monica_uses
@@ -52,7 +52,7 @@ sub script_monica_versions
 
 sub script_monica_release
 {
-    return 2;
+    return 3;
 }
 
 sub script_monica_passmode

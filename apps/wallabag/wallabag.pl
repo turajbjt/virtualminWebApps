@@ -22,7 +22,7 @@ require "Common.pl";
 
 sub script_wallabag_desc
 {
-    return "Wallabag Self-Hosted Read-It-Later & Article Archiver";
+    return "Wallabag - Self-Hosted Read-It-Later & Article Archiver";
 }
 
 sub script_wallabag_uses
@@ -52,7 +52,7 @@ sub script_wallabag_versions
 
 sub script_wallabag_release
 {
-    return 2;
+    return 3;
 }
 
 sub script_wallabag_passmode

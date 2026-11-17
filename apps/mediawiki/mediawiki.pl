@@ -22,7 +22,7 @@ require "Common.pl";
 
 sub script_mediawiki_desc
 {
-    return "MediaWiki Knowledge Base & Wiki";
+    return "MediaWiki - Knowledge Base & Wiki";
 }
 
 sub script_mediawiki_uses
@@ -52,7 +52,7 @@ sub script_mediawiki_versions
 
 sub script_mediawiki_release
 {
-    return 2;
+    return 3;
 }
 
 sub script_mediawiki_passmode

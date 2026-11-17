@@ -22,7 +22,7 @@ require "Common.pl";
 
 sub script_shaarli_desc
 {
-    return "Shaarli Personal Bookmarking & Link Sharing";
+    return "Shaarli - Personal Bookmarking & Link Sharing";
 }
 
 sub script_shaarli_uses
@@ -52,7 +52,7 @@ sub script_shaarli_versions
 
 sub script_shaarli_release
 {
-    return 2;
+    return 3;
 }
 
 sub script_shaarli_passmode

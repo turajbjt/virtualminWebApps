@@ -22,7 +22,7 @@ require "Common.pl";
 
 sub script_espocrm_desc
 {
-    return "EspoCRM Open-Source Customer Relationship Management";
+    return "EspoCRM - Open-Source Customer Relationship Management";
 }
 
 sub script_espocrm_uses
@@ -52,7 +52,7 @@ sub script_espocrm_versions
 
 sub script_espocrm_release
 {
-    return 2;
+    return 3;
 }
 
 sub script_espocrm_passmode

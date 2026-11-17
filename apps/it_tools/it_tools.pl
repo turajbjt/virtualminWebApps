@@ -22,7 +22,7 @@ require "Common.pl";
 
 sub script_it_tools_desc
 {
-    return "IT-Tools Handy Online Tools for Developers";
+    return "IT-Tools - Handy Online Tools for Developers";
 }
 
 sub script_it_tools_uses
@@ -52,7 +52,7 @@ sub script_it_tools_versions
 
 sub script_it_tools_release
 {
-    return 2;
+    return 3;
 }
 
 sub script_it_tools_passmode

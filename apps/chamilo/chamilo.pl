@@ -22,7 +22,7 @@ require "Common.pl";
 
 sub script_chamilo_desc
 {
-    return "Chamilo LMS Open-Source E-Learning Platform";
+    return "Chamilo LMS - Open-Source E-Learning Platform";
 }
 
 sub script_chamilo_uses
@@ -52,7 +52,7 @@ sub script_chamilo_versions
 
 sub script_chamilo_release
 {
-    return 2;
+    return 3;
 }
 
 sub script_chamilo_passmode

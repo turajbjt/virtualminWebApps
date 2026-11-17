@@ -22,7 +22,7 @@ require "Common.pl";
 
 sub script_fossbilling_desc
 {
-    return "FOSSBilling Billing & Digital Shopping Cart";
+    return "FOSSBilling - Billing & Digital Shopping Cart";
 }
 
 sub script_fossbilling_uses
@@ -52,7 +52,7 @@ sub script_fossbilling_versions
 
 sub script_fossbilling_release
 {
-    return 2;
+    return 3;
 }
 
 sub script_fossbilling_passmode

@@ -22,7 +22,7 @@ require "Common.pl";
 
 sub script_cubecart_desc
 {
-    return "CubeCart E-Commerce Platform";
+    return "CubeCart - E-Commerce Platform";
 }
 
 sub script_cubecart_uses
@@ -52,7 +52,7 @@ sub script_cubecart_versions
 
 sub script_cubecart_release
 {
-    return 2;
+    return 3;
 }
 
 sub script_cubecart_passmode

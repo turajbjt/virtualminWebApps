@@ -25,7 +25,7 @@ require "ProxyHelper.pl";
 
 sub script_mattermost_desc
 {
-    return "Mattermost Team Edition Communication & Chat";
+    return "Mattermost - Team Edition Communication & Chat";
 }
 
 sub script_mattermost_uses
@@ -55,7 +55,7 @@ sub script_mattermost_versions
 
 sub script_mattermost_release
 {
-    return 2;
+    return 3;
 }
 
 sub script_mattermost_passmode

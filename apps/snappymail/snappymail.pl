@@ -22,7 +22,7 @@ require "Common.pl";
 
 sub script_snappymail_desc
 {
-    return "SnappyMail Fast & Modern Webmail Client";
+    return "SnappyMail - Fast & Modern Webmail Client";
 }
 
 sub script_snappymail_uses
@@ -52,7 +52,7 @@ sub script_snappymail_versions
 
 sub script_snappymail_release
 {
-    return 2;
+    return 3;
 }
 
 sub script_snappymail_passmode

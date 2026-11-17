@@ -25,7 +25,7 @@ require "ProxyHelper.pl";
 
 sub script_vikunja_desc
 {
-    return "Vikunja Open-Source To-Do & Task Management";
+    return "Vikunja - Open-Source To-Do & Task Management";
 }
 
 sub script_vikunja_uses
@@ -55,7 +55,7 @@ sub script_vikunja_versions
 
 sub script_vikunja_release
 {
-    return 2;
+    return 3;
 }
 
 sub script_vikunja_passmode

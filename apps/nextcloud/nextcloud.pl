@@ -22,7 +22,7 @@ require "Common.pl";
 
 sub script_nextcloud_desc
 {
-    return "Nextcloud Cloud & Collaboration Hub";
+    return "Nextcloud - Cloud & Collaboration Hub";
 }
 
 sub script_nextcloud_uses
@@ -52,7 +52,7 @@ sub script_nextcloud_versions
 
 sub script_nextcloud_release
 {
-    return 2;
+    return 3;
 }
 
 sub script_nextcloud_passmode

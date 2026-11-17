@@ -22,7 +22,7 @@ require "Common.pl";
 
 sub script_drupal_desc
 {
-    return "Drupal Enterprise Content Management System";
+    return "Drupal - Enterprise Content Management System";
 }
 
 sub script_drupal_uses
@@ -52,7 +52,7 @@ sub script_drupal_versions
 
 sub script_drupal_release
 {
-    return 2;
+    return 3;
 }
 
 sub script_drupal_passmode

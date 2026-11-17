@@ -22,7 +22,7 @@ require "Common.pl";
 
 sub script_freshrss_desc
 {
-    return "FreshRSS Lightweight Feed Aggregator";
+    return "FreshRSS - Lightweight Feed Aggregator";
 }
 
 sub script_freshrss_uses
@@ -52,7 +52,7 @@ sub script_freshrss_versions
 
 sub script_freshrss_release
 {
-    return 2;
+    return 3;
 }
 
 sub script_freshrss_passmode

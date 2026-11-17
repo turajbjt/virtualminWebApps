@@ -25,7 +25,7 @@ require "ProxyHelper.pl";
 
 sub script_adguard_home_desc
 {
-    return "AdGuard Home DNS & Ad Blocker";
+    return "AdGuard Home - DNS & Ad Blocker";
 }
 
 sub script_adguard_home_uses
@@ -55,7 +55,7 @@ sub script_adguard_home_versions
 
 sub script_adguard_home_release
 {
-    return 2;
+    return 3;
 }
 
 sub script_adguard_home_passmode

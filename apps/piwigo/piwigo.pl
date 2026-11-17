@@ -22,7 +22,7 @@ require "Common.pl";
 
 sub script_piwigo_desc
 {
-    return "Piwigo Photo Gallery & Digital Asset Management";
+    return "Piwigo - Photo Gallery & Digital Asset Management";
 }
 
 sub script_piwigo_uses
@@ -52,7 +52,7 @@ sub script_piwigo_versions
 
 sub script_piwigo_release
 {
-    return 2;
+    return 3;
 }
 
 sub script_piwigo_passmode

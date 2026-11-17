@@ -25,7 +25,7 @@ require "ProxyHelper.pl";
 
 sub script_trilium_desc
 {
-    return "Trilium Notes Hierarchical Knowledge Base";
+    return "Trilium Notes - Hierarchical Knowledge Base";
 }
 
 sub script_trilium_uses
@@ -55,7 +55,7 @@ sub script_trilium_versions
 
 sub script_trilium_release
 {
-    return 2;
+    return 3;
 }
 
 sub script_trilium_passmode

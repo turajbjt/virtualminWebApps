@@ -22,7 +22,7 @@ require "Common.pl";
 
 sub script_abantecart_desc
 {
-    return "AbanteCart E-Commerce Platform";
+    return "AbanteCart - E-Commerce Platform";
 }
 
 sub script_abantecart_uses
@@ -52,7 +52,7 @@ sub script_abantecart_versions
 
 sub script_abantecart_release
 {
-    return 2;
+    return 3;
 }
 
 sub script_abantecart_passmode

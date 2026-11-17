@@ -22,7 +22,7 @@ require "Common.pl";
 
 sub script_roundcube_desc
 {
-    return "Roundcube Modern Webmail Platform";
+    return "Roundcube - Modern Webmail Platform";
 }
 
 sub script_roundcube_uses
@@ -52,7 +52,7 @@ sub script_roundcube_versions
 
 sub script_roundcube_release
 {
-    return 2;
+    return 3;
 }
 
 sub script_roundcube_passmode

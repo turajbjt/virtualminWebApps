@@ -22,7 +22,7 @@ require "Common.pl";
 
 sub script_yourls_desc
 {
-    return "YOURLS Your Own URL Shortener";
+    return "YOURLS - Your Own URL Shortener";
 }
 
 sub script_yourls_uses
@@ -52,7 +52,7 @@ sub script_yourls_versions
 
 sub script_yourls_release
 {
-    return 2;
+    return 3;
 }
 
 sub script_yourls_passmode

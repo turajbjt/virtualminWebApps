@@ -7,6 +7,15 @@ and this project adheres to Semantic Versioning.
 
 ---
 
+## [1.12.1] - 2026-11-17
+
+### Changed
+- **UI Readability & Module Titles (All 69 Applications)**:
+  - Formatted application titles across all 69 installer scripts (`script_<name>_desc`) with a hyphen separator (`App Name - Description`), e.g., `AbanteCart - E-Commerce Platform`, eliminating visual ambiguity in the Virtualmin **Manage Web Apps / Install Scripts** catalog.
+  - Incremented installer build numbers across all 69 modules to **Build 3** (`script_<name>_release`) in compliance with the Module Build Number Policy.
+
+---
+
 ## [1.12.0] - 2026-11-17
 
 ### Fixed

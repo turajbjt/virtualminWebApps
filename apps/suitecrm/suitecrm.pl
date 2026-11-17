@@ -22,7 +22,7 @@ require "Common.pl";
 
 sub script_suitecrm_desc
 {
-    return "SuiteCRM Enterprise Customer Relationship Management";
+    return "SuiteCRM - Enterprise Customer Relationship Management";
 }
 
 sub script_suitecrm_uses
@@ -52,7 +52,7 @@ sub script_suitecrm_versions
 
 sub script_suitecrm_release
 {
-    return 2;
+    return 3;
 }
 
 sub script_suitecrm_passmode

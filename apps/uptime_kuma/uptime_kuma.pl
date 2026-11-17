@@ -25,7 +25,7 @@ require "ProxyHelper.pl";
 
 sub script_uptime_kuma_desc
 {
-    return "Uptime Kuma Monitoring & Status Pages";
+    return "Uptime Kuma - Monitoring & Status Pages";
 }
 
 sub script_uptime_kuma_uses
@@ -55,7 +55,7 @@ sub script_uptime_kuma_versions
 
 sub script_uptime_kuma_release
 {
-    return 2;
+    return 3;
 }
 
 sub script_uptime_kuma_passmode

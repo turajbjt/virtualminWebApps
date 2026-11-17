@@ -25,7 +25,7 @@ require "ProxyHelper.pl";
 
 sub script_microbin_desc
 {
-    return "Microbin Lightweight Encrypted Pastebin & File Sharing";
+    return "Microbin - Lightweight Encrypted Pastebin & File Sharing";
 }
 
 sub script_microbin_uses
@@ -55,7 +55,7 @@ sub script_microbin_versions
 
 sub script_microbin_release
 {
-    return 2;
+    return 3;
 }
 
 sub script_microbin_passmode

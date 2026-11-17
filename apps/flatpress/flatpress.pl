@@ -22,7 +22,7 @@ require "Common.pl";
 
 sub script_flatpress_desc
 {
-    return "FlatPress Flat-File Blogging Engine";
+    return "FlatPress - Flat-File Blogging Engine";
 }
 
 sub script_flatpress_uses
@@ -52,7 +52,7 @@ sub script_flatpress_versions
 
 sub script_flatpress_release
 {
-    return 2;
+    return 3;
 }
 
 sub script_flatpress_passmode

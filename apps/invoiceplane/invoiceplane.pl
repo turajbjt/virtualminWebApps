@@ -22,7 +22,7 @@ require "Common.pl";
 
 sub script_invoiceplane_desc
 {
-    return "InvoicePlane Open-Source Invoicing & Client Management";
+    return "InvoicePlane - Open-Source Invoicing & Client Management";
 }
 
 sub script_invoiceplane_uses
@@ -52,7 +52,7 @@ sub script_invoiceplane_versions
 
 sub script_invoiceplane_release
 {
-    return 2;
+    return 3;
 }
 
 sub script_invoiceplane_passmode

@@ -22,7 +22,7 @@ require "Common.pl";
 
 sub script_linkstack_desc
 {
-    return "LinkStack Open-Source Linktree Alternative";
+    return "LinkStack - Open-Source Linktree Alternative";
 }
 
 sub script_linkstack_uses
@@ -52,7 +52,7 @@ sub script_linkstack_versions
 
 sub script_linkstack_release
 {
-    return 2;
+    return 3;
 }
 
 sub script_linkstack_passmode

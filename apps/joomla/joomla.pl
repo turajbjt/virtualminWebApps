@@ -22,7 +22,7 @@ require "Common.pl";
 
 sub script_joomla_desc
 {
-    return "Joomla! Content Management System";
+    return "Joomla! - Content Management System";
 }
 
 sub script_joomla_uses
@@ -52,7 +52,7 @@ sub script_joomla_versions
 
 sub script_joomla_release
 {
-    return 2;
+    return 3;
 }
 
 sub script_joomla_passmode

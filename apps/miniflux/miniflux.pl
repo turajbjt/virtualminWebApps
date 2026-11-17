@@ -25,7 +25,7 @@ require "ProxyHelper.pl";
 
 sub script_miniflux_desc
 {
-    return "Miniflux Minimalist & Opinionated Feed Reader";
+    return "Miniflux - Minimalist & Opinionated Feed Reader";
 }
 
 sub script_miniflux_uses
@@ -55,7 +55,7 @@ sub script_miniflux_versions
 
 sub script_miniflux_release
 {
-    return 2;
+    return 3;
 }
 
 sub script_miniflux_passmode

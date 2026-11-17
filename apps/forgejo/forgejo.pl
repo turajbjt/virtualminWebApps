@@ -25,7 +25,7 @@ require "ProxyHelper.pl";
 
 sub script_forgejo_desc
 {
-    return "Forgejo Self-Hosted Git Service";
+    return "Forgejo - Self-Hosted Git Service";
 }
 
 sub script_forgejo_uses
@@ -55,7 +55,7 @@ sub script_forgejo_versions
 
 sub script_forgejo_release
 {
-    return 2;
+    return 3;
 }
 
 sub script_forgejo_passmode

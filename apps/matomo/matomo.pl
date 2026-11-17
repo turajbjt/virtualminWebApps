@@ -22,7 +22,7 @@ require "Common.pl";
 
 sub script_matomo_desc
 {
-    return "Matomo Web Analytics (Piwik)";
+    return "Matomo - Web Analytics (Piwik)";
 }
 
 sub script_matomo_uses
@@ -52,7 +52,7 @@ sub script_matomo_versions
 
 sub script_matomo_release
 {
-    return 2;
+    return 3;
 }
 
 sub script_matomo_passmode

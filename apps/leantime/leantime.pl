@@ -22,7 +22,7 @@ require "Common.pl";
 
 sub script_leantime_desc
 {
-    return "Leantime Modern Strategic & Agile Project Management";
+    return "Leantime - Modern Strategic & Agile Project Management";
 }
 
 sub script_leantime_uses
@@ -52,7 +52,7 @@ sub script_leantime_versions
 
 sub script_leantime_release
 {
-    return 2;
+    return 3;
 }
 
 sub script_leantime_passmode

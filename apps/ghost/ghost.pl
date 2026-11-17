@@ -25,7 +25,7 @@ require "ProxyHelper.pl";
 
 sub script_ghost_desc
 {
-    return "Ghost Modern Publishing & Newsletters";
+    return "Ghost - Modern Publishing & Newsletters";
 }
 
 sub script_ghost_uses
@@ -55,7 +55,7 @@ sub script_ghost_versions
 
 sub script_ghost_release
 {
-    return 2;
+    return 3;
 }
 
 sub script_ghost_passmode

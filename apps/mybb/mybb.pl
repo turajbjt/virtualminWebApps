@@ -22,7 +22,7 @@ require "Common.pl";
 
 sub script_mybb_desc
 {
-    return "MyBB Discussion Board & Community Forum";
+    return "MyBB - Discussion Board & Community Forum";
 }
 
 sub script_mybb_uses
@@ -52,7 +52,7 @@ sub script_mybb_versions
 
 sub script_mybb_release
 {
-    return 2;
+    return 3;
 }
 
 sub script_mybb_passmode

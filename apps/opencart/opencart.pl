@@ -22,7 +22,7 @@ require "Common.pl";
 
 sub script_opencart_desc
 {
-    return "OpenCart E-Commerce Platform";
+    return "OpenCart - E-Commerce Platform";
 }
 
 sub script_opencart_uses
@@ -52,7 +52,7 @@ sub script_opencart_versions
 
 sub script_opencart_release
 {
-    return 2;
+    return 3;
 }
 
 sub script_opencart_passmode

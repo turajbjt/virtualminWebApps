@@ -22,7 +22,7 @@ require "Common.pl";
 
 sub script_mantisbt_desc
 {
-    return "MantisBT Web-Based Issue & Bug Tracking System";
+    return "MantisBT - Web-Based Issue & Bug Tracking System";
 }
 
 sub script_mantisbt_uses
@@ -52,7 +52,7 @@ sub script_mantisbt_versions
 
 sub script_mantisbt_release
 {
-    return 2;
+    return 3;
 }
 
 sub script_mantisbt_passmode

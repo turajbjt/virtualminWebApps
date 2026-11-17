@@ -22,7 +22,7 @@ require "Common.pl";
 
 sub script_firefly_iii_desc
 {
-    return "Firefly III Personal Finance Manager";
+    return "Firefly III - Personal Finance Manager";
 }
 
 sub script_firefly_iii_uses
@@ -52,7 +52,7 @@ sub script_firefly_iii_versions
 
 sub script_firefly_iii_release
 {
-    return 2;
+    return 3;
 }
 
 sub script_firefly_iii_passmode

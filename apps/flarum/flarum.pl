@@ -22,7 +22,7 @@ require "Common.pl";
 
 sub script_flarum_desc
 {
-    return "Flarum Modern Discussion Forum";
+    return "Flarum - Modern Discussion Forum";
 }
 
 sub script_flarum_uses
@@ -52,7 +52,7 @@ sub script_flarum_versions
 
 sub script_flarum_release
 {
-    return 2;
+    return 3;
 }
 
 sub script_flarum_passmode

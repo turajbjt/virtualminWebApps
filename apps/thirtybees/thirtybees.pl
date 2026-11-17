@@ -22,7 +22,7 @@ require "Common.pl";
 
 sub script_thirtybees_desc
 {
-    return "Thirty Bees High-Performance E-Commerce";
+    return "Thirty Bees - High-Performance E-Commerce";
 }
 
 sub script_thirtybees_uses
@@ -52,7 +52,7 @@ sub script_thirtybees_versions
 
 sub script_thirtybees_release
 {
-    return 2;
+    return 3;
 }
 
 sub script_thirtybees_passmode

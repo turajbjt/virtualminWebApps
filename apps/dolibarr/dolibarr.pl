@@ -22,7 +22,7 @@ require "Common.pl";
 
 sub script_dolibarr_desc
 {
-    return "Dolibarr ERP & CRM Suite";
+    return "Dolibarr - ERP & CRM Suite";
 }
 
 sub script_dolibarr_uses
@@ -52,7 +52,7 @@ sub script_dolibarr_versions
 
 sub script_dolibarr_release
 {
-    return 2;
+    return 3;
 }
 
 sub script_dolibarr_passmode

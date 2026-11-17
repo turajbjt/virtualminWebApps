@@ -22,7 +22,7 @@ require "Common.pl";
 
 sub script_passbolt_desc
 {
-    return "Passbolt Open-Source Team Password Manager";
+    return "Passbolt - Open-Source Team Password Manager";
 }
 
 sub script_passbolt_uses
@@ -52,7 +52,7 @@ sub script_passbolt_versions
 
 sub script_passbolt_release
 {
-    return 2;
+    return 3;
 }
 
 sub script_passbolt_passmode

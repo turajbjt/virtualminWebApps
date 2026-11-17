@@ -22,7 +22,7 @@ require "Common.pl";
 
 sub script_zencart_desc
 {
-    return "Zen Cart Open-Source E-Commerce";
+    return "Zen Cart - Open-Source E-Commerce";
 }
 
 sub script_zencart_uses
@@ -52,7 +52,7 @@ sub script_zencart_versions
 
 sub script_zencart_release
 {
-    return 2;
+    return 3;
 }
 
 sub script_zencart_passmode

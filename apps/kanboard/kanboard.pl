@@ -22,7 +22,7 @@ require "Common.pl";
 
 sub script_kanboard_desc
 {
-    return "Kanboard Minimalist Project Management Software";
+    return "Kanboard - Minimalist Project Management Software";
 }
 
 sub script_kanboard_uses
@@ -52,7 +52,7 @@ sub script_kanboard_versions
 
 sub script_kanboard_release
 {
-    return 2;
+    return 3;
 }
 
 sub script_kanboard_passmode

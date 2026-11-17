@@ -22,7 +22,7 @@ require "Common.pl";
 
 sub script_woocommerce_desc
 {
-    return "WooCommerce E-Commerce (WordPress)";
+    return "WooCommerce - E-Commerce (WordPress)";
 }
 
 sub script_woocommerce_uses
@@ -52,7 +52,7 @@ sub script_woocommerce_versions
 
 sub script_woocommerce_release
 {
-    return 2;
+    return 3;
 }
 
 sub script_woocommerce_passmode

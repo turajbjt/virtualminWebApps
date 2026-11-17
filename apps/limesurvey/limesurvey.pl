@@ -22,7 +22,7 @@ require "Common.pl";
 
 sub script_limesurvey_desc
 {
-    return "LimeSurvey Professional Online Survey & Questionnaires Platform";
+    return "LimeSurvey - Professional Online Survey & Questionnaires Platform";
 }
 
 sub script_limesurvey_uses
@@ -52,7 +52,7 @@ sub script_limesurvey_versions
 
 sub script_limesurvey_release
 {
-    return 2;
+    return 3;
 }
 
 sub script_limesurvey_passmode

@@ -22,7 +22,7 @@ require "Common.pl";
 
 sub script_privatebin_desc
 {
-    return "PrivateBin Zero-Knowledge Encrypted Pastebin";
+    return "PrivateBin - Zero-Knowledge Encrypted Pastebin";
 }
 
 sub script_privatebin_uses
@@ -52,7 +52,7 @@ sub script_privatebin_versions
 
 sub script_privatebin_release
 {
-    return 2;
+    return 3;
 }
 
 sub script_privatebin_passmode

@@ -22,7 +22,7 @@ require "Common.pl";
 
 sub script_prestashop_desc
 {
-    return "PrestaShop E-Commerce Platform";
+    return "PrestaShop - E-Commerce Platform";
 }
 
 sub script_prestashop_uses
@@ -52,7 +52,7 @@ sub script_prestashop_versions
 
 sub script_prestashop_release
 {
-    return 2;
+    return 3;
 }
 
 sub script_prestashop_passmode

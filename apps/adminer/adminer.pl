@@ -22,7 +22,7 @@ require "Common.pl";
 
 sub script_adminer_desc
 {
-    return "Adminer Lightweight Database Management Tool";
+    return "Adminer - Lightweight Database Management Tool";
 }
 
 sub script_adminer_uses
@@ -52,7 +52,7 @@ sub script_adminer_versions
 
 sub script_adminer_release
 {
-    return 2;
+    return 3;
 }
 
 sub script_adminer_passmode

@@ -22,7 +22,7 @@ require "Common.pl";
 
 sub script_cyberchef_desc
 {
-    return "CyberChef The Cyber Swiss Army Knife";
+    return "CyberChef - The Cyber Swiss Army Knife";
 }
 
 sub script_cyberchef_uses
@@ -52,7 +52,7 @@ sub script_cyberchef_versions
 
 sub script_cyberchef_release
 {
-    return 2;
+    return 3;
 }
 
 sub script_cyberchef_passmode

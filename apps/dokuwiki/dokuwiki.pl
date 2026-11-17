@@ -22,7 +22,7 @@ require "Common.pl";
 
 sub script_dokuwiki_desc
 {
-    return "DokuWiki Standards-Compliant Flat-File Wiki";
+    return "DokuWiki - Standards-Compliant Flat-File Wiki";
 }
 
 sub script_dokuwiki_uses
@@ -52,7 +52,7 @@ sub script_dokuwiki_versions
 
 sub script_dokuwiki_release
 {
-    return 2;
+    return 3;
 }
 
 sub script_dokuwiki_passmode

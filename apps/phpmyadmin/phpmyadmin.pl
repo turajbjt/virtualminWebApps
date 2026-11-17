@@ -22,7 +22,7 @@ require "Common.pl";
 
 sub script_phpmyadmin_desc
 {
-    return "phpMyAdmin Database Administration Tool";
+    return "phpMyAdmin - Database Administration Tool";
 }
 
 sub script_phpmyadmin_uses
@@ -52,7 +52,7 @@ sub script_phpmyadmin_versions
 
 sub script_phpmyadmin_release
 {
-    return 2;
+    return 3;
 }
 
 sub script_phpmyadmin_passmode

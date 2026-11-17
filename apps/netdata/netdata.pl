@@ -25,7 +25,7 @@ require "ProxyHelper.pl";
 
 sub script_netdata_desc
 {
-    return "Netdata Real-Time Infrastructure Performance Monitor";
+    return "Netdata - Real-Time Infrastructure Performance Monitor";
 }
 
 sub script_netdata_uses
@@ -55,7 +55,7 @@ sub script_netdata_versions
 
 sub script_netdata_release
 {
-    return 2;
+    return 3;
 }
 
 sub script_netdata_passmode

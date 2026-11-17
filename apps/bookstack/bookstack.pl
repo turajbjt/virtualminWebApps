@@ -22,7 +22,7 @@ require "Common.pl";
 
 sub script_bookstack_desc
 {
-    return "BookStack Documentation Platform";
+    return "BookStack - Documentation Platform";
 }
 
 sub script_bookstack_uses
@@ -52,7 +52,7 @@ sub script_bookstack_versions
 
 sub script_bookstack_release
 {
-    return 2;
+    return 3;
 }
 
 sub script_bookstack_passmode
