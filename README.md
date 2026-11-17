@@ -33,9 +33,15 @@ The **Virtualmin Web Apps Suite** transforms any Virtualmin server into an appli
 | **AdGuard Home** | System / DNS | `0.107.80` | `1` | Standalone Go Binary + Systemd + Web Reverse Proxy | [App Readme](apps/adguard_home/README.md) |
 | **Pi-hole** | System / DNS | `latest` | `1` | Containerized Daemon + Systemd + Web Reverse Proxy | [App Readme](apps/pihole/README.md) |
 | **Uptime Kuma** | System | `latest` | `1` | Node.js Daemon + Systemd + WebSocket Reverse Proxy | [App Readme](apps/uptime_kuma/README.md) |
+| **File Browser** | System | `2.30.0` | `1` | Standalone Go Binary + Systemd + Web Reverse Proxy | [App Readme](apps/filebrowser/README.md) |
+| **Forgejo** | Development | `17.0.1` | `1` | Standalone Go Binary + Systemd + Git Reverse Proxy | [App Readme](apps/forgejo/README.md) |
 | **Nextcloud** | Cloud | `30.0.6` | `1` | PHP 8.1+ / MariaDB + `occ` CLI Automated Installer | [App Readme](apps/nextcloud/README.md) |
 | **ownCloud** | Cloud | `10.13.4` | `1` | PHP / MariaDB + `occ` CLI Automated Installer | [App Readme](apps/owncloud/README.md) |
+| **MediaWiki** | Wiki | `1.42.3` | `1` | PHP / MariaDB + Automated CLI Installer (Pro Equivalent) | [App Readme](apps/mediawiki/README.md) |
+| **BookStack** | Wiki | `24.05.4` | `1` | Laravel / PHP / MariaDB + Automated Migrations | [App Readme](apps/bookstack/README.md) |
 | **Matomo** | Analytics | `5.1.2` | `1` | PHP / MariaDB + Automated Archiving Cron (Pro Equivalent) | [App Readme](apps/matomo/README.md) |
+| **Flarum** | Community | `latest` | `1` | Modern PHP / Composer Discussion Forum | [App Readme](apps/flarum/README.md) |
+| **Dolibarr** | Business | `20.0.2` | `1` | Full ERP & CRM Suite (Pro Equivalent) | [App Readme](apps/dolibarr/README.md) |
 | **WooCommerce** | Commerce | `latest` | `1` | WordPress + WP-CLI Automated Bundle (PlugnPay Ready) | [App Readme](apps/woocommerce/README.md) |
 | **OpenCart** | Commerce | `4.0.2.3` | `1` | PHP / MariaDB + CLI Installer (PlugnPay Ready) | [App Readme](apps/opencart/README.md) |
 | **PrestaShop** | Commerce | `8.1.7` | `1` | PHP / MariaDB + `index_cli.php` Installer (PlugnPay Ready) | [App Readme](apps/prestashop/README.md) |

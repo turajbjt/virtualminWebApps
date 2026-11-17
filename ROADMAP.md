@@ -46,13 +46,13 @@ A modular collection of open-source web application installers for [Virtualmin](
 ### Phase 3: Virtualmin Pro Equivalents (PHP & MariaDB/PostgreSQL)
 *Free, open-source replacements for scripts typically restricted to Virtualmin Pro:*
 - [x] **Matomo** (Formerly Piwik - leading privacy-first Google Analytics alternative)
-- [ ] **MediaWiki** (The knowledge-base and wiki engine behind Wikipedia)
-- [ ] **BookStack** (Modern, opinionated documentation and wiki system)
+- [x] **MediaWiki** (The knowledge-base and wiki engine behind Wikipedia)
+- [x] **BookStack** (Modern, opinionated documentation and wiki system)
 - [ ] **Drupal** (Enterprise content management framework)
 - [ ] **Joomla!** (Flexible, popular CMS)
-- [ ] **Flarum** (Next-generation, sleek discussion forum)
+- [x] **Flarum** (Next-generation, sleek discussion forum)
 - [ ] **phpBB** (Classic, robust forum platform)
-- [ ] **Dolibarr** (ERP & CRM for small and medium businesses)
+- [x] **Dolibarr** (ERP & CRM for small and medium businesses)
 - [ ] **SuiteCRM** (Enterprise-level customer relationship management)
 - [ ] **Invoice Ninja** (Invoicing, payments, and expense tracking)
 - [ ] **Moodle** (Leading open-source Learning Management System)
@@ -62,8 +62,8 @@ A modular collection of open-source web application installers for [Virtualmin](
 ### Phase 4: Modern Daemons, Developer Tools & Dashboards
 *Services that run as dedicated system daemons behind Virtualmin reverse proxies:*
 - [x] **Uptime Kuma** (High-performance uptime and service monitoring dashboard)
-- [ ] **Forgejo / Gitea** (Lightweight, self-hosted Git collaboration platform)
-- [ ] **Filebrowser** (Zero-dependency web file manager)
+- [x] **Forgejo / Gitea** (Lightweight, self-hosted Git collaboration platform)
+- [x] **Filebrowser** (Zero-dependency web file manager)
 - [ ] **Umami** (Fast, privacy-focused modern website analytics)
 - [ ] **Ghost** (Node.js modern publishing and newsletter platform)
 - [ ] **Passbolt** (Open-source team credential and password manager)
