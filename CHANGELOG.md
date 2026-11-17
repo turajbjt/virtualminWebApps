@@ -22,8 +22,14 @@ and this project adheres to Semantic Versioning.
   - `.github/ISSUE_TEMPLATE/app_request.md`: Dedicated template for community proposals of new web application installers.
   - `.github/ISSUE_TEMPLATE/feature_request.md`: Feature enhancement proposal template.
   - `.github/PULL_REQUEST_TEMPLATE.md`: Contributor checklist ensuring adherence to coding standards, test validation, and build number increments.
+- **Dedicated Category Catalogs (`docs/categories/`)**:
+  - Generated 24 dedicated markdown catalogs under `docs/categories/` corresponding to each application classification.
+  - Each catalog provides a filtered overview table, technical architecture summaries, database requirements, and direct links to individual application documentation.
 
 ### Changed
+- **Modular Directory in README.md**:
+  - Updated the Classification Directory in `README.md` to link directly to the new dedicated category catalog pages.
+  - Streamlined `README.md` by offloading verbose inline category tables to dedicated pages, improving readability and navigation.
 - **Documentation & Clone Protocols**:
   - Updated [README.md](README.md) and [docs/INSTALLATION.md](docs/INSTALLATION.md) to use HTTPS clone URLs (`https://github.com/turajbjt/virtualminWebApps.git`) by default for universal server accessibility without requiring pre-authorized SSH keys.
   - Updated [README.md](README.md) badges with live GitHub Actions CI workflow status, direct license links, and catalog metric badges.
