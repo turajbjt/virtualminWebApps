@@ -94,6 +94,16 @@ A modular collection of open-source web application installers for [Virtualmin](
 
 ---
 
+### Phase 6: Knowledge, Database Administration, Business & Strategy Tools
+- [x] **DokuWiki** (Standards-compliant flat-file wiki requiring no database)
+- [x] **Adminer** (Lightweight single-file database management tool)
+- [x] **YOURLS** (Self-hosted URL shortener with click analytics and API)
+- [x] **EspoCRM** (Fast single-page application CRM platform for businesses)
+- [x] **InvoicePlane** (Self-hosted invoicing, quotes, and client management)
+- [x] **Leantime** (Strategic and agile project management with Kanban and milestones)
+
+---
+
 ## 3. Directory Layout Standard
 
 ```text

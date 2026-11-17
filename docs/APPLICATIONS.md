@@ -1,6 +1,6 @@
 # Applications Reference Manual
 
-A comprehensive technical reference for all 52 web application installers provided by the **Virtualmin Web Apps Suite**.
+A comprehensive technical reference for all 58 web application installers provided by the **Virtualmin Web Apps Suite**.
 
 ---
 
@@ -60,6 +60,12 @@ A comprehensive technical reference for all 52 web application installers provid
 | **MyBB** | Community | PHP 8.0+ / Webserver | MariaDB | Webserver | `~/public_html/<dir>/` | PHP-FPM / Webserver |
 | **MantisBT** | Project | PHP 8.0+ / Webserver | MariaDB | Webserver | `~/public_html/<dir>/` | PHP-FPM / Webserver |
 | **Wallabag** | Utilities | PHP 8.0+ / Webserver | MariaDB | Webserver | `~/public_html/<dir>/` | PHP-FPM / Webserver |
+| **DokuWiki** | Wiki | PHP 8.0+ / Webserver | Filesystem | Webserver | `~/public_html/<dir>/` | PHP-FPM / Webserver |
+| **Adminer** | Database | PHP 7.4+ / Webserver | MariaDB | Webserver | `~/public_html/<dir>/` | PHP-FPM / Webserver |
+| **YOURLS** | Utilities | PHP 8.0+ / Webserver | MariaDB | Webserver | `~/public_html/<dir>/` | PHP-FPM / Webserver |
+| **EspoCRM** | Business | PHP 8.1+ / Webserver | MariaDB | Webserver | `~/public_html/<dir>/` | PHP-FPM / Webserver |
+| **InvoicePlane** | Business | PHP 7.4+ / Webserver | MariaDB | Webserver | `~/public_html/<dir>/` | PHP-FPM / Webserver |
+| **Leantime** | Project | PHP 8.1+ / Webserver | MariaDB | Webserver | `~/public_html/<dir>/` | PHP-FPM / Webserver |
 
 ---
 
@@ -541,6 +547,60 @@ A comprehensive technical reference for all 52 web application installers provid
 * **Version**: `2.6.17` | **Build**: `1`
 * **Upstream**: [https://wallabag.org](https://wallabag.org)
 * **Architecture**: Self-hosted read-it-later article archiver and Pocket alternative providing distraction-free reading, offline e-reader export (EPUB, PDF, MOBI), and browser extensions.
+* **Database**: MariaDB / MySQL.
+
+---
+
+### 53. DokuWiki
+* **Category**: Wiki
+* **Version**: `2026-07-14c` | **Build**: `1`
+* **Upstream**: [https://www.dokuwiki.org](https://www.dokuwiki.org)
+* **Architecture**: Highly versatile, standards-compliant open-source wiki operating without any SQL database; stores documents in plain text with full ACLs and revision control.
+* **Database**: Filesystem / Plain Text.
+
+---
+
+### 54. Adminer
+* **Category**: Database
+* **Version**: `4.8.1` | **Build**: `1`
+* **Upstream**: [https://www.adminer.org](https://www.adminer.org)
+* **Architecture**: Ultra-lightweight, single-file database management tool with support for MySQL, MariaDB, PostgreSQL, SQLite, and superior performance.
+* **Database**: Direct connection to Virtualmin database engines.
+
+---
+
+### 55. YOURLS
+* **Category**: Utilities
+* **Version**: `1.10.6` | **Build**: `1`
+* **Upstream**: [https://yourls.org](https://yourls.org)
+* **Architecture**: Robust self-hosted URL shortening service providing detailed click metrics, referrer analytics, developer REST API, and custom short links.
+* **Database**: MariaDB / MySQL.
+
+---
+
+### 56. EspoCRM
+* **Category**: Business
+* **Version**: `10.1.3` | **Build**: `1`
+* **Upstream**: [https://www.espocrm.com](https://www.espocrm.com)
+* **Architecture**: Responsive Single Page Application (SPA) CRM platform enabling companies to manage relationships, sales opportunities, email integration, and workflow automation.
+* **Database**: MariaDB / MySQL.
+
+---
+
+### 57. InvoicePlane
+* **Category**: Business
+* **Version**: `1.6.1` | **Build**: `1`
+* **Upstream**: [https://invoiceplane.com](https://invoiceplane.com)
+* **Architecture**: Clean open-source invoicing and client management software with quote-to-invoice conversion, PDF invoice generation, multi-currency support, and payment integration.
+* **Database**: MariaDB / MySQL.
+
+---
+
+### 58. Leantime
+* **Category**: Project
+* **Version**: `3.4.6` | **Build**: `1`
+* **Upstream**: [https://leantime.io](https://leantime.io)
+* **Architecture**: Strategic project management system for agile teams and startups, combining Lean Canvas idea boards, Kanban sprint workflows, Gantt roadmaps, and time logging.
 * **Database**: MariaDB / MySQL.
 
 

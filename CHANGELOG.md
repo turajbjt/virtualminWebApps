@@ -7,6 +7,33 @@ and this project adheres to Semantic Versioning.
 
 ---
 
+## [1.7.0] - 2026-11-17
+
+### Added
+- **DokuWiki** (`apps/dokuwiki/`):
+  - Standards-compliant flat-file wiki (v2026-07-14c) requiring no SQL database.
+  - Built-in ACL permissions, revision history, and extensive plugin support.
+- **Adminer** (`apps/adminer/`):
+  - Lightweight single-file database management tool (v4.8.1).
+  - Multi-engine support (MySQL, MariaDB, PostgreSQL, SQLite) with instant deployment and zero overhead.
+- **YOURLS** (`apps/yourls/`):
+  - Self-hosted URL shortener (v1.10.6) with click tracking, geographic analytics, and developer REST API.
+  - Automated configuration of database credentials and random cookie security salt.
+- **EspoCRM** (`apps/espocrm/`):
+  - Modern Single Page Application (SPA) CRM platform (v10.1.3).
+  - Lead/opportunity pipelines, email sync, workflow automation, and mobile-optimized interface.
+- **InvoicePlane** (`apps/invoiceplane/`):
+  - Open-source invoicing, quotes, and client management platform (v1.6.1).
+  - Multi-currency, tax rules, customizable PDF invoicing, and automated configuration.
+- **Leantime** (`apps/leantime/`):
+  - Strategic and agile project management system (v3.4.6).
+  - Idea boards, Kanban boards, Gantt charts, milestone tracking, and integrated timesheets.
+- **Milestone 58**:
+  - Suite expanded to 58 fully automated web application installers.
+  - Syntax verification passed across all 62 Perl scripts and shared libraries.
+
+---
+
 ## [1.6.0] - 2026-11-17
 
 ### Added

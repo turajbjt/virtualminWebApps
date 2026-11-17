@@ -1,0 +1,1 @@
+../apps/espocrm/espocrm.pl

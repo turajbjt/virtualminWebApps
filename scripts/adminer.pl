@@ -1,0 +1,1 @@
+../apps/adminer/adminer.pl
