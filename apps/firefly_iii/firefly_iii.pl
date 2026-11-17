@@ -49,7 +49,7 @@ sub script_firefly_iii_versions
 
 sub script_firefly_iii_release
 {
-    return 1;
+    return 2;
 }
 
 sub script_firefly_iii_passmode
@@ -72,9 +72,13 @@ sub script_firefly_iii_params
 sub script_firefly_iii_parse
 {
     my ($d, $in) = @_;
-    my $dir = $in->{'firefly_dir'} || '';
-    $dir =~ s/^\///;
-    $dir =~ s/\/$//;
+    my $raw_dir = $in->{'firefly_dir'} || '';
+
+    my ($clean_dir, $dir_err) = VirtualminWebApps::Common::sanitize_path($raw_dir, 1);
+
+    return $dir_err if $dir_err;
+
+    my $dir = $clean_dir;
 
     return { 'dir' => $dir };
 }
@@ -150,6 +154,7 @@ sub script_firefly_iii_install
             if (open(my $wfh, ">", "$target_dir/.env")) {
                 print $wfh $env_content;
                 close($wfh);
+            chmod(0600, "$target_dir/.env");
             }
         }
     }

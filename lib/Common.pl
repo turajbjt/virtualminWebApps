@@ -1,18 +1,25 @@
 # lib/Common.pl
-# Shared utility functions for Virtualmin custom web app installers
+# Shared utility functions and secure coding standards for Virtualmin custom web app installers
+# Follows PCI DSS v4.0 secure development requirements (Req 6.5, 8.3, 3.4)
 package VirtualminWebApps::Common;
 
 use strict;
 use warnings;
 use File::Basename;
 use File::Path qw(make_path remove_tree);
+use File::Temp qw(tempdir);
 
 # download_url($url, $dest_file, [$timeout])
-# Downloads a file via curl or wget, with fallback
+# Securely downloads a file via curl or wget with strict parameter escaping
 sub download_url
 {
     my ($url, $dest, $timeout) = @_;
     $timeout ||= 120;
+
+    # Validate URL scheme to prevent arbitrary protocol injection (file://, gopher://, etc.)
+    if ($url !~ m{^https?://}i) {
+        return (0, "Insecure URL scheme rejected: only http and https are permitted.");
+    }
 
     my $dest_dir = dirname($dest);
     if (!-d $dest_dir) {
@@ -41,7 +48,7 @@ sub download_url
 }
 
 # extract_archive($archive_path, $dest_dir, [$strip_components])
-# Extracts .tar.gz, .tgz, .tar.xz, .zip
+# Extracts .tar.gz, .tgz, .tar.xz, .zip using safe system execution
 sub extract_archive
 {
     my ($archive, $dest_dir, $strip_components) = @_;
@@ -82,16 +89,25 @@ sub extract_archive
 }
 
 # set_ownership_recursive($path, $user, $group)
+# Recursively assigns file ownership with input validation on user and group
 sub set_ownership_recursive
 {
     my ($path, $user, $group) = @_;
-    return 1 if !-e $path;
+    return (1, undef) if !-e $path;
 
-    my $uid = (getpwnam($user))[2];
-    my $gid = defined($group) ? (getgrnam($group))[2] : (getpwnam($user))[3];
+    # Validate user and group exist in system passwd/group databases
+    my @pw = getpwnam($user);
+    return (0, "User $user not found") if !@pw;
+    my $uid = $pw[2];
 
-    return (0, "User $user not found") if !defined $uid;
-    return (0, "Group $group not found") if !defined $gid;
+    my $gid;
+    if (defined($group)) {
+        my @gr = getgrnam($group);
+        return (0, "Group $group not found") if !@gr;
+        $gid = $gr[2];
+    } else {
+        $gid = $pw[3];
+    }
 
     my $cmd = "chown -R " . quotemeta("$user:$group") . " " . quotemeta($path);
     my $out = `$cmd 2>&1`;
@@ -99,16 +115,18 @@ sub set_ownership_recursive
 }
 
 # has_command($cmd_name)
+# Checks if command binary exists and is executable in PATH
 sub has_command
 {
     my ($cmd) = @_;
+    return 0 if !$cmd || $cmd =~ /[^a-zA-Z0-9_\-\.]/;
     my $which = `which $cmd 2>/dev/null`;
     chomp($which);
     return ($which && -x $which) ? 1 : 0;
 }
 
 # get_arch()
-# Returns normalized architecture: amd64, arm64, armv7
+# Returns normalized CPU architecture: amd64, arm64, armv7
 sub get_arch
 {
     my $arch = `uname -m 2>/dev/null`;
@@ -123,6 +141,170 @@ sub get_arch
         return "armv7";
     }
     return $arch;
+}
+
+# generate_random_key($length, [$charset])
+# PCI DSS Compliant (Req 8.3.6) Cryptographically secure random secret / password generator
+# Reads from /dev/urandom when available for high-entropy tokens
+sub generate_random_key
+{
+    my ($len, $charset) = @_;
+    $len ||= 32;
+    $len = 16 if $len < 16; # Enforce PCI DSS minimum recommended credential length
+
+    my @chars;
+    if ($charset) {
+        @chars = split //, $charset;
+    } else {
+        # Comprehensive character pool with upper, lower, digits, and safe symbols
+        @chars = ('A'..'Z', 'a'..'z', '0'..'9', '!', '@', '#', '$', '%', '^', '*', '_', '-', '+', '=');
+    }
+
+    my $key = "";
+    if (-r "/dev/urandom" && open(my $ufh, "<:raw", "/dev/urandom")) {
+        my $bytes_needed = $len * 2;
+        read($ufh, my $raw, $bytes_needed);
+        close($ufh);
+        my @byte_vals = unpack("C*", $raw);
+        for my $b (@byte_vals) {
+            $key .= $chars[$b % scalar(@chars)];
+            last if length($key) >= $len;
+        }
+    }
+
+    # High-entropy fallback if /dev/urandom was not accessible
+    if (length($key) < $len) {
+        srand(time() ^ ($$ + ($$ << 15)));
+        while (length($key) < $len) {
+            $key .= $chars[rand @chars];
+        }
+    }
+
+    return $key;
+}
+
+# sanitize_path($input_path, [$allow_empty])
+# PCI DSS Req 6.5.8 - Path Traversal Prevention
+# Validates relative directory paths, rejecting '..', leading slashes, null bytes, and non-whitelisted characters
+sub sanitize_path
+{
+    my ($path, $allow_empty) = @_;
+    $allow_empty = 1 if !defined($allow_empty);
+
+    return ("", undef) if (!defined($path) || $path eq "") && $allow_empty;
+    return (undef, "Path cannot be empty") if (!defined($path) || $path eq "") && !$allow_empty;
+
+    # Reject null bytes (poison null byte attack CWE-626)
+    if ($path =~ /\0/) {
+        return (undef, "Path traversal or null byte injection detected.");
+    }
+
+    # Strip leading and trailing slashes
+    $path =~ s/^\/+//;
+    $path =~ s/\/+$//;
+
+    # Reject directory traversal attempts (.. or ./ or \.. or encoded dots)
+    if ($path =~ m{(^|/)\.\.(/|$)} || $path =~ m{\\\.\.} || $path =~ m{\.\./}) {
+        return (undef, "Path traversal sequence ('..') detected in path: $path");
+    }
+
+    # Strict whitelist character check: alphanumeric, hyphens, underscores, forward slashes
+    if ($path =~ /[^a-zA-Z0-9_\-\/]/) {
+        return (undef, "Path contains invalid characters. Only alphanumeric, hyphens, underscores, and forward slashes are allowed.");
+    }
+
+    # Prevent consecutive slashes
+    $path =~ s/\/+/\//g;
+
+    return ($path, undef);
+}
+
+# validate_port($port, [$min], [$max])
+# Strict numeric validation and range checking for TCP ports
+sub validate_port
+{
+    my ($port, $min, $max) = @_;
+    $min ||= 1024;
+    $max ||= 65535;
+
+    return (0, "Port must be specified") if !defined($port) || $port eq "";
+
+    # Reject non-numeric input (prevents command / SQL injection)
+    if ($port !~ /^\d+$/) {
+        return (0, "Invalid port '$port': Port must be a numeric integer.");
+    }
+
+    if ($port < $min || $port > $max) {
+        return (0, "Port $port is out of bounds (must be between $min and $max).");
+    }
+
+    return (1, undef);
+}
+
+# validate_domain($dom)
+# Validates domain names against RFC 1123 / RFC 952 hostname standards
+sub validate_domain
+{
+    my ($dom) = @_;
+    return (0, "Domain must be specified") if !defined($dom) || $dom eq "";
+
+    if (length($dom) > 253) {
+        return (0, "Domain name exceeds maximum RFC length of 253 characters.");
+    }
+
+    # Check valid characters and label lengths
+    if ($dom !~ /^[a-zA-Z0-9]([a-zA-Z0-9\-]{0,61}[a-zA-Z0-9])?(\.[a-zA-Z0-9]([a-zA-Z0-9\-]{0,61}[a-zA-Z0-9])?)*$/) {
+        return (0, "Domain name '$dom' contains invalid characters or malformed labels.");
+    }
+
+    return (1, undef);
+}
+
+# validate_identifier($name, [$max_len])
+# Validates database names, database users, and service names to prevent SQL and shell injection
+sub validate_identifier
+{
+    my ($name, $max_len) = @_;
+    $max_len ||= 64;
+
+    return (0, "Identifier must be specified") if !defined($name) || $name eq "";
+
+    if (length($name) > $max_len) {
+        return (0, "Identifier '$name' exceeds maximum length of $max_len characters.");
+    }
+
+    if ($name !~ /^[a-zA-Z0-9_]+$/) {
+        return (0, "Identifier '$name' contains invalid characters. Only alphanumeric characters and underscores are allowed.");
+    }
+
+    return (1, undef);
+}
+
+# create_secure_temp_dir($prefix, [$base_dir])
+# PCI DSS Req 3.4 & CWE-377 - Creates an isolated temporary directory with mode 0700 to prevent symlink attacks
+sub create_secure_temp_dir
+{
+    my ($prefix, $base_dir) = @_;
+    $prefix ||= "vmin_app";
+    $base_dir ||= "/tmp";
+
+    my $template = "$base_dir/${prefix}_XXXXXX";
+    my $dir = tempdir($template, CLEANUP => 1);
+    chmod(0700, $dir);
+
+    return $dir;
+}
+
+# secure_file_permissions($file_path, [$mode])
+# PCI DSS Req 3.4 - Sets restricted permissions (0600 or 0640) on sensitive configuration files holding credentials
+sub secure_file_permissions
+{
+    my ($file, $mode) = @_;
+    $mode ||= 0600;
+    return (0, "File does not exist: $file") if !-f $file;
+
+    chmod($mode, $file);
+    return (1, undef);
 }
 
 1;

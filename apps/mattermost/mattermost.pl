@@ -52,7 +52,7 @@ sub script_mattermost_versions
 
 sub script_mattermost_release
 {
-    return 1;
+    return 2;
 }
 
 sub script_mattermost_passmode

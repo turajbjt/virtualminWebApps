@@ -52,7 +52,7 @@ sub script_uptime_kuma_versions
 
 sub script_uptime_kuma_release
 {
-    return 1;
+    return 2;
 }
 
 sub script_uptime_kuma_passmode

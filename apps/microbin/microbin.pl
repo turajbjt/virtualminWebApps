@@ -52,7 +52,7 @@ sub script_microbin_versions
 
 sub script_microbin_release
 {
-    return 1;
+    return 2;
 }
 
 sub script_microbin_passmode

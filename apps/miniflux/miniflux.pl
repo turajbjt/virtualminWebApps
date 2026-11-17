@@ -52,7 +52,7 @@ sub script_miniflux_versions
 
 sub script_miniflux_release
 {
-    return 1;
+    return 2;
 }
 
 sub script_miniflux_passmode

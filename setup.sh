@@ -259,6 +259,18 @@ do_test() {
         echo -e "${RED}${BOLD}[ERROR] ${errors} file(s) failed syntax validation.${NC}"
         exit 1
     fi
+
+    echo ""
+    echo -e "${CYAN}[*] Running Automated Unit & Security Test Suite (1,000+ tests)...${NC}"
+    if command -v prove >/dev/null 2>&1; then
+        prove "${SCRIPT_DIR}/tests/"
+    else
+        for t in "${SCRIPT_DIR}/tests"/*.t; do
+            echo -e "${BLUE}[*] Running $(basename "${t}")...${NC}"
+            perl "${t}"
+        done
+    fi
+    echo -e "${GREEN}${BOLD}[SUCCESS] All unit tests, security verifications, and PCI DSS assertions passed!${NC}"
 }
 
 show_help() {

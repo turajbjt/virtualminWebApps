@@ -8,7 +8,7 @@ on:
 
 jobs:
   test:
-    name: Syntax & Catalog Validation
+    name: Syntax, Security & Unit Test Suite
     runs-on: ubuntu-latest
 
     steps:
@@ -18,12 +18,13 @@ jobs:
       - name: Verify Perl installation
         run: |
           perl -v
+          prove --version
 
       - name: Synchronize script symlinks
         run: |
           ./setup.sh update
 
-      - name: Run Perl syntax validation
+      - name: Run Syntax, Security & Unit Test Suite
         run: |
           ./setup.sh test
 

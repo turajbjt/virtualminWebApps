@@ -49,7 +49,7 @@ sub script_leantime_versions
 
 sub script_leantime_release
 {
-    return 1;
+    return 2;
 }
 
 sub script_leantime_passmode
@@ -72,9 +72,13 @@ sub script_leantime_params
 sub script_leantime_parse
 {
     my ($d, $in) = @_;
-    my $dir = $in->{'leantime_dir'} || '';
-    $dir =~ s/^\///;
-    $dir =~ s/\/$//;
+    my $raw_dir = $in->{'leantime_dir'} || '';
+
+    my ($clean_dir, $dir_err) = VirtualminWebApps::Common::sanitize_path($raw_dir, 1);
+
+    return $dir_err if $dir_err;
+
+    my $dir = $clean_dir;
 
     return { 'dir' => $dir };
 }

@@ -52,7 +52,7 @@ sub script_pihole_versions
 
 sub script_pihole_release
 {
-    return 1;
+    return 2;
 }
 
 sub script_pihole_passmode
@@ -93,8 +93,7 @@ sub script_pihole_parse
 
     my $pass = $in->{'pihole_web_pass'};
     if (!$pass) {
-        my @chars = ('A'..'Z', 'a'..'z', '0'..'9', '!', '@', '#', '%');
-        $pass = join '', map { $chars[rand @chars] } 1..16;
+        $pass = VirtualminWebApps::Common::generate_random_key(16);
     }
 
     return {

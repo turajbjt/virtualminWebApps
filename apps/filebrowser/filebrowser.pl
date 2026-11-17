@@ -52,7 +52,7 @@ sub script_filebrowser_versions
 
 sub script_filebrowser_release
 {
-    return 1;
+    return 2;
 }
 
 sub script_filebrowser_passmode

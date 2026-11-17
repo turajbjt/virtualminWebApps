@@ -52,7 +52,7 @@ sub script_ghost_versions
 
 sub script_ghost_release
 {
-    return 1;
+    return 2;
 }
 
 sub script_ghost_passmode

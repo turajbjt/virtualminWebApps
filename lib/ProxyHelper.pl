@@ -1,25 +1,64 @@
 # lib/ProxyHelper.pl
 # Automated Apache and Nginx reverse proxy configuration for Virtualmin domains
+# Hardened against HTTP response splitting, header injection, and invalid port/paths
 package VirtualminWebApps::ProxyHelper;
 
 use strict;
 use warnings;
 
-# setup_reverse_proxy($domain_ref, $app_name, $local_port, $enable_websocket, [$custom_path])
-# Sets up reverse proxy in Apache or Nginx for a Virtualmin domain
+BEGIN {
+    require "Common.pl" if !defined(&VirtualminWebApps::Common::validate_port);
+}
+
+# setup_reverse_proxy
+# Supports both positional arguments ($d, $app_name, $port, $websocket, $path)
+# and named arguments (domain_name => ..., local_port => ..., app_name => ..., websocket => ..., path => ...)
 sub setup_reverse_proxy
 {
-    my ($d, $app_name, $port, $enable_websocket, $path) = @_;
+    my (@args) = @_;
+    my ($d, $app_name, $port, $enable_websocket, $path, $webserver);
+
+    if (@args == 1 && ref($args[0]) eq 'HASH') {
+        my $opts = $args[0];
+        $d = ref($opts->{'domain_name'}) ? $opts->{'domain_name'} : { 'dom' => $opts->{'domain_name'} };
+        $d->{'proxy_pass_mode'} = $opts->{'webserver'} if $opts->{'webserver'};
+        $app_name = $opts->{'app_name'} || 'app';
+        $port = $opts->{'local_port'} || $opts->{'port'};
+        $enable_websocket = $opts->{'websocket'} || 0;
+        $path = $opts->{'path'} || '/';
+    } elsif (@args > 1 && $args[0] =~ /^[a-zA-Z_]/ && !ref($args[0]) && (@args % 2 == 0)) {
+        my %opts = @args;
+        $d = ref($opts{'domain_name'}) ? $opts{'domain_name'} : { 'dom' => $opts{'domain_name'} };
+        $d->{'proxy_pass_mode'} = $opts{'webserver'} if $opts{'webserver'};
+        $app_name = $opts{'app_name'} || 'app';
+        $port = $opts{'local_port'} || $opts{'port'};
+        $enable_websocket = $opts{'websocket'} || 0;
+        $path = $opts{'path'} || '/';
+    } else {
+        ($d, $app_name, $port, $enable_websocket, $path) = @args;
+    }
+
+    $app_name ||= 'app';
+    $app_name =~ s/[^a-zA-Z0-9_]/_/g; # Sanitize block tag name
+
     $path ||= '/';
+    # Reject newlines or carriage returns (prevents HTTP response splitting / header injection)
+    if ($path =~ /[\r\n]/) {
+        return (0, "Insecure path rejected: contains control characters.");
+    }
     $path = "/$path" if $path !~ /^\//;
     $path =~ s/\/$// if $path ne '/';
 
-    my $webserver = &detect_webserver($d);
+    # Validate port integer bounds
+    my ($port_ok, $port_err) = VirtualminWebApps::Common::validate_port($port, 1024, 65535);
+    return (0, "Invalid reverse proxy target port: $port_err") if !$port_ok;
 
-    if ($webserver eq 'apache') {
+    my $ws = &detect_webserver($d);
+
+    if ($ws eq 'apache') {
         return &setup_apache_proxy($d, $app_name, $port, $enable_websocket, $path);
     }
-    elsif ($webserver eq 'nginx') {
+    elsif ($ws eq 'nginx') {
         return &setup_nginx_proxy($d, $app_name, $port, $enable_websocket, $path);
     }
     else {
@@ -27,11 +66,30 @@ sub setup_reverse_proxy
     }
 }
 
-# remove_reverse_proxy($domain_ref, $app_name)
-# Removes proxy directives added for the app
+# add_reverse_proxy - alias to setup_reverse_proxy
+sub add_reverse_proxy
+{
+    return &setup_reverse_proxy(@_);
+}
+
+# remove_reverse_proxy
+# Supports both positional ($d, $app_name) and named arguments (domain_name => ..., app_name => ...)
 sub remove_reverse_proxy
 {
-    my ($d, $app_name) = @_;
+    my (@args) = @_;
+    my ($d, $app_name);
+
+    if (@args > 1 && $args[0] =~ /^[a-zA-Z_]/ && !ref($args[0]) && (@args % 2 == 0)) {
+        my %opts = @args;
+        $d = ref($opts{'domain_name'}) ? $opts{'domain_name'} : { 'dom' => $opts{'domain_name'} };
+        $app_name = $opts{'app_name'} || 'app';
+    } else {
+        ($d, $app_name) = @args;
+    }
+
+    $app_name ||= 'app';
+    $app_name =~ s/[^a-zA-Z0-9_]/_/g;
+
     my $webserver = &detect_webserver($d);
 
     if ($webserver eq 'apache') {
@@ -47,7 +105,8 @@ sub remove_reverse_proxy
 sub detect_webserver
 {
     my ($d) = @_;
-    if ($d->{'nginx'}) {
+    return 'apache' if !ref($d);
+    if ($d->{'nginx'} || ($d->{'proxy_pass_mode'} && $d->{'proxy_pass_mode'} eq 'nginx')) {
         return 'nginx';
     }
     return 'apache';
@@ -92,7 +151,6 @@ sub setup_apache_proxy
 
     # Insert before </VirtualHost> in SSL (port 443) or standard (port 80) blocks
     if ($content =~ /<\/VirtualHost>/i) {
-        # Place it right before </VirtualHost>
         $content =~ s/(<\/VirtualHost>)/$block$1/g;
     } else {
         $content .= "\n$block\n";
@@ -112,6 +170,7 @@ sub remove_apache_proxy
     return 1 if !$conf_file || !-f $conf_file;
 
     my $content = &read_file_contents($conf_file);
+    return 1 if !$content;
     my $new_content = &strip_block($content, $app_name);
 
     if ($new_content ne $content) {
@@ -172,6 +231,7 @@ sub remove_nginx_proxy
     return 1 if !$conf_file || !-f $conf_file;
 
     my $content = &read_file_contents($conf_file);
+    return 1 if !$content;
     my $new_content = &strip_block($content, $app_name);
 
     if ($new_content ne $content) {
@@ -184,6 +244,7 @@ sub remove_nginx_proxy
 sub strip_block
 {
     my ($text, $app_name) = @_;
+    return $text if !defined($text);
     $text =~ s/# BEGIN VIRTUALMIN WEBAPP: $app_name.*?# END VIRTUALMIN WEBAPP: $app_name\n?//gs;
     return $text;
 }
@@ -191,15 +252,17 @@ sub strip_block
 sub get_apache_conf_file
 {
     my ($d) = @_;
-    # Try Virtualmin's metadata
+    return undef if !ref($d);
     return $d->{'apache_conf'} if $d->{'apache_conf'} && -f $d->{'apache_conf'};
 
-    # Common locations on Debian/Ubuntu and RHEL/Fedora
+    my $dom = $d->{'dom'} || '';
+    return undef if !$dom;
+
     my @candidates = (
-        "/etc/apache2/sites-available/$d->{'dom'}.conf",
-        "/etc/apache2/sites-enabled/$d->{'dom'}.conf",
-        "/etc/httpd/conf.d/$d->{'dom'}.conf",
-        "/etc/apache2/conf.d/$d->{'dom'}.conf"
+        "/etc/apache2/sites-available/$dom.conf",
+        "/etc/apache2/sites-enabled/$dom.conf",
+        "/etc/httpd/conf.d/$dom.conf",
+        "/etc/apache2/conf.d/$dom.conf"
     );
     foreach my $c (@candidates) {
         return $c if -f $c;
@@ -210,12 +273,16 @@ sub get_apache_conf_file
 sub get_nginx_conf_file
 {
     my ($d) = @_;
+    return undef if !ref($d);
     return $d->{'nginx_conf'} if $d->{'nginx_conf'} && -f $d->{'nginx_conf'};
 
+    my $dom = $d->{'dom'} || '';
+    return undef if !$dom;
+
     my @candidates = (
-        "/etc/nginx/sites-available/$d->{'dom'}.conf",
-        "/etc/nginx/sites-enabled/$d->{'dom'}.conf",
-        "/etc/nginx/conf.d/$d->{'dom'}.conf"
+        "/etc/nginx/sites-available/$dom.conf",
+        "/etc/nginx/sites-enabled/$dom.conf",
+        "/etc/nginx/conf.d/$dom.conf"
     );
     foreach my $c (@candidates) {
         return $c if -f $c;
@@ -236,6 +303,7 @@ sub reload_webserver
 sub read_file_contents
 {
     my ($file) = @_;
+    return undef if !-f $file;
     open(my $fh, '<', $file) or return undef;
     local $/;
     my $content = <$fh>;

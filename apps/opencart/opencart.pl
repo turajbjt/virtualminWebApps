@@ -49,7 +49,7 @@ sub script_opencart_versions
 
 sub script_opencart_release
 {
-    return 1;
+    return 2;
 }
 
 sub script_opencart_passmode
@@ -82,15 +82,18 @@ sub script_opencart_params
 sub script_opencart_parse
 {
     my ($d, $in) = @_;
-    my $dir = $in->{'opencart_dir'} || '';
-    $dir =~ s/^\///;
-    $dir =~ s/\/$//;
+    my $raw_dir = $in->{'opencart_dir'} || '';
+
+    my ($clean_dir, $dir_err) = VirtualminWebApps::Common::sanitize_path($raw_dir, 1);
+
+    return $dir_err if $dir_err;
+
+    my $dir = $clean_dir;
 
     my $admin = $in->{'opencart_admin'} || 'admin';
     my $pass = $in->{'opencart_pass'} || '';
     if (!$pass) {
-        my @chars = ('A'..'Z', 'a'..'z', '0'..'9', '!', '@', '#', '%');
-        $pass = join '', map { $chars[rand @chars] } 1..16;
+        $pass = VirtualminWebApps::Common::generate_random_key(16);
     }
     my $email = $in->{'opencart_email'} || "admin\@$d->{'dom'}";
 

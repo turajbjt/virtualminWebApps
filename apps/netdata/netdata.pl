@@ -52,7 +52,7 @@ sub script_netdata_versions
 
 sub script_netdata_release
 {
-    return 1;
+    return 2;
 }
 
 sub script_netdata_passmode
@@ -76,7 +76,9 @@ sub script_netdata_params
 sub script_netdata_parse
 {
     my ($d, $in) = @_;
-    my $port = $in->{'netdata_port'} || VirtualminWebApps::PortManager::allocate_port($d, 19999);
+    my $port = $in->{'netdata_port'} || VirtualminWebApps::PortManager::find_free_port(19999, 20999) || 19999;
+    my ($port_ok, $port_err) = VirtualminWebApps::Common::validate_port($port, 1024, 65535);
+    return $port_err if !$port_ok;
     return { 'port' => $port };
 }
 

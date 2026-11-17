@@ -7,6 +7,41 @@ and this project adheres to Semantic Versioning.
 
 ---
 
+## [1.10.0] - 2026-11-17
+
+### Security & PCI DSS Compliance
+- **Path Traversal Defense (PCI DSS Req 6.5.8)**:
+  - Integrated `VirtualminWebApps::Common::sanitize_path()` across all 52 directory-based web applications.
+  - Strictly rejects `..` traversal sequences, poison null bytes (`\0`), backslashes, leading slashes, and shell metacharacters.
+- **Cryptographically Secure PRNG (PCI DSS Req 8.3.6)**:
+  - Replaced pseudo-random password generation across all installers with `VirtualminWebApps::Common::generate_random_key()`, reading from `/dev/urandom` with a minimum 16-character length and high-entropy mixed character pool.
+- **Port Bounds & Injection Prevention (PCI DSS Req 6.5.1)**:
+  - Enforced strict numeric validation (`1024-65535`) on all daemon and microservice ports via `VirtualminWebApps::Common::validate_port()`, blocking shell and SQL injection vectors.
+- **Protection of Stored Authentication Data (PCI DSS Req 3.4)**:
+  - Enforced restricted file permissions (`chmod 0600`) on all configuration files containing database passwords, encryption keys, and secrets (`.env`, `config.php`, `parameters.yml`).
+- **HTTP Response Splitting & Header Injection Defense**:
+  - `VirtualminWebApps::ProxyHelper` sanitizes proxy paths and rejects CRLF control characters.
+- **Systemd Service Unit Sanitization**:
+  - `VirtualminWebApps::SystemdHelper` strictly validates unit filenames against path traversal out of `/etc/systemd/system/`.
+
+### Added
+- **Automated Unit & Security Test Suite (1,035 Tests)**:
+  - Created dedicated TAP test suite under `tests/`:
+    - `tests/01_syntax.t`: Syntax verification across all 73 scripts and libraries.
+    - `tests/02_common_lib.t`: 38 unit tests verifying `Common.pl` security and utility routines.
+    - `tests/03_port_manager.t`: 8 unit tests verifying port detection and bounds safety.
+    - `tests/04_systemd_helper.t`: 10 unit tests verifying service unit management and name sanitization.
+    - `tests/05_proxy_helper.t`: 9 unit tests verifying Apache/Nginx proxy block generation and injection prevention.
+    - `tests/06_app_metadata.t`: 690 unit tests verifying all metadata and lifecycle hooks across all 69 applications.
+    - `tests/07_security_input_filtering.t`: 207 security tests fuzzing every application against path traversal, command injection, and invalid port inputs.
+  - Integrated test suite directly into `./setup.sh test` and `.github/workflows/ci.yml`.
+
+### Changed
+- **Module Build Revision Bump**:
+  - Incremented `script_<name>_release` from `1` to `2` across all 69 applications in adherence to the module versioning policy.
+
+---
+
 ## [1.9.0] - 2026-11-17
 
 ### Added

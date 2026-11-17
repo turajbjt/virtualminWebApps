@@ -52,7 +52,7 @@ sub script_vaultwarden_versions
 
 sub script_vaultwarden_release
 {
-    return 1;
+    return 2;
 }
 
 sub script_vaultwarden_passmode
@@ -98,9 +98,10 @@ sub script_vaultwarden_parse
         return "Internal port must be a valid number between 1024 and 65535";
     }
 
+    my $signups = defined($in->{'vaultwarden_signups'}) && $in->{'vaultwarden_signups'} eq 'false' ? 'false' : 'true';
     return {
         'port'        => $port,
-        'signups'     => $in->{'vaultwarden_signups'} eq 'false' ? 'false' : 'true',
+        'signups'     => $signups,
         'admin_token' => $in->{'vaultwarden_admin_token'} || '',
         'websocket'   => $in->{'vaultwarden_websocket'} ? 1 : 0,
     };

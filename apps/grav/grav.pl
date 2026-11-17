@@ -49,7 +49,7 @@ sub script_grav_versions
 
 sub script_grav_release
 {
-    return 1;
+    return 2;
 }
 
 sub script_grav_passmode
@@ -72,9 +72,13 @@ sub script_grav_params
 sub script_grav_parse
 {
     my ($d, $in) = @_;
-    my $dir = $in->{'grav_dir'} || '';
-    $dir =~ s/^\///;
-    $dir =~ s/\/$//;
+    my $raw_dir = $in->{'grav_dir'} || '';
+
+    my ($clean_dir, $dir_err) = VirtualminWebApps::Common::sanitize_path($raw_dir, 1);
+
+    return $dir_err if $dir_err;
+
+    my $dir = $clean_dir;
 
     return { 'dir' => $dir };
 }

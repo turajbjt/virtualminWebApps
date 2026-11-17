@@ -49,7 +49,7 @@ sub script_abantecart_versions
 
 sub script_abantecart_release
 {
-    return 1;
+    return 2;
 }
 
 sub script_abantecart_passmode
@@ -82,15 +82,18 @@ sub script_abantecart_params
 sub script_abantecart_parse
 {
     my ($d, $in) = @_;
-    my $dir = $in->{'abantecart_dir'} || '';
-    $dir =~ s/^\///;
-    $dir =~ s/\/$//;
+    my $raw_dir = $in->{'abantecart_dir'} || '';
+
+    my ($clean_dir, $dir_err) = VirtualminWebApps::Common::sanitize_path($raw_dir, 1);
+
+    return $dir_err if $dir_err;
+
+    my $dir = $clean_dir;
 
     my $admin = $in->{'abantecart_admin'} || 'admin';
     my $pass = $in->{'abantecart_pass'} || '';
     if (!$pass) {
-        my @chars = ('A'..'Z', 'a'..'z', '0'..'9', '!', '@', '#', '%');
-        $pass = join '', map { $chars[rand @chars] } 1..16;
+        $pass = VirtualminWebApps::Common::generate_random_key(16);
     }
     my $email = $in->{'abantecart_email'} || "admin\@$d->{'dom'}";
 

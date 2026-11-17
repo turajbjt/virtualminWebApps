@@ -1,5 +1,6 @@
 # lib/PortManager.pl
 # Dynamic TCP port detection and allocation for Virtualmin reverse-proxied services
+# Hardened with input validation against out-of-range port requests
 package VirtualminWebApps::PortManager;
 
 use strict;
@@ -11,6 +12,8 @@ sub is_port_in_use
 {
     my ($port, $ip) = @_;
     $ip ||= '127.0.0.1';
+
+    return 1 if !defined($port) || $port !~ /^\d+$/ || $port < 1 || $port > 65535;
 
     # 1. Attempt connection
     my $sock = IO::Socket::INET->new(
@@ -47,8 +50,8 @@ sub is_port_in_use
 sub find_free_port
 {
     my ($start_port, $max_port, $ip) = @_;
-    $start_port ||= 8000;
-    $max_port   ||= $start_port + 1000;
+    $start_port = 8000 if !defined($start_port) || $start_port !~ /^\d+$/ || $start_port < 1024 || $start_port > 65535;
+    $max_port   = $start_port + 1000 if !defined($max_port) || $max_port !~ /^\d+$/ || $max_port < $start_port || $max_port > 65535;
     $ip         ||= '127.0.0.1';
 
     for (my $p = $start_port; $p <= $max_port; $p++) {

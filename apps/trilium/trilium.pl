@@ -52,7 +52,7 @@ sub script_trilium_versions
 
 sub script_trilium_release
 {
-    return 1;
+    return 2;
 }
 
 sub script_trilium_passmode
@@ -76,7 +76,9 @@ sub script_trilium_params
 sub script_trilium_parse
 {
     my ($d, $in) = @_;
-    my $port = $in->{'trilium_port'} || VirtualminWebApps::PortManager::allocate_port($d, 8080);
+    my $port = $in->{'trilium_port'} || VirtualminWebApps::PortManager::find_free_port(8080, 8999) || 8080;
+    my ($port_ok, $port_err) = VirtualminWebApps::Common::validate_port($port, 1024, 65535);
+    return $port_err if !$port_ok;
     return { 'port' => $port };
 }
 

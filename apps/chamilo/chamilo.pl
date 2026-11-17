@@ -49,7 +49,7 @@ sub script_chamilo_versions
 
 sub script_chamilo_release
 {
-    return 1;
+    return 2;
 }
 
 sub script_chamilo_passmode
@@ -72,9 +72,13 @@ sub script_chamilo_params
 sub script_chamilo_parse
 {
     my ($d, $in) = @_;
-    my $dir = $in->{'chamilo_dir'} || '';
-    $dir =~ s/^\///;
-    $dir =~ s/\/$//;
+    my $raw_dir = $in->{'chamilo_dir'} || '';
+
+    my ($clean_dir, $dir_err) = VirtualminWebApps::Common::sanitize_path($raw_dir, 1);
+
+    return $dir_err if $dir_err;
+
+    my $dir = $clean_dir;
 
     return { 'dir' => $dir };
 }

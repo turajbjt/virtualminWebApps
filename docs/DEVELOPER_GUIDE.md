@@ -107,14 +107,15 @@ sub script_my_app_params
 ```
 
 #### `script_<app_name>_parse(&domain, &in)`
-Validates the user's form inputs. Returns an error string if invalid, or a reference to a hash of clean options.
+Validates the user's form inputs following strict PCI DSS input validation guidelines. Returns an error string if invalid, or a reference to a hash of clean options.
 ```perl
 sub script_my_app_parse
 {
     my ($d, $in) = @_;
-    my $dir = $in->{'my_app_dir'} || '';
-    $dir =~ s/^\///;
-    $dir =~ s/\/$//;
+    my $raw_dir = $in->{'my_app_dir'} || '';
+    my ($dir, $dir_err) = VirtualminWebApps::Common::sanitize_path($raw_dir, 1);
+    return $dir_err if $dir_err;
+
     return { 'dir' => $dir };
 }
 ```
@@ -178,6 +179,13 @@ require "ProxyHelper.pl";
 * `VirtualminWebApps::Common::extract_archive($archive, $dest_dir, [$strip_components])`
 * `VirtualminWebApps::Common::set_ownership_recursive($path, $user, $group)`
 * `VirtualminWebApps::Common::get_arch()` (returns `amd64`, `arm64`, or `armv7`)
+* `VirtualminWebApps::Common::sanitize_path($path, [$allow_empty])` (PCI DSS Req 6.5.8 Path traversal defense)
+* `VirtualminWebApps::Common::validate_port($port, [$min], [$max])` (Strict numeric port validation)
+* `VirtualminWebApps::Common::validate_domain($dom)` (RFC 1123 hostname validation)
+* `VirtualminWebApps::Common::validate_identifier($name, [$max_len])` (SQL/command injection prevention)
+* `VirtualminWebApps::Common::generate_random_key($length, [$charset])` (PCI DSS Req 8.3.6 Crypto PRNG password/secret generator)
+* `VirtualminWebApps::Common::create_secure_temp_dir($prefix)` (CWE-377 symlink defense)
+* `VirtualminWebApps::Common::secure_file_permissions($file, [$mode])` (PCI DSS Req 3.4 Restricted mode 0600)
 * `VirtualminWebApps::PortManager::find_free_port($start, $max)`
 * `VirtualminWebApps::SystemdHelper::create_service_unit($service_name, $content)`
 * `VirtualminWebApps::SystemdHelper::remove_service_unit($service_name)`
@@ -186,13 +194,34 @@ require "ProxyHelper.pl";
 
 ---
 
-## 4. Verification & Testing
+## 4. Secure Coding & PCI DSS Compliance Standards
 
-Always test your new application script with the suite testing tool before committing:
+Every installer must adhere to PCI DSS v4.0 secure engineering requirements:
+* **Req 6.5.1 / 6.5.7 (Injection Flaws)**: All user-controlled parameters (`dir`, `port`, `admin`, `domain`) must be validated against strict whitelists before execution or file writing.
+* **Req 6.5.8 (Path Traversal)**: Relative directory inputs must pass through `VirtualminWebApps::Common::sanitize_path()`, blocking `..` sequences, null bytes, backslashes, and shell metacharacters.
+* **Req 8.3.6 (Authentication Credentials)**: Auto-generated passwords and secrets must use `VirtualminWebApps::Common::generate_random_key()`, reading from `/dev/urandom` with a minimum length of 16 characters across uppercase, lowercase, numbers, and symbols.
+* **Req 3.4 (Protection of Stored Data)**: Sensitive configuration files containing database passwords or secret keys (`.env`, `config.php`, `parameters.yml`, `vaultwarden.env`) must have restricted permissions (`0600` or `0640`).
+
+---
+
+## 5. Automated Unit & Security Test Suite
+
+The repository includes a comprehensive 1,000+ assertion automated TAP unit test suite:
+* `tests/01_syntax.t`: Perl syntax validation across all 73 scripts and libraries.
+* `tests/02_common_lib.t`: Unit tests for Common.pl functions (path traversal rejection, port bounds, URL scheme validation, domain format, entropy).
+* `tests/03_port_manager.t`: Port manager unit tests (range scanning, input validation).
+* `tests/04_systemd_helper.t`: Systemd helper unit tests (service name validation, injection rejection).
+* `tests/05_proxy_helper.t`: Reverse proxy unit tests (Apache/Nginx blocks, CRLF injection prevention).
+* `tests/06_app_metadata.t`: Metadata and lifecycle hook verification for all 69 applications.
+* `tests/07_security_input_filtering.t`: Security fuzzing and input filtering test suite for all 69 applications.
+
+To run the complete test suite:
 ```bash
 ./setup.sh test
+# Or using prove directly:
+prove -v tests/
 ```
-To verify that your app displays correctly in the inventory table:
+To verify that all apps display cleanly in the inventory table:
 ```bash
 ./setup.sh list
 ```

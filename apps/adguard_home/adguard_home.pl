@@ -52,7 +52,7 @@ sub script_adguard_home_versions
 
 sub script_adguard_home_release
 {
-    return 1;
+    return 2;
 }
 
 sub script_adguard_home_passmode

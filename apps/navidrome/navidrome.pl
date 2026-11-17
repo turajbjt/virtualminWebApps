@@ -52,7 +52,7 @@ sub script_navidrome_versions
 
 sub script_navidrome_release
 {
-    return 1;
+    return 2;
 }
 
 sub script_navidrome_passmode
@@ -81,15 +81,17 @@ sub script_navidrome_parse
 {
     my ($d, $in) = @_;
     my $port = $in->{'navidrome_port'} || 4533;
-    my $music_dir = $in->{'navidrome_music_dir'} || "$d->{'home'}/music";
+    my ($port_ok, $port_err) = VirtualminWebApps::Common::validate_port($port, 1024, 65535);
+    return $port_err if !$port_ok;
 
-    if ($port !~ /^\d+$/ || $port < 1024 || $port > 65535) {
-        return "Internal port must be a valid number between 1024 and 65535";
+    my $raw_music = $in->{'navidrome_music_dir'} || "$d->{'home'}/music";
+    if ($raw_music =~ m{(^|/)\.\.(/|$)} || $raw_music =~ /[\0;`$|]/) {
+        return "Path traversal or invalid characters detected in music directory: $raw_music";
     }
 
     return {
         'port'      => $port,
-        'music_dir' => $music_dir,
+        'music_dir' => $raw_music,
     };
 }
 

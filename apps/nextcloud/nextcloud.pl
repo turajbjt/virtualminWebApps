@@ -49,7 +49,7 @@ sub script_nextcloud_versions
 
 sub script_nextcloud_release
 {
-    return 1;
+    return 2;
 }
 
 sub script_nextcloud_passmode
@@ -85,16 +85,19 @@ sub script_nextcloud_params
 sub script_nextcloud_parse
 {
     my ($d, $in) = @_;
-    my $dir = $in->{'nextcloud_dir'} || '';
-    $dir =~ s/^\///;
-    $dir =~ s/\/$//;
+    my $raw_dir = $in->{'nextcloud_dir'} || '';
+
+    my ($clean_dir, $dir_err) = VirtualminWebApps::Common::sanitize_path($raw_dir, 1);
+
+    return $dir_err if $dir_err;
+
+    my $dir = $clean_dir;
 
     my $admin = $in->{'nextcloud_admin'} || 'admin';
     my $pass = $in->{'nextcloud_pass'} || '';
     if (!$pass) {
         # Auto-generate 16-character secure random password
-        my @chars = ('A'..'Z', 'a'..'z', '0'..'9', '!', '@', '#', '%');
-        $pass = join '', map { $chars[rand @chars] } 1..16;
+        $pass = VirtualminWebApps::Common::generate_random_key(16);
     }
 
     my $data_dir = $in->{'nextcloud_data'} || "$d->{'home'}/nextcloud-data";

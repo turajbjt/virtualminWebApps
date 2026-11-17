@@ -52,7 +52,7 @@ sub script_paperless_ngx_versions
 
 sub script_paperless_ngx_release
 {
-    return 1;
+    return 2;
 }
 
 sub script_paperless_ngx_passmode
@@ -98,8 +98,7 @@ sub script_paperless_ngx_parse
 
     my $pass = $in->{'paperless_pass'};
     if (!$pass) {
-        my @chars = ('A'..'Z', 'a'..'z', '0'..'9', '!', '@', '#', '%');
-        $pass = join '', map { $chars[rand @chars] } 1..16;
+        $pass = VirtualminWebApps::Common::generate_random_key(16);
     }
 
     return {

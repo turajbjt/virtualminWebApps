@@ -49,7 +49,7 @@ sub script_prestashop_versions
 
 sub script_prestashop_release
 {
-    return 1;
+    return 2;
 }
 
 sub script_prestashop_passmode
@@ -82,16 +82,19 @@ sub script_prestashop_params
 sub script_prestashop_parse
 {
     my ($d, $in) = @_;
-    my $dir = $in->{'prestashop_dir'} || '';
-    $dir =~ s/^\///;
-    $dir =~ s/\/$//;
+    my $raw_dir = $in->{'prestashop_dir'} || '';
+
+    my ($clean_dir, $dir_err) = VirtualminWebApps::Common::sanitize_path($raw_dir, 1);
+
+    return $dir_err if $dir_err;
+
+    my $dir = $clean_dir;
 
     my $name = $in->{'prestashop_name'} || "$d->{'dom'} Shop";
     my $email = $in->{'prestashop_email'} || "admin\@$d->{'dom'}";
     my $pass = $in->{'prestashop_pass'} || '';
     if (!$pass || length($pass) < 8) {
-        my @chars = ('A'..'Z', 'a'..'z', '0'..'9', '!', '@', '#', '%');
-        $pass = join '', map { $chars[rand @chars] } 1..16;
+        $pass = VirtualminWebApps::Common::generate_random_key(16);
     }
 
     return {

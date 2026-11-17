@@ -52,7 +52,7 @@ sub script_forgejo_versions
 
 sub script_forgejo_release
 {
-    return 1;
+    return 2;
 }
 
 sub script_forgejo_passmode

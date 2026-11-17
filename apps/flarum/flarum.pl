@@ -49,7 +49,7 @@ sub script_flarum_versions
 
 sub script_flarum_release
 {
-    return 1;
+    return 2;
 }
 
 sub script_flarum_passmode
@@ -85,9 +85,13 @@ sub script_flarum_params
 sub script_flarum_parse
 {
     my ($d, $in) = @_;
-    my $dir = $in->{'flarum_dir'} || '';
-    $dir =~ s/^\///;
-    $dir =~ s/\/$//;
+    my $raw_dir = $in->{'flarum_dir'} || '';
+
+    my ($clean_dir, $dir_err) = VirtualminWebApps::Common::sanitize_path($raw_dir, 1);
+
+    return $dir_err if $dir_err;
+
+    my $dir = $clean_dir;
 
     my $title = $in->{'flarum_title'} || "$d->{'dom'} Forum";
     my $admin = $in->{'flarum_admin'} || 'admin';
@@ -95,8 +99,7 @@ sub script_flarum_parse
     my $pass = $in->{'flarum_pass'} || '';
 
     if (!$pass) {
-        my @chars = ('A'..'Z', 'a'..'z', '0'..'9', '!', '@', '#', '%');
-        $pass = join '', map { $chars[rand @chars] } 1..16;
+        $pass = VirtualminWebApps::Common::generate_random_key(16);
     }
 
     return {
