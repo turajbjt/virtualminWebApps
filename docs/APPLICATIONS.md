@@ -1,6 +1,6 @@
 # Applications Reference Manual
 
-A comprehensive technical reference for all 22 web application installers provided by the **Virtualmin Web Apps Suite**.
+A comprehensive technical reference for all 34 web application installers provided by the **Virtualmin Web Apps Suite**.
 
 ---
 
@@ -36,6 +36,12 @@ A comprehensive technical reference for all 22 web application installers provid
 | **Joomla!** | CMS | PHP 8.1+ / Webserver | MariaDB | Webserver | `~/public_html/<dir>/` | PHP-FPM / Webserver |
 | **phpBB** | Community | PHP 8.0+ / Webserver | MariaDB | Webserver | `~/public_html/<dir>/` | PHP-FPM / Webserver |
 | **Umami** | Analytics | Node.js / Container | MariaDB | `3000` | `~/umami-data/` | `umami-<dom>.service` |
+| **osCommerce** | Commerce | PHP 8.1+ / Webserver | MariaDB | Webserver | `~/public_html/<dir>/` | PHP-FPM / Webserver |
+| **SuiteCRM** | Business | PHP 8.1+ / Webserver | MariaDB | Webserver | `~/public_html/<dir>/` | PHP-FPM / Webserver |
+| **Moodle** | Education | PHP 8.1+ / Webserver | MariaDB | Webserver | `~/public_html/<dir>/`, `~/moodledata/` | PHP-FPM / Webserver |
+| **Passbolt** | Security | CakePHP / Webserver | MariaDB | Webserver | `~/public_html/<dir>/` | PHP-FPM / Webserver |
+| **CyberChef** | Utilities | Client-Side HTML5 / JS | None | Webserver | `~/public_html/<dir>/` | Webserver Static |
+| **IT-Tools** | Development | Client-Side Vue / Vite | None | Webserver | `~/public_html/<dir>/` | Webserver Static |
 
 ---
 
