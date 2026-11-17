@@ -7,6 +7,29 @@ and this project adheres to Semantic Versioning.
 
 ---
 
+## [1.11.0] - 2026-11-17
+
+### Added
+- **Formal Open Source Licensing (`LICENSE`)**:
+  - Added root GNU General Public License v3.0 (`LICENSE`) enabling native GitHub license detection and verification.
+- **Security Policy (`SECURITY.md`)**:
+  - Formulated comprehensive security policy detailing supported versions, vulnerability disclosure procedures, response SLAs (48h acknowledgment, 5d triage, 14d patch), and architectural PCI DSS v4.0 controls.
+- **Contribution Standards (`CONTRIBUTING.md` & `CODE_OF_CONDUCT.md`)**:
+  - Added development and contribution guidelines covering application layout standards, required Virtualmin script interface hooks, module build versioning, and test execution.
+  - Established community standards and pledge for inclusive, professional collaboration.
+- **GitHub Issue & Pull Request Templates (`.github/`)**:
+  - `.github/ISSUE_TEMPLATE/bug_report.md`: Structured bug reporting capturing OS, Virtualmin version, web server, and logs.
+  - `.github/ISSUE_TEMPLATE/app_request.md`: Dedicated template for community proposals of new web application installers.
+  - `.github/ISSUE_TEMPLATE/feature_request.md`: Feature enhancement proposal template.
+  - `.github/PULL_REQUEST_TEMPLATE.md`: Contributor checklist ensuring adherence to coding standards, test validation, and build number increments.
+
+### Changed
+- **Documentation & Clone Protocols**:
+  - Updated [README.md](README.md) and [docs/INSTALLATION.md](docs/INSTALLATION.md) to use HTTPS clone URLs (`https://github.com/turajbjt/virtualminWebApps.git`) by default for universal server accessibility without requiring pre-authorized SSH keys.
+  - Updated [README.md](README.md) badges with live GitHub Actions CI workflow status, direct license links, and catalog metric badges.
+
+---
+
 ## [1.10.1] - 2026-11-17
 
 ### Security & Secret Leak Prevention

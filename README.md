@@ -5,10 +5,11 @@
 </p>
 
 <p align="center">
-  <img src="https://img.shields.io/badge/Virtualmin-GPL%20%26%20Pro-blue.svg" alt="Virtualmin Compatible">
-  <img src="https://img.shields.io/badge/License-GPLv3-green.svg" alt="License">
-  <img src="https://img.shields.io/badge/Architecture-Modular%20Monorepo-orange.svg" alt="Architecture">
-  <img src="https://img.shields.io/badge/Tests-Passing-brightgreen.svg" alt="Tests">
+  <a href="https://www.virtualmin.com/"><img src="https://img.shields.io/badge/Virtualmin-GPL%20%26%20Pro-blue.svg" alt="Virtualmin Compatible"></a>
+  <a href="LICENSE"><img src="https://img.shields.io/badge/License-GPLv3-green.svg" alt="License: GPLv3"></a>
+  <a href="https://github.com/turajbjt/virtualminWebApps/actions/workflows/ci.yml"><img src="https://github.com/turajbjt/virtualminWebApps/actions/workflows/ci.yml/badge.svg" alt="CI Status"></a>
+  <img src="https://img.shields.io/badge/Apps-69%20Available-orange.svg" alt="69 Applications">
+  <img src="https://img.shields.io/badge/Tests-1041%20Passing-brightgreen.svg" alt="1041 Tests Passing">
 </p>
 
 ---
@@ -317,6 +318,8 @@ The suite provides **69 fully automated web application installers** sorted and 
 * **[Upgrades & Maintenance Guide](docs/UPGRADE_GUIDE.md)**: Managing repository updates (`setup.sh update`), Virtualmin GUI upgrades, and automated cron checking.
 * **[E-Commerce & PlugnPay Integration Guide](docs/ECOMMERCE_GUIDE.md)**: Store setup and PlugnPay payment gateway module configuration.
 * **[Developer Guide](docs/DEVELOPER_GUIDE.md)**: Virtualmin install script API hooks, coding conventions, and module build tracking.
+* **[Contributing Guidelines](CONTRIBUTING.md)**: Standards for adding new web apps, code reviews, and building modules.
+* **[Security Policy](SECURITY.md)**: Vulnerability disclosure procedure, response SLAs, and PCI DSS compliance details.
 * **[Troubleshooting Guide](docs/TROUBLESHOOTING.md)**: Resolving port conflicts, SELinux policies, Apache/Nginx reverse proxying, and DNS port 53 allocation.
 * **[Changelog](CHANGELOG.md)**: Comprehensive record of all releases, version milestones, and structural updates.
 
@@ -327,9 +330,12 @@ The suite provides **69 fully automated web application installers** sorted and 
 Run the following commands on your Virtualmin server as `root` (or with `sudo`):
 
 ```bash
-# 1. Clone the repository
-git clone git@github.com:turajbjt/virtualminWebApps.git /opt/virtualminWebApps
+# 1. Clone the repository (HTTPS recommended)
+git clone https://github.com/turajbjt/virtualminWebApps.git /opt/virtualminWebApps
 cd /opt/virtualminWebApps
+
+# (Or clone via SSH if you have authorized SSH keys configured)
+# git clone git@github.com:turajbjt/virtualminWebApps.git /opt/virtualminWebApps
 
 # 2. Register the suite into Virtualmin
 sudo ./setup.sh install

@@ -23,8 +23,12 @@ Optional dependencies for specific application types:
 1. **Clone the repository onto your server**:
    We recommend placing the repository in `/opt/virtualminWebApps` or a central system directory:
    ```bash
-   git clone git@github.com:turajbjt/virtualminWebApps.git /opt/virtualminWebApps
+   # Clone via HTTPS (standard for all servers)
+   git clone https://github.com/turajbjt/virtualminWebApps.git /opt/virtualminWebApps
    cd /opt/virtualminWebApps
+
+   # Or clone via SSH (if deploying with authorized SSH keys)
+   # git clone git@github.com:turajbjt/virtualminWebApps.git /opt/virtualminWebApps
    ```
 
 2. **Run the installation command**:
