@@ -1,0 +1,1 @@
+../apps/snappymail/snappymail.pl

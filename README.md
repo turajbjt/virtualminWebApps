@@ -17,7 +17,7 @@
 
 The **Virtualmin Web Apps Suite** transforms any Virtualmin server into an application deployment powerhouse. It extends Virtualmin's native **Manage Web Apps / Install Scripts** engine with modern, open-source applications that are traditionally either missing from the free GPL version or unavailable in Virtualmin Pro altogether.
 
-The repository currently features **46 fully automated web application installers** spanning cloud collaboration, email, database administration, developer tooling, personal finance, photo galleries, feed readers, security, system metrics, ERP/CRM, and the entire open-source e-commerce and shopping cart ecosystem.
+The repository currently features **52 fully automated web application installers** spanning cloud collaboration, email, database administration, developer tooling, personal finance, photo galleries, surveys, issue tracking, feed readers, security, system metrics, ERP/CRM, and the entire open-source e-commerce and shopping cart ecosystem.
 
 ### Key Capabilities
 * **Isolated Daemons & Microservices**: Deploy modern Go, Rust, Node, and container services (Vaultwarden, AdGuard Home, Pi-hole, Trilium Notes, Netdata, Uptime Kuma) running as isolated systemd services behind automated Apache or Nginx reverse proxies with automatic WebSocket forwarding.
@@ -79,6 +79,12 @@ The repository currently features **46 fully automated web application installer
 | **Zen Cart** | Commerce | `2.2.2` | `1` | Classic Open-Source Shopping Cart (PlugnPay Ready) | [App Readme](apps/zencart/README.md) |
 | **LiteCart** | Commerce | `2.5.5` | `1` | Lightweight High-Speed PHP Cart (PlugnPay Ready) | [App Readme](apps/litecart/README.md) |
 | **CubeCart** | Commerce | `6.5.7` | `1` | Full-Featured PHP E-Commerce Platform (PlugnPay Ready) | [App Readme](apps/cubecart/README.md) |
+| **SnappyMail** | Email | `3.0.1` | `1` | Fast, Modern Webmail Client (Zero Database / IMAP / SMTP) | [App Readme](apps/snappymail/README.md) |
+| **Piwigo** | Media | `16.5.0` | `1` | PHP / MariaDB Photo Gallery & Digital Asset Management | [App Readme](apps/piwigo/README.md) |
+| **LimeSurvey** | Surveys | `6.17.19` | `1` | Enterprise Online Survey & Questionnaires Platform | [App Readme](apps/limesurvey/README.md) |
+| **MyBB** | Community | `1.8.41` | `1` | Modern PHP / MariaDB Discussion Board & Forum | [App Readme](apps/mybb/README.md) |
+| **MantisBT** | Project | `2.28.4` | `1` | Web-Based Issue & Bug Tracking System (PHP / MariaDB) | [App Readme](apps/mantisbt/README.md) |
+| **Wallabag** | Utilities | `2.6.17` | `1` | Self-Hosted Read-It-Later & Article Archiver (PHP / MariaDB) | [App Readme](apps/wallabag/README.md) |
 
 > **Module Build Number Policy**: The `Build` number tracks the revision of our Virtualmin installer module independently of the upstream application version. Every time an installer script or service configuration is updated, its build number is incremented by 1 so server administrators can easily track changes and verify version freshness via `./setup.sh list`.
 
@@ -88,7 +94,7 @@ The repository currently features **46 fully automated web application installer
 
 ## Documentation Library
 
-* **[Applications Reference Manual](docs/APPLICATIONS.md)**: Full runtime, database, storage directory, port, and systemd service profiles for all 40 applications.
+* **[Applications Reference Manual](docs/APPLICATIONS.md)**: Full runtime, database, storage directory, port, and systemd service profiles for all 52 applications.
 * **[Installation Guide](docs/INSTALLATION.md)**: Automated CLI installation and manual Webmin GUI registration instructions.
 * **[Upgrades & Maintenance Guide](docs/UPGRADE_GUIDE.md)**: Managing repository updates (`setup.sh update`), Virtualmin GUI upgrades, and automated cron checking.
 * **[E-Commerce & PlugnPay Integration Guide](docs/ECOMMERCE_GUIDE.md)**: Store setup and PlugnPay payment gateway module configuration.
@@ -175,7 +181,7 @@ virtualminWebApps/
 
 ## Documentation Links
 
-* [Application Reference Manual](docs/APPLICATIONS.md): Complete technical reference for all 22 web applications, default ports, paths, database types, and services.
+* [Application Reference Manual](docs/APPLICATIONS.md): Complete technical reference for all 52 web applications, default ports, paths, database types, and services.
 * [Installation Guide](docs/INSTALLATION.md): Detailed installation instructions, prerequisites, and automated vs manual setup.
 * [Upgrades & Maintenance Guide](docs/UPGRADE_GUIDE.md): Complete guide to updating the suite (`setup.sh update`) and upgrading applications on virtual servers via GUI and CLI.
 * [Developer Guide](docs/DEVELOPER_GUIDE.md): Complete specifications of the Virtualmin script API and how to contribute new application modules.

@@ -1,0 +1,1 @@
+../apps/mybb/mybb.pl

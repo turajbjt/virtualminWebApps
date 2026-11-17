@@ -1,0 +1,1 @@
+../apps/piwigo/piwigo.pl

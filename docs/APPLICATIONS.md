@@ -1,6 +1,6 @@
 # Applications Reference Manual
 
-A comprehensive technical reference for all 46 web application installers provided by the **Virtualmin Web Apps Suite**.
+A comprehensive technical reference for all 52 web application installers provided by the **Virtualmin Web Apps Suite**.
 
 ---
 
@@ -54,6 +54,12 @@ A comprehensive technical reference for all 46 web application installers provid
 | **Baikal** | Sync | PHP 8.0+ / Webserver | SQLite / MariaDB | Webserver | `~/public_html/<dir>/` | PHP-FPM / Webserver |
 | **Grav** | CMS | Flat-File PHP / Webserver | None | Webserver | `~/public_html/<dir>/` | PHP-FPM / Webserver |
 | **Firefly III** | Finance | Laravel PHP / Webserver | MariaDB | Webserver | `~/public_html/<dir>/` | PHP-FPM / Webserver |
+| **SnappyMail** | Email | PHP 8.0+ / Webserver | Filesystem | Webserver | `~/public_html/<dir>/` | PHP-FPM / Webserver |
+| **Piwigo** | Media | PHP 8.0+ / Webserver | MariaDB | Webserver | `~/public_html/<dir>/` | PHP-FPM / Webserver |
+| **LimeSurvey** | Surveys | PHP 8.0+ / Webserver | MariaDB | Webserver | `~/public_html/<dir>/` | PHP-FPM / Webserver |
+| **MyBB** | Community | PHP 8.0+ / Webserver | MariaDB | Webserver | `~/public_html/<dir>/` | PHP-FPM / Webserver |
+| **MantisBT** | Project | PHP 8.0+ / Webserver | MariaDB | Webserver | `~/public_html/<dir>/` | PHP-FPM / Webserver |
+| **Wallabag** | Utilities | PHP 8.0+ / Webserver | MariaDB | Webserver | `~/public_html/<dir>/` | PHP-FPM / Webserver |
 
 ---
 
@@ -481,6 +487,60 @@ A comprehensive technical reference for all 46 web application installers provid
 * **Version**: `6.7.9` | **Build**: `1`
 * **Upstream**: [https://www.firefly-iii.org](https://www.firefly-iii.org)
 * **Architecture**: Feature-rich personal finances manager supporting double-entry bookkeeping, budgeting, recurring transactions, and financial reporting.
+* **Database**: MariaDB / MySQL.
+
+---
+
+### 47. SnappyMail
+* **Category**: Email
+* **Version**: `3.0.1` | **Build**: `1`
+* **Upstream**: [https://snappymail.eu](https://snappymail.eu)
+* **Architecture**: Ultra-fast, lightweight webmail client (modern RainLoop fork) engineered with minimal footprint, no required SQL database, OpenPGP message encryption, and full mobile optimization.
+* **Database**: Filesystem / Flat-file (Zero database overhead; connects directly to Dovecot/Postfix or external IMAP/SMTP).
+
+---
+
+### 48. Piwigo
+* **Category**: Media
+* **Version**: `16.5.0` | **Build**: `1`
+* **Upstream**: [https://piwigo.org](https://piwigo.org)
+* **Architecture**: Mature photo gallery and digital asset management software featuring batch processing, EXIF/IPTC metadata extraction, and multi-tier privacy control.
+* **Database**: MariaDB / MySQL.
+
+---
+
+### 49. LimeSurvey
+* **Category**: Surveys
+* **Version**: `6.17.19` | **Build**: `1`
+* **Upstream**: [https://www.limesurvey.org](https://www.limesurvey.org)
+* **Architecture**: Enterprise-grade online statistical survey and questionnaire platform supporting 30+ question types, conditional skip logic, invitation tokens, and statistical export.
+* **Database**: MariaDB / MySQL.
+
+---
+
+### 50. MyBB
+* **Category**: Community
+* **Version**: `1.8.41` | **Build**: `1`
+* **Upstream**: [https://mybb.com](https://mybb.com)
+* **Architecture**: Free and open-source bulletin board forum software with role-based moderation queues, member reputation scoring, thread subscriptions, and plugin extensibility.
+* **Database**: MariaDB / MySQL.
+
+---
+
+### 51. MantisBT
+* **Category**: Project
+* **Version**: `2.28.4` | **Build**: `1`
+* **Upstream**: [https://www.mantisbt.org](https://www.mantisbt.org)
+* **Architecture**: Web-based bug and issue tracking system with customizable issue workflows, role-based project access control, email notifications, and REST API support.
+* **Database**: MariaDB / MySQL.
+
+---
+
+### 52. Wallabag
+* **Category**: Utilities
+* **Version**: `2.6.17` | **Build**: `1`
+* **Upstream**: [https://wallabag.org](https://wallabag.org)
+* **Architecture**: Self-hosted read-it-later article archiver and Pocket alternative providing distraction-free reading, offline e-reader export (EPUB, PDF, MOBI), and browser extensions.
 * **Database**: MariaDB / MySQL.
 
 

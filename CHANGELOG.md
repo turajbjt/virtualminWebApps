@@ -7,6 +7,34 @@ and this project adheres to Semantic Versioning.
 
 ---
 
+## [1.6.0] - 2026-11-17
+
+### Added
+- **SnappyMail** (`apps/snappymail/`):
+  - Fast, modern, and lightweight webmail client (v3.0.1) engineered as an active fork of RainLoop.
+  - Zero SQL database requirement; connects directly to local Virtualmin Dovecot/Postfix or remote IMAP/SMTP.
+  - Built-in OpenPGP client-side encryption, Sieve filters, and dedicated administrator panel.
+- **Piwigo** (`apps/piwigo/`):
+  - Mature open-source photo gallery and digital asset management platform (v16.5.0).
+  - Batch photo uploads, EXIF/IPTC metadata extraction, granular album permissions, and mobile sync support.
+- **LimeSurvey** (`apps/limesurvey/`):
+  - Leading open-source online statistical survey and questionnaire engine (v6.17.19).
+  - 30+ advanced question types, conditional branching, participant tokens, and export to SPSS, R, CSV, and Excel.
+- **MyBB** (`apps/mybb/`):
+  - Full-featured community discussion board and forum system (v1.8.41).
+  - Inline moderation, member reputation ratings, theme/plugin system, and automated unpack handling.
+- **MantisBT** (`apps/mantisbt/`):
+  - Web-based bug and issue tracking platform (v2.28.4).
+  - Granular project access control, customizable issue states, email notifications, and REST/SOAP APIs.
+- **Wallabag** (`apps/wallabag/`):
+  - Self-hosted read-it-later article archiver (v2.6.17).
+  - Distraction-free article extraction, offline e-reader export (EPUB/PDF/MOBI), and browser/mobile sync.
+- **Milestone 52**:
+  - Suite expanded to 52 fully automated web application installers.
+  - Syntax verification passed across all 56 Perl scripts and shared libraries.
+
+---
+
 ## [1.5.0] - 2026-11-17
 
 ### Added

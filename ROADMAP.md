@@ -84,6 +84,16 @@ A modular collection of open-source web application installers for [Virtualmin](
 
 ---
 
+### Phase 5: Productivity, Collaboration, Media & Utility Tools
+- [x] **SnappyMail** (Fast, modern, lightweight webmail client - RainLoop fork)
+- [x] **Piwigo** (Open-source photo gallery & digital asset management)
+- [x] **LimeSurvey** (Professional online survey & questionnaire platform)
+- [x] **MyBB** (Extensible discussion board & community forum)
+- [x] **MantisBT** (Web-based issue & bug tracking system)
+- [x] **Wallabag** (Self-hosted read-it-later & article archiver)
+
+---
+
 ## 3. Directory Layout Standard
 
 ```text
