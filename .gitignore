@@ -1,0 +1,17 @@
+# Temporary & downloaded files
+*.tar.gz
+*.tgz
+*.zip
+*.bz2
+/tmp/
+*.log
+*.swp
+*~
+.DS_Store
+
+# Test environment data
+/data/
+/vaultwarden-data/
+/nextcloud-data/
+/owncloud-data/
+/pihole-data/

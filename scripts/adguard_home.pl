@@ -1,0 +1,1 @@
+/home/turajb/cursorProjects/virtualminWebApps/apps/adguard_home/adguard_home.pl
