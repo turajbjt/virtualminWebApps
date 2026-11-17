@@ -1,91 +1,143 @@
 # Virtualmin Web Apps Suite
 
-A modular, extensible repository of modern open-source web application installers for [Virtualmin](https://www.virtualmin.com/) ("Manage Web Apps" / Install Scripts).
+<p align="center">
+  <strong>A modular, enterprise-ready collection of 1-click open-source web application installers for <a href="https://www.virtualmin.com/">Virtualmin</a>.</strong>
+</p>
 
-This suite provides a collection of 1-click web applications that run directly on Virtualmin servers, including:
-1. **Self-hosted Daemons & Microservices** (Vaultwarden, AdGuard Home, Pi-hole) running as isolated systemd services behind automated Apache/Nginx reverse proxies.
-2. **Cloud & Collaboration Hubs** (Nextcloud, ownCloud Classic).
-3. **E-Commerce & Shopping Carts** (OpenCart, PrestaShop, Thirty Bees, AbanteCart - with full PlugnPay compatibility).
-4. **Virtualmin Pro Replacements** providing enterprise FOSS alternatives without requiring commercial licenses.
+<p align="center">
+  <img src="https://img.shields.io/badge/Virtualmin-GPL%20%26%20Pro-blue.svg" alt="Virtualmin Compatible">
+  <img src="https://img.shields.io/badge/License-GPLv3-green.svg" alt="License">
+  <img src="https://img.shields.io/badge/Architecture-Modular%20Monorepo-orange.svg" alt="Architecture">
+  <img src="https://img.shields.io/badge/Tests-Passing-brightgreen.svg" alt="Tests">
+</p>
 
 ---
 
-## Quick Start: Adding to your Virtualmin Server
+## Overview
 
-On your Virtualmin server, clone this repository and run the setup script as root:
+The **Virtualmin Web Apps Suite** transforms any Virtualmin server into an application deployment powerhouse. It extends Virtualmin's native **Manage Web Apps / Install Scripts** engine with modern, open-source applications that are traditionally either missing from the free GPL version or unavailable in Virtualmin Pro altogether.
+
+### Key Capabilities
+* **Isolated Daemons & Microservices**: Deploy modern Go, Rust, and Node services (Vaultwarden, AdGuard Home, Pi-hole) running as isolated systemd services behind automated Apache or Nginx reverse proxies with automatic WebSocket forwarding.
+* **Open E-Commerce (PlugnPay Ready)**: Deploy top open-source shopping carts (OpenCart, PrestaShop, Thirty Bees, AbanteCart) pre-configured and ready for payment gateway integration.
+* **Private Cloud & Collaboration**: Deploy enterprise cloud storage platforms (Nextcloud, ownCloud Classic) with automated database provisioning and cron job scheduling.
+* **Single-Command Server Setup**: An all-in-one CLI tool (`setup.sh`) connects, updates, tests, and uninstalls the suite with a single command.
+
+---
+
+## Available Web Applications
+
+| Application | Category | Version | Architecture / Type | Documentation |
+| :--- | :--- | :--- | :--- | :--- |
+| **Vaultwarden** | Security | `1.32.7` | Rust Daemon + Systemd + SSL Reverse Proxy + WebSockets | [App Readme](apps/vaultwarden/README.md) |
+| **AdGuard Home** | System / DNS | `0.107.80` | Standalone Go Binary + Systemd + Web Reverse Proxy | [App Readme](apps/adguard_home/README.md) |
+| **Pi-hole** | System / DNS | `latest` | Containerized Daemon + Systemd + Web Reverse Proxy | [App Readme](apps/pihole/README.md) |
+| **Nextcloud** | Cloud | `30.0.6` | PHP 8.1+ / MariaDB + `occ` CLI Automated Installer | [App Readme](apps/nextcloud/README.md) |
+| **ownCloud** | Cloud | `10.13.4` | PHP / MariaDB + `occ` CLI Automated Installer | [App Readme](apps/owncloud/README.md) |
+| **OpenCart** | Commerce | `4.0.2.3` | PHP / MariaDB + CLI Installer (PlugnPay Ready) | [App Readme](apps/opencart/README.md) |
+| **PrestaShop** | Commerce | `8.1.7` | PHP / MariaDB + `index_cli.php` Installer (PlugnPay Ready) | [App Readme](apps/prestashop/README.md) |
+| **Thirty Bees** | Commerce | `1.7.0` | High-Performance PrestaShop 1.6 Fork (PlugnPay Ready) | [App Readme](apps/thirtybees/README.md) |
+| **AbanteCart** | Commerce | `1.4.1` | Modular PHP / MariaDB Shopping Cart (PlugnPay Ready) | [App Readme](apps/abantecart/README.md) |
+
+*For the complete roadmap of upcoming applications (MediaWiki, Matomo, Uptime Kuma, Forgejo, WooCommerce, etc.), see [ROADMAP.md](ROADMAP.md).*
+
+---
+
+## Quick Start Installation
+
+Run the following commands on your Virtualmin server as `root` (or with `sudo`):
 
 ```bash
-git clone https://github.com/<your-username>/virtualminWebApps.git /opt/virtualminWebApps
+# 1. Clone the repository
+git clone git@github.com:turajbjt/virtualminWebApps.git /opt/virtualminWebApps
 cd /opt/virtualminWebApps
+
+# 2. Register the suite into Virtualmin
 sudo ./setup.sh install
 ```
 
-That's it! The CLI will:
-1. Configure `custom_scripts_dir` in `/etc/webmin/virtual-server/config`.
-2. Synchronize all application scripts and shared libraries into the active scripts path.
-3. Automatically restart Webmin so the new applications appear immediately in the Virtualmin interface.
-
-Once installed, log into your Virtualmin admin dashboard and navigate to:
-**Virtualmin -> [Select Virtual Server] -> Manage Web Apps / Install Scripts**
-You will see the new applications available under their respective categories.
+### Accessing in Virtualmin
+1. Log into your Virtualmin web interface (`https://your-server:10000`).
+2. Select any Virtual Server.
+3. Click **Manage Web Apps** (or **Install Scripts**) in the left sidebar menu.
+4. Click **Available Scripts** to install any application.
 
 ---
 
-## CLI Management (`./setup.sh`)
+## Suite Management CLI (`./setup.sh`)
 
 The repository includes a management CLI (`setup.sh`) for server management:
 
+```bash
+sudo ./setup.sh <command>
+```
+
 | Command | Action |
 | :--- | :--- |
-| `sudo ./setup.sh install` | Registers and connects the suite into Virtualmin's custom scripts directory. |
-| `sudo ./setup.sh update` | Pulls latest Git commits, regenerates script links, and reloads Webmin. |
-| `sudo ./setup.sh remove` | Safely unhooks the suite from Virtualmin configuration. |
-| `./setup.sh list` | Displays a table of all available web applications, categories, and versions. |
-| `./setup.sh status` | Checks Webmin/Virtualmin installation status and active script paths. |
-| `./setup.sh test` | Runs Perl syntax and integrity checks (`perl -cw`) across all scripts and libraries. |
+| `install` | Registers the suite into Virtualmin configuration and synchronizes scripts. |
+| `update` | Pulls latest Git changes, re-synchronizes script links, and refreshes Webmin. |
+| `remove` | Safely unhooks the suite from Virtualmin configuration. |
+| `list` | Displays a table of all available web applications, categories, and versions. |
+| `status` | Checks server configuration, active script paths, and available apps. |
+| `test` | Runs syntax validation (`perl -cw`) across all scripts and shared libraries. |
 
 ---
 
-## Current Applications
-
-Run `./setup.sh list` to view installed modules:
+## Repository Structure
 
 ```text
-APPLICATION          CATEGORY        VERSION      DESCRIPTION                             
-------------------------------------------------------------------------------------------------
-vaultwarden          Security        1.32.7       Vaultwarden Password Manager            
-adguard_home         System          0.107.80     AdGuard Home DNS & Ad Blocker           
-pihole               System          latest       Pi-hole Network-wide Ad Blocker         
-nextcloud            Cloud           30.0.6       Nextcloud Cloud & Collaboration Hub     
-owncloud             Cloud           10.13.4      ownCloud Classic Cloud Platform         
-opencart             Commerce        4.0.2.3      OpenCart E-Commerce Platform            
-prestashop           Commerce        8.1.7        PrestaShop E-Commerce Platform          
-thirtybees           Commerce        1.7.0        Thirty Bees High-Performance E-Commerce 
-abantecart           Commerce        1.4.1        AbanteCart E-Commerce Platform          
+virtualminWebApps/
+├── setup.sh                         # Master CLI manager (install/update/status/list/test)
+├── README.md                        # Project documentation and landing page
+├── ROADMAP.md                       # Comprehensive app roadmap and backlog
+├── apps/                            # Individual application modules
+│   ├── vaultwarden/                 # Vaultwarden Bitwarden password manager
+│   ├── adguard_home/                # AdGuard Home network ad/tracker blocker
+│   ├── pihole/                      # Pi-hole DNS sinkhole
+│   ├── nextcloud/                   # Nextcloud cloud collaboration platform
+│   ├── owncloud/                    # ownCloud cloud storage
+│   ├── opencart/                    # OpenCart e-commerce platform
+│   ├── prestashop/                  # PrestaShop e-commerce platform
+│   ├── thirtybees/                  # Thirty Bees high-performance e-commerce
+│   └── abantecart/                  # AbanteCart modular shopping cart
+├── lib/                             # Shared Perl helper libraries
+│   ├── Common.pl                    # Downloads, archive extraction, permissions, architecture
+│   ├── PortManager.pl               # Dynamic TCP port detection and allocation
+│   ├── SystemdHelper.pl             # Automated systemd service unit lifecycle
+│   └── ProxyHelper.pl               # Apache & Nginx reverse proxy & WebSocket wiring
+├── docs/                            # Comprehensive guides and documentation
+│   ├── INSTALLATION.md              # Detailed server setup and installation guide
+│   ├── DEVELOPER_GUIDE.md           # Guide to writing new Virtualmin web app installers
+│   ├── ECOMMERCE_GUIDE.md           # Shopping carts and PlugnPay payment integration
+│   └── TROUBLESHOOTING.md           # Common edge cases, port binding, and SELinux
+└── scripts/                         # Flattened directory exposed to Virtualmin
+    ├── lib -> ../lib
+    ├── vaultwarden.pl -> ../apps/vaultwarden/vaultwarden.pl
+    └── ...
 ```
 
 ---
 
-## Architecture & How It Works
+## Documentation Links
 
-### Application Structure
-Each application is self-contained in its own directory under `apps/<app_name>/`:
-```text
-apps/<app_name>/
-├── <app_name>.pl       # Virtualmin lifecycle hooks (desc, params, check, install, uninstall)
-├── <app_name>.service  # (Optional) Systemd service unit template for daemons
-└── README.md           # Application-specific documentation and defaults
-```
-
-### Shared Helper Libraries (`lib/`)
-Shared modules ensure consistency and avoid duplicate code:
-* `Common.pl`: Network downloads (curl/wget), archive unpacking (tar/zip), file permissions, and architecture detection.
-* `PortManager.pl`: Dynamic discovery and allocation of available TCP ports (preventing port collisions on multi-tenant servers).
-* `SystemdHelper.pl`: Automated creation, daemon-reload, enablement, and lifecycle control for systemd services.
-* `ProxyHelper.pl`: Dynamic Apache and Nginx reverse proxy configuration, supporting HTTP forwarding, SSL certificates, and WebSocket upgrades (`/notifications/hub`).
+* [Installation Guide](docs/INSTALLATION.md): Detailed installation instructions, prerequisites, and automated vs manual setup.
+* [Developer Guide](docs/DEVELOPER_GUIDE.md): Complete specifications of the Virtualmin script API and how to contribute new application modules.
+* [E-Commerce & PlugnPay Guide](docs/ECOMMERCE_GUIDE.md): Instructions for setting up stores and installing PlugnPay payment gateways.
+* [Troubleshooting Guide](docs/TROUBLESHOOTING.md): Solutions for port conflicts, SELinux policies, reverse proxies, and Web Crypto requirements.
+* [Master Roadmap](ROADMAP.md): Categorized list of upcoming FOSS applications.
 
 ---
 
-## Roadmap
+## Testing & Quality Assurance
 
-See [ROADMAP.md](ROADMAP.md) for the complete list of upcoming applications across CMS, Wikis, Forums, Analytics, and developer tools.
+To test that all Perl modules and application scripts have valid syntax and load shared libraries properly:
+
+```bash
+./setup.sh test
+```
+
+---
+
+## License
+
+This project is licensed under the GNU General Public License v3.0 (GPLv3).
