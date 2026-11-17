@@ -53,6 +53,12 @@ The **Virtualmin Web Apps Suite** transforms any Virtualmin server into an appli
 | **Passbolt** | Security | `5.18.0` | `1` | Open-Source Team Password & Secret Manager | [App Readme](apps/passbolt/README.md) |
 | **CyberChef** | Utilities | `11.5.0` | `1` | Client-Side Cyber Security Swiss Army Knife | [App Readme](apps/cyberchef/README.md) |
 | **IT-Tools** | Development | `2024.10.22` | `1` | Standalone Web Developer & Sysadmin Utilities | [App Readme](apps/it_tools/README.md) |
+| **Roundcube** | Email | `1.6.9` | `1` | Modern Webmail Platform + IMAP/SMTP Integration | [App Readme](apps/roundcube/README.md) |
+| **phpMyAdmin** | Database | `5.2.1` | `1` | Web-Based MySQL/MariaDB Database Administration | [App Readme](apps/phpmyadmin/README.md) |
+| **PrivateBin** | Security | `2.1.1` | `1` | Zero-Knowledge Encrypted Pastebin (Client-Side AES) | [App Readme](apps/privatebin/README.md) |
+| **Kanboard** | Project | `1.2.40` | `1` | Minimalist Visual Kanban Project Management | [App Readme](apps/kanboard/README.md) |
+| **Trilium Notes** | Knowledge | `0.95.0` | `1` | Standalone Node.js Daemon + WebSocket Reverse Proxy | [App Readme](apps/trilium/README.md) |
+| **Netdata** | System | `latest` | `1` | Real-Time Metrics & Observability Daemon + Reverse Proxy | [App Readme](apps/netdata/README.md) |
 | **WooCommerce** | Commerce | `latest` | `1` | WordPress + WP-CLI Automated Bundle (PlugnPay Ready) | [App Readme](apps/woocommerce/README.md) |
 | **OpenCart** | Commerce | `4.0.2.3` | `1` | PHP / MariaDB + CLI Installer (PlugnPay Ready) | [App Readme](apps/opencart/README.md) |
 | **osCommerce** | Commerce | `4.14` | `1` | Classic & Pioneer Shopping Cart Platform (PlugnPay Ready) | [App Readme](apps/oscommerce/README.md) |

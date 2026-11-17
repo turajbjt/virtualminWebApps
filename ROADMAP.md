@@ -69,8 +69,12 @@ A modular collection of open-source web application installers for [Virtualmin](
 - [x] **Passbolt** (Open-source team credential and password manager)
 - [x] **CyberChef** (Cyber security and data analysis web tool)
 - [x] **IT-Tools** (Handy collection of developer utilities)
-- [ ] **Netdata** (Real-time distributed system performance monitor)
-- [ ] **Trilium Notes** (Hierarchical personal knowledge base)
+- [x] **Netdata** (Real-time distributed system performance monitor)
+- [x] **Trilium Notes** (Hierarchical personal knowledge base)
+- [x] **Roundcube** (Browser-based multilingual IMAP webmail client)
+- [x] **phpMyAdmin** (Web-based MySQL and MariaDB database administration)
+- [x] **PrivateBin** (Zero-knowledge 256-bit AES encrypted pastebin)
+- [x] **Kanboard** (Minimalist visual Kanban board project management)
 
 ---
 

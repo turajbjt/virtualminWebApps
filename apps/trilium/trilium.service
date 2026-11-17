@@ -1,0 +1,20 @@
+[Unit]
+Description=Trilium Notes Server for %%DOMAIN%%
+After=network.target network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=%%USER%%
+Group=%%GROUP%%
+WorkingDirectory=%%INSTALL_DIR%%
+Environment="TRILIUM_DATA_DIR=%%DATA_DIR%%"
+Environment="PORT=%%PORT%%"
+Environment="HOST=127.0.0.1"
+ExecStart=%%INSTALL_DIR%%/node/bin/node %%INSTALL_DIR%%/main.cjs
+Restart=always
+RestartSec=5s
+LimitNOFILE=65535
+
+[Install]
+WantedBy=multi-user.target

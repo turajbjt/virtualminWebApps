@@ -1,6 +1,6 @@
 # Applications Reference Manual
 
-A comprehensive technical reference for all 34 web application installers provided by the **Virtualmin Web Apps Suite**.
+A comprehensive technical reference for all 40 web application installers provided by the **Virtualmin Web Apps Suite**.
 
 ---
 
@@ -42,6 +42,12 @@ A comprehensive technical reference for all 34 web application installers provid
 | **Passbolt** | Security | CakePHP / Webserver | MariaDB | Webserver | `~/public_html/<dir>/` | PHP-FPM / Webserver |
 | **CyberChef** | Utilities | Client-Side HTML5 / JS | None | Webserver | `~/public_html/<dir>/` | Webserver Static |
 | **IT-Tools** | Development | Client-Side Vue / Vite | None | Webserver | `~/public_html/<dir>/` | Webserver Static |
+| **Roundcube** | Email | PHP 8.1+ / Webserver | MariaDB | Webserver | `~/public_html/<dir>/` | PHP-FPM / Webserver |
+| **phpMyAdmin** | Database | PHP 8.0+ / Webserver | MariaDB | Webserver | `~/public_html/<dir>/` | PHP-FPM / Webserver |
+| **PrivateBin** | Security | PHP 8.0+ / Webserver | Filesystem | Webserver | `~/public_html/<dir>/` | PHP-FPM / Webserver |
+| **Kanboard** | Project | PHP 8.0+ / Webserver | SQLite / MariaDB | Webserver | `~/public_html/<dir>/` | PHP-FPM / Webserver |
+| **Trilium Notes** | Knowledge | Standalone Node.js Binary | SQLite | `8080` | `~/trilium-data/` | `trilium-<dom>.service` |
+| **Netdata** | System | Container Daemon | Embedded | `19999` | `~/netdata-config/` | `netdata-<dom>.service` |
 
 ---
 
@@ -363,4 +369,58 @@ A comprehensive technical reference for all 34 web application installers provid
 * **Version**: `2024.10.22` | **Build**: `1`
 * **Upstream**: [https://it-tools.tech](https://it-tools.tech)
 * **Architecture**: Client-side collection of developer utilities (token generators, regex testers, converters, formatters) served as static pre-built assets. Zero server-side compute.
+
+---
+
+### 35. Roundcube Webmail
+* **Category**: Email
+* **Version**: `1.6.9` | **Build**: `1`
+* **Upstream**: [https://roundcube.net](https://roundcube.net)
+* **Architecture**: Modern, browser-based multilingual IMAP webmail platform with automated MySQL schema import, random DES key generation, and local Dovecot/Postfix integration.
+* **Database**: MariaDB / MySQL.
+
+---
+
+### 36. phpMyAdmin
+* **Category**: Database
+* **Version**: `5.2.1` | **Build**: `1`
+* **Upstream**: [https://www.phpmyadmin.net](https://www.phpmyadmin.net)
+* **Architecture**: The premier web-based MySQL/MariaDB management tool. Auto-generates a unique 32-character Blowfish encryption secret and isolated cache directory.
+* **Database**: MariaDB / MySQL.
+
+---
+
+### 37. PrivateBin
+* **Category**: Security
+* **Version**: `2.1.1` | **Build**: `1`
+* **Upstream**: [https://privatebin.info](https://privatebin.info)
+* **Architecture**: Zero-knowledge encrypted pastebin. Data is encrypted and decrypted exclusively in the client browser using 256-bit AES-GCM.
+* **Database**: Filesystem storage (`data/`).
+
+---
+
+### 38. Kanboard
+* **Category**: Project
+* **Version**: `1.2.40` | **Build**: `1`
+* **Upstream**: [https://kanboard.org](https://kanboard.org)
+* **Architecture**: Minimalist visual Kanban board project management tool. Uses zero-configuration SQLite backend by default or optional MariaDB.
+* **Database**: SQLite / MariaDB.
+
+---
+
+### 39. Trilium Notes
+* **Category**: Knowledge
+* **Version**: `0.95.0` | **Build**: `1`
+* **Upstream**: [https://triliumnotes.org](https://triliumnotes.org)
+* **Architecture**: Hierarchical note-taking application powered by a self-contained Node.js server binary, running as a dedicated systemd service (`trilium-<dom>.service`) behind an automated Apache/Nginx reverse proxy with WebSocket support.
+* **Storage**: `/home/<dom>/trilium-data`.
+
+---
+
+### 40. Netdata
+* **Category**: System
+* **Version**: `latest` | **Build**: `1`
+* **Upstream**: [https://www.netdata.cloud](https://www.netdata.cloud)
+* **Architecture**: Real-time infrastructure observability and metrics dashboard running as a containerized system daemon (`netdata-<dom>.service`), reverse-proxied to internal port 19999 with WebSocket support.
+
 

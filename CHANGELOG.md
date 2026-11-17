@@ -7,6 +7,32 @@ and this project adheres to Semantic Versioning.
 
 ---
 
+## [1.4.0] - 2026-11-17
+
+### Added
+- **Roundcube Webmail** (`apps/roundcube/`):
+  - Browser-based multilingual IMAP webmail client (v1.6.9).
+  - Automated MariaDB schema import, DES encryption key generation, and local Dovecot/Postfix integration.
+- **phpMyAdmin** (`apps/phpmyadmin/`):
+  - The premier web-based MySQL/MariaDB database administration tool (v5.2.1).
+  - Automated Blowfish secret generation and dedicated template cache folder.
+- **PrivateBin** (`apps/privatebin/`):
+  - Zero-knowledge 256-bit AES-GCM encrypted pastebin (v2.1.1).
+  - Client-side encryption ensures the server has zero visibility into pasted content.
+- **Kanboard** (`apps/kanboard/`):
+  - Minimalist visual Kanban project management tool (v1.2.40).
+  - Zero-configuration SQLite backend by default or optional MariaDB.
+- **Trilium Notes** (`apps/trilium/`):
+  - Hierarchical personal knowledge base and note-taking server (v0.95.0).
+  - Standalone bundled Node.js server binary with dedicated systemd service and reverse proxying with WebSockets.
+- **Netdata Monitoring** (`apps/netdata/`):
+  - Real-time infrastructure observability and metrics dashboard.
+  - Isolated system daemon with automated Apache/Nginx reverse proxying to port 19999.
+- **Documentation Expansion**:
+  - Updated `README.md`, `ROADMAP.md`, and `docs/APPLICATIONS.md` to catalog all 40 applications.
+
+---
+
 ## [1.3.0] - 2026-11-17
 
 ### Added

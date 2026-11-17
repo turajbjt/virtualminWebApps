@@ -1,0 +1,1 @@
+../apps/kanboard/kanboard.pl

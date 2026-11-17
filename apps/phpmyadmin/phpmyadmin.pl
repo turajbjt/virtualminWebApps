@@ -1,0 +1,193 @@
+# apps/phpmyadmin/phpmyadmin.pl
+# Virtualmin Web App installer for phpMyAdmin
+#
+
+use strict;
+use warnings;
+use File::Basename;
+use File::Path qw(make_path remove_tree);
+
+# Include shared libraries
+BEGIN {
+    my $dir = dirname(__FILE__);
+    unshift @INC, "$dir/lib" if -d "$dir/lib";
+    unshift @INC, "$dir/../../lib" if -d "$dir/../../lib";
+    unshift @INC, "$dir/../lib" if -d "$dir/../lib";
+}
+
+require "Common.pl";
+
+sub script_phpmyadmin_desc
+{
+    return "phpMyAdmin Database Administration Tool";
+}
+
+sub script_phpmyadmin_uses
+{
+    return ( "php", "mysql" );
+}
+
+sub script_phpmyadmin_category
+{
+    return "Database";
+}
+
+sub script_phpmyadmin_author
+{
+    return "phpMyAdmin Devel Team";
+}
+
+sub script_phpmyadmin_site
+{
+    return "https://www.phpmyadmin.net";
+}
+
+sub script_phpmyadmin_versions
+{
+    return ( "5.2.1" );
+}
+
+sub script_phpmyadmin_release
+{
+    return 1;
+}
+
+sub script_phpmyadmin_passmode
+{
+    return 0;
+}
+
+sub script_phpmyadmin_params
+{
+    my ($d) = @_;
+    my $html = "";
+
+    $html .= "<tr> <td><b>Install Subdirectory</b></td> <td>";
+    $html .= "<input name=\"phpmyadmin_dir\" size=\"25\" value=\"phpmyadmin\"> ";
+    $html .= "(Default: /phpmyadmin or leave empty for root /)</td> </tr>";
+
+    return $html;
+}
+
+sub script_phpmyadmin_parse
+{
+    my ($d, $in) = @_;
+    my $dir = $in->{'phpmyadmin_dir'} || '';
+    $dir =~ s/^\///;
+    $dir =~ s/\/$//;
+
+    return { 'dir' => $dir };
+}
+
+sub script_phpmyadmin_check
+{
+    my ($d, $ver, $textdb, $dir) = @_;
+
+    if (!$d->{'php'}) {
+        return "phpMyAdmin requires PHP to be enabled for $d->{'dom'}.";
+    }
+    if (!$d->{'mysql'}) {
+        return "phpMyAdmin requires MySQL/MariaDB database feature to be enabled for $d->{'dom'}.";
+    }
+
+    return undef;
+}
+
+sub script_phpmyadmin_files
+{
+    my ($d, $ver, $opts) = @_;
+    my $filename = "phpMyAdmin-$ver-all-languages.tar.gz";
+    my $url = "https://files.phpmyadmin.net/phpMyAdmin/$ver/$filename";
+
+    return (
+        {
+            'name' => $filename,
+            'url'  => $url,
+        }
+    );
+}
+
+sub script_phpmyadmin_install
+{
+    my ($d, $ver, $opts, $defs, $setup) = @_;
+    my $dom = $d->{'dom'};
+    my $user = $d->{'user'};
+    my $group = $d->{'group'} || $user;
+
+    my $doc_root = $d->{'public_html'} || "$d->{'home'}/public_html";
+    my $target_dir = $opts->{'dir'} ? "$doc_root/$opts->{'dir'}" : $doc_root;
+    make_path($target_dir) if !-d $target_dir;
+
+    my $filename = "phpMyAdmin-$ver-all-languages.tar.gz";
+    my $url = "https://files.phpmyadmin.net/phpMyAdmin/$ver/$filename";
+    my $tmp_file = "/tmp/phpmyadmin-$dom-$filename";
+    my $tmp_unpack = "/tmp/phpmyadmin-$dom-unpack";
+
+    my ($ok, $err) = VirtualminWebApps::Common::download_url($url, $tmp_file, 300);
+    return (0, "Download failed: $err") if !$ok;
+
+    make_path($tmp_unpack) if !-d $tmp_unpack;
+    my ($eok, $eerr) = VirtualminWebApps::Common::extract_archive($tmp_file, $tmp_unpack);
+    unlink($tmp_file);
+    return (0, "Extraction failed: $eerr") if !$eok;
+
+    # Copy files from phpMyAdmin-x.x.x-all-languages
+    my @contents = glob("$tmp_unpack/phpMyAdmin-*");
+    if (@contents && -d $contents[0]) {
+        system("cp -r $contents[0]/* $target_dir/ 2>/dev/null");
+        system("cp -r $contents[0]/.[!.]* $target_dir/ 2>/dev/null");
+    } else {
+        system("cp -r $tmp_unpack/* $target_dir/ 2>/dev/null");
+    }
+    remove_tree($tmp_unpack);
+
+    # Create config.inc.php
+    my $blowfish = VirtualminWebApps::Common::generate_random_key(32);
+    if (-f "$target_dir/config.sample.inc.php" && !-f "$target_dir/config.inc.php") {
+        system("cp -f $target_dir/config.sample.inc.php $target_dir/config.inc.php");
+        
+        # Replace blowfish secret
+        my $cfg_content = "";
+        if (open(my $rfh, "<", "$target_dir/config.inc.php")) {
+            local $/ = undef;
+            $cfg_content = <$rfh>;
+            close($rfh);
+            $cfg_content =~ s/\$cfg\['blowfish_secret'\]\s*=\s*['"][^'"]*['"]/\$cfg\['blowfish_secret'\] = '$blowfish'/;
+            if (open(my $wfh, ">", "$target_dir/config.inc.php")) {
+                print $wfh $cfg_content;
+                close($wfh);
+            }
+        }
+    }
+
+    # Ensure tmp directory exists for phpMyAdmin templates cache
+    my $tmp_cache = "$target_dir/tmp";
+    make_path($tmp_cache) if !-d $tmp_cache;
+    chmod(0777, $tmp_cache);
+
+    VirtualminWebApps::Common::set_ownership_recursive($target_dir, $user, $group);
+
+    my $proto = $d->{'ssl'} ? 'https' : 'http';
+    my $url_path = $opts->{'dir'} ? "/$opts->{'dir'}/" : "/";
+    my $full_url = "$proto://$dom$url_path";
+
+    return (
+        1,
+        "$full_url",
+        "Installed phpMyAdmin to $full_url. Log in with domain database credentials."
+    );
+}
+
+sub script_phpmyadmin_uninstall
+{
+    my ($d, $ver, $opts) = @_;
+    my $doc_root = $d->{'public_html'} || "$d->{'home'}/public_html";
+    my $target_dir = $opts->{'dir'} ? "$doc_root/$opts->{'dir'}" : $doc_root;
+
+    if ($opts->{'dir'} && -d $target_dir) {
+        remove_tree($target_dir);
+    }
+    return 1;
+}
+
+1;

@@ -1,0 +1,1 @@
+../apps/phpmyadmin/phpmyadmin.pl
