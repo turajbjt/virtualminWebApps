@@ -56,7 +56,7 @@ sync_scripts_directory() {
 
     # Ensure lib symlink exists inside scripts/
     if [[ ! -e "${SCRIPTS_DIR}/lib" ]]; then
-        ln -sfn "${LIB_DIR}" "${SCRIPTS_DIR}/lib"
+        ln -sfn "../lib" "${SCRIPTS_DIR}/lib"
     fi
 
     # Symlink all *.pl files from apps/*/*.pl into scripts/
@@ -67,7 +67,7 @@ sync_scripts_directory() {
             app_name=$(basename "${app_dir}")
             local pl_file="${app_dir}/${app_name}.pl"
             if [[ -f "${pl_file}" ]]; then
-                ln -sfn "${pl_file}" "${SCRIPTS_DIR}/${app_name}.pl"
+                ln -sfn "../apps/${app_name}/${app_name}.pl" "${SCRIPTS_DIR}/${app_name}.pl"
                 count=$((count + 1))
             fi
         fi

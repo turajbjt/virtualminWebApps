@@ -1,1 +1,1 @@
-/home/turajb/cursorProjects/virtualminWebApps/apps/cubecart/cubecart.pl
+../apps/cubecart/cubecart.pl

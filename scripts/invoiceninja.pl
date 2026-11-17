@@ -1,1 +1,1 @@
-/home/turajb/cursorProjects/virtualminWebApps/apps/invoiceninja/invoiceninja.pl
+../apps/invoiceninja/invoiceninja.pl

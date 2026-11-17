@@ -1,1 +1,1 @@
-/home/turajb/cursorProjects/virtualminWebApps/apps/uptime_kuma/uptime_kuma.pl
+../apps/uptime_kuma/uptime_kuma.pl

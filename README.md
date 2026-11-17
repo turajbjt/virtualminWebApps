@@ -17,7 +17,7 @@
 
 The **Virtualmin Web Apps Suite** transforms any Virtualmin server into an application deployment powerhouse. It extends Virtualmin's native **Manage Web Apps / Install Scripts** engine with modern, open-source applications that are traditionally either missing from the free GPL version or unavailable in Virtualmin Pro altogether.
 
-The repository currently features **64 fully automated web application installers** spanning cloud collaboration, email, database administration, developer tooling, personal finance, photo galleries, surveys, issue tracking, wikis, URL shortening, project management, push notifications, e-learning, feed readers, security, system metrics, ERP/CRM, and the entire open-source e-commerce and shopping cart ecosystem.
+The repository currently features **69 fully automated web application installers** spanning cloud collaboration, email, database administration, developer tooling, personal finance, photo galleries, surveys, issue tracking, wikis, URL shortening, project management, push notifications, e-learning, feed readers, security, system metrics, ERP/CRM, music streaming, document archiving, team communication, and the entire open-source e-commerce and shopping cart ecosystem.
 
 ### Key Capabilities
 * **Isolated Daemons & Microservices**: Deploy modern Go, Rust, Node, and container services (Vaultwarden, AdGuard Home, Pi-hole, Trilium Notes, Netdata, Uptime Kuma) running as isolated systemd services behind automated Apache or Nginx reverse proxies with automatic WebSocket forwarding.
@@ -97,6 +97,11 @@ The repository currently features **64 fully automated web application installer
 | **Gotify** | System | `3.1.1` | `1` | Real-Time Push Notification Server (Go Binary + WebSockets) | [App Readme](apps/gotify/README.md) |
 | **Miniflux** | News | `2.3.5` | `1` | Minimalist Feed Reader (Go Binary + PostgreSQL + Systemd) | [App Readme](apps/miniflux/README.md) |
 | **Microbin** | Utilities | `2.1.0` | `1` | Lightweight Encrypted Pastebin & File Sharing (Rust Binary) | [App Readme](apps/microbin/README.md) |
+| **Navidrome** | Media | `0.64.2` | `1` | Subsonic Modern Music Streaming Server (Go Binary + Systemd) | [App Readme](apps/navidrome/README.md) |
+| **FlatPress** | Blog | `1.5.1` | `1` | Lightweight Flat-File Blogging Engine (Zero SQL Database) | [App Readme](apps/flatpress/README.md) |
+| **Monica PRM** | Business | `4.1.2` | `1` | Personal Relationship Management Platform (PHP / MariaDB) | [App Readme](apps/monica/README.md) |
+| **Mattermost** | Chat | `10.5.1` | `1` | Team Collaboration & Chat Platform (Go Binary + Systemd) | [App Readme](apps/mattermost/README.md) |
+| **Paperless-ngx** | Documents | `3.5.0` | `1` | Document Archiving, Indexing & OCR (Container + Systemd) | [App Readme](apps/paperless_ngx/README.md) |
 
 > **Module Build Number Policy**: The `Build` number tracks the revision of our Virtualmin installer module independently of the upstream application version. Every time an installer script or service configuration is updated, its build number is incremented by 1 so server administrators can easily track changes and verify version freshness via `./setup.sh list`.
 
@@ -106,7 +111,7 @@ The repository currently features **64 fully automated web application installer
 
 ## Documentation Library
 
-* **[Applications Reference Manual](docs/APPLICATIONS.md)**: Full runtime, database, storage directory, port, and systemd service profiles for all 64 applications.
+* **[Applications Reference Manual](docs/APPLICATIONS.md)**: Full runtime, database, storage directory, port, and systemd service profiles for all 69 applications.
 * **[Installation Guide](docs/INSTALLATION.md)**: Automated CLI installation and manual Webmin GUI registration instructions.
 * **[Upgrades & Maintenance Guide](docs/UPGRADE_GUIDE.md)**: Managing repository updates (`setup.sh update`), Virtualmin GUI upgrades, and automated cron checking.
 * **[E-Commerce & PlugnPay Integration Guide](docs/ECOMMERCE_GUIDE.md)**: Store setup and PlugnPay payment gateway module configuration.

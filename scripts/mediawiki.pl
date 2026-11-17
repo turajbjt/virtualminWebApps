@@ -1,1 +1,1 @@
-/home/turajb/cursorProjects/virtualminWebApps/apps/mediawiki/mediawiki.pl
+../apps/mediawiki/mediawiki.pl

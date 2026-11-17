@@ -1,1 +1,1 @@
-/home/turajb/cursorProjects/virtualminWebApps/apps/joomla/joomla.pl
+../apps/joomla/joomla.pl

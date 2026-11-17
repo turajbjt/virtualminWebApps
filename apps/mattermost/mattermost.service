@@ -1,0 +1,22 @@
+[Unit]
+Description=Mattermost Team Edition (${VIRTUALMIN_DOM})
+After=network.target network-online.target mariadb.service mysql.service
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=${VIRTUALMIN_USER}
+Group=${VIRTUALMIN_USER}
+WorkingDirectory=${VIRTUALMIN_HOME}/mattermost
+ExecStart=${VIRTUALMIN_HOME}/mattermost/bin/mattermost
+Restart=always
+RestartSec=10s
+LimitNOFILE=65536
+Environment=MM_SERVICESETTINGS_SITEURL=${MM_SITEURL}
+Environment=MM_SERVICESETTINGS_LISTENADDRESS=127.0.0.1:${MM_PORT}
+Environment=MM_SQLSETTINGS_DRIVERNAME=mysql
+Environment=MM_SQLSETTINGS_DATASOURCE=${MM_DATASOURCE}
+Environment=MM_FILESETTINGS_DIRECTORY=${VIRTUALMIN_HOME}/mattermost/data
+
+[Install]
+WantedBy=multi-user.target

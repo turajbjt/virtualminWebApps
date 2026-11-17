@@ -1,1 +1,1 @@
-/home/turajb/cursorProjects/virtualminWebApps/apps/pihole/pihole.pl
+../apps/pihole/pihole.pl

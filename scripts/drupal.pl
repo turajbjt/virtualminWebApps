@@ -1,1 +1,1 @@
-/home/turajb/cursorProjects/virtualminWebApps/apps/drupal/drupal.pl
+../apps/drupal/drupal.pl

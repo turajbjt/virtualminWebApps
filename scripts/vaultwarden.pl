@@ -1,1 +1,1 @@
-/home/turajb/cursorProjects/virtualminWebApps/apps/vaultwarden/vaultwarden.pl
+../apps/vaultwarden/vaultwarden.pl

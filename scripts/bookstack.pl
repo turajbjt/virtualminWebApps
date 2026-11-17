@@ -1,1 +1,1 @@
-/home/turajb/cursorProjects/virtualminWebApps/apps/bookstack/bookstack.pl
+../apps/bookstack/bookstack.pl

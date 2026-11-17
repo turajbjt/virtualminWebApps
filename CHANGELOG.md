@@ -7,6 +7,35 @@ and this project adheres to Semantic Versioning.
 
 ---
 
+## [1.9.0] - 2026-11-17
+
+### Added
+- **GitHub Actions CI Workflow** (`.github/workflows/ci.yml`):
+  - Automated continuous integration workflow executing on push and PR to `main` and `master`.
+  - Performs syntax verification (`./setup.sh test`), catalog extraction (`./setup.sh list`), and symlink validation.
+- **Installation Guide Expansion** (`docs/INSTALLATION.md`):
+  - Thoroughly expanded Section 4 to reflect all 17 application categories across the entire 69-application suite.
+- **Navidrome** (`apps/navidrome/`):
+  - Modern Subsonic-compatible music streaming server and API backend in Go (v0.64.2).
+  - Standalone compiled binary daemon with dynamic port allocation (`4533`), systemd service unit, and SSL reverse proxy.
+- **FlatPress** (`apps/flatpress/`):
+  - Classic lightweight flat-file blogging engine (v1.5.1) requiring zero SQL database.
+  - Fast file-based storage, Smarty theming, RSS/Atom feeds, and automated setup wizard routing.
+- **Monica PRM** (`apps/monica/`):
+  - Personal Relationship Management (PRM) platform (v4.1.2) built on Laravel & PHP.
+  - Automated MariaDB/MySQL database provisioning, `.env` generation, and security key generation.
+- **Mattermost Team Edition** (`apps/mattermost/`):
+  - High-performance team collaboration, messaging, and chat server in Go (v10.5.1).
+  - Standalone daemon with systemd integration, dynamic port allocation (`8065`), MariaDB integration, and WebSocket reverse proxy.
+- **Paperless-ngx** (`apps/paperless_ngx/`):
+  - Community-driven document indexing, Optical Character Recognition (OCR), and archiving system (v3.5.0).
+  - Isolated Podman/Docker container runtime, systemd service unit, dynamic port allocation (`8000`), and WebSocket reverse proxy.
+- **Milestone 69**:
+  - Suite expanded to 69 fully automated web application installers.
+  - Syntax verification passed across all 73 Perl scripts and shared libraries.
+
+---
+
 ## [1.8.0] - 2026-11-17
 
 ### Added

@@ -1,1 +1,1 @@
-/home/turajb/cursorProjects/virtualminWebApps/apps/thirtybees/thirtybees.pl
+../apps/thirtybees/thirtybees.pl

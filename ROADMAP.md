@@ -111,6 +111,15 @@ A modular collection of open-source web application installers for [Virtualmin](
 
 ---
 
+### Phase 8: Document Management, Streaming, Team Collaboration & Personal Portals
+- [x] **Paperless-ngx** (Document management system & OCR archive)
+- [x] **Monica PRM** (Personal relationship management platform)
+- [x] **Navidrome** (Subsonic-compatible modern music streaming server)
+- [x] **Mattermost** (Open-source team communication, messaging, and chat)
+- [x] **FlatPress** (Classic lightweight flat-file blogging engine requiring no database)
+
+---
+
 ## 3. Directory Layout Standard
 
 ```text

@@ -1,1 +1,1 @@
-/home/turajb/cursorProjects/virtualminWebApps/apps/owncloud/owncloud.pl
+../apps/owncloud/owncloud.pl

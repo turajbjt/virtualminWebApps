@@ -1,1 +1,1 @@
-/home/turajb/cursorProjects/virtualminWebApps/apps/phpbb/phpbb.pl
+../apps/phpbb/phpbb.pl

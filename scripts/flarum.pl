@@ -1,1 +1,1 @@
-/home/turajb/cursorProjects/virtualminWebApps/apps/flarum/flarum.pl
+../apps/flarum/flarum.pl

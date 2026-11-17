@@ -1,1 +1,1 @@
-/home/turajb/cursorProjects/virtualminWebApps/apps/litecart/litecart.pl
+../apps/litecart/litecart.pl

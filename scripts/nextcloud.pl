@@ -1,1 +1,1 @@
-/home/turajb/cursorProjects/virtualminWebApps/apps/nextcloud/nextcloud.pl
+../apps/nextcloud/nextcloud.pl

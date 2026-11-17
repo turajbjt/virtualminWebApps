@@ -1,1 +1,1 @@
-/home/turajb/cursorProjects/virtualminWebApps/apps/matomo/matomo.pl
+../apps/matomo/matomo.pl

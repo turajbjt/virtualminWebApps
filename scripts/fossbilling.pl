@@ -1,1 +1,1 @@
-/home/turajb/cursorProjects/virtualminWebApps/apps/fossbilling/fossbilling.pl
+../apps/fossbilling/fossbilling.pl

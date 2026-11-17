@@ -1,1 +1,1 @@
-/home/turajb/cursorProjects/virtualminWebApps/apps/opencart/opencart.pl
+../apps/opencart/opencart.pl

@@ -1,1 +1,1 @@
-/home/turajb/cursorProjects/virtualminWebApps/apps/dolibarr/dolibarr.pl
+../apps/dolibarr/dolibarr.pl

@@ -1,1 +1,1 @@
-/home/turajb/cursorProjects/virtualminWebApps/apps/prestashop/prestashop.pl
+../apps/prestashop/prestashop.pl

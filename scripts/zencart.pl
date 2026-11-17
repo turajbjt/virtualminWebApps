@@ -1,1 +1,1 @@
-/home/turajb/cursorProjects/virtualminWebApps/apps/zencart/zencart.pl
+../apps/zencart/zencart.pl

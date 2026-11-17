@@ -1,0 +1,18 @@
+[Unit]
+Description=Navidrome Music Streaming Server (${VIRTUALMIN_DOM})
+After=network.target
+
+[Service]
+Type=simple
+User=${VIRTUALMIN_USER}
+Group=${VIRTUALMIN_USER}
+WorkingDirectory=${VIRTUALMIN_HOME}/navidrome
+ExecStart=${VIRTUALMIN_HOME}/navidrome/navidrome --configfile ${VIRTUALMIN_HOME}/navidrome/navidrome.toml
+Restart=always
+RestartSec=5s
+Environment=ND_SCANINTERVAL=10m
+Environment=ND_LOGLEVEL=info
+LimitNOFILE=65536
+
+[Install]
+WantedBy=multi-user.target

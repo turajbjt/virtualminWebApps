@@ -1,1 +1,1 @@
-/home/turajb/cursorProjects/virtualminWebApps/apps/woocommerce/woocommerce.pl
+../apps/woocommerce/woocommerce.pl

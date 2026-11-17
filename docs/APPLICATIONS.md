@@ -1,6 +1,6 @@
 # Applications Reference Manual
 
-A comprehensive technical reference for all 64 web application installers provided by the **Virtualmin Web Apps Suite**.
+A comprehensive technical reference for all 69 web application installers provided by the **Virtualmin Web Apps Suite**.
 
 ---
 
@@ -72,6 +72,11 @@ A comprehensive technical reference for all 64 web application installers provid
 | **Gotify** | System | Standalone Go Binary | SQLite | `8088` | `~/gotify/` | `gotify-<dom>.service` |
 | **Miniflux** | News | Standalone Go Binary | PostgreSQL | `8089` | `~/miniflux/` | `miniflux-<dom>.service` |
 | **Microbin** | Utilities | Standalone Rust Binary | Filesystem | `8087` | `~/microbin/` | `microbin-<dom>.service` |
+| **Navidrome** | Media | Standalone Go Binary | SQLite | `4533` | `~/navidrome/data/`, `~/music/` | `navidrome-<dom>.service` |
+| **FlatPress** | Blog | Flat-File PHP / Webserver | None | Webserver | `~/public_html/<dir>/` | PHP-FPM / Webserver |
+| **Monica PRM** | Business | Laravel PHP / Webserver | MariaDB | Webserver | `~/public_html/<dir>/` | PHP-FPM / Webserver |
+| **Mattermost** | Chat | Standalone Go Binary | MariaDB | `8065` | `~/mattermost/data/` | `mattermost-<dom>.service` |
+| **Paperless-ngx** | Documents | Container Daemon | SQLite | `8000` | `~/paperless/data/` | `paperless-<dom>.service` |
 
 ---
 
@@ -662,6 +667,52 @@ A comprehensive technical reference for all 64 web application installers provid
 * **Upstream**: [https://microbin.eu](https://microbin.eu)
 * **Architecture**: Ultra-fast, zero-dependency encrypted pastebin and file sharing service written in Rust, featuring client-side encryption, burn-after-reading expiration, and QR code sharing.
 * **Database**: Filesystem / Embedded.
+
+---
+
+### 65. Navidrome
+* **Category**: Media
+* **Version**: `0.64.2` | **Build**: `1`
+* **Upstream**: [https://www.navidrome.org](https://www.navidrome.org)
+* **Architecture**: Modern, lightweight music streaming server and Subsonic-compatible API backend written in Go. Operates as an isolated daemon managed by systemd and reverse-proxied by Apache or Nginx.
+* **Database**: Embedded SQLite.
+
+---
+
+### 66. FlatPress
+* **Category**: Blog
+* **Version**: `1.5.1` | **Build**: `1`
+* **Upstream**: [https://www.flatpress.org](https://www.flatpress.org)
+* **Architecture**: Lightweight, standards-compliant blogging engine that stores posts, comments, and settings completely in flat text files with zero SQL database requirements.
+* **Database**: None (Flat Files).
+
+---
+
+### 67. Monica PRM
+* **Category**: Business
+* **Version**: `4.1.2` | **Build**: `1`
+* **Upstream**: [https://www.monicahq.com](https://www.monicahq.com)
+* **Architecture**: Personal Relationship Management (PRM) platform built with Laravel/PHP to document interactions, milestones, contact notes, and relationships.
+* **Database**: MariaDB / MySQL.
+
+---
+
+### 68. Mattermost
+* **Category**: Chat
+* **Version**: `10.5.1` | **Build**: `1`
+* **Upstream**: [https://mattermost.com](https://mattermost.com)
+* **Architecture**: High-performance, open-source team collaboration and messaging service written in Go. Runs as a systemd service, backed by MariaDB, and reverse-proxied with full WebSocket forwarding.
+* **Database**: MariaDB / MySQL.
+
+---
+
+### 69. Paperless-ngx
+* **Category**: Documents
+* **Version**: `3.5.0` | **Build**: `1`
+* **Upstream**: [https://docs.paperless-ngx.com](https://docs.paperless-ngx.com)
+* **Architecture**: Automated document indexing, Optical Character Recognition (OCR), and searchable archiving platform running inside an isolated container with systemd integration and reverse proxying.
+* **Database**: SQLite (or PostgreSQL via container).
+
 
 
 

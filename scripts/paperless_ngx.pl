@@ -1,0 +1,1 @@
+../apps/paperless_ngx/paperless_ngx.pl

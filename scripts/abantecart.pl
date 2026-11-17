@@ -1,1 +1,1 @@
-/home/turajb/cursorProjects/virtualminWebApps/apps/abantecart/abantecart.pl
+../apps/abantecart/abantecart.pl

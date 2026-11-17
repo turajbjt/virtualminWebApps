@@ -75,11 +75,25 @@ In the Virtualmin Web GUI:
 1. Select any Virtual Server (e.g. `example.com`).
 2. Go to **Manage Web Apps** (or **Install Scripts**).
 3. Click **Available Scripts**.
-4. You will see the new web applications organized under their respective categories:
-   * **Security**: Vaultwarden Password Manager
-   * **System**: AdGuard Home, Pi-hole
-   * **Cloud**: Nextcloud, ownCloud Classic
-   * **Commerce**: OpenCart, PrestaShop, Thirty Bees, AbanteCart
+4. You will see all web applications organized under their respective categories:
+   * **Security & Identity**: Vaultwarden, Passbolt, PrivateBin
+   * **System, Monitoring & Networking**: AdGuard Home, Pi-hole, Uptime Kuma, Netdata, Gotify
+   * **Cloud & File Storage**: Nextcloud, ownCloud Classic, Filebrowser
+   * **Commerce & Digital Sales**: WooCommerce, OpenCart, PrestaShop, Thirty Bees, AbanteCart, FOSSBilling, Zen Cart, osCommerce, CubeCart, LiteCart
+   * **Content Management (CMS) & Blogging**: Drupal, Joomla!, Grav, Ghost, FlatPress
+   * **Wikis & Knowledge Management**: MediaWiki, BookStack, DokuWiki, Trilium Notes
+   * **CRM, Business & Personal Finance**: Dolibarr, SuiteCRM, EspoCRM, Invoice Ninja, InvoicePlane, Firefly III, Monica PRM
+   * **Discussion Forums & Communities**: phpBB, Flarum, MyBB
+   * **Project Management & Issue Tracking**: Kanboard, Leantime, Vikunja, MantisBT
+   * **Developer Tools & Utilities**: Forgejo, IT-Tools, CyberChef, YOURLS, LinkStack, Shaarli, Microbin
+   * **Analytics & Performance**: Matomo, Umami
+   * **Education & Learning Management**: Moodle, Chamilo LMS
+   * **Media, Galleries & Audio Streaming**: Lychee, Piwigo, Navidrome
+   * **Communication, Team Chat & Webmail**: Roundcube, SnappyMail, Mattermost
+   * **News, Feeds & Aggregation**: FreshRSS, Miniflux
+   * **Document Management & Archiving**: Paperless-ngx, Wallabag
+   * **Database Administration**: phpMyAdmin, Adminer
+   * **Sync, Calendars & Address Books**: Baïkal
 
 ---
 

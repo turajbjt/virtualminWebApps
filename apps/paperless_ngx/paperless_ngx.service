@@ -1,0 +1,17 @@
+[Unit]
+Description=Paperless-ngx Document Management Service for %DOMAIN%
+After=network.target network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=root
+WorkingDirectory=%DATA_DIR%
+ExecStart=%EXEC_START%
+ExecStop=/usr/bin/podman stop -t 10 paperless-%DOMAIN%
+Restart=always
+RestartSec=10s
+LimitNOFILE=65536
+
+[Install]
+WantedBy=multi-user.target

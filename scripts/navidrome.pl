@@ -1,0 +1,1 @@
+../apps/navidrome/navidrome.pl

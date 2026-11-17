@@ -1,1 +1,1 @@
-/home/turajb/cursorProjects/virtualminWebApps/apps/forgejo/forgejo.pl
+../apps/forgejo/forgejo.pl
