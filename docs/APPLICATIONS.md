@@ -1,0 +1,250 @@
+# Applications Reference Manual
+
+A comprehensive technical reference for all 22 web application installers provided by the **Virtualmin Web Apps Suite**.
+
+---
+
+## Quick Reference Index
+
+| Application | Category | Runtime / Stack | DB Type | Default Port | Storage Location | Systemd Service |
+| :--- | :--- | :--- | :--- | :--- | :--- | :--- |
+| **Vaultwarden** | Security | Rust / Container | SQLite | `8000` | `~/vaultwarden-data/` | `vaultwarden-<dom>.service` |
+| **AdGuard Home** | System / DNS | Standalone Go Binary | Embedded | `3000` (Web), `53` (DNS) | `~/adguard-home/` | `adguard-home-<dom>.service` |
+| **Pi-hole** | System / DNS | Container Daemon | SQLite | `8080` (Web), `53` (DNS) | `~/pihole-data/` | `pihole-<dom>.service` |
+| **Uptime Kuma** | System | Node.js / Container | SQLite | `3001` | `~/uptime-kuma-data/` | `uptime-kuma-<dom>.service` |
+| **File Browser** | System | Standalone Go Binary | BoltDB | `8085` | `~/filebrowser/` | `filebrowser-<dom>.service` |
+| **Forgejo** | Development | Standalone Go Binary | MariaDB | `3000` (Web), `2222` (SSH) | `~/forgejo/` | `forgejo-<dom>.service` |
+| **Nextcloud** | Cloud | PHP 8.1+ / Apache/Nginx | MariaDB | Webserver | `~/public_html/`, `~/nextcloud-data/` | PHP-FPM / Webserver |
+| **ownCloud** | Cloud | PHP 7.4-8.2 / Webserver | MariaDB | Webserver | `~/public_html/`, `~/owncloud-data/` | PHP-FPM / Webserver |
+| **MediaWiki** | Wiki | PHP 8.1+ / Webserver | MariaDB | Webserver | `~/public_html/<dir>/` | PHP-FPM / Webserver |
+| **BookStack** | Wiki | Laravel PHP / Webserver | MariaDB | Webserver | `~/public_html/<dir>/` | PHP-FPM / Webserver |
+| **Matomo** | Analytics | PHP 8.0+ / Webserver | MariaDB | Webserver | `~/public_html/<dir>/` | PHP-FPM / Webserver |
+| **Flarum** | Community | PHP 8.1+ / Webserver | MariaDB | Webserver | `~/public_html/<dir>/` | PHP-FPM / Webserver |
+| **Dolibarr** | Business | PHP 7.4-8.2 / Webserver | MariaDB | Webserver | `~/public_html/<dir>/`, `~/dolibarr-documents/` | PHP-FPM / Webserver |
+| **WooCommerce** | Commerce | WordPress / PHP | MariaDB | Webserver | `~/public_html/<dir>/` | PHP-FPM / Webserver |
+| **OpenCart** | Commerce | PHP 8.0+ / Webserver | MariaDB | Webserver | `~/public_html/<dir>/` | PHP-FPM / Webserver |
+| **PrestaShop** | Commerce | PHP 8.1+ / Webserver | MariaDB | Webserver | `~/public_html/<dir>/` | PHP-FPM / Webserver |
+| **Thirty Bees** | Commerce | PHP 7.4-8.2 / Webserver | MariaDB | Webserver | `~/public_html/<dir>/` | PHP-FPM / Webserver |
+| **AbanteCart** | Commerce | PHP 8.0+ / Webserver | MariaDB | Webserver | `~/public_html/<dir>/` | PHP-FPM / Webserver |
+| **FOSSBilling** | Commerce | PHP 8.1+ / Webserver | MariaDB | Webserver | `~/public_html/<dir>/` | PHP-FPM / Webserver |
+| **Zen Cart** | Commerce | PHP 8.0+ / Webserver | MariaDB | Webserver | `~/public_html/<dir>/` | PHP-FPM / Webserver |
+| **LiteCart** | Commerce | PHP 8.0+ / Webserver | MariaDB | Webserver | `~/public_html/<dir>/` | PHP-FPM / Webserver |
+| **CubeCart** | Commerce | PHP 8.0+ / Webserver | MariaDB | Webserver | `~/public_html/<dir>/` | PHP-FPM / Webserver |
+
+---
+
+## Detailed Application Guides
+
+### 1. Vaultwarden
+* **Category**: Security
+* **Version**: `1.32.7` | **Build**: `1`
+* **Upstream**: [https://github.com/dani-garcia/vaultwarden](https://github.com/dani-garcia/vaultwarden)
+* **Architecture**: Standalone daemon or rootless container managed by systemd, listening on `127.0.0.1:8000` and reverse-proxied by Apache/Nginx.
+* **Requirements**: SSL/HTTPS enabled on the domain (Bitwarden clients enforce Web Crypto APIs).
+* **Key Configuration**:
+  * Environment: `/home/<domain>/vaultwarden.env`
+  * Data Directory: `/home/<domain>/vaultwarden-data`
+  * WebSockets: `/notifications/hub` forwarded to ws backend for instant multi-device vault synchronization.
+  * Admin Portal: Accessible at `/admin` if an `ADMIN_TOKEN` is configured during setup.
+
+---
+
+### 2. AdGuard Home
+* **Category**: System / DNS
+* **Version**: `0.107.80` | **Build**: `1`
+* **Upstream**: [https://adguard.com/en/adguard-home.html](https://adguard.com/en/adguard-home.html)
+* **Architecture**: Standalone pre-compiled Go binary (amd64, arm64, armv7) managed by systemd (`adguard-home-<domain>.service`).
+* **Ports**:
+  * Web Dashboard: `127.0.0.1:3000` (automatically reverse-proxied to domain root).
+  * DNS Port: `53` (TCP/UDP, configurable if local BIND or resolver uses 53).
+* **Configuration**: `/home/<domain>/adguard-home/AdGuardHome.yaml`
+
+---
+
+### 3. Pi-hole
+* **Category**: System / DNS
+* **Version**: `latest` | **Build**: `1`
+* **Upstream**: [https://pi-hole.net](https://pi-hole.net)
+* **Architecture**: Isolated container daemon (Podman or Docker) preventing conflicts with host web and DNS services.
+* **Ports**:
+  * Web Admin: `127.0.0.1:8080` (reverse-proxied to `https://<domain>/admin/`).
+  * DNS Port: `53` (TCP/UDP).
+* **Data Storage**: `/home/<domain>/pihole-data/etc-pihole` and `/etc-dnsmasq.d`.
+
+---
+
+### 4. Uptime Kuma
+* **Category**: System
+* **Version**: `latest` | **Build**: `1`
+* **Upstream**: [https://uptime.kuma.pet](https://uptime.kuma.pet)
+* **Architecture**: High-performance Node.js service running via container and systemd.
+* **Ports**: `127.0.0.1:3001` (reverse-proxied with full WebSocket / Socket.io forwarding).
+* **Data Storage**: `/home/<domain>/uptime-kuma-data/`.
+
+---
+
+### 5. File Browser
+* **Category**: System
+* **Version**: `2.30.0` | **Build**: `1`
+* **Upstream**: [https://filebrowser.org](https://filebrowser.org)
+* **Architecture**: Single static Go binary (~15MB RAM) running as a systemd service under the domain user.
+* **Default Port**: `127.0.0.1:8085` (reverse-proxied to domain root).
+* **Root Directory**: Bound to `/home/<domain>` for full home directory management.
+* **Default Credentials**: `admin` / `admin`.
+
+---
+
+### 6. Forgejo
+* **Category**: Development
+* **Version**: `17.0.1` | **Build**: `1`
+* **Upstream**: [https://forgejo.org](https://forgejo.org)
+* **Architecture**: Standalone static Go binary with MariaDB database backend and systemd unit (`forgejo-<domain>.service`).
+* **Ports**:
+  * HTTP Web: `127.0.0.1:3000` (reverse-proxied).
+  * SSH Port: `2222` (configurable for Git over SSH).
+* **Configuration**: `/home/<domain>/forgejo/custom/conf/app.ini`.
+* **Repositories**: Stored in `/home/<domain>/forgejo/data/forgejo-repositories`.
+
+---
+
+### 7. Nextcloud
+* **Category**: Cloud
+* **Version**: `30.0.6` | **Build**: `1`
+* **Upstream**: [https://nextcloud.com](https://nextcloud.com)
+* **Architecture**: Standard PHP 8.1+ with MariaDB/MySQL.
+* **Installation**: Automated via Nextcloud's `occ maintenance:install` CLI.
+* **Data Directory**: `/home/<domain>/nextcloud-data` (secured outside `public_html`).
+* **Cron Execution**: `*/5 * * * * php -f /path/to/cron.php` registered in domain crontab.
+
+---
+
+### 8. ownCloud Classic
+* **Category**: Cloud
+* **Version**: `10.13.4` | **Build**: `1`
+* **Upstream**: [https://owncloud.com](https://owncloud.com)
+* **Architecture**: PHP with MariaDB/MySQL.
+* **Data Directory**: `/home/<domain>/owncloud-data` outside `public_html`.
+
+---
+
+### 9. MediaWiki
+* **Category**: Wiki
+* **Version**: `1.42.3` | **Build**: `1`
+* **Upstream**: [https://www.mediawiki.org](https://www.mediawiki.org)
+* **Architecture**: PHP with MariaDB/MySQL.
+* **Installation**: Automated CLI installation using MediaWiki's `maintenance/run.php install` (generates `LocalSettings.php`, tables, and admin account).
+
+---
+
+### 10. BookStack
+* **Category**: Wiki
+* **Version**: `24.05.4` | **Build**: `1`
+* **Upstream**: [https://www.bookstackapp.com](https://www.bookstackapp.com)
+* **Architecture**: Laravel PHP with MariaDB.
+* **Installation**: Automated `.env` configuration, `artisan key:generate`, and database migration execution.
+* **Default Credentials**: `admin@admin.com` / `password`.
+
+---
+
+### 11. Matomo (Piwik Analytics)
+* **Category**: Analytics
+* **Version**: `5.1.2` | **Build**: `1`
+* **Upstream**: [https://matomo.org](https://matomo.org)
+* **Architecture**: PHP with MariaDB.
+* **Configuration**: Automated `config/config.ini.php` database connection and security salt generation.
+* **Archiving Cron**: `5 * * * * php console core:archive` registered in crontab for high-performance reporting.
+
+---
+
+### 12. Flarum
+* **Category**: Community / Forums
+* **Version**: `latest` | **Build**: `1`
+* **Upstream**: [https://flarum.org](https://flarum.org)
+* **Architecture**: Modern PHP with Composer-based automated dependency deployment.
+
+---
+
+### 13. Dolibarr ERP & CRM
+* **Category**: Business
+* **Version**: `20.0.2` | **Build**: `1`
+* **Upstream**: [https://www.dolibarr.org](https://www.dolibarr.org)
+* **Architecture**: PHP with MariaDB.
+* **Document Isolation**: Uploaded business invoices and documents stored in `/home/<domain>/dolibarr-documents` outside `public_html`.
+
+---
+
+### 14. WooCommerce (WordPress)
+* **Category**: Commerce
+* **Version**: `latest` | **Build**: `1`
+* **Upstream**: [https://woocommerce.com](https://woocommerce.com)
+* **Architecture**: WordPress core with WooCommerce plugin.
+* **Installation**: Automated via WP-CLI (`wp core download`, `wp config create`, `wp core install`, `wp plugin install woocommerce --activate`).
+* **PlugnPay Ready**: Fully supported by `PlugnPay/shopping-cart-WooCommerce`.
+
+---
+
+### 15. OpenCart
+* **Category**: Commerce
+* **Version**: `4.0.2.3` | **Build**: `1`
+* **Upstream**: [https://www.opencart.com](https://www.opencart.com)
+* **Installation**: Automated via `install/cli_install.php` with automatic post-install cleanup of `install/`.
+* **PlugnPay Ready**: Fully supported by `PlugnPay/shopping-cart-OpenCart`.
+
+---
+
+### 16. PrestaShop
+* **Category**: Commerce
+* **Version**: `8.1.7` | **Build**: `1`
+* **Upstream**: [https://www.prestashop.com](https://www.prestashop.com)
+* **Installation**: Automated via `install/index_cli.php`.
+* **PlugnPay Ready**: Fully supported by `PlugnPay/shopping-cart-PrestaShop`.
+
+---
+
+### 17. Thirty Bees
+* **Category**: Commerce
+* **Version**: `1.7.0` | **Build**: `1`
+* **Upstream**: [https://thirtybees.com](https://thirtybees.com)
+* **Architecture**: High-performance fork of PrestaShop 1.6 with automated CLI setup.
+* **PlugnPay Ready**: Fully supported by `PlugnPay/shopping-cart-PrestaShop` / `ThirtyBees`.
+
+---
+
+### 18. AbanteCart
+* **Category**: Commerce
+* **Version**: `1.4.1` | **Build**: `1`
+* **Upstream**: [https://www.abantecart.com](https://www.abantecart.com)
+* **PlugnPay Ready**: Fully supported by `PlugnPay/shopping-cart-AbanteCart`.
+
+---
+
+### 19. FOSSBilling
+* **Category**: Commerce / Billing
+* **Version**: `0.6.22` | **Build**: `1`
+* **Upstream**: [https://fossbilling.org](https://fossbilling.org)
+* **Architecture**: Modern BoxBilling successor with automated background cron scheduling.
+* **PlugnPay Ready**: Compatible with BoxBilling payment integrations (`PlugnPay/shopping-cart-BoxBilling`).
+
+---
+
+### 20. Zen Cart
+* **Category**: Commerce
+* **Version**: `2.2.2` | **Build**: `1`
+* **Upstream**: [https://www.zen-cart.com](https://www.zen-cart.com)
+* **Architecture**: Classic PHP/MariaDB shopping cart with pre-configured database parameters.
+
+---
+
+### 21. LiteCart
+* **Category**: Commerce
+* **Version**: `2.5.5` | **Build**: `1`
+* **Upstream**: [https://www.litecart.net](https://www.litecart.net)
+* **Architecture**: Ultra-lightweight PHP/MariaDB shopping cart without heavy frameworks.
+
+---
+
+### 22. CubeCart
+* **Category**: Commerce
+* **Version**: `6.5.7` | **Build**: `1`
+* **Upstream**: [https://www.cubecart.com](https://www.cubecart.com)
+* **Architecture**: Full-featured PHP/MariaDB shopping cart with pre-configured database parameters.

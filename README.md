@@ -135,6 +135,7 @@ virtualminWebApps/
 
 ## Documentation Links
 
+* [Application Reference Manual](docs/APPLICATIONS.md): Complete technical reference for all 22 web applications, default ports, paths, database types, and services.
 * [Installation Guide](docs/INSTALLATION.md): Detailed installation instructions, prerequisites, and automated vs manual setup.
 * [Upgrades & Maintenance Guide](docs/UPGRADE_GUIDE.md): Complete guide to updating the suite (`setup.sh update`) and upgrading applications on virtual servers via GUI and CLI.
 * [Developer Guide](docs/DEVELOPER_GUIDE.md): Complete specifications of the Virtualmin script API and how to contribute new application modules.
