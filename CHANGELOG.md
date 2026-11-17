@@ -25,6 +25,8 @@ and this project adheres to Semantic Versioning.
 - **Dedicated Category Catalogs (`docs/categories/`)**:
   - Generated 24 dedicated markdown catalogs under `docs/categories/` corresponding to each application classification.
   - Each catalog provides a filtered overview table, technical architecture summaries, database requirements, and direct links to individual application documentation.
+- **Disclaimer & Limitation of Liability**:
+  - Added comprehensive "AS IS", no-warranty, limitation of liability, and trademark disclaimer sections to `README.md`, `docs/INSTALLATION.md`, and CLI headers, emphasizing administrator backup obligations and non-affiliation with Virtualmin, Inc. or upstream projects.
 
 ### Changed
 - **Vendor Neutrality & Documentation Cleanup**:

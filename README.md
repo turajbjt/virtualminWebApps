@@ -186,6 +186,20 @@ To test that all Perl modules and application scripts have valid syntax and load
 
 ---
 
+## Disclaimer & Limitation of Liability
+
+> [!WARNING]
+> **Use at Your Own Risk (YMMV — Your Mileage May Vary)**
+>
+> This project is free, open-source software provided strictly on an **"AS IS"** and **"AS AVAILABLE"** basis, without warranty of any kind, either express or implied, including but not limited to the implied warranties of merchantability, fitness for a particular purpose, non-infringement, security, compatibility, or error-free operation.
+
+* **No Liability for Damages**: Under no circumstances shall the authors, maintainers, contributors, or copyright holders be liable for any direct, indirect, incidental, special, exemplary, consequential, or punitive damages (including, but not limited to, loss of data, loss of revenue or profits, system downtime, business interruption, security compromises, hardware or software corruption, or costs of procurement of substitute goods or services) arising out of or related to the use, misuse, installation, operation, configuration, or inability to use this software or any third-party application provisioned by it, even if advised of the possibility of such damages.
+* **Administrator Responsibility & Mandatory Backups**: Automated installers execute with system administrative and root privileges, create system users, provision databases, configure web servers, open network ports, and manage systemd units. **You are solely and exclusively responsible for inspecting all scripts, evaluating security and compatibility with your environment, testing deployments on non-production staging systems, and maintaining independent, restorable, and verified system backups prior to deploying any application to a production server.**
+* **Independent Project & Trademarks**: This is an independent community project and is **not** affiliated with, endorsed by, sponsored by, or associated with Virtualmin, Inc., Webmin, or any upstream software developers, organizations, or trademarks referenced in this repository (e.g., WordPress, Nextcloud, PrestaShop, Vaultwarden, Bitwarden, etc.). All product names, registered trademarks, and logos remain the exclusive property of their respective trademark holders and are utilized solely for descriptive and identification purposes.
+
+---
+
 ## License
 
 This project is licensed under the GNU General Public License v3.0 (GPLv3).
+See the [LICENSE](LICENSE) file for complete terms and conditions.

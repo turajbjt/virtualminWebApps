@@ -3,6 +3,10 @@
 # setup.sh - Virtualmin Web Apps Suite Manager
 # Automatically adds, updates, checks, or removes web app installers from Virtualmin
 #
+# Licensed under the GNU General Public License v3.0 (GPLv3).
+# DISCLAIMER: This software is provided "AS-IS", WITHOUT WARRANTY OF ANY KIND.
+# Use at your own risk. The authors accept no liability for damages or data loss.
+#
 
 set -e
 

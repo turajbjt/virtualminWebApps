@@ -4,6 +4,9 @@ This guide walks you through installing, configuring, and updating the **Virtual
 
 ---
 
+> [!NOTE]
+> **Pre-Installation Advisory & Disclaimer**: This suite is free, open-source software provided on an "AS-IS" basis without warranties of any kind (YMMV). System administrators are solely responsible for testing installations in staging environments and maintaining current, verified server backups prior to production deployments.
+
 ## 1. Prerequisites
 
 Before installing the suite, ensure your server meets the following requirements:
