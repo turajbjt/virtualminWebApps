@@ -17,10 +17,14 @@
 
 The **Virtualmin Web Apps Suite** transforms any Virtualmin server into an application deployment powerhouse. It extends Virtualmin's native **Manage Web Apps / Install Scripts** engine with modern, open-source applications that are traditionally either missing from the free GPL version or unavailable in Virtualmin Pro altogether.
 
+The repository currently features **40 fully automated web application installers** spanning cloud collaboration, email, database administration, developer tooling, security, system metrics, ERP/CRM, and the entire open-source e-commerce and shopping cart ecosystem.
+
 ### Key Capabilities
-* **Isolated Daemons & Microservices**: Deploy modern Go, Rust, and Node services (Vaultwarden, AdGuard Home, Pi-hole) running as isolated systemd services behind automated Apache or Nginx reverse proxies with automatic WebSocket forwarding.
-* **Open E-Commerce (PlugnPay Ready)**: Deploy top open-source shopping carts (OpenCart, PrestaShop, Thirty Bees, AbanteCart) pre-configured and ready for payment gateway integration.
+* **Isolated Daemons & Microservices**: Deploy modern Go, Rust, Node, and container services (Vaultwarden, AdGuard Home, Pi-hole, Trilium Notes, Netdata, Uptime Kuma) running as isolated systemd services behind automated Apache or Nginx reverse proxies with automatic WebSocket forwarding.
+* **Complete E-Commerce Suite (PlugnPay Ready)**: Deploy top open-source shopping carts (WooCommerce, OpenCart, osCommerce, PrestaShop, Thirty Bees, AbanteCart, FOSSBilling, Zen Cart, LiteCart, CubeCart) pre-configured and ready for payment gateway integration.
+* **Essential Server Infrastructure**: Deploy premier server utilities including Roundcube Webmail, phpMyAdmin database administration, and PrivateBin zero-knowledge pastebin.
 * **Private Cloud & Collaboration**: Deploy enterprise cloud storage platforms (Nextcloud, ownCloud Classic) with automated database provisioning and cron job scheduling.
+* **Enterprise Business & CMS**: Deploy SuiteCRM, Dolibarr ERP/CRM, Invoice Ninja, Moodle LMS, Drupal, Joomla!, phpBB, and Flarum.
 * **Single-Command Server Setup**: An all-in-one CLI tool (`setup.sh`) connects, updates, tests, and uninstalls the suite with a single command.
 
 ---
@@ -72,7 +76,19 @@ The **Virtualmin Web Apps Suite** transforms any Virtualmin server into an appli
 
 > **Module Build Number Policy**: The `Build` number tracks the revision of our Virtualmin installer module independently of the upstream application version. Every time an installer script or service configuration is updated, its build number is incremented by 1 so server administrators can easily track changes and verify version freshness via `./setup.sh list`.
 
-*For the complete roadmap of upcoming applications (MediaWiki, Matomo, Uptime Kuma, Forgejo, WooCommerce, etc.), see [ROADMAP.md](ROADMAP.md).*
+*For detailed technical specifications of each app, see the [Applications Reference Manual](docs/APPLICATIONS.md). For planned features, see [ROADMAP.md](ROADMAP.md).*
+
+---
+
+## Documentation Library
+
+* **[Applications Reference Manual](docs/APPLICATIONS.md)**: Full runtime, database, storage directory, port, and systemd service profiles for all 40 applications.
+* **[Installation Guide](docs/INSTALLATION.md)**: Automated CLI installation and manual Webmin GUI registration instructions.
+* **[Upgrades & Maintenance Guide](docs/UPGRADE_GUIDE.md)**: Managing repository updates (`setup.sh update`), Virtualmin GUI upgrades, and automated cron checking.
+* **[E-Commerce & PlugnPay Integration Guide](docs/ECOMMERCE_GUIDE.md)**: Store setup and PlugnPay payment gateway module configuration.
+* **[Developer Guide](docs/DEVELOPER_GUIDE.md)**: Virtualmin install script API hooks, coding conventions, and module build tracking.
+* **[Troubleshooting Guide](docs/TROUBLESHOOTING.md)**: Resolving port conflicts, SELinux policies, Apache/Nginx reverse proxying, and DNS port 53 allocation.
+* **[Changelog](CHANGELOG.md)**: Comprehensive record of all releases, version milestones, and structural updates.
 
 ---
 
