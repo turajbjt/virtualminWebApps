@@ -36,7 +36,7 @@ A modular collection of open-source web application installers for [Virtualmin](
 - [x] **FOSSBilling / BoxBilling** (Client management, automated billing, and digital shopping cart)
 - [ ] **EasyCart Catalog** (Lightweight catalog and cart system)
 - [x] **Zen Cart** (Established open-source shopping cart system)
-- [ ] **osCommerce** (Pioneer open-source e-commerce solution)
+- [x] **osCommerce** (Pioneer open-source e-commerce solution)
 - [x] **CubeCart** (Powerful PHP e-commerce software)
 - [x] **LiteCart** (Modern, lightweight, and fast shopping cart)
 - [ ] **Shopware Community Edition** (Enterprise-grade modern headless PHP/Symfony e-commerce)
@@ -53,23 +53,22 @@ A modular collection of open-source web application installers for [Virtualmin](
 - [x] **Flarum** (Next-generation, sleek discussion forum)
 - [x] **phpBB** (Classic, robust forum platform)
 - [x] **Dolibarr** (ERP & CRM for small and medium businesses)
-- [ ] **SuiteCRM** (Enterprise-level customer relationship management)
+- [x] **SuiteCRM** (Enterprise-level customer relationship management)
 - [x] **Invoice Ninja** (Invoicing, payments, and expense tracking)
-- [ ] **Moodle** (Leading open-source Learning Management System)
+- [x] **Moodle** (Leading open-source Learning Management System)
 
 ---
 
 ### Phase 4: Modern Daemons, Developer Tools & Dashboards
-*Services that run as dedicated system daemons behind Virtualmin reverse proxies:*
+*Services that run as dedicated system daemons or web tools behind Virtualmin reverse proxies:*
 - [x] **Uptime Kuma** (High-performance uptime and service monitoring dashboard)
 - [x] **Forgejo / Gitea** (Lightweight, self-hosted Git collaboration platform)
 - [x] **Filebrowser** (Zero-dependency web file manager)
 - [x] **Ghost** (Node.js modern publishing and newsletter platform)
 - [x] **Umami** (Fast, privacy-focused modern website analytics)
-- [ ] **Ghost** (Node.js modern publishing and newsletter platform)
-- [ ] **Passbolt** (Open-source team credential and password manager)
-- [ ] **CyberChef** (Cyber security and data analysis web tool)
-- [ ] **IT-Tools** (Handy collection of developer utilities)
+- [x] **Passbolt** (Open-source team credential and password manager)
+- [x] **CyberChef** (Cyber security and data analysis web tool)
+- [x] **IT-Tools** (Handy collection of developer utilities)
 - [ ] **Netdata** (Real-time distributed system performance monitor)
 - [ ] **Trilium Notes** (Hierarchical personal knowledge base)
 

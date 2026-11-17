@@ -305,3 +305,56 @@ A comprehensive technical reference for all 22 web application installers provid
 * **Upstream**: [https://umami.is](https://umami.is)
 * **Architecture**: Lightweight Node.js privacy analytics daemon managed by systemd (`umami-<domain>.service`), reverse-proxied to `127.0.0.1:3000` with MariaDB backend.
 * **Default Credentials**: `admin` / `umami`.
+
+---
+
+### 29. osCommerce
+* **Category**: Commerce
+* **Version**: `4.14` | **Build**: `1`
+* **Upstream**: [https://www.oscommerce.com](https://www.oscommerce.com)
+* **Architecture**: Classic & pioneer PHP open-source shopping cart with full PlugnPay payment gateway module support.
+* **Database**: MariaDB / MySQL.
+
+---
+
+### 30. SuiteCRM
+* **Category**: Business
+* **Version**: `8.10.2` | **Build**: `1`
+* **Upstream**: [https://suitecrm.com](https://suitecrm.com)
+* **Architecture**: Enterprise-grade customer relationship management (CRM) application with modular business workflows and automated permissions.
+* **Database**: MariaDB / MySQL.
+
+---
+
+### 31. Moodle
+* **Category**: Education / CMS
+* **Version**: `4.4.4` | **Build**: `1`
+* **Upstream**: [https://moodle.org](https://moodle.org)
+* **Architecture**: Global open-source Learning Management System (LMS) with isolated data directory (`$HOME/moodledata`) for hardened security.
+* **Database**: MariaDB / MySQL / PostgreSQL.
+
+---
+
+### 32. Passbolt
+* **Category**: Security
+* **Version**: `5.18.0` | **Build**: `1`
+* **Upstream**: [https://www.passbolt.com](https://www.passbolt.com)
+* **Architecture**: Open-source team password and secret manager built on OpenPGP and CakePHP.
+* **Database**: MariaDB / MySQL.
+
+---
+
+### 33. CyberChef
+* **Category**: Utilities
+* **Version**: `11.5.0` | **Build**: `1`
+* **Upstream**: [https://gchq.github.io/CyberChef/](https://gchq.github.io/CyberChef/)
+* **Architecture**: GCHQ's "Cyber Swiss Army Knife" — 100% client-side HTML5 & WebAssembly web app. Zero server-side runtime or database requirement.
+
+---
+
+### 34. IT-Tools
+* **Category**: Development / Utilities
+* **Version**: `2024.10.22` | **Build**: `1`
+* **Upstream**: [https://it-tools.tech](https://it-tools.tech)
+* **Architecture**: Client-side collection of developer utilities (token generators, regex testers, converters, formatters) served as static pre-built assets. Zero server-side compute.
+

@@ -47,9 +47,15 @@ The **Virtualmin Web Apps Suite** transforms any Virtualmin server into an appli
 | **Flarum** | Community | `latest` | `1` | Modern PHP / Composer Discussion Forum | [App Readme](apps/flarum/README.md) |
 | **phpBB** | Community | `3.3.13` | `1` | Classic PHP / MariaDB Bulletin Board Forum | [App Readme](apps/phpbb/README.md) |
 | **Dolibarr** | Business | `20.0.2` | `1` | Full ERP & CRM Suite (Pro Equivalent) | [App Readme](apps/dolibarr/README.md) |
+| **SuiteCRM** | Business | `8.10.2` | `1` | Enterprise Customer Relationship Management | [App Readme](apps/suitecrm/README.md) |
 | **Invoice Ninja** | Business | `5.10.40` | `1` | Invoicing, Payments & Time Tracking (Pro Equivalent) | [App Readme](apps/invoiceninja/README.md) |
+| **Moodle** | Education | `4.4.4` | `1` | Leading Learning Management System (LMS) | [App Readme](apps/moodle/README.md) |
+| **Passbolt** | Security | `5.18.0` | `1` | Open-Source Team Password & Secret Manager | [App Readme](apps/passbolt/README.md) |
+| **CyberChef** | Utilities | `11.5.0` | `1` | Client-Side Cyber Security Swiss Army Knife | [App Readme](apps/cyberchef/README.md) |
+| **IT-Tools** | Development | `2024.10.22` | `1` | Standalone Web Developer & Sysadmin Utilities | [App Readme](apps/it_tools/README.md) |
 | **WooCommerce** | Commerce | `latest` | `1` | WordPress + WP-CLI Automated Bundle (PlugnPay Ready) | [App Readme](apps/woocommerce/README.md) |
 | **OpenCart** | Commerce | `4.0.2.3` | `1` | PHP / MariaDB + CLI Installer (PlugnPay Ready) | [App Readme](apps/opencart/README.md) |
+| **osCommerce** | Commerce | `4.14` | `1` | Classic & Pioneer Shopping Cart Platform (PlugnPay Ready) | [App Readme](apps/oscommerce/README.md) |
 | **PrestaShop** | Commerce | `8.1.7` | `1` | PHP / MariaDB + `index_cli.php` Installer (PlugnPay Ready) | [App Readme](apps/prestashop/README.md) |
 | **Thirty Bees** | Commerce | `1.7.0` | `1` | High-Performance PrestaShop 1.6 Fork (PlugnPay Ready) | [App Readme](apps/thirtybees/README.md) |
 | **AbanteCart** | Commerce | `1.4.1` | `1` | Modular PHP / MariaDB Shopping Cart (PlugnPay Ready) | [App Readme](apps/abantecart/README.md) |

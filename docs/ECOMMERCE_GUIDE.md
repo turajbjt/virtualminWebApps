@@ -13,6 +13,7 @@ This guide explains how to install open-source shopping carts via the **Virtualm
 | **PrestaShop** | Full E-Commerce | Payment Module | `PlugnPay/shopping-cart-PrestaShop` |
 | **Thirty Bees** | High Performance Cart | PrestaShop 1.6 Module | `PlugnPay/shopping-cart-PrestaShop` / `ThirtyBees` |
 | **AbanteCart** | Modular E-Commerce | Extension Archive | `PlugnPay/shopping-cart-AbanteCart` |
+| **osCommerce** | Classic Pioneer Cart | Payment Module | `PlugnPay/shopping-cart-osCommerce` |
 | **FOSSBilling** | Hosting & Digital Billing | Gateway Extension | `PlugnPay/shopping-cart-BoxBilling` |
 | **Zen Cart** | Classic Open Source | Payment Module | Classic PlugnPay Gateway |
 | **LiteCart** | Modern Lightweight Cart | Payment Module | Standard Payment Gateway |
@@ -67,6 +68,17 @@ Once your store is installed, follow these instructions to install the PlugnPay 
 3. Navigate to **Extensions -> Extension Installer**.
 4. Upload and activate the extension.
 5. Under **Extensions -> Payments**, configure your PlugnPay merchant settings.
+
+---
+
+### osCommerce
+1. Download the payment module from the [PlugnPay osCommerce Module Repository](https://github.com/PlugnPay/shopping-cart-osCommerce).
+2. Upload the module files to your store's `includes/modules/payment/` directory.
+3. Log into your osCommerce Administration tool.
+4. Navigate to **Modules -> Payment**.
+5. Select **PlugnPay** and click **Install Module**.
+6. Enter your PlugnPay Merchant ID, API security key, and configure transaction options.
+7. Click **Save Changes**.
 
 ---
 

@@ -1,0 +1,1 @@
+../apps/suitecrm/suitecrm.pl

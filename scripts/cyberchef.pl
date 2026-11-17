@@ -1,0 +1,1 @@
+../apps/cyberchef/cyberchef.pl
