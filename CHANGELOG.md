@@ -29,6 +29,12 @@ and this project adheres to Semantic Versioning.
 - **Test Suite Expansion**:
   - Expanded test suite from 1,035 to 1,041 automated unit, security, and PCI DSS compliance assertions across 8 test suites.
 
+### Documentation
+- **Catalog Reorganization in README.md**:
+  - Replaced the flat unorganized table with a structured, 24-category catalog sorted alphabetically.
+  - Added a high-level **Classification Directory** summary index with direct anchor jump links, app inventories, and category counts.
+  - Organized all 69 applications into dedicated tables per classification with applications sorted alphabetically.
+
 ---
 
 ## [1.10.0] - 2026-11-17
