@@ -37,9 +37,6 @@ A modular collection of open-source web application installers for [Virtualmin](
 - [x] **osCommerce** (Pioneer open-source e-commerce solution)
 - [x] **CubeCart** (Powerful PHP e-commerce software)
 - [x] **LiteCart** (Modern, lightweight, and fast shopping cart)
-- [ ] **Shopware Community Edition** (Enterprise-grade modern headless PHP/Symfony e-commerce)
-- [ ] **Bagisto** (Open-source modular e-commerce built on Laravel)
-- [ ] **Sylius** (Open-source headless e-commerce framework on Symfony)
 
 ---
 
