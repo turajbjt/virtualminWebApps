@@ -39,9 +39,15 @@ The **Virtualmin Web Apps Suite** transforms any Virtualmin server into an appli
 | **ownCloud** | Cloud | `10.13.4` | `1` | PHP / MariaDB + `occ` CLI Automated Installer | [App Readme](apps/owncloud/README.md) |
 | **MediaWiki** | Wiki | `1.42.3` | `1` | PHP / MariaDB + Automated CLI Installer (Pro Equivalent) | [App Readme](apps/mediawiki/README.md) |
 | **BookStack** | Wiki | `24.05.4` | `1` | Laravel / PHP / MariaDB + Automated Migrations | [App Readme](apps/bookstack/README.md) |
+| **Drupal** | CMS | `10.3.5` | `1` | Enterprise PHP / MariaDB CMS (Pro Equivalent) | [App Readme](apps/drupal/README.md) |
+| **Joomla!** | CMS | `5.1.4` | `1` | Mobile-Ready PHP / MariaDB CMS (Pro Equivalent) | [App Readme](apps/joomla/README.md) |
+| **Ghost** | Blog | `5-alpine` | `1` | Node.js Publishing Platform + Systemd (Pro Equivalent) | [App Readme](apps/ghost/README.md) |
 | **Matomo** | Analytics | `5.1.2` | `1` | PHP / MariaDB + Automated Archiving Cron (Pro Equivalent) | [App Readme](apps/matomo/README.md) |
+| **Umami** | Analytics | `latest` | `1` | Modern Privacy Analytics + Systemd + Reverse Proxy | [App Readme](apps/umami/README.md) |
 | **Flarum** | Community | `latest` | `1` | Modern PHP / Composer Discussion Forum | [App Readme](apps/flarum/README.md) |
+| **phpBB** | Community | `3.3.13` | `1` | Classic PHP / MariaDB Bulletin Board Forum | [App Readme](apps/phpbb/README.md) |
 | **Dolibarr** | Business | `20.0.2` | `1` | Full ERP & CRM Suite (Pro Equivalent) | [App Readme](apps/dolibarr/README.md) |
+| **Invoice Ninja** | Business | `5.10.40` | `1` | Invoicing, Payments & Time Tracking (Pro Equivalent) | [App Readme](apps/invoiceninja/README.md) |
 | **WooCommerce** | Commerce | `latest` | `1` | WordPress + WP-CLI Automated Bundle (PlugnPay Ready) | [App Readme](apps/woocommerce/README.md) |
 | **OpenCart** | Commerce | `4.0.2.3` | `1` | PHP / MariaDB + CLI Installer (PlugnPay Ready) | [App Readme](apps/opencart/README.md) |
 | **PrestaShop** | Commerce | `8.1.7` | `1` | PHP / MariaDB + `index_cli.php` Installer (PlugnPay Ready) | [App Readme](apps/prestashop/README.md) |

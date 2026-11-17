@@ -30,6 +30,12 @@ A comprehensive technical reference for all 22 web application installers provid
 | **Zen Cart** | Commerce | PHP 8.0+ / Webserver | MariaDB | Webserver | `~/public_html/<dir>/` | PHP-FPM / Webserver |
 | **LiteCart** | Commerce | PHP 8.0+ / Webserver | MariaDB | Webserver | `~/public_html/<dir>/` | PHP-FPM / Webserver |
 | **CubeCart** | Commerce | PHP 8.0+ / Webserver | MariaDB | Webserver | `~/public_html/<dir>/` | PHP-FPM / Webserver |
+| **Invoice Ninja** | Business | Laravel PHP / Webserver | MariaDB | Webserver | `~/public_html/<dir>/` | PHP-FPM / Webserver |
+| **Ghost** | Blog | Node.js / Container | MariaDB | `2368` | `~/ghost-content/` | `ghost-<dom>.service` |
+| **Drupal** | CMS | PHP 8.1+ / Webserver | MariaDB | Webserver | `~/public_html/<dir>/` | PHP-FPM / Webserver |
+| **Joomla!** | CMS | PHP 8.1+ / Webserver | MariaDB | Webserver | `~/public_html/<dir>/` | PHP-FPM / Webserver |
+| **phpBB** | Community | PHP 8.0+ / Webserver | MariaDB | Webserver | `~/public_html/<dir>/` | PHP-FPM / Webserver |
+| **Umami** | Analytics | Node.js / Container | MariaDB | `3000` | `~/umami-data/` | `umami-<dom>.service` |
 
 ---
 
@@ -248,3 +254,54 @@ A comprehensive technical reference for all 22 web application installers provid
 * **Version**: `6.5.7` | **Build**: `1`
 * **Upstream**: [https://www.cubecart.com](https://www.cubecart.com)
 * **Architecture**: Full-featured PHP/MariaDB shopping cart with pre-configured database parameters.
+
+---
+
+### 23. Invoice Ninja
+* **Category**: Business
+* **Version**: `5.10.40` | **Build**: `1`
+* **Upstream**: [https://www.invoiceninja.com](https://www.invoiceninja.com)
+* **Architecture**: Laravel PHP with MariaDB database.
+* **Scheduler Cron**: `* * * * * php artisan schedule:run` registered in crontab for recurring invoices and reminder automation.
+
+---
+
+### 24. Ghost
+* **Category**: Blog / Publishing
+* **Version**: `5-alpine` | **Build**: `1`
+* **Upstream**: [https://ghost.org](https://ghost.org)
+* **Architecture**: Node.js container daemon managed by systemd (`ghost-<domain>.service`) with Apache/Nginx reverse proxying to `127.0.0.1:2368`.
+* **Data Storage**: `/home/<domain>/ghost-content`.
+
+---
+
+### 25. Drupal
+* **Category**: CMS
+* **Version**: `10.3.5` | **Build**: `1`
+* **Upstream**: [https://www.drupal.org](https://www.drupal.org)
+* **Architecture**: Enterprise PHP/MariaDB CMS with pre-configured `sites/default/settings.php` and hash salts.
+
+---
+
+### 26. Joomla!
+* **Category**: CMS
+* **Version**: `5.1.4` | **Build**: `1`
+* **Upstream**: [https://www.joomla.org](https://www.joomla.org)
+* **Architecture**: Mobile-ready PHP/MariaDB CMS with automated pre-installation setup.
+
+---
+
+### 27. phpBB
+* **Category**: Community / Forums
+* **Version**: `3.3.13` | **Build**: `1`
+* **Upstream**: [https://www.phpbb.com](https://www.phpbb.com)
+* **Architecture**: Classic PHP/MariaDB bulletin board forum with pre-configured database parameters.
+
+---
+
+### 28. Umami Analytics
+* **Category**: Analytics
+* **Version**: `latest` | **Build**: `1`
+* **Upstream**: [https://umami.is](https://umami.is)
+* **Architecture**: Lightweight Node.js privacy analytics daemon managed by systemd (`umami-<domain>.service`), reverse-proxied to `127.0.0.1:3000` with MariaDB backend.
+* **Default Credentials**: `admin` / `umami`.
