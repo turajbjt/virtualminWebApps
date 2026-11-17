@@ -7,6 +7,30 @@ and this project adheres to Semantic Versioning.
 
 ---
 
+## [1.12.0] - 2026-11-17
+
+### Fixed
+- **Virtualmin Core Integration & Registration (`setup.sh`)**:
+  - Resolved issue where scripts were not appearing in Virtualmin's **Manage Web Apps / Install Scripts** web interface.
+  - Rewrote installer to register scripts directly into Virtualmin's official custom scripts directory: `/etc/webmin/virtual-server/scripts/`, which is natively scanned by Virtualmin's `@scripts_directories` loader routine.
+  - Cleaned up obsolete `custom_scripts_dir=` config setting.
+  - Added automatic detection and whitelisting in `/etc/webmin/virtual-server/scriptsunavail` for environments with strict `denydefault=1` policies.
+  - Fixed `scripts/lib` symlink in Git repository to use relative target `../lib` instead of absolute dev path, preventing unstaged changes and rebase conflicts on external clones.
+- **Dynamic Perl `@INC` Symlink Resolution (All 69 Applications)**:
+  - Updated all 69 application installer scripts in `apps/*/*.pl` to resolve symlinks dynamically via `Cwd::abs_path(__FILE__)` before calculating library search paths.
+  - Eliminates `Can't locate Common.pl in @INC` errors when scripts are executed via Perl's `do` operator from `/etc/webmin/virtual-server/scripts/`.
+
+### Added
+- **Virtualmin Loader Test Suite (`tests/09_virtualmin_loader.t`)**:
+  - Implemented 207 comprehensive automated tests replicating Virtualmin's exact `get_script()` loading mechanism via `do()` through symlinked directories without local libraries.
+  - Verified 100% success rate across all 69 application descriptors and version hooks.
+
+### Documentation
+- **Installation & Troubleshooting Updates**:
+  - Updated `docs/INSTALLATION.md` and `docs/TROUBLESHOOTING.md` with accurate Virtualmin script directory architecture (`/etc/webmin/virtual-server/scripts`), CLI audit commands (`virtualmin list-available-scripts --source custom`), and UI tab navigation tips.
+
+---
+
 ## [1.11.0] - 2026-11-17
 
 ### Added

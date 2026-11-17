@@ -10,20 +10,38 @@ This document covers common questions, edge cases, and troubleshooting steps for
 After running `sudo ./setup.sh install`, the new applications do not appear under **Manage Web Apps / Install Scripts**.
 
 ### Solution
-1. Verify the `custom_scripts_dir` setting:
+1. **Verify the Custom Scripts Directory**:
+   Virtualmin natively discovers custom third-party scripts from `/etc/webmin/virtual-server/scripts/`. Verify that the symlinks exist:
    ```bash
-   grep "custom_scripts_dir" /etc/webmin/virtual-server/config
+   ls -la /etc/webmin/virtual-server/scripts/
    ```
-   Ensure it points to the absolute path of the `scripts/` directory (e.g. `/opt/virtualminWebApps/scripts`).
-2. Verify that files inside `scripts/` are readable:
+   Ensure both the `.pl` files and the `lib` directory symlink are present.
+
+2. **Verify with the Virtualmin CLI**:
+   Run the native Virtualmin script audit:
    ```bash
-   ls -la /opt/virtualminWebApps/scripts/
+   virtualmin list-available-scripts --source custom
    ```
-3. Restart the Webmin service:
+   All 69 applications should be displayed as available.
+
+3. **Check the Available Scripts Tab in the Web GUI**:
+   In the Virtualmin Web GUI:
+   - Select your virtual server (domain).
+   - Go to **Manage Web Apps** (or **Install Scripts**).
+   - Click the **Available Scripts** (or **Install Script**) tab. *(Note: If any application is already installed on the virtual server, Virtualmin opens to the "Installed Scripts" tab by default).*
+
+4. **Check for Default-Deny Policies**:
+   If your server restricts script availability globally:
+   ```bash
+   grep "denydefault" /etc/webmin/virtual-server/scriptsunavail
+   ```
+   If set to `1`, ensure scripts are enabled under **Virtualmin -> System Settings -> Script Installers** or re-run `sudo ./setup.sh install` which automatically whitelists them.
+
+5. **Restart Webmin**:
    ```bash
    sudo systemctl restart webmin
    ```
-4. Clear your browser cache or log out and back in to Webmin to refresh the cached navigation tree.
+6. Clear your browser cache or log out and back in to Webmin to refresh the cached navigation tree.
 
 ---
 

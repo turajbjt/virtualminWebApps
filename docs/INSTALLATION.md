@@ -40,31 +40,31 @@ Optional dependencies for specific application types:
    ```
 
 ### What `setup.sh install` does:
-* Discovers all application modules in `apps/` and synchronizes their `.pl` script links into `scripts/`.
-* Connects `lib/` so all shared helper libraries are accessible.
-* Registers `custom_scripts_dir=/opt/virtualminWebApps/scripts` in `/etc/webmin/virtual-server/config`.
+* Discovers all application modules in `apps/` and synchronizes their `.pl` script links into local `scripts/`.
+* Registers and symlinks all 69 application installer scripts directly into Virtualmin's official custom scripts directory: `/etc/webmin/virtual-server/scripts/`.
+* Connects `lib/` so all shared helper libraries and PCI DSS modules are instantly accessible to Virtualmin.
+* Checks `/etc/webmin/virtual-server/scriptsunavail` and automatically whitelists all scripts if a global `denydefault=1` restriction is active.
 * Automatically restarts Webmin so the changes take effect immediately.
 
 ---
 
 ## 3. Manual Installation (Alternative)
 
-If you prefer configuring Virtualmin manually via the Webmin web interface:
+If you prefer configuring Virtualmin manually without the automated CLI:
 
 1. Clone or download the repository to `/opt/virtualminWebApps`.
-2. Generate the flat scripts directory:
+2. Create Virtualmin's custom script directory if it does not already exist:
    ```bash
-   cd /opt/virtualminWebApps
-   ./setup.sh update
+   sudo mkdir -p /etc/webmin/virtual-server/scripts
    ```
-3. Log into your Virtualmin web interface (`https://your-server:10000`).
-4. Navigate to:
-   **Virtualmin -> System Settings -> Server Configuration -> Webmin Modules -> Virtualmin Virtual Servers**
-5. Locate the setting **Custom script directory** and set it to:
-   ```text
-   /opt/virtualminWebApps/scripts
+3. Link the shared library and application installer scripts:
+   ```bash
+   sudo ln -sfn /opt/virtualminWebApps/lib /etc/webmin/virtual-server/scripts/lib
+   for f in /opt/virtualminWebApps/apps/*/*.pl; do
+       sudo ln -sfn "$f" "/etc/webmin/virtual-server/scripts/$(basename "$f")"
+   done
    ```
-6. Click **Save**, then restart Webmin from the top-right menu or terminal:
+4. Restart Webmin:
    ```bash
    sudo systemctl restart webmin
    ```

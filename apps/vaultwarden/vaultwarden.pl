@@ -7,9 +7,12 @@ use warnings;
 use File::Basename;
 use File::Path qw(make_path);
 
+use Cwd qw(abs_path);
+
 # Include shared libraries
 BEGIN {
-    my $dir = dirname(__FILE__);
+    my $real_file = eval { abs_path(__FILE__) } || __FILE__;
+    my $dir = dirname($real_file);
     unshift @INC, "$dir/lib" if -d "$dir/lib";
     unshift @INC, "$dir/../../lib" if -d "$dir/../../lib";
     unshift @INC, "$dir/../lib" if -d "$dir/../lib";
