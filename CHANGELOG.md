@@ -7,6 +7,34 @@ and this project adheres to Semantic Versioning.
 
 ---
 
+## [1.8.0] - 2026-11-17
+
+### Added
+- **Chamilo LMS** (`apps/chamilo/`):
+  - Enterprise-grade open-source Learning Management System (v3.0.2).
+  - SCORM-compliant courses, skills management, automated testing, and virtual classrooms.
+- **LinkStack** (`apps/linkstack/`):
+  - Privacy-first open-source Linktree alternative (v4.8.8).
+  - Customizable profile themes, privacy-preserving click stats, vCard sharing, and multi-user support.
+- **Vikunja** (`apps/vikunja/`):
+  - Modern cross-platform to-do list and task organizer (v2.8.0).
+  - Standalone Go binary with embedded frontend, systemd service, and reverse proxy.
+  - Kanban sprint boards, Gantt charts, subtasks, relations, and attachments.
+- **Gotify** (`apps/gotify/`):
+  - Self-hosted real-time push notification and messaging server (v3.1.1).
+  - Standalone Go binary with WebSocket reverse proxying and official Android client support.
+- **Miniflux** (`apps/miniflux/`):
+  - Minimalist, fast, opinionated feed reader (v2.3.5).
+  - Standalone Go binary with PostgreSQL database wiring, keyboard navigation, and Fever API support.
+- **Microbin** (`apps/microbin/`):
+  - Ultra-fast, lightweight encrypted pastebin and file sharer in Rust (v2.1.0).
+  - Client-side encryption, burn-after-reading pastes, QR code sharing, and systemd service.
+- **Milestone 64**:
+  - Suite expanded to 64 fully automated web application installers.
+  - Syntax verification passed across all 68 Perl scripts and shared libraries.
+
+---
+
 ## [1.7.0] - 2026-11-17
 
 ### Added

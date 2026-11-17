@@ -1,0 +1,1 @@
+../apps/vikunja/vikunja.pl

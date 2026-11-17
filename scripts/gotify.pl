@@ -1,0 +1,1 @@
+../apps/gotify/gotify.pl

@@ -1,6 +1,6 @@
 # Applications Reference Manual
 
-A comprehensive technical reference for all 58 web application installers provided by the **Virtualmin Web Apps Suite**.
+A comprehensive technical reference for all 64 web application installers provided by the **Virtualmin Web Apps Suite**.
 
 ---
 
@@ -66,6 +66,12 @@ A comprehensive technical reference for all 58 web application installers provid
 | **EspoCRM** | Business | PHP 8.1+ / Webserver | MariaDB | Webserver | `~/public_html/<dir>/` | PHP-FPM / Webserver |
 | **InvoicePlane** | Business | PHP 7.4+ / Webserver | MariaDB | Webserver | `~/public_html/<dir>/` | PHP-FPM / Webserver |
 | **Leantime** | Project | PHP 8.1+ / Webserver | MariaDB | Webserver | `~/public_html/<dir>/` | PHP-FPM / Webserver |
+| **Chamilo** | Education | PHP 8.1+ / Webserver | MariaDB | Webserver | `~/public_html/<dir>/` | PHP-FPM / Webserver |
+| **LinkStack** | Utilities | PHP 8.1+ / Webserver | SQLite / MariaDB | Webserver | `~/public_html/<dir>/` | PHP-FPM / Webserver |
+| **Vikunja** | Project | Standalone Go Binary | SQLite | `3456` | `~/vikunja/` | `vikunja-<dom>.service` |
+| **Gotify** | System | Standalone Go Binary | SQLite | `8088` | `~/gotify/` | `gotify-<dom>.service` |
+| **Miniflux** | News | Standalone Go Binary | PostgreSQL | `8089` | `~/miniflux/` | `miniflux-<dom>.service` |
+| **Microbin** | Utilities | Standalone Rust Binary | Filesystem | `8087` | `~/microbin/` | `microbin-<dom>.service` |
 
 ---
 
@@ -602,6 +608,60 @@ A comprehensive technical reference for all 58 web application installers provid
 * **Upstream**: [https://leantime.io](https://leantime.io)
 * **Architecture**: Strategic project management system for agile teams and startups, combining Lean Canvas idea boards, Kanban sprint workflows, Gantt roadmaps, and time logging.
 * **Database**: MariaDB / MySQL.
+
+---
+
+### 59. Chamilo LMS
+* **Category**: Education
+* **Version**: `3.0.2` | **Build**: `1`
+* **Upstream**: [https://chamilo.org](https://chamilo.org)
+* **Architecture**: Enterprise-grade open-source Learning Management System (LMS) providing comprehensive course authoring, skills management, automated testing, and virtual classrooms.
+* **Database**: MariaDB / MySQL.
+
+---
+
+### 60. LinkStack
+* **Category**: Utilities
+* **Version**: `4.8.8` | **Build**: `1`
+* **Upstream**: [https://linkstack.org](https://linkstack.org)
+* **Architecture**: Privacy-respecting open-source link-in-bio platform and Linktree alternative featuring customizable themes, vCard downloads, and multi-user support.
+* **Database**: SQLite / MariaDB.
+
+---
+
+### 61. Vikunja
+* **Category**: Project
+* **Version**: `2.8.0` | **Build**: `1`
+* **Upstream**: [https://vikunja.io](https://vikunja.io)
+* **Architecture**: Modern, self-hostable to-do list and task management system built in Go with an embedded web frontend, managed by systemd and reverse-proxied with SSL.
+* **Database**: Embedded SQLite (or MariaDB).
+
+---
+
+### 62. Gotify
+* **Category**: System
+* **Version**: `3.1.1` | **Build**: `1`
+* **Upstream**: [https://gotify.net](https://gotify.net)
+* **Architecture**: Real-time push notification and messaging server in Go, featuring continuous WebSockets, REST API message dispatch, and native Android app synchronization.
+* **Database**: Embedded SQLite.
+
+---
+
+### 63. Miniflux
+* **Category**: News
+* **Version**: `2.3.5` | **Build**: `1`
+* **Upstream**: [https://miniflux.app](https://miniflux.app)
+* **Architecture**: Minimalist, fast, and opinionated feed reader written in Go, operating as an isolated daemon reverse-proxied by Apache/Nginx with native PostgreSQL database integration.
+* **Database**: PostgreSQL.
+
+---
+
+### 64. Microbin
+* **Category**: Utilities
+* **Version**: `2.1.0` | **Build**: `1`
+* **Upstream**: [https://microbin.eu](https://microbin.eu)
+* **Architecture**: Ultra-fast, zero-dependency encrypted pastebin and file sharing service written in Rust, featuring client-side encryption, burn-after-reading expiration, and QR code sharing.
+* **Database**: Filesystem / Embedded.
 
 
 

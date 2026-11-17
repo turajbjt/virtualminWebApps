@@ -104,6 +104,16 @@ A modular collection of open-source web application installers for [Virtualmin](
 
 ---
 
+### Phase 7: Real-Time Services, Education, Messaging & Minimalist Tools
+- [x] **Chamilo LMS** (Enterprise open-source e-learning and course management platform)
+- [x] **LinkStack** (Privacy-first open-source Linktree alternative & bio link hub)
+- [x] **Vikunja** (Cross-platform to-do and task management server with Kanban/Gantt)
+- [x] **Gotify** (Real-time push notification and messaging server with WebSockets)
+- [x] **Miniflux** (Minimalist, opinionated RSS/Atom feed reader on PostgreSQL)
+- [x] **Microbin** (Ultra-fast, zero-dependency encrypted pastebin & file sharer in Rust)
+
+---
+
 ## 3. Directory Layout Standard
 
 ```text
