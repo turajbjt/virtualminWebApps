@@ -32,14 +32,14 @@ A modular collection of open-source web application installers for [Virtualmin](
 - [x] **PrestaShop** (Global open-source e-commerce platform)
 - [x] **Thirty Bees** (High-performance, community-focused fork of PrestaShop 1.6)
 - [x] **AbanteCart** (Modular PHP open-source shopping cart)
-- [ ] **X-Cart** (PHP-based customizable shopping cart platform)
 - [x] **FOSSBilling / BoxBilling** (Client management, automated billing, and digital shopping cart)
-- [ ] **EasyCart Catalog** (Lightweight catalog and cart system)
 - [x] **Zen Cart** (Established open-source shopping cart system)
 - [x] **osCommerce** (Pioneer open-source e-commerce solution)
 - [x] **CubeCart** (Powerful PHP e-commerce software)
 - [x] **LiteCart** (Modern, lightweight, and fast shopping cart)
 - [ ] **Shopware Community Edition** (Enterprise-grade modern headless PHP/Symfony e-commerce)
+- [ ] **Bagisto** (Open-source modular e-commerce built on Laravel)
+- [ ] **Sylius** (Open-source headless e-commerce framework on Symfony)
 
 ---
 
