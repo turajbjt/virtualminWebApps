@@ -27,6 +27,8 @@ and this project adheres to Semantic Versioning.
   - Each catalog provides a filtered overview table, technical architecture summaries, database requirements, and direct links to individual application documentation.
 
 ### Changed
+- **Vendor Neutrality & Documentation Cleanup**:
+  - Removed `docs/ECOMMERCE_GUIDE.md` and sanitized all vendor-specific payment gateway references across the repository to maintain strict open-source neutrality.
 - **Modular Directory in README.md**:
   - Updated the Classification Directory in `README.md` to link directly to the new dedicated category catalog pages.
   - Streamlined `README.md` by offloading verbose inline category tables to dedicated pages, improving readability and navigation.
@@ -265,7 +267,6 @@ and this project adheres to Semantic Versioning.
 ### Added
 - **osCommerce Installer** (`apps/oscommerce/`):
   - Added support for osCommerce v4 Community Edition.
-  - Native PlugnPay payment gateway integration instructions added to `docs/ECOMMERCE_GUIDE.md`.
   - Configured database provisioning and permission hardening.
 - **SuiteCRM Installer** (`apps/suitecrm/`):
   - Enterprise Customer Relationship Management (CRM) platform (version 8.10.2).
@@ -284,7 +285,6 @@ and this project adheres to Semantic Versioning.
   - Client-side static assets with zero backend/database dependencies.
 - **Updated Reference Manual**:
   - Expanded `docs/APPLICATIONS.md` to cover all 34 web applications.
-  - Expanded `docs/ECOMMERCE_GUIDE.md` with osCommerce PlugnPay instructions.
 
 ---
 
@@ -306,7 +306,7 @@ and this project adheres to Semantic Versioning.
 - **Core Priority 1**: Vaultwarden (Rust Bitwarden server with WebSocket synchronization and SSL reverse proxy).
 - **Core Priority 2**: AdGuard Home (Go DNS ad/tracker blocker) and Pi-hole (DNS sinkhole).
 - **Cloud Collaboration**: Nextcloud Hub and ownCloud Classic with automated `occ` setup.
-- **E-Commerce Suite (PlugnPay & FOSS)**:
+- **E-Commerce Suite**:
   - WooCommerce (WordPress WP-CLI bundle)
   - OpenCart (CLI automated database setup)
   - PrestaShop & Thirty Bees (`index_cli.php` automation)

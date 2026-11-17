@@ -25,8 +25,8 @@ A modular collection of open-source web application installers for [Virtualmin](
 
 ---
 
-### Phase 2: E-Commerce & Shopping Carts (Full PlugnPay & FOSS Suite)
-*All major open-source carts, including full coverage of the PlugnPay payment gateway ecosystem:*
+### Phase 2: E-Commerce & Shopping Carts
+*Comprehensive suite of open-source storefront engines, carts, and billing platforms:*
 - [x] **WooCommerce** (WordPress e-commerce engine)
 - [x] **OpenCart** (Fast, feature-rich standalone PHP/MySQL e-commerce platform)
 - [x] **PrestaShop** (Global open-source e-commerce platform)

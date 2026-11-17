@@ -22,7 +22,7 @@ The repository currently features **69 fully automated web application installer
 
 ### Key Capabilities
 * **Isolated Daemons & Microservices**: Deploy modern Go, Rust, Node, and container services (Vaultwarden, AdGuard Home, Pi-hole, Trilium Notes, Netdata, Uptime Kuma) running as isolated systemd services behind automated Apache or Nginx reverse proxies with automatic WebSocket forwarding.
-* **Complete E-Commerce Suite (PlugnPay Ready)**: Deploy top open-source shopping carts (WooCommerce, OpenCart, osCommerce, PrestaShop, Thirty Bees, AbanteCart, FOSSBilling, Zen Cart, LiteCart, CubeCart) pre-configured and ready for payment gateway integration.
+* **Complete E-Commerce Suite**: Deploy top open-source shopping carts (WooCommerce, OpenCart, osCommerce, PrestaShop, Thirty Bees, AbanteCart, FOSSBilling, Zen Cart, LiteCart, CubeCart) pre-configured with database wiring and automated deployment.
 * **PCI DSS Compliant & Security Hardened**: Built following PCI DSS v4.0 secure development standards (Req 6.5, 8.3, 3.4)—enforcing strict path traversal defense (`..` rejection), numeric port validation, CRLF injection prevention, cryptographically secure `/dev/urandom` secret generation, and restricted file modes (`0600`) for all configuration files holding credentials.
 * **Comprehensive Automated Unit Testing**: Integrated 1,000+ assertion TAP test suite verifying syntax, library routines, application metadata, security fuzzing, and input validation via `./setup.sh test` and continuous integration.
 * **Essential Server Infrastructure**: Deploy premier server utilities including Roundcube Webmail, phpMyAdmin database administration, Baikal CalDAV/CardDAV sync, and PrivateBin zero-knowledge pastebin.
@@ -79,7 +79,6 @@ Click any classification below to view its dedicated catalog page, technical arc
 * **[Applications Reference Manual](docs/APPLICATIONS.md)**: Full runtime, database, storage directory, port, and systemd service profiles for all 69 applications.
 * **[Installation Guide](docs/INSTALLATION.md)**: Automated CLI installation and manual Webmin GUI registration instructions.
 * **[Upgrades & Maintenance Guide](docs/UPGRADE_GUIDE.md)**: Managing repository updates (`setup.sh update`), Virtualmin GUI upgrades, and automated cron checking.
-* **[E-Commerce & PlugnPay Integration Guide](docs/ECOMMERCE_GUIDE.md)**: Store setup and PlugnPay payment gateway module configuration.
 * **[Developer Guide](docs/DEVELOPER_GUIDE.md)**: Virtualmin install script API hooks, coding conventions, and module build tracking.
 * **[Contributing Guidelines](CONTRIBUTING.md)**: Standards for adding new web apps, code reviews, and building modules.
 * **[Security Policy](SECURITY.md)**: Vulnerability disclosure procedure, response SLAs, and PCI DSS compliance details.
@@ -156,8 +155,8 @@ virtualminWebApps/
 ├── docs/                            # Comprehensive guides and documentation
 │   ├── INSTALLATION.md              # Detailed server setup and installation guide
 │   ├── DEVELOPER_GUIDE.md           # Guide to writing new Virtualmin web app installers
-│   ├── ECOMMERCE_GUIDE.md           # Shopping carts and PlugnPay payment integration
-│   └── TROUBLESHOOTING.md           # Common edge cases, port binding, and SELinux
+│   ├── TROUBLESHOOTING.md           # Common edge cases, port binding, and SELinux
+│   └── categories/                  # 24 dedicated classification catalogs
 └── scripts/                         # Flattened directory exposed to Virtualmin
     ├── lib -> ../lib
     ├── vaultwarden.pl -> ../apps/vaultwarden/vaultwarden.pl
@@ -168,11 +167,10 @@ virtualminWebApps/
 
 ## Documentation Links
 
-* [Application Reference Manual](docs/APPLICATIONS.md): Complete technical reference for all 64 web applications, default ports, paths, database types, and services.
+* [Application Reference Manual](docs/APPLICATIONS.md): Complete technical reference for all 69 web applications, default ports, paths, database types, and services.
 * [Installation Guide](docs/INSTALLATION.md): Detailed installation instructions, prerequisites, and automated vs manual setup.
 * [Upgrades & Maintenance Guide](docs/UPGRADE_GUIDE.md): Complete guide to updating the suite (`setup.sh update`) and upgrading applications on virtual servers via GUI and CLI.
 * [Developer Guide](docs/DEVELOPER_GUIDE.md): Complete specifications of the Virtualmin script API and how to contribute new application modules.
-* [E-Commerce & PlugnPay Guide](docs/ECOMMERCE_GUIDE.md): Instructions for setting up stores and installing PlugnPay payment gateways.
 * [Troubleshooting Guide](docs/TROUBLESHOOTING.md): Solutions for port conflicts, SELinux policies, reverse proxies, and Web Crypto requirements.
 * [Master Roadmap](ROADMAP.md): Categorized list of upcoming FOSS applications.
 

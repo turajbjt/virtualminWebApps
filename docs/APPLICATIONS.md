@@ -226,7 +226,6 @@ A comprehensive technical reference for all 69 web application installers provid
 * **Upstream**: [https://woocommerce.com](https://woocommerce.com)
 * **Architecture**: WordPress core with WooCommerce plugin.
 * **Installation**: Automated via WP-CLI (`wp core download`, `wp config create`, `wp core install`, `wp plugin install woocommerce --activate`).
-* **PlugnPay Ready**: Fully supported by `PlugnPay/shopping-cart-WooCommerce`.
 
 ---
 
@@ -235,7 +234,6 @@ A comprehensive technical reference for all 69 web application installers provid
 * **Version**: `4.0.2.3` | **Build**: `2`
 * **Upstream**: [https://www.opencart.com](https://www.opencart.com)
 * **Installation**: Automated via `install/cli_install.php` with automatic post-install cleanup of `install/`.
-* **PlugnPay Ready**: Fully supported by `PlugnPay/shopping-cart-OpenCart`.
 
 ---
 
@@ -244,7 +242,6 @@ A comprehensive technical reference for all 69 web application installers provid
 * **Version**: `8.1.7` | **Build**: `2`
 * **Upstream**: [https://www.prestashop.com](https://www.prestashop.com)
 * **Installation**: Automated via `install/index_cli.php`.
-* **PlugnPay Ready**: Fully supported by `PlugnPay/shopping-cart-PrestaShop`.
 
 ---
 
@@ -253,7 +250,6 @@ A comprehensive technical reference for all 69 web application installers provid
 * **Version**: `1.7.0` | **Build**: `2`
 * **Upstream**: [https://thirtybees.com](https://thirtybees.com)
 * **Architecture**: High-performance fork of PrestaShop 1.6 with automated CLI setup.
-* **PlugnPay Ready**: Fully supported by `PlugnPay/shopping-cart-PrestaShop` / `ThirtyBees`.
 
 ---
 
@@ -261,7 +257,6 @@ A comprehensive technical reference for all 69 web application installers provid
 * **Category**: Commerce
 * **Version**: `1.4.1` | **Build**: `2`
 * **Upstream**: [https://www.abantecart.com](https://www.abantecart.com)
-* **PlugnPay Ready**: Fully supported by `PlugnPay/shopping-cart-AbanteCart`.
 
 ---
 
@@ -270,7 +265,6 @@ A comprehensive technical reference for all 69 web application installers provid
 * **Version**: `0.6.22` | **Build**: `2`
 * **Upstream**: [https://fossbilling.org](https://fossbilling.org)
 * **Architecture**: Modern BoxBilling successor with automated background cron scheduling.
-* **PlugnPay Ready**: Compatible with BoxBilling payment integrations (`PlugnPay/shopping-cart-BoxBilling`).
 
 ---
 
@@ -353,7 +347,7 @@ A comprehensive technical reference for all 69 web application installers provid
 * **Category**: Commerce
 * **Version**: `4.14` | **Build**: `2`
 * **Upstream**: [https://www.oscommerce.com](https://www.oscommerce.com)
-* **Architecture**: Classic & pioneer PHP open-source shopping cart with full PlugnPay payment gateway module support.
+* **Architecture**: Classic & pioneer PHP open-source shopping cart.
 * **Database**: MariaDB / MySQL.
 
 ---

@@ -5,7 +5,6 @@
 ## Architecture
 - **Language**: PHP 8.1+
 - **Database**: MariaDB / MySQL
-- **PlugnPay Integration**: Supported natively or via standard PlugnPay payment module.
 - **Web Server**: Apache or Nginx with URL rewriting enabled.
 
 ## Installation

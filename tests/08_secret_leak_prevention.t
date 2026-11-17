@@ -123,7 +123,7 @@ plan tests => 6;
     my $hist_out = `$hist_cmd`;
     chomp($hist_out);
 
-    # Allow documentation files like ECOMMERCE_GUIDE.md or APPLICATIONS.md if mentioned
+    # Allow documentation files like APPLICATIONS.md or README.md if mentioned
     my @suspicious = grep { $_ !~ /\.(md|pl|service|t|sh|yml)$/ && $_ =~ /\.(env|key|pem|sql|db|sqlite)/i } split /\n/, $hist_out;
 
     is(scalar(@suspicious), 0, "Zero sensitive files committed in historical git tree");
