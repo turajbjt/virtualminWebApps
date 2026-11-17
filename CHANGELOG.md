@@ -7,6 +7,27 @@ and this project adheres to Semantic Versioning.
 
 ---
 
+## [1.5.0] - 2026-11-17
+
+### Added
+- **FreshRSS** (`apps/freshrss/`):
+  - Self-hosted RSS/Atom feed aggregator (v1.24.3) with multi-user accounts and mobile API support.
+- **Shaarli** (`apps/shaarli/`):
+  - Minimalist personal bookmarking and link-sharing service (v0.16.10) with flat-file storage.
+- **Lychee** (`apps/lychee/`):
+  - Modern self-hosted photo management system and album gallery (v7.13.0) with automated Laravel environment configuration.
+- **Baikal** (`apps/baikal/`):
+  - Lightweight CalDAV & CardDAV server (v0.13.0) for cross-device calendar and contacts synchronization.
+- **Grav CMS** (`apps/grav/`):
+  - High-speed flat-file CMS (v2.2.30) pre-packaged with the Grav Admin Panel.
+- **Firefly III** (`apps/firefly_iii/`):
+  - Free and open-source personal finances manager (v6.7.9) with automated encryption key and database provisioning.
+- **Milestone 46**:
+  - Suite expanded to 46 fully automated web application installers.
+  - Updated `README.md`, `ROADMAP.md`, and `docs/APPLICATIONS.md`.
+
+---
+
 ## [1.4.0] - 2026-11-17
 
 ### Added

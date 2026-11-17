@@ -1,6 +1,6 @@
 # Applications Reference Manual
 
-A comprehensive technical reference for all 40 web application installers provided by the **Virtualmin Web Apps Suite**.
+A comprehensive technical reference for all 46 web application installers provided by the **Virtualmin Web Apps Suite**.
 
 ---
 
@@ -48,6 +48,12 @@ A comprehensive technical reference for all 40 web application installers provid
 | **Kanboard** | Project | PHP 8.0+ / Webserver | SQLite / MariaDB | Webserver | `~/public_html/<dir>/` | PHP-FPM / Webserver |
 | **Trilium Notes** | Knowledge | Standalone Node.js Binary | SQLite | `8080` | `~/trilium-data/` | `trilium-<dom>.service` |
 | **Netdata** | System | Container Daemon | Embedded | `19999` | `~/netdata-config/` | `netdata-<dom>.service` |
+| **FreshRSS** | News | PHP 8.0+ / Webserver | MariaDB / SQLite | Webserver | `~/public_html/<dir>/` | PHP-FPM / Webserver |
+| **Shaarli** | Utilities | PHP 8.0+ / Webserver | Filesystem | Webserver | `~/public_html/<dir>/` | PHP-FPM / Webserver |
+| **Lychee** | Media | Laravel PHP / Webserver | MariaDB | Webserver | `~/public_html/<dir>/` | PHP-FPM / Webserver |
+| **Baikal** | Sync | PHP 8.0+ / Webserver | SQLite / MariaDB | Webserver | `~/public_html/<dir>/` | PHP-FPM / Webserver |
+| **Grav** | CMS | Flat-File PHP / Webserver | None | Webserver | `~/public_html/<dir>/` | PHP-FPM / Webserver |
+| **Firefly III** | Finance | Laravel PHP / Webserver | MariaDB | Webserver | `~/public_html/<dir>/` | PHP-FPM / Webserver |
 
 ---
 
@@ -422,5 +428,60 @@ A comprehensive technical reference for all 40 web application installers provid
 * **Version**: `latest` | **Build**: `1`
 * **Upstream**: [https://www.netdata.cloud](https://www.netdata.cloud)
 * **Architecture**: Real-time infrastructure observability and metrics dashboard running as a containerized system daemon (`netdata-<dom>.service`), reverse-proxied to internal port 19999 with WebSocket support.
+
+---
+
+### 41. FreshRSS
+* **Category**: News
+* **Version**: `1.24.3` | **Build**: `1`
+* **Upstream**: [https://freshrss.org](https://freshrss.org)
+* **Architecture**: Fast, lightweight self-hosted RSS/Atom feed aggregator with multi-user accounts, full-text search, and third-party mobile client API support (Google Reader / Fever).
+* **Database**: MariaDB / MySQL or SQLite.
+
+---
+
+### 42. Shaarli
+* **Category**: Utilities
+* **Version**: `0.16.10` | **Build**: `1`
+* **Upstream**: [https://shaarli.readthedocs.io](https://shaarli.readthedocs.io)
+* **Architecture**: Personal, minimalist, zero-SQL link sharing and bookmarking service with built-in tagging, full privacy, and flat-file storage.
+* **Database**: Flat-file JSON/datastore.
+
+---
+
+### 43. Lychee
+* **Category**: Media
+* **Version**: `7.13.0` | **Build**: `1`
+* **Upstream**: [https://lycheeorg.github.io](https://lycheeorg.github.io)
+* **Architecture**: Self-hosted photo management system and album gallery with full EXIF inspection, public/private sharing, and responsive layouts.
+* **Database**: MariaDB / MySQL.
+
+---
+
+### 44. Baikal
+* **Category**: Sync
+* **Version**: `0.13.0` | **Build**: `1`
+* **Upstream**: [https://sabre.io/baikal/](https://sabre.io/baikal/)
+* **Architecture**: Lightweight CalDAV and CardDAV server for cross-device contacts and calendar synchronization.
+* **Database**: SQLite / MariaDB.
+
+---
+
+### 45. Grav CMS
+* **Category**: CMS
+* **Version**: `2.2.30` | **Build**: `1`
+* **Upstream**: [https://getgrav.org](https://getgrav.org)
+* **Architecture**: Award-winning flat-file CMS with modern Twig templating, Markdown content authoring, and a pre-packaged Admin Panel.
+* **Database**: Flat-file Markdown/YAML.
+
+---
+
+### 46. Firefly III
+* **Category**: Finance
+* **Version**: `6.7.9` | **Build**: `1`
+* **Upstream**: [https://www.firefly-iii.org](https://www.firefly-iii.org)
+* **Architecture**: Feature-rich personal finances manager supporting double-entry bookkeeping, budgeting, recurring transactions, and financial reporting.
+* **Database**: MariaDB / MySQL.
+
 
 

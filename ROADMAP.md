@@ -75,6 +75,12 @@ A modular collection of open-source web application installers for [Virtualmin](
 - [x] **phpMyAdmin** (Web-based MySQL and MariaDB database administration)
 - [x] **PrivateBin** (Zero-knowledge 256-bit AES encrypted pastebin)
 - [x] **Kanboard** (Minimalist visual Kanban board project management)
+- [x] **FreshRSS** (Self-hosted RSS/Atom feed reader & aggregator)
+- [x] **Shaarli** (Personal minimalist bookmarking & link sharing service)
+- [x] **Lychee** (Self-hosted photo management and gallery platform)
+- [x] **Baikal** (Lightweight CalDAV & CardDAV contacts and calendar sync server)
+- [x] **Grav** (Modern fast flat-file CMS with admin panel)
+- [x] **Firefly III** (Free and open-source personal finances and budget manager)
 
 ---
 

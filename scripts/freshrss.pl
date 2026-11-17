@@ -1,0 +1,1 @@
+../apps/freshrss/freshrss.pl

@@ -17,14 +17,14 @@
 
 The **Virtualmin Web Apps Suite** transforms any Virtualmin server into an application deployment powerhouse. It extends Virtualmin's native **Manage Web Apps / Install Scripts** engine with modern, open-source applications that are traditionally either missing from the free GPL version or unavailable in Virtualmin Pro altogether.
 
-The repository currently features **40 fully automated web application installers** spanning cloud collaboration, email, database administration, developer tooling, security, system metrics, ERP/CRM, and the entire open-source e-commerce and shopping cart ecosystem.
+The repository currently features **46 fully automated web application installers** spanning cloud collaboration, email, database administration, developer tooling, personal finance, photo galleries, feed readers, security, system metrics, ERP/CRM, and the entire open-source e-commerce and shopping cart ecosystem.
 
 ### Key Capabilities
 * **Isolated Daemons & Microservices**: Deploy modern Go, Rust, Node, and container services (Vaultwarden, AdGuard Home, Pi-hole, Trilium Notes, Netdata, Uptime Kuma) running as isolated systemd services behind automated Apache or Nginx reverse proxies with automatic WebSocket forwarding.
 * **Complete E-Commerce Suite (PlugnPay Ready)**: Deploy top open-source shopping carts (WooCommerce, OpenCart, osCommerce, PrestaShop, Thirty Bees, AbanteCart, FOSSBilling, Zen Cart, LiteCart, CubeCart) pre-configured and ready for payment gateway integration.
-* **Essential Server Infrastructure**: Deploy premier server utilities including Roundcube Webmail, phpMyAdmin database administration, and PrivateBin zero-knowledge pastebin.
-* **Private Cloud & Collaboration**: Deploy enterprise cloud storage platforms (Nextcloud, ownCloud Classic) with automated database provisioning and cron job scheduling.
-* **Enterprise Business & CMS**: Deploy SuiteCRM, Dolibarr ERP/CRM, Invoice Ninja, Moodle LMS, Drupal, Joomla!, phpBB, and Flarum.
+* **Essential Server Infrastructure**: Deploy premier server utilities including Roundcube Webmail, phpMyAdmin database administration, Baikal CalDAV/CardDAV sync, and PrivateBin zero-knowledge pastebin.
+* **Private Cloud, Media & Feeds**: Deploy Nextcloud, ownCloud, Lychee photo management, FreshRSS feed reader, and Shaarli bookmarking.
+* **Enterprise Business, Finance & CMS**: Deploy SuiteCRM, Dolibarr ERP/CRM, Firefly III finance manager, Invoice Ninja, Moodle LMS, Grav flat-file CMS, Drupal, Joomla!, phpBB, and Flarum.
 * **Single-Command Server Setup**: An all-in-one CLI tool (`setup.sh`) connects, updates, tests, and uninstalls the suite with a single command.
 
 ---
@@ -63,6 +63,12 @@ The repository currently features **40 fully automated web application installer
 | **Kanboard** | Project | `1.2.40` | `1` | Minimalist Visual Kanban Project Management | [App Readme](apps/kanboard/README.md) |
 | **Trilium Notes** | Knowledge | `0.95.0` | `1` | Standalone Node.js Daemon + WebSocket Reverse Proxy | [App Readme](apps/trilium/README.md) |
 | **Netdata** | System | `latest` | `1` | Real-Time Metrics & Observability Daemon + Reverse Proxy | [App Readme](apps/netdata/README.md) |
+| **FreshRSS** | News | `1.24.3` | `1` | Self-Hosted RSS/Atom Feed Reader & Aggregator | [App Readme](apps/freshrss/README.md) |
+| **Shaarli** | Utilities | `0.16.10` | `1` | Personal Minimalist Bookmarking & Link Sharing | [App Readme](apps/shaarli/README.md) |
+| **Lychee** | Media | `7.13.0` | `1` | Self-Hosted Photo Management & Gallery Platform | [App Readme](apps/lychee/README.md) |
+| **Baikal** | Sync | `0.13.0` | `1` | Lightweight CalDAV & CardDAV Contacts/Calendar Sync | [App Readme](apps/baikal/README.md) |
+| **Grav** | CMS | `2.2.30` | `1` | Modern Fast Flat-File CMS with Admin Panel | [App Readme](apps/grav/README.md) |
+| **Firefly III** | Finance | `6.7.9` | `1` | Personal Finances, Budget & Expense Manager | [App Readme](apps/firefly_iii/README.md) |
 | **WooCommerce** | Commerce | `latest` | `1` | WordPress + WP-CLI Automated Bundle (PlugnPay Ready) | [App Readme](apps/woocommerce/README.md) |
 | **OpenCart** | Commerce | `4.0.2.3` | `1` | PHP / MariaDB + CLI Installer (PlugnPay Ready) | [App Readme](apps/opencart/README.md) |
 | **osCommerce** | Commerce | `4.14` | `1` | Classic & Pioneer Shopping Cart Platform (PlugnPay Ready) | [App Readme](apps/oscommerce/README.md) |
