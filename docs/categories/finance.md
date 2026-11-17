@@ -12,7 +12,7 @@ This classification includes **1 Application** ready for 1-click deployment on V
 
 | Application | App Version | Build | Architecture / Type | Documentation |
 | :--- | :--- | :--- | :--- | :--- |
-| **Firefly III** | `6.7.9` | `2` | Personal Finances, Budget & Expense Manager | [App Readme](../../apps/firefly_iii/README.md) |
+| **Firefly III** | `6.7.9` | `3` | Personal Finances, Budget & Expense Manager | [App Readme](../../apps/firefly_iii/README.md) |
 
 ---
 
@@ -21,7 +21,7 @@ This classification includes **1 Application** ready for 1-click deployment on V
 ### Firefly III
 
 * **Category**: Finance
-* **Version**: `6.7.9` | **Build**: `2`
+* **Version**: `6.7.9` | **Build**: `3`
 * **Upstream**: [https://www.firefly-iii.org](https://www.firefly-iii.org)
 * **Architecture**: Feature-rich personal finances manager supporting double-entry bookkeeping, budgeting, recurring transactions, and financial reporting.
 * **Database**: MariaDB / MySQL.

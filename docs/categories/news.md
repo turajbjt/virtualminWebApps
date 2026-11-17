@@ -12,8 +12,8 @@ This classification includes **2 Applications** ready for 1-click deployment on 
 
 | Application | App Version | Build | Architecture / Type | Documentation |
 | :--- | :--- | :--- | :--- | :--- |
-| **FreshRSS** | `1.24.3` | `2` | Self-Hosted RSS/Atom Feed Reader & Aggregator | [App Readme](../../apps/freshrss/README.md) |
-| **Miniflux** | `2.3.5` | `2` | Minimalist Feed Reader (Go Binary + PostgreSQL + Systemd) | [App Readme](../../apps/miniflux/README.md) |
+| **FreshRSS** | `1.24.3` | `3` | Self-Hosted RSS/Atom Feed Reader & Aggregator | [App Readme](../../apps/freshrss/README.md) |
+| **Miniflux** | `2.3.5` | `3` | Minimalist Feed Reader (Go Binary + PostgreSQL + Systemd) | [App Readme](../../apps/miniflux/README.md) |
 
 ---
 
@@ -22,7 +22,7 @@ This classification includes **2 Applications** ready for 1-click deployment on 
 ### FreshRSS
 
 * **Category**: News
-* **Version**: `1.24.3` | **Build**: `2`
+* **Version**: `1.24.3` | **Build**: `3`
 * **Upstream**: [https://freshrss.org](https://freshrss.org)
 * **Architecture**: Fast, lightweight self-hosted RSS/Atom feed aggregator with multi-user accounts, full-text search, and third-party mobile client API support (Google Reader / Fever).
 * **Database**: MariaDB / MySQL or SQLite.
@@ -31,7 +31,7 @@ This classification includes **2 Applications** ready for 1-click deployment on 
 ### Miniflux
 
 * **Category**: News
-* **Version**: `2.3.5` | **Build**: `2`
+* **Version**: `2.3.5` | **Build**: `3`
 * **Upstream**: [https://miniflux.app](https://miniflux.app)
 * **Architecture**: Minimalist, fast, and opinionated feed reader written in Go, operating as an isolated daemon reverse-proxied by Apache/Nginx with native PostgreSQL database integration.
 * **Database**: PostgreSQL.

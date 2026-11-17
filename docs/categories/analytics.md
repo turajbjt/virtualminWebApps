@@ -12,8 +12,8 @@ This classification includes **2 Applications** ready for 1-click deployment on 
 
 | Application | App Version | Build | Architecture / Type | Documentation |
 | :--- | :--- | :--- | :--- | :--- |
-| **Matomo** | `5.1.2` | `2` | PHP / MariaDB + Automated Archiving Cron (Pro Equivalent) | [App Readme](../../apps/matomo/README.md) |
-| **Umami** | `latest` | `2` | Modern Privacy Analytics + Systemd + Reverse Proxy | [App Readme](../../apps/umami/README.md) |
+| **Matomo** | `5.1.2` | `3` | PHP / MariaDB + Automated Archiving Cron (Pro Equivalent) | [App Readme](../../apps/matomo/README.md) |
+| **Umami** | `latest` | `3` | Modern Privacy Analytics + Systemd + Reverse Proxy | [App Readme](../../apps/umami/README.md) |
 
 ---
 
@@ -22,7 +22,7 @@ This classification includes **2 Applications** ready for 1-click deployment on 
 ### Matomo
 
 * **Category**: Analytics
-* **Version**: `5.1.2` | **Build**: `2`
+* **Version**: `5.1.2` | **Build**: `3`
 * **Upstream**: [https://matomo.org](https://matomo.org)
 * **Architecture**: PHP with MariaDB.
 * **Configuration**: Automated `config/config.ini.php` database connection and security salt generation.
@@ -32,7 +32,7 @@ This classification includes **2 Applications** ready for 1-click deployment on 
 ### Umami
 
 * **Category**: Analytics
-* **Version**: `latest` | **Build**: `2`
+* **Version**: `latest` | **Build**: `3`
 * **Upstream**: [https://umami.is](https://umami.is)
 * **Architecture**: Lightweight Node.js privacy analytics daemon managed by systemd (`umami-<domain>.service`), reverse-proxied to `127.0.0.1:3000` with MariaDB backend.
 * **Default Credentials**: `admin` / `umami`.

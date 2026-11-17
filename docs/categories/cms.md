@@ -12,9 +12,9 @@ This classification includes **3 Applications** ready for 1-click deployment on 
 
 | Application | App Version | Build | Architecture / Type | Documentation |
 | :--- | :--- | :--- | :--- | :--- |
-| **Drupal** | `10.3.5` | `2` | Enterprise PHP / MariaDB CMS (Pro Equivalent) | [App Readme](../../apps/drupal/README.md) |
-| **Grav** | `2.2.30` | `2` | Modern Fast Flat-File CMS with Admin Panel | [App Readme](../../apps/grav/README.md) |
-| **Joomla!** | `5.1.4` | `2` | Mobile-Ready PHP / MariaDB CMS (Pro Equivalent) | [App Readme](../../apps/joomla/README.md) |
+| **Drupal** | `10.3.5` | `3` | Enterprise PHP / MariaDB CMS (Pro Equivalent) | [App Readme](../../apps/drupal/README.md) |
+| **Grav** | `2.2.30` | `3` | Modern Fast Flat-File CMS with Admin Panel | [App Readme](../../apps/grav/README.md) |
+| **Joomla!** | `5.1.4` | `3` | Mobile-Ready PHP / MariaDB CMS (Pro Equivalent) | [App Readme](../../apps/joomla/README.md) |
 
 ---
 
@@ -23,7 +23,7 @@ This classification includes **3 Applications** ready for 1-click deployment on 
 ### Drupal
 
 * **Category**: CMS
-* **Version**: `10.3.5` | **Build**: `2`
+* **Version**: `10.3.5` | **Build**: `3`
 * **Upstream**: [https://www.drupal.org](https://www.drupal.org)
 * **Architecture**: Enterprise PHP/MariaDB CMS with pre-configured `sites/default/settings.php` and hash salts.
 
@@ -31,7 +31,7 @@ This classification includes **3 Applications** ready for 1-click deployment on 
 ### Grav
 
 * **Category**: CMS
-* **Version**: `2.2.30` | **Build**: `2`
+* **Version**: `2.2.30` | **Build**: `3`
 * **Upstream**: [https://getgrav.org](https://getgrav.org)
 * **Architecture**: Award-winning flat-file CMS with modern Twig templating, Markdown content authoring, and a pre-packaged Admin Panel.
 * **Database**: Flat-file Markdown/YAML.
@@ -40,7 +40,7 @@ This classification includes **3 Applications** ready for 1-click deployment on 
 ### Joomla!
 
 * **Category**: CMS
-* **Version**: `5.1.4` | **Build**: `2`
+* **Version**: `5.1.4` | **Build**: `3`
 * **Upstream**: [https://www.joomla.org](https://www.joomla.org)
 * **Architecture**: Mobile-ready PHP/MariaDB CMS with automated pre-installation setup.
 

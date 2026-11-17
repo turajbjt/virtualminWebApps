@@ -12,7 +12,7 @@ This classification includes **1 Application** ready for 1-click deployment on V
 
 | Application | App Version | Build | Architecture / Type | Documentation |
 | :--- | :--- | :--- | :--- | :--- |
-| **Baikal** | `0.13.0` | `2` | Lightweight CalDAV & CardDAV Contacts/Calendar Sync | [App Readme](../../apps/baikal/README.md) |
+| **Baikal** | `0.13.0` | `3` | Lightweight CalDAV & CardDAV Contacts/Calendar Sync | [App Readme](../../apps/baikal/README.md) |
 
 ---
 
@@ -21,7 +21,7 @@ This classification includes **1 Application** ready for 1-click deployment on V
 ### Baikal
 
 * **Category**: Sync
-* **Version**: `0.13.0` | **Build**: `2`
+* **Version**: `0.13.0` | **Build**: `3`
 * **Upstream**: [https://sabre.io/baikal/](https://sabre.io/baikal/)
 * **Architecture**: Lightweight CalDAV and CardDAV server for cross-device contacts and calendar synchronization.
 * **Database**: SQLite / MariaDB.

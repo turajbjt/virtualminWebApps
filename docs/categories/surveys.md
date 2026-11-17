@@ -12,7 +12,7 @@ This classification includes **1 Application** ready for 1-click deployment on V
 
 | Application | App Version | Build | Architecture / Type | Documentation |
 | :--- | :--- | :--- | :--- | :--- |
-| **LimeSurvey** | `6.17.19` | `2` | Enterprise Online Survey & Questionnaires Platform | [App Readme](../../apps/limesurvey/README.md) |
+| **LimeSurvey** | `6.17.19` | `3` | Enterprise Online Survey & Questionnaires Platform | [App Readme](../../apps/limesurvey/README.md) |
 
 ---
 
@@ -21,7 +21,7 @@ This classification includes **1 Application** ready for 1-click deployment on V
 ### LimeSurvey
 
 * **Category**: Surveys
-* **Version**: `6.17.19` | **Build**: `2`
+* **Version**: `6.17.19` | **Build**: `3`
 * **Upstream**: [https://www.limesurvey.org](https://www.limesurvey.org)
 * **Architecture**: Enterprise-grade online statistical survey and questionnaire platform supporting 30+ question types, conditional skip logic, invitation tokens, and statistical export.
 * **Database**: MariaDB / MySQL.

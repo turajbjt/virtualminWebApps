@@ -12,8 +12,8 @@ This classification includes **2 Applications** ready for 1-click deployment on 
 
 | Application | App Version | Build | Architecture / Type | Documentation |
 | :--- | :--- | :--- | :--- | :--- |
-| **Forgejo** | `17.0.1` | `2` | Standalone Go Binary + Systemd + Git Reverse Proxy | [App Readme](../../apps/forgejo/README.md) |
-| **IT-Tools** | `2024.10.22` | `2` | Standalone Web Developer & Sysadmin Utilities | [App Readme](../../apps/it_tools/README.md) |
+| **Forgejo** | `17.0.1` | `3` | Standalone Go Binary + Systemd + Git Reverse Proxy | [App Readme](../../apps/forgejo/README.md) |
+| **IT-Tools** | `2024.10.22` | `3` | Standalone Web Developer & Sysadmin Utilities | [App Readme](../../apps/it_tools/README.md) |
 
 ---
 
@@ -22,7 +22,7 @@ This classification includes **2 Applications** ready for 1-click deployment on 
 ### Forgejo
 
 * **Category**: Development
-* **Version**: `17.0.1` | **Build**: `2`
+* **Version**: `17.0.1` | **Build**: `3`
 * **Upstream**: [https://forgejo.org](https://forgejo.org)
 * **Architecture**: Standalone static Go binary with MariaDB database backend and systemd unit (`forgejo-<domain>.service`).
 * **Ports**:
@@ -35,7 +35,7 @@ This classification includes **2 Applications** ready for 1-click deployment on 
 ### IT-Tools
 
 * **Category**: Development / Utilities
-* **Version**: `2024.10.22` | **Build**: `2`
+* **Version**: `2024.10.22` | **Build**: `3`
 * **Upstream**: [https://it-tools.tech](https://it-tools.tech)
 * **Architecture**: Client-side collection of developer utilities (token generators, regex testers, converters, formatters) served as static pre-built assets. Zero server-side compute.
 

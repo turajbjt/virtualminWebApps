@@ -12,16 +12,16 @@ This classification includes **10 Applications** ready for 1-click deployment on
 
 | Application | App Version | Build | Architecture / Type | Documentation |
 | :--- | :--- | :--- | :--- | :--- |
-| **AbanteCart** | `1.4.1` | `2` | Modular PHP / MariaDB Shopping Cart | [App Readme](../../apps/abantecart/README.md) |
-| **CubeCart** | `6.5.7` | `2` | Full-Featured PHP E-Commerce Platform | [App Readme](../../apps/cubecart/README.md) |
-| **FOSSBilling** | `0.6.22` | `2` | BoxBilling Successor, Hosting & Digital Carts | [App Readme](../../apps/fossbilling/README.md) |
-| **LiteCart** | `2.5.5` | `2` | Lightweight High-Speed PHP Cart | [App Readme](../../apps/litecart/README.md) |
-| **OpenCart** | `4.0.2.3` | `2` | PHP / MariaDB + CLI Installer | [App Readme](../../apps/opencart/README.md) |
-| **osCommerce** | `4.14` | `2` | Classic & Pioneer Shopping Cart Platform | [App Readme](../../apps/oscommerce/README.md) |
-| **PrestaShop** | `8.1.7` | `2` | PHP / MariaDB + `index_cli.php` Installer | [App Readme](../../apps/prestashop/README.md) |
-| **Thirty Bees** | `1.7.0` | `2` | High-Performance PrestaShop 1.6 Fork | [App Readme](../../apps/thirtybees/README.md) |
-| **WooCommerce** | `latest` | `2` | WordPress + WP-CLI Automated Bundle | [App Readme](../../apps/woocommerce/README.md) |
-| **Zen Cart** | `2.2.2` | `2` | Classic Open-Source Shopping Cart | [App Readme](../../apps/zencart/README.md) |
+| **AbanteCart** | `1.4.1` | `3` | Modular PHP / MariaDB Shopping Cart | [App Readme](../../apps/abantecart/README.md) |
+| **CubeCart** | `6.5.7` | `3` | Full-Featured PHP E-Commerce Platform | [App Readme](../../apps/cubecart/README.md) |
+| **FOSSBilling** | `0.6.22` | `3` | BoxBilling Successor, Hosting & Digital Carts | [App Readme](../../apps/fossbilling/README.md) |
+| **LiteCart** | `2.5.5` | `3` | Lightweight High-Speed PHP Cart | [App Readme](../../apps/litecart/README.md) |
+| **OpenCart** | `4.0.2.3` | `3` | PHP / MariaDB + CLI Installer | [App Readme](../../apps/opencart/README.md) |
+| **osCommerce** | `4.14` | `3` | Classic & Pioneer Shopping Cart Platform | [App Readme](../../apps/oscommerce/README.md) |
+| **PrestaShop** | `8.1.7` | `3` | PHP / MariaDB + `index_cli.php` Installer | [App Readme](../../apps/prestashop/README.md) |
+| **Thirty Bees** | `1.7.0` | `3` | High-Performance PrestaShop 1.6 Fork | [App Readme](../../apps/thirtybees/README.md) |
+| **WooCommerce** | `latest` | `3` | WordPress + WP-CLI Automated Bundle | [App Readme](../../apps/woocommerce/README.md) |
+| **Zen Cart** | `2.2.2` | `3` | Classic Open-Source Shopping Cart | [App Readme](../../apps/zencart/README.md) |
 
 ---
 
@@ -30,14 +30,14 @@ This classification includes **10 Applications** ready for 1-click deployment on
 ### AbanteCart
 
 * **Category**: Commerce
-* **Version**: `1.4.1` | **Build**: `2`
+* **Version**: `1.4.1` | **Build**: `3`
 * **Upstream**: [https://www.abantecart.com](https://www.abantecart.com)
 
 
 ### CubeCart
 
 * **Category**: Commerce
-* **Version**: `6.5.7` | **Build**: `2`
+* **Version**: `6.5.7` | **Build**: `3`
 * **Upstream**: [https://www.cubecart.com](https://www.cubecart.com)
 * **Architecture**: Full-featured PHP/MariaDB shopping cart with pre-configured database parameters.
 
@@ -45,7 +45,7 @@ This classification includes **10 Applications** ready for 1-click deployment on
 ### FOSSBilling
 
 * **Category**: Commerce / Billing
-* **Version**: `0.6.22` | **Build**: `2`
+* **Version**: `0.6.22` | **Build**: `3`
 * **Upstream**: [https://fossbilling.org](https://fossbilling.org)
 * **Architecture**: Modern BoxBilling successor with automated background cron scheduling.
 
@@ -53,7 +53,7 @@ This classification includes **10 Applications** ready for 1-click deployment on
 ### LiteCart
 
 * **Category**: Commerce
-* **Version**: `2.5.5` | **Build**: `2`
+* **Version**: `2.5.5` | **Build**: `3`
 * **Upstream**: [https://www.litecart.net](https://www.litecart.net)
 * **Architecture**: Ultra-lightweight PHP/MariaDB shopping cart without heavy frameworks.
 
@@ -61,7 +61,7 @@ This classification includes **10 Applications** ready for 1-click deployment on
 ### OpenCart
 
 * **Category**: Commerce
-* **Version**: `4.0.2.3` | **Build**: `2`
+* **Version**: `4.0.2.3` | **Build**: `3`
 * **Upstream**: [https://www.opencart.com](https://www.opencart.com)
 * **Installation**: Automated via `install/cli_install.php` with automatic post-install cleanup of `install/`.
 
@@ -69,7 +69,7 @@ This classification includes **10 Applications** ready for 1-click deployment on
 ### osCommerce
 
 * **Category**: Commerce
-* **Version**: `4.14` | **Build**: `2`
+* **Version**: `4.14` | **Build**: `3`
 * **Upstream**: [https://www.oscommerce.com](https://www.oscommerce.com)
 * **Architecture**: Classic & pioneer PHP open-source shopping cart.
 * **Database**: MariaDB / MySQL.
@@ -78,7 +78,7 @@ This classification includes **10 Applications** ready for 1-click deployment on
 ### PrestaShop
 
 * **Category**: Commerce
-* **Version**: `8.1.7` | **Build**: `2`
+* **Version**: `8.1.7` | **Build**: `3`
 * **Upstream**: [https://www.prestashop.com](https://www.prestashop.com)
 * **Installation**: Automated via `install/index_cli.php`.
 
@@ -86,7 +86,7 @@ This classification includes **10 Applications** ready for 1-click deployment on
 ### Thirty Bees
 
 * **Category**: Commerce
-* **Version**: `1.7.0` | **Build**: `2`
+* **Version**: `1.7.0` | **Build**: `3`
 * **Upstream**: [https://thirtybees.com](https://thirtybees.com)
 * **Architecture**: High-performance fork of PrestaShop 1.6 with automated CLI setup.
 
@@ -94,7 +94,7 @@ This classification includes **10 Applications** ready for 1-click deployment on
 ### WooCommerce
 
 * **Category**: Commerce
-* **Version**: `latest` | **Build**: `2`
+* **Version**: `latest` | **Build**: `3`
 * **Upstream**: [https://woocommerce.com](https://woocommerce.com)
 * **Architecture**: WordPress core with WooCommerce plugin.
 * **Installation**: Automated via WP-CLI (`wp core download`, `wp config create`, `wp core install`, `wp plugin install woocommerce --activate`).
@@ -103,7 +103,7 @@ This classification includes **10 Applications** ready for 1-click deployment on
 ### Zen Cart
 
 * **Category**: Commerce
-* **Version**: `2.2.2` | **Build**: `2`
+* **Version**: `2.2.2` | **Build**: `3`
 * **Upstream**: [https://www.zen-cart.com](https://www.zen-cart.com)
 * **Architecture**: Classic PHP/MariaDB shopping cart with pre-configured database parameters.
 

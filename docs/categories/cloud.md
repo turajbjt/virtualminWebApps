@@ -12,8 +12,8 @@ This classification includes **2 Applications** ready for 1-click deployment on 
 
 | Application | App Version | Build | Architecture / Type | Documentation |
 | :--- | :--- | :--- | :--- | :--- |
-| **Nextcloud** | `30.0.6` | `2` | PHP 8.1+ / MariaDB + `occ` CLI Automated Installer | [App Readme](../../apps/nextcloud/README.md) |
-| **ownCloud** | `10.13.4` | `2` | PHP / MariaDB + `occ` CLI Automated Installer | [App Readme](../../apps/owncloud/README.md) |
+| **Nextcloud** | `30.0.6` | `3` | PHP 8.1+ / MariaDB + `occ` CLI Automated Installer | [App Readme](../../apps/nextcloud/README.md) |
+| **ownCloud** | `10.13.4` | `3` | PHP / MariaDB + `occ` CLI Automated Installer | [App Readme](../../apps/owncloud/README.md) |
 
 ---
 
@@ -22,7 +22,7 @@ This classification includes **2 Applications** ready for 1-click deployment on 
 ### Nextcloud
 
 * **Category**: Cloud
-* **Version**: `30.0.6` | **Build**: `2`
+* **Version**: `30.0.6` | **Build**: `3`
 * **Upstream**: [https://nextcloud.com](https://nextcloud.com)
 * **Architecture**: Standard PHP 8.1+ with MariaDB/MySQL.
 * **Installation**: Automated via Nextcloud's `occ maintenance:install` CLI.
@@ -33,7 +33,7 @@ This classification includes **2 Applications** ready for 1-click deployment on 
 ### ownCloud
 
 * **Category**: Cloud
-* **Version**: `10.13.4` | **Build**: `2`
+* **Version**: `10.13.4` | **Build**: `3`
 * **Upstream**: [https://owncloud.com](https://owncloud.com)
 * **Architecture**: PHP with MariaDB/MySQL.
 * **Data Directory**: `/home/<domain>/owncloud-data` outside `public_html`.

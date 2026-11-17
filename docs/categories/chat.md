@@ -12,7 +12,7 @@ This classification includes **1 Application** ready for 1-click deployment on V
 
 | Application | App Version | Build | Architecture / Type | Documentation |
 | :--- | :--- | :--- | :--- | :--- |
-| **Mattermost** | `10.5.1` | `2` | Team Collaboration & Chat Platform (Go Binary + Systemd) | [App Readme](../../apps/mattermost/README.md) |
+| **Mattermost** | `10.5.1` | `3` | Team Collaboration & Chat Platform (Go Binary + Systemd) | [App Readme](../../apps/mattermost/README.md) |
 
 ---
 
@@ -21,7 +21,7 @@ This classification includes **1 Application** ready for 1-click deployment on V
 ### Mattermost
 
 * **Category**: Chat
-* **Version**: `10.5.1` | **Build**: `2`
+* **Version**: `10.5.1` | **Build**: `3`
 * **Upstream**: [https://mattermost.com](https://mattermost.com)
 * **Architecture**: High-performance, open-source team collaboration and messaging service written in Go. Runs as a systemd service, backed by MariaDB, and reverse-proxied with full WebSocket forwarding.
 * **Database**: MariaDB / MySQL.

@@ -12,8 +12,8 @@ This classification includes **2 Applications** ready for 1-click deployment on 
 
 | Application | App Version | Build | Architecture / Type | Documentation |
 | :--- | :--- | :--- | :--- | :--- |
-| **Roundcube** | `1.6.9` | `2` | Modern Webmail Platform + IMAP/SMTP Integration | [App Readme](../../apps/roundcube/README.md) |
-| **SnappyMail** | `3.0.1` | `2` | Fast, Modern Webmail Client (Zero Database / IMAP / SMTP) | [App Readme](../../apps/snappymail/README.md) |
+| **Roundcube** | `1.6.9` | `3` | Modern Webmail Platform + IMAP/SMTP Integration | [App Readme](../../apps/roundcube/README.md) |
+| **SnappyMail** | `3.0.1` | `3` | Fast, Modern Webmail Client (Zero Database / IMAP / SMTP) | [App Readme](../../apps/snappymail/README.md) |
 
 ---
 
@@ -22,7 +22,7 @@ This classification includes **2 Applications** ready for 1-click deployment on 
 ### Roundcube
 
 * **Category**: Email
-* **Version**: `1.6.9` | **Build**: `2`
+* **Version**: `1.6.9` | **Build**: `3`
 * **Upstream**: [https://roundcube.net](https://roundcube.net)
 * **Architecture**: Modern, browser-based multilingual IMAP webmail platform with automated MySQL schema import, random DES key generation, and local Dovecot/Postfix integration.
 * **Database**: MariaDB / MySQL.
@@ -31,7 +31,7 @@ This classification includes **2 Applications** ready for 1-click deployment on 
 ### SnappyMail
 
 * **Category**: Email
-* **Version**: `3.0.1` | **Build**: `2`
+* **Version**: `3.0.1` | **Build**: `3`
 * **Upstream**: [https://snappymail.eu](https://snappymail.eu)
 * **Architecture**: Ultra-fast, lightweight webmail client (modern RainLoop fork) engineered with minimal footprint, no required SQL database, OpenPGP message encryption, and full mobile optimization.
 * **Database**: Filesystem / Flat-file (Zero database overhead; connects directly to Dovecot/Postfix or external IMAP/SMTP).
