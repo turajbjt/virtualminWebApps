@@ -17,7 +17,19 @@ apps/<app_name>/
 
 ---
 
-## 2. Virtualmin Script Lifecycle API
+## 2. Module Build vs. Upstream Versioning Policy
+
+Every installer module in this repository tracks two distinct version numbers:
+1. **App Version (`script_<app_name>_versions`)**: The upstream software version being installed (e.g. Nextcloud `30.0.6`, OpenCart `4.0.2.3`, PrestaShop `8.1.7`).
+2. **Module Build Number (`script_<app_name>_release`)**: An integer representing the revision of our Virtualmin installer module itself.
+
+> **CRITICAL RULE**: Whenever you make **ANY** modification, fix, security tweak, or enhancement to an application's script (`<app_name>.pl`) or associated service template, you **MUST** increment its `script_<app_name>_release` integer by 1 (e.g., from `1` to `2`).
+>
+> This allows server administrators to immediately determine whether an installer is up-to-date by running `./setup.sh list` or inspecting Virtualmin's script manager.
+
+---
+
+## 3. Virtualmin Script Lifecycle API
 
 Virtualmin's installer engine loads `<app_name>.pl` and invokes standard lifecycle subroutines prefixed with `script_<app_name>_`.
 
@@ -60,7 +72,8 @@ sub script_my_app_versions
     return ( "1.2.0", "1.1.0" );
 }
 
-# Script release revision
+# Script release revision (Module Build Number)
+# MANDATORY: Increment this integer every time changes/fixes are made to this module!
 sub script_my_app_release
 {
     return 1;

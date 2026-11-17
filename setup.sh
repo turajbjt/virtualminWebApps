@@ -185,8 +185,8 @@ do_status() {
 
 do_list() {
     print_banner
-    printf "${BOLD}%-20s %-15s %-12s %-40s${NC}\n" "APPLICATION" "CATEGORY" "VERSION" "DESCRIPTION"
-    echo -e "------------------------------------------------------------------------------------------------"
+    printf "${BOLD}%-18s %-12s %-12s %-8s %-40s${NC}\n" "APPLICATION" "CATEGORY" "VERSION" "BUILD" "DESCRIPTION"
+    echo -e "--------------------------------------------------------------------------------------------------"
 
     for app_dir in "${APPS_DIR}"/*; do
         if [[ -d "${app_dir}" ]]; then
@@ -201,15 +201,17 @@ do_list() {
                     my $d = main->can("script_'"${name}"'_desc") ? &{"script_'"${name}"'_desc"}() : "Unknown";
                     my $c = main->can("script_'"${name}"'_category") ? &{"script_'"${name}"'_category"}() : "General";
                     my @v = main->can("script_'"${name}"'_versions") ? &{"script_'"${name}"'_versions"}() : ("1.0");
-                    print "$c\t$v[0]\t$d";
-                ' 2>/dev/null || echo -e "Unknown\tUnknown\tNo metadata")
+                    my $r = main->can("script_'"${name}"'_release") ? &{"script_'"${name}"'_release"}() : 1;
+                    print "$c\t$v[0]\t$r\t$d";
+                ' 2>/dev/null || echo -e "Unknown\tUnknown\t1\tNo metadata")
 
-                local cat ver desc
+                local cat ver build desc
                 cat=$(echo "${meta}" | cut -f1)
                 ver=$(echo "${meta}" | cut -f2)
-                desc=$(echo "${meta}" | cut -f3)
+                build=$(echo "${meta}" | cut -f3)
+                desc=$(echo "${meta}" | cut -f4)
 
-                printf "%-20s %-15s %-12s %-40s\n" "${name}" "${cat}" "${ver}" "${desc}"
+                printf "%-18s %-12s %-12s %-8s %-40s\n" "${name}" "${cat}" "${ver}" "${build}" "${desc}"
             fi
         fi
     done
