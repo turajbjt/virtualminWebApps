@@ -92,6 +92,8 @@ sudo ./setup.sh update
 ```
 This automatically fetches updates from Git, updates script symlinks, and refreshes Webmin.
 
+For complete details on upgrading already-installed applications on virtual servers via GUI or CLI, see the [Upgrades & Maintenance Guide](UPGRADE_GUIDE.md).
+
 ---
 
 ## 6. Uninstallation
