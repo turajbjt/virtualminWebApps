@@ -38,6 +38,16 @@ This guide explains how to install open-source shopping carts via the **Virtualm
 
 Once your store is installed, follow these instructions to install the PlugnPay payment gateway extension:
 
+### WooCommerce (WordPress)
+1. Download the plugin ZIP from the [PlugnPay WooCommerce Repository](https://github.com/PlugnPay/shopping-cart-WooCommerce).
+2. In the WordPress Admin Dashboard, navigate to **Plugins -> Add New -> Upload Plugin**.
+3. Upload and activate the `shopping-cart-WooCommerce.zip` archive (or install via WP-CLI: `wp plugin install /path/to/plugin.zip --activate`).
+4. Navigate to **WooCommerce -> Settings -> Payments**.
+5. Enable **PlugnPay Payment Gateway** and click **Manage**.
+6. Enter your PlugnPay Merchant Account Name and API credentials, configure transaction mode, and click **Save Changes**.
+
+---
+
 ### OpenCart
 1. Download the latest release from the [PlugnPay OpenCart Module Repository](https://github.com/PlugnPay/shopping-cart-OpenCart).
 2. Log into your OpenCart Admin Dashboard (`https://example.com/admin/`).
