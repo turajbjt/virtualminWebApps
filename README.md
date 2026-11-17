@@ -32,12 +32,19 @@ The **Virtualmin Web Apps Suite** transforms any Virtualmin server into an appli
 | **Vaultwarden** | Security | `1.32.7` | Rust Daemon + Systemd + SSL Reverse Proxy + WebSockets | [App Readme](apps/vaultwarden/README.md) |
 | **AdGuard Home** | System / DNS | `0.107.80` | Standalone Go Binary + Systemd + Web Reverse Proxy | [App Readme](apps/adguard_home/README.md) |
 | **Pi-hole** | System / DNS | `latest` | Containerized Daemon + Systemd + Web Reverse Proxy | [App Readme](apps/pihole/README.md) |
+| **Uptime Kuma** | System | `latest` | Node.js Daemon + Systemd + WebSocket Reverse Proxy | [App Readme](apps/uptime_kuma/README.md) |
 | **Nextcloud** | Cloud | `30.0.6` | PHP 8.1+ / MariaDB + `occ` CLI Automated Installer | [App Readme](apps/nextcloud/README.md) |
 | **ownCloud** | Cloud | `10.13.4` | PHP / MariaDB + `occ` CLI Automated Installer | [App Readme](apps/owncloud/README.md) |
+| **Matomo** | Analytics | `5.1.2` | PHP / MariaDB + Automated Archiving Cron (Pro Equivalent) | [App Readme](apps/matomo/README.md) |
+| **WooCommerce** | Commerce | `latest` | WordPress + WP-CLI Automated Bundle (PlugnPay Ready) | [App Readme](apps/woocommerce/README.md) |
 | **OpenCart** | Commerce | `4.0.2.3` | PHP / MariaDB + CLI Installer (PlugnPay Ready) | [App Readme](apps/opencart/README.md) |
 | **PrestaShop** | Commerce | `8.1.7` | PHP / MariaDB + `index_cli.php` Installer (PlugnPay Ready) | [App Readme](apps/prestashop/README.md) |
 | **Thirty Bees** | Commerce | `1.7.0` | High-Performance PrestaShop 1.6 Fork (PlugnPay Ready) | [App Readme](apps/thirtybees/README.md) |
 | **AbanteCart** | Commerce | `1.4.1` | Modular PHP / MariaDB Shopping Cart (PlugnPay Ready) | [App Readme](apps/abantecart/README.md) |
+| **FOSSBilling** | Commerce | `0.6.22` | BoxBilling Successor, Hosting & Carts (PlugnPay Ready) | [App Readme](apps/fossbilling/README.md) |
+| **Zen Cart** | Commerce | `2.2.2` | Classic Open-Source Shopping Cart (PlugnPay Ready) | [App Readme](apps/zencart/README.md) |
+| **LiteCart** | Commerce | `2.5.5` | Lightweight High-Speed PHP Cart (PlugnPay Ready) | [App Readme](apps/litecart/README.md) |
+| **CubeCart** | Commerce | `6.5.7` | Full-Featured PHP E-Commerce Platform (PlugnPay Ready) | [App Readme](apps/cubecart/README.md) |
 
 *For the complete roadmap of upcoming applications (MediaWiki, Matomo, Uptime Kuma, Forgejo, WooCommerce, etc.), see [ROADMAP.md](ROADMAP.md).*
 

@@ -17,35 +17,35 @@ A modular collection of open-source web application installers for [Virtualmin](
 ## 2. Complete Web Application Roadmap
 
 ### Phase 1: High-Priority Essentials & Infrastructure
-- [ ] **Vaultwarden** *(Priority #1)*: Ultra-lightweight Rust Bitwarden server + WebSockets + SSL reverse proxy.
-- [ ] **AdGuard Home** *(Priority #2)*: Self-contained Go DNS server & network-wide ad/tracker blocker with web UI.
-- [ ] **Pi-hole**: DNS sinkhole & network ad blocker.
-- [ ] **Nextcloud**: Enterprise-grade self-hosted cloud storage, calendar, contacts, and collaboration suite.
-- [ ] **ownCloud**: Private cloud storage and sync platform (Classic & Infinite Scale).
+- [x] **Vaultwarden** *(Priority #1)*: Ultra-lightweight Rust Bitwarden server + WebSockets + SSL reverse proxy.
+- [x] **AdGuard Home** *(Priority #2)*: Self-contained Go DNS server & network-wide ad/tracker blocker with web UI.
+- [x] **Pi-hole**: DNS sinkhole & network ad blocker.
+- [x] **Nextcloud**: Enterprise-grade self-hosted cloud storage, calendar, contacts, and collaboration suite.
+- [x] **ownCloud**: Private cloud storage and sync platform (Classic & Infinite Scale).
 
 ---
 
 ### Phase 2: E-Commerce & Shopping Carts (Full PlugnPay & FOSS Suite)
 *All major open-source carts, including full coverage of the PlugnPay payment gateway ecosystem:*
-- [ ] **WooCommerce** (WordPress e-commerce engine)
-- [ ] **OpenCart** (Fast, feature-rich standalone PHP/MySQL e-commerce platform)
-- [ ] **PrestaShop** (Global open-source e-commerce platform)
-- [ ] **Thirty Bees** (High-performance, community-focused fork of PrestaShop 1.6)
-- [ ] **AbanteCart** (Modular PHP open-source shopping cart)
+- [x] **WooCommerce** (WordPress e-commerce engine)
+- [x] **OpenCart** (Fast, feature-rich standalone PHP/MySQL e-commerce platform)
+- [x] **PrestaShop** (Global open-source e-commerce platform)
+- [x] **Thirty Bees** (High-performance, community-focused fork of PrestaShop 1.6)
+- [x] **AbanteCart** (Modular PHP open-source shopping cart)
 - [ ] **X-Cart** (PHP-based customizable shopping cart platform)
-- [ ] **FOSSBilling / BoxBilling** (Client management, automated billing, and digital shopping cart)
+- [x] **FOSSBilling / BoxBilling** (Client management, automated billing, and digital shopping cart)
 - [ ] **EasyCart Catalog** (Lightweight catalog and cart system)
-- [ ] **Zen Cart** (Established open-source shopping cart system)
+- [x] **Zen Cart** (Established open-source shopping cart system)
 - [ ] **osCommerce** (Pioneer open-source e-commerce solution)
-- [ ] **CubeCart** (Powerful PHP e-commerce software)
-- [ ] **LiteCart** (Modern, lightweight, and fast shopping cart)
+- [x] **CubeCart** (Powerful PHP e-commerce software)
+- [x] **LiteCart** (Modern, lightweight, and fast shopping cart)
 - [ ] **Shopware Community Edition** (Enterprise-grade modern headless PHP/Symfony e-commerce)
 
 ---
 
 ### Phase 3: Virtualmin Pro Equivalents (PHP & MariaDB/PostgreSQL)
 *Free, open-source replacements for scripts typically restricted to Virtualmin Pro:*
-- [ ] **Matomo** (Formerly Piwik - leading privacy-first Google Analytics alternative)
+- [x] **Matomo** (Formerly Piwik - leading privacy-first Google Analytics alternative)
 - [ ] **MediaWiki** (The knowledge-base and wiki engine behind Wikipedia)
 - [ ] **BookStack** (Modern, opinionated documentation and wiki system)
 - [ ] **Drupal** (Enterprise content management framework)
@@ -61,7 +61,7 @@ A modular collection of open-source web application installers for [Virtualmin](
 
 ### Phase 4: Modern Daemons, Developer Tools & Dashboards
 *Services that run as dedicated system daemons behind Virtualmin reverse proxies:*
-- [ ] **Uptime Kuma** (High-performance uptime and service monitoring dashboard)
+- [x] **Uptime Kuma** (High-performance uptime and service monitoring dashboard)
 - [ ] **Forgejo / Gitea** (Lightweight, self-hosted Git collaboration platform)
 - [ ] **Filebrowser** (Zero-dependency web file manager)
 - [ ] **Umami** (Fast, privacy-focused modern website analytics)

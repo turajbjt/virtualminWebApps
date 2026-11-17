@@ -8,12 +8,15 @@ This guide explains how to install open-source shopping carts via the **Virtualm
 
 | Platform | Category | Integration Method | PlugnPay Module Repo |
 | :--- | :--- | :--- | :--- |
+| **WooCommerce** | WordPress E-Commerce | WP Plugin | `PlugnPay/shopping-cart-WooCommerce` |
 | **OpenCart** | Full E-Commerce | Native Extension | `PlugnPay/shopping-cart-OpenCart` |
 | **PrestaShop** | Full E-Commerce | Payment Module | `PlugnPay/shopping-cart-PrestaShop` |
 | **Thirty Bees** | High Performance Cart | PrestaShop 1.6 Module | `PlugnPay/shopping-cart-PrestaShop` / `ThirtyBees` |
 | **AbanteCart** | Modular E-Commerce | Extension Archive | `PlugnPay/shopping-cart-AbanteCart` |
-| **WooCommerce** *(Roadmap)* | WordPress Plugin | WP Plugin | `PlugnPay/shopping-cart-WooCommerce` |
-| **FOSSBilling / BoxBilling** *(Roadmap)* | Hosting & Digital Billing | Gateway Extension | `PlugnPay/shopping-cart-BoxBilling` |
+| **FOSSBilling** | Hosting & Digital Billing | Gateway Extension | `PlugnPay/shopping-cart-BoxBilling` |
+| **Zen Cart** | Classic Open Source | Payment Module | Classic PlugnPay Gateway |
+| **LiteCart** | Modern Lightweight Cart | Payment Module | Standard Payment Gateway |
+| **CubeCart** | Feature-Rich Cart | Gateway Module | Standard Payment Gateway |
 
 ---
 
