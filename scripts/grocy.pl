@@ -1,0 +1,1 @@
+../apps/grocy/grocy.pl

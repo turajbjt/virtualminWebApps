@@ -120,6 +120,36 @@ A modular collection of open-source web application installers for [Virtualmin](
 
 ---
 
+### Phase 9: Helpdesk, Realtime Databases, Peer-to-Peer Sync, Time Tracking & ActivityPub
+- [x] **FreeScout** (PHP / MariaDB / Laravel helpdesk & shared mailbox)
+- [x] **PocketBase** (Lightweight Go single-binary backend-as-a-service & realtime SQLite database)
+- [x] **Syncthing** (Continuous decentralized file synchronization server with web GUI)
+- [x] **Kimai** (Time tracking and customer invoicing platform in Symfony / PHP)
+- [x] **GoToSocial** (ActivityPub social network server in Go federating with Mastodon)
+
+---
+
+### Phase 10: Audiobooks, Household ERP, PDF Processing & Classic Support
+- [x] **Audiobookshelf** (Self-hosted audiobook & podcast server with mobile app syncing)
+- [x] **Grocy** (Home pantry, grocery stock, recipes, chores, and battery tracking ERP in PHP/SQLite)
+- [x] **Stirling-PDF** (On-premises web-based PDF tool suite: merge, split, OCR, convert, sign)
+- [x] **osTicket** (Classic open-source customer support ticket system in PHP/MariaDB)
+
+---
+
+### Phase 11: Developer Pipelines, Automation, Redis/Postgres Management, Dashboards & Remote Desktop
+- [x] **phpRedisAdmin** (Web GUI for inspecting and managing Redis key-value stores)
+- [x] **Woodpecker CI** (Lightweight pipeline-as-code CI/CD server in Go)
+- [x] **Calibre-Web** (eBook library manager and in-browser reader for ePub/PDF)
+- [x] **n8n** (Visual workflow automation and self-hosted Zapier alternative with 400+ nodes)
+- [x] **Homepage** (Modern application dashboard and server status portal)
+- [x] **SearXNG** (Privacy-first metasearch engine combining 70+ search services)
+- [x] **Wiki.js** (Modern Node.js documentation wiki with Markdown, WYSIWYG, and Git sync)
+- [x] **pgAdmin 4** (The premier management and query interface for PostgreSQL)
+- [x] **RustDesk Server** (Self-hosted remote desktop rendezvous and relay server in Rust)
+
+---
+
 ## 3. Directory Layout Standard
 
 ```text

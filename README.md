@@ -8,8 +8,8 @@
   <a href="https://www.virtualmin.com/"><img src="https://img.shields.io/badge/Virtualmin-GPL%20%26%20Pro-blue.svg" alt="Virtualmin Compatible"></a>
   <a href="LICENSE"><img src="https://img.shields.io/badge/License-GPLv3-green.svg" alt="License: GPLv3"></a>
   <a href="https://github.com/turajbjt/virtualminWebApps/actions/workflows/ci.yml"><img src="https://github.com/turajbjt/virtualminWebApps/actions/workflows/ci.yml/badge.svg" alt="CI Status"></a>
-  <img src="https://img.shields.io/badge/Apps-69%20Available-orange.svg" alt="69 Applications">
-  <img src="https://img.shields.io/badge/Tests-1041%20Passing-brightgreen.svg" alt="1041 Tests Passing">
+  <img src="https://img.shields.io/badge/Apps-87%20Available-orange.svg" alt="87 Applications">
+  <img src="https://img.shields.io/badge/Tests-1554%20Passing-brightgreen.svg" alt="1554 Tests Passing">
 </p>
 
 ---
@@ -18,7 +18,7 @@
 
 The **Virtualmin Web Apps Suite** transforms any Virtualmin server into an application deployment powerhouse. It extends Virtualmin's native **Manage Web Apps / Install Scripts** engine with modern, open-source applications that are traditionally either missing from the free GPL version or unavailable in Virtualmin Pro altogether.
 
-The repository currently features **69 fully automated web application installers** spanning cloud collaboration, email, database administration, developer tooling, personal finance, photo galleries, surveys, issue tracking, wikis, URL shortening, project management, push notifications, e-learning, feed readers, security, system metrics, ERP/CRM, music streaming, document archiving, team communication, and the entire open-source e-commerce and shopping cart ecosystem.
+The repository currently features **87 fully automated web application installers** spanning cloud collaboration, email, database administration (MySQL, PostgreSQL, Redis), developer tooling, continuous integration, workflow automation, personal finance, photo galleries, e-book reading, surveys, issue tracking, wikis, URL shortening, project management, push notifications, e-learning, feed readers, security, system metrics, application dashboards, remote desktop relays, ERP/CRM, music and audiobook streaming, document archiving and PDF tools, team communication, customer support, realtime databases, continuous file synchronization, and the entire open-source e-commerce and shopping cart ecosystem.
 
 ### Key Capabilities
 * **Isolated Daemons & Microservices**: Deploy modern Go, Rust, Node, and container services (Vaultwarden, AdGuard Home, Pi-hole, Trilium Notes, Netdata, Uptime Kuma) running as isolated systemd services behind automated Apache or Nginx reverse proxies with automatic WebSocket forwarding.
@@ -34,7 +34,7 @@ The repository currently features **69 fully automated web application installer
 
 ## Available Web Applications
 
-The suite provides **69 fully automated web application installers** sorted and grouped into **24 classifications**. All applications follow standardized lifecycle management, isolated runtime environments, and PCI DSS v4.0-compliant input validation and security controls.
+The suite provides **87 fully automated web application installers** sorted and grouped into **24 classifications**. All applications follow standardized lifecycle management, isolated runtime environments, and PCI DSS v4.0-compliant input validation and security controls.
 
 ### Classification Directory
 
@@ -44,29 +44,29 @@ Click any classification below to view its dedicated catalog page, technical arc
 | :--- | :--- | :---: |
 | [**Analytics**](docs/categories/analytics.md) | **Matomo**, **Umami** | `2` |
 | [**Blog**](docs/categories/blog.md) | **FlatPress**, **Ghost** | `2` |
-| [**Business**](docs/categories/business.md) | **Dolibarr**, **EspoCRM**, **Invoice Ninja**, **InvoicePlane**, **Monica PRM**, **SuiteCRM** | `6` |
+| [**Business**](docs/categories/business.md) | **Dolibarr**, **EspoCRM**, **FreeScout**, **Invoice Ninja**, **InvoicePlane**, **Kimai**, **Monica PRM**, **osTicket**, **SuiteCRM** | `9` |
 | [**Chat**](docs/categories/chat.md) | **Mattermost** | `1` |
 | [**Cloud**](docs/categories/cloud.md) | **Nextcloud**, **ownCloud** | `2` |
 | [**CMS**](docs/categories/cms.md) | **Drupal**, **Grav**, **Joomla!** | `3` |
 | [**Commerce**](docs/categories/commerce.md) | **AbanteCart**, **CubeCart**, **FOSSBilling**, **LiteCart**, **OpenCart**, **osCommerce**, **PrestaShop**, **Thirty Bees**, **WooCommerce**, **Zen Cart** | `10` |
-| [**Community**](docs/categories/community.md) | **Flarum**, **MyBB**, **phpBB** | `3` |
-| [**Database**](docs/categories/database.md) | **Adminer**, **phpMyAdmin** | `2` |
-| [**Development**](docs/categories/development.md) | **Forgejo**, **IT-Tools** | `2` |
+| [**Community**](docs/categories/community.md) | **Flarum**, **GoToSocial**, **MyBB**, **phpBB** | `4` |
+| [**Database**](docs/categories/database.md) | **Adminer**, **pgAdmin 4**, **phpMyAdmin**, **phpRedisAdmin** | `4` |
+| [**Development**](docs/categories/development.md) | **Forgejo**, **IT-Tools**, **n8n**, **PocketBase**, **Woodpecker CI** | `5` |
 | [**Documents**](docs/categories/documents.md) | **Paperless-ngx** | `1` |
 | [**Education**](docs/categories/education.md) | **Chamilo**, **Moodle** | `2` |
 | [**Email**](docs/categories/email.md) | **Roundcube**, **SnappyMail** | `2` |
 | [**Finance**](docs/categories/finance.md) | **Firefly III** | `1` |
 | [**Knowledge**](docs/categories/knowledge.md) | **Trilium Notes** | `1` |
-| [**Media**](docs/categories/media.md) | **Lychee**, **Navidrome**, **Piwigo** | `3` |
+| [**Media**](docs/categories/media.md) | **Audiobookshelf**, **Calibre-Web**, **Lychee**, **Navidrome**, **Piwigo** | `5` |
 | [**News**](docs/categories/news.md) | **FreshRSS**, **Miniflux** | `2` |
 | [**Project**](docs/categories/project.md) | **Kanboard**, **Leantime**, **MantisBT**, **Vikunja** | `4` |
 | [**Security**](docs/categories/security.md) | **Passbolt**, **PrivateBin**, **Vaultwarden** | `3` |
 | [**Surveys**](docs/categories/surveys.md) | **LimeSurvey** | `1` |
-| [**Sync**](docs/categories/sync.md) | **Baikal** | `1` |
-| [**System & DNS**](docs/categories/system-dns.md) | **AdGuard Home**, **File Browser**, **Gotify**, **Netdata**, **Pi-hole**, **Uptime Kuma** | `6` |
-| [**Utilities**](docs/categories/utilities.md) | **CyberChef**, **LinkStack**, **Microbin**, **Shaarli**, **Wallabag**, **YOURLS** | `6` |
-| [**Wiki**](docs/categories/wiki.md) | **BookStack**, **DokuWiki**, **MediaWiki** | `3` |
-| **Total** | **24 Application Classifications** | **`69`** |
+| [**Sync**](docs/categories/sync.md) | **Baikal**, **Syncthing** | `2` |
+| [**System & DNS**](docs/categories/system-dns.md) | **AdGuard Home**, **File Browser**, **Gotify**, **Homepage**, **Netdata**, **Pi-hole**, **RustDesk Server**, **Uptime Kuma** | `8` |
+| [**Utilities**](docs/categories/utilities.md) | **CyberChef**, **Grocy**, **LinkStack**, **Microbin**, **SearXNG**, **Shaarli**, **Stirling-PDF**, **Wallabag**, **YOURLS** | `9` |
+| [**Wiki**](docs/categories/wiki.md) | **BookStack**, **DokuWiki**, **MediaWiki**, **Wiki.js** | `4` |
+| **Total** | **24 Application Classifications** | **`87`** |
 
 > **Module Build Number Policy**: The `Build` number tracks the revision of our Virtualmin installer module independently of the upstream application version. Every time an installer script or service configuration is updated, its build number is incremented by 1 so server administrators can easily track changes and verify version freshness via `./setup.sh list`.
 
@@ -76,7 +76,7 @@ Click any classification below to view its dedicated catalog page, technical arc
 
 ## Documentation Library
 
-* **[Applications Reference Manual](docs/APPLICATIONS.md)**: Full runtime, database, storage directory, port, and systemd service profiles for all 69 applications.
+* **[Applications Reference Manual](docs/APPLICATIONS.md)**: Full runtime, database, storage directory, port, and systemd service profiles for all 87 applications.
 * **[Installation Guide](docs/INSTALLATION.md)**: Automated CLI installation and manual Webmin GUI registration instructions.
 * **[Upgrades & Maintenance Guide](docs/UPGRADE_GUIDE.md)**: Managing repository updates (`setup.sh update`), Virtualmin GUI upgrades, and automated cron checking.
 * **[Developer Guide](docs/DEVELOPER_GUIDE.md)**: Virtualmin install script API hooks, coding conventions, and module build tracking.
@@ -167,7 +167,7 @@ virtualminWebApps/
 
 ## Documentation Links
 
-* [Application Reference Manual](docs/APPLICATIONS.md): Complete technical reference for all 69 web applications, default ports, paths, database types, and services.
+* [Application Reference Manual](docs/APPLICATIONS.md): Complete technical reference for all 87 web applications, default ports, paths, database types, and services.
 * [Installation Guide](docs/INSTALLATION.md): Detailed installation instructions, prerequisites, and automated vs manual setup.
 * [Upgrades & Maintenance Guide](docs/UPGRADE_GUIDE.md): Complete guide to updating the suite (`setup.sh update`) and upgrading applications on virtual servers via GUI and CLI.
 * [Developer Guide](docs/DEVELOPER_GUIDE.md): Complete specifications of the Virtualmin script API and how to contribute new application modules.

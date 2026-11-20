@@ -1,0 +1,1 @@
+../apps/phpredisadmin/phpredisadmin.pl

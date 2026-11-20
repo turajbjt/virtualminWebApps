@@ -1,6 +1,6 @@
 # Applications Reference Manual
 
-A comprehensive technical reference for all 69 web application installers provided by the **Virtualmin Web Apps Suite**.
+A comprehensive technical reference for all 87 web application installers provided by the **Virtualmin Web Apps Suite**.
 
 ---
 
@@ -77,6 +77,24 @@ A comprehensive technical reference for all 69 web application installers provid
 | **Monica PRM** | Business | Laravel PHP / Webserver | MariaDB | Webserver | `~/public_html/<dir>/` | PHP-FPM / Webserver |
 | **Mattermost** | Chat | Standalone Go Binary | MariaDB | `8065` | `~/mattermost/data/` | `mattermost-<dom>.service` |
 | **Paperless-ngx** | Documents | Container Daemon | SQLite | `8000` | `~/paperless/data/` | `paperless-<dom>.service` |
+| **FreeScout** | Business | Laravel PHP / Webserver | MariaDB | Webserver | `~/public_html/<dir>/` | PHP-FPM / Webserver |
+| **PocketBase** | Development | Standalone Go Binary | SQLite | `8090` | `~/pocketbase/pb_data/` | `pocketbase-<dom>.service` |
+| **Syncthing** | Sync | Standalone Go Binary | SQLite | `8384` | `~/syncthing/config/` | `syncthing-<dom>.service` |
+| **Kimai** | Business | Symfony PHP / Webserver | MariaDB | Webserver | `~/public_html/<dir>/` | PHP-FPM / Webserver |
+| **GoToSocial** | Community | Standalone Go Binary | SQLite | `8085` | `~/gotosocial/storage/` | `gotosocial-<dom>.service` |
+| **Audiobookshelf** | Media | Container Daemon | SQLite | `13378` | `~/audiobookshelf/`, `~/audiobooks/` | `audiobookshelf-<dom>.service` |
+| **Grocy** | Utilities | PHP 8.1+ / Webserver | SQLite | Webserver | `~/public_html/<dir>/` | PHP-FPM / Webserver |
+| **Stirling-PDF** | Utilities | Container Daemon | None | `8080` | `~/stirling-pdf/` | `stirling-pdf-<dom>.service` |
+| **osTicket** | Business | PHP 8.1+ / Webserver | MariaDB | Webserver | `~/public_html/<dir>/` | PHP-FPM / Webserver |
+| **phpRedisAdmin** | Database | PHP 8.0+ / Webserver | Redis | Webserver | `~/public_html/<dir>/` | PHP-FPM / Webserver |
+| **Woodpecker CI** | Development | Standalone Go Binary | SQLite | `8000` | `~/woodpecker/data/` | `woodpecker-<dom>.service` |
+| **Calibre-Web** | Media | Container Daemon | SQLite | `8083` | `~/calibre-web/` | `calibre-web-<dom>.service` |
+| **n8n** | Development | Container Daemon | SQLite | `5678` | `~/n8n-data/` | `n8n-<dom>.service` |
+| **Homepage** | System | Container Daemon | None | `3000` | `~/homepage/config/` | `homepage-<dom>.service` |
+| **SearXNG** | Utilities | Container Daemon | None | `8080` | `~/searxng/` | `searxng-<dom>.service` |
+| **Wiki.js** | Wiki | Container Daemon | SQLite | `3000` | `~/wikijs-data/` | `wikijs-<dom>.service` |
+| **pgAdmin 4** | Database | Container Daemon | None | `5050` | `~/pgadmin4-data/` | `pgadmin4-<dom>.service` |
+| **RustDesk Server** | System | Standalone Rust Binary | None | `21116` | `~/rustdesk/` | `rustdesk-<dom>.service` |
 
 ---
 
@@ -706,6 +724,168 @@ A comprehensive technical reference for all 69 web application installers provid
 * **Upstream**: [https://docs.paperless-ngx.com](https://docs.paperless-ngx.com)
 * **Architecture**: Automated document indexing, Optical Character Recognition (OCR), and searchable archiving platform running inside an isolated container with systemd integration and reverse proxying.
 * **Database**: SQLite (or PostgreSQL via container).
+
+---
+
+### 70. FreeScout
+* **Category**: Business
+* **Version**: `1.8.146` | **Build**: `1`
+* **Upstream**: [https://freescout.net](https://freescout.net)
+* **Architecture**: Lightweight, self-hosted Help Scout alternative written in PHP (Laravel). Provides shared mailboxes, ticket tracking, and background email polling via user crontab.
+* **Database**: MariaDB / MySQL.
+
+---
+
+### 71. PocketBase
+* **Category**: Development
+* **Version**: `0.25.9` | **Build**: `1`
+* **Upstream**: [https://pocketbase.io](https://pocketbase.io)
+* **Architecture**: Single-binary Go backend with embedded SQLite database, realtime subscriptions via SSE/WebSockets, built-in auth, file storage, and admin dashboard. Managed via systemd and reverse-proxied.
+* **Database**: Embedded SQLite.
+
+---
+
+### 72. Syncthing
+* **Category**: Sync
+* **Version**: `1.29.2` | **Build**: `1`
+* **Upstream**: [https://syncthing.net](https://syncthing.net)
+* **Architecture**: Continuous, decentralized, peer-to-peer file synchronization engine with TLS mutual authentication and web management GUI. Managed via systemd and reverse-proxied.
+* **Database**: Embedded SQLite / LevelDB.
+
+---
+
+### 73. Kimai
+* **Category**: Business
+* **Version**: `2.34.0` | **Build**: `1`
+* **Upstream**: [https://www.kimai.org](https://www.kimai.org)
+* **Architecture**: Open-source time tracking, timesheet recording, and invoicing web application built with Symfony and PHP.
+* **Database**: MariaDB / MySQL.
+
+---
+
+### 74. GoToSocial
+* **Category**: Community
+* **Version**: `0.17.4` | **Build**: `1`
+* **Upstream**: [https://gotosocial.org](https://gotosocial.org)
+* **Architecture**: High-performance, lightweight ActivityPub social network server written in Go. Federates with Mastodon and the Fediverse with minimal system overhead. Runs as a systemd service, reverse-proxied over HTTPS with WebSocket support.
+* **Database**: Embedded SQLite.
+
+---
+
+### 75. Audiobookshelf
+* **Category**: Media
+* **Version**: `2.19.5` | **Build**: `1`
+* **Upstream**: [https://www.audiobookshelf.org](https://www.audiobookshelf.org)
+* **Architecture**: Self-hosted audiobook and podcast server with streaming, progress synchronization, multi-user accounts, and mobile companion app support. Runs in an isolated container daemon supervised by systemd and reverse-proxied with WebSockets.
+* **Database**: Embedded SQLite.
+
+---
+
+### 76. Grocy
+* **Category**: Utilities
+* **Version**: `4.4.2` | **Build**: `1`
+* **Upstream**: [https://grocy.info](https://grocy.info)
+* **Architecture**: Web-based ERP for home and household management (pantry inventory, groceries, recipes, chore management, and battery tracking). Pure PHP application with embedded SQLite database.
+* **Database**: Embedded SQLite.
+
+---
+
+### 77. Stirling-PDF
+* **Category**: Utilities
+* **Version**: `0.44.0` | **Build**: `1`
+* **Upstream**: [https://github.com/Stirling-Tools/Stirling-PDF](https://github.com/Stirling-Tools/Stirling-PDF)
+* **Architecture**: Locally hosted, browser-based PDF manipulation tools (merging, splitting, OCR, conversions, signing). Operates as an isolated container supervised by systemd and reverse-proxied.
+* **Database**: None (stateless file processor).
+
+---
+
+### 78. osTicket
+* **Category**: Business
+* **Version**: `1.18.1` | **Build**: `1`
+* **Upstream**: [https://osticket.com](https://osticket.com)
+* **Architecture**: Classic customer support ticket system routing inquiries via web forms and email. Features SLA plans, staff assignment, and background email polling via user crontab.
+* **Database**: MariaDB / MySQL.
+
+---
+
+### 79. phpRedisAdmin
+* **Category**: Database
+* **Version**: `1.17.2` | **Build**: `1`
+* **Upstream**: [https://github.com/erikdubbelboer/phpRedisAdmin](https://github.com/erikdubbelboer/phpRedisAdmin)
+* **Architecture**: Lightweight web-based GUI for Redis databases written in PHP. Allows searching keys, inspecting string/hash/list structures, viewing memory stats, and running commands directly from the browser.
+* **Database**: Redis.
+
+---
+
+### 80. Woodpecker CI
+* **Category**: Development
+* **Version**: `3.0.0` | **Build**: `1`
+* **Upstream**: [https://woodpecker-ci.org](https://woodpecker-ci.org)
+* **Architecture**: Community-driven, lightweight continuous integration engine written in Go. Uses pipeline-as-code configuration (`.woodpecker.yml`) and pairs natively with Forgejo, Gitea, GitHub, and GitLab.
+* **Database**: Embedded SQLite.
+
+---
+
+### 81. Calibre-Web
+* **Category**: Media
+* **Version**: `0.6.24` | **Build**: `1`
+* **Upstream**: [https://github.com/janeczku/calibre-web](https://github.com/janeczku/calibre-web)
+* **Architecture**: Clean, modern web interface for browsing, in-browser reading (ePub, PDF, CBR), and downloading eBooks using a Calibre database. Runs in an isolated container daemon supervised by systemd and reverse-proxied.
+* **Database**: Embedded SQLite (`metadata.db`).
+
+---
+
+### 82. n8n
+* **Category**: Development
+* **Version**: `1.70.0` | **Build**: `1`
+* **Upstream**: [https://n8n.io](https://n8n.io)
+* **Architecture**: Fair-code workflow automation and integration platform (Zapier alternative) connecting webhooks, APIs, databases, and AI agents via a visual node editor. Supervised by systemd and reverse-proxied with WebSockets.
+* **Database**: Embedded SQLite.
+
+---
+
+### 83. Homepage
+* **Category**: System
+* **Version**: `0.10.9` | **Build**: `1`
+* **Upstream**: [https://gethomepage.dev](https://gethomepage.dev)
+* **Architecture**: Modern, secure, highly customizable application dashboard and service status portal. Organizes installed web apps into categorized tiles and queries server hardware and service status metrics.
+* **Database**: None (YAML configuration).
+
+---
+
+### 84. SearXNG
+* **Category**: Utilities
+* **Version**: `2024.11.20` | **Build**: `1`
+* **Upstream**: [https://github.com/searxng/searxng](https://github.com/searxng/searxng)
+* **Architecture**: Privacy-respecting metasearch engine combining results from over 70 search services without user profiling or tracking. Runs as an isolated container daemon supervised by systemd and reverse-proxied.
+* **Database**: None.
+
+---
+
+### 85. Wiki.js
+* **Category**: Wiki
+* **Version**: `2.5.303` | **Build**: `1`
+* **Upstream**: [https://js.wiki](https://js.wiki)
+* **Architecture**: Modern, extensible documentation wiki engine with Markdown, Visual WYSIWYG, AsciiDoc, full-text search, and automated two-way Git synchronization. Runs as an isolated container daemon supervised by systemd and reverse-proxied with WebSockets.
+* **Database**: Embedded SQLite.
+
+---
+
+### 86. pgAdmin 4
+* **Category**: Database
+* **Version**: `8.14` | **Build**: `1`
+* **Upstream**: [https://www.pgadmin.org](https://www.pgadmin.org)
+* **Architecture**: The leading open-source management tool for PostgreSQL databases. Features graphical object manipulation, interactive SQL query editor, execution plan visualizer, and live server monitoring.
+* **Database**: PostgreSQL.
+
+---
+
+### 87. RustDesk Server
+* **Category**: System
+* **Version**: `1.1.12` | **Build**: `1`
+* **Upstream**: [https://rustdesk.com](https://rustdesk.com)
+* **Architecture**: Full-featured, self-hosted remote desktop server written in async Rust. Operates as an on-premises rendezvous and relay server (`hbbs` / `hbbr`) for encrypted remote desktop clients. Supervised by systemd and reverse-proxied.
+* **Database**: None.
 
 
 

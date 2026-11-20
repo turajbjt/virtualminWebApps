@@ -2,9 +2,9 @@
 
 > Part of the [Virtualmin Web Apps Suite](../../README.md). [← Back to Main Directory](../../README.md#classification-directory)
 
-Network-wide DNS sinkholes, monitoring dashboards, notifications, and web file managers.
+Network-wide DNS sinkholes, monitoring dashboards, notification servers, application status portals, remote desktop relays, and web file managers.
 
-This classification includes **6 Applications** ready for 1-click deployment on Virtualmin servers.
+This classification includes **8 Applications** ready for 1-click deployment on Virtualmin servers.
 
 ---
 
@@ -15,8 +15,10 @@ This classification includes **6 Applications** ready for 1-click deployment on 
 | **AdGuard Home** | `0.107.80` | `3` | Standalone Go Binary + Systemd + Web Reverse Proxy | [App Readme](../../apps/adguard_home/README.md) |
 | **File Browser** | `2.30.0` | `3` | Standalone Go Binary + Systemd + Web Reverse Proxy | [App Readme](../../apps/filebrowser/README.md) |
 | **Gotify** | `3.1.1` | `3` | Real-Time Push Notification Server (Go Binary + WebSockets) | [App Readme](../../apps/gotify/README.md) |
+| **Homepage** | `0.10.9` | `1` | Application Dashboard & Service Status Portal (Container Daemon) | [App Readme](../../apps/homepage/README.md) |
 | **Netdata** | `latest` | `3` | Real-Time Metrics & Observability Daemon + Reverse Proxy | [App Readme](../../apps/netdata/README.md) |
 | **Pi-hole** | `latest` | `3` | Containerized Daemon + Systemd + Web Reverse Proxy | [App Readme](../../apps/pihole/README.md) |
+| **RustDesk Server** | `1.1.12` | `1` | Remote Desktop Rendezvous & Relay Server (Rust Binary) | [App Readme](../../apps/rustdesk/README.md) |
 | **Uptime Kuma** | `latest` | `3` | Node.js Daemon + Systemd + WebSocket Reverse Proxy | [App Readme](../../apps/uptime_kuma/README.md) |
 
 ---
@@ -55,6 +57,15 @@ This classification includes **6 Applications** ready for 1-click deployment on 
 * **Database**: Embedded SQLite.
 
 
+### Homepage
+
+* **Category**: System
+* **Version**: `0.10.9` | **Build**: `1`
+* **Upstream**: [https://gethomepage.dev](https://gethomepage.dev)
+* **Architecture**: Modern, customizable application dashboard and service status portal. Organizes apps into categorized visual tiles and queries hardware metrics and status APIs.
+* **Database**: None (YAML configuration).
+
+
 ### Netdata
 
 * **Category**: System
@@ -73,6 +84,15 @@ This classification includes **6 Applications** ready for 1-click deployment on 
   * Web Admin: `127.0.0.1:8080` (reverse-proxied to `https://<domain>/admin/`).
   * DNS Port: `53` (TCP/UDP).
 * **Data Storage**: `/home/<domain>/pihole-data/etc-pihole` and `/etc-dnsmasq.d`.
+
+
+### RustDesk Server
+
+* **Category**: System
+* **Version**: `1.1.12` | **Build**: `1`
+* **Upstream**: [https://rustdesk.com](https://rustdesk.com)
+* **Architecture**: Full-featured remote desktop server in Rust operating as an on-premises rendezvous and relay server (`hbbs` / `hbbr`) for encrypted remote desktop clients. Supervised by systemd and reverse-proxied.
+* **Database**: None.
 
 
 ### Uptime Kuma

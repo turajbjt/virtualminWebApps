@@ -1,0 +1,1 @@
+../apps/wikijs/wikijs.pl

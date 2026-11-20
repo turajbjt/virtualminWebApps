@@ -1,0 +1,17 @@
+[Unit]
+Description=Woodpecker CI Server for %%DOMAIN%%
+After=network.target network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=%%USER%%
+Group=%%GROUP%%
+WorkingDirectory=%%WORK_DIR%%
+ExecStart=%%EXEC_START%%
+Restart=always
+RestartSec=5s
+LimitNOFILE=65535
+
+[Install]
+WantedBy=multi-user.target

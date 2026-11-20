@@ -4,7 +4,7 @@
 
 Enterprise Resource Planning (ERP), Customer Relationship Management (CRM), and client invoicing suites.
 
-This classification includes **6 Applications** ready for 1-click deployment on Virtualmin servers.
+This classification includes **9 Applications** ready for 1-click deployment on Virtualmin servers.
 
 ---
 
@@ -14,9 +14,12 @@ This classification includes **6 Applications** ready for 1-click deployment on 
 | :--- | :--- | :--- | :--- | :--- |
 | **Dolibarr** | `20.0.2` | `3` | Full ERP & CRM Suite (Pro Equivalent) | [App Readme](../../apps/dolibarr/README.md) |
 | **EspoCRM** | `10.1.3` | `3` | Fast Single-Page Application (SPA) CRM Platform | [App Readme](../../apps/espocrm/README.md) |
+| **FreeScout** | `1.8.146` | `1` | Help Desk & Shared Mailbox (Laravel / MariaDB) | [App Readme](../../apps/freescout/README.md) |
 | **Invoice Ninja** | `5.10.40` | `3` | Invoicing, Payments & Time Tracking (Pro Equivalent) | [App Readme](../../apps/invoiceninja/README.md) |
 | **InvoicePlane** | `1.6.1` | `3` | Open-Source Invoicing, Quotes & Client Management | [App Readme](../../apps/invoiceplane/README.md) |
+| **Kimai** | `2.34.0` | `1` | Open-Source Time Tracking & Invoicing (Symfony / MariaDB) | [App Readme](../../apps/kimai/README.md) |
 | **Monica PRM** | `4.1.2` | `3` | Personal Relationship Management Platform (PHP / MariaDB) | [App Readme](../../apps/monica/README.md) |
+| **osTicket** | `1.18.1` | `1` | Customer Support & Ticketing System (PHP / MariaDB) | [App Readme](../../apps/osticket/README.md) |
 | **SuiteCRM** | `8.10.2` | `3` | Enterprise Customer Relationship Management | [App Readme](../../apps/suitecrm/README.md) |
 
 ---
@@ -41,6 +44,16 @@ This classification includes **6 Applications** ready for 1-click deployment on 
 * **Database**: MariaDB / MySQL.
 
 
+### FreeScout
+
+* **Category**: Business
+* **Version**: `1.8.146` | **Build**: `1`
+* **Upstream**: [https://freescout.net](https://freescout.net)
+* **Architecture**: Lightweight Help Scout alternative built on Laravel/PHP. Features shared mailboxes, email threading, auto-replies, and background ticket polling.
+* **Database**: MariaDB / MySQL.
+* **Scheduler Cron**: `* * * * * php artisan schedule:run` registered in domain crontab.
+
+
 ### Invoice Ninja
 
 * **Category**: Business
@@ -59,12 +72,30 @@ This classification includes **6 Applications** ready for 1-click deployment on 
 * **Database**: MariaDB / MySQL.
 
 
+### Kimai
+
+* **Category**: Business
+* **Version**: `2.34.0` | **Build**: `1`
+* **Upstream**: [https://www.kimai.org](https://www.kimai.org)
+* **Architecture**: Open-source time tracker and invoicing application built with Symfony and PHP. Features customer/project hierarchies, budget tracking, and PDF/Excel timesheet exports.
+* **Database**: MariaDB / MySQL.
+
+
 ### Monica PRM
 
 * **Category**: Business
 * **Version**: `4.1.2` | **Build**: `3`
 * **Upstream**: [https://www.monicahq.com](https://www.monicahq.com)
 * **Architecture**: Personal Relationship Management (PRM) platform built with Laravel/PHP to document interactions, milestones, contact notes, and relationships.
+* **Database**: MariaDB / MySQL.
+
+
+### osTicket
+
+* **Category**: Business
+* **Version**: `1.18.1` | **Build**: `1`
+* **Upstream**: [https://osticket.com](https://osticket.com)
+* **Architecture**: Classic customer support ticketing system with SLA plans, auto-responders, staff routing, and background email polling via user crontab.
 * **Database**: MariaDB / MySQL.
 
 

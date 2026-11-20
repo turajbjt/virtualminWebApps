@@ -22,7 +22,7 @@ After running `sudo ./setup.sh install`, the new applications do not appear unde
    ```bash
    virtualmin list-available-scripts --source custom
    ```
-   All 69 applications should be displayed as available.
+   All 87 applications should be displayed as available.
 
 3. **Check the Available Scripts Tab in the Web GUI**:
    In the Virtualmin Web GUI:

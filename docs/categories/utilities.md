@@ -2,9 +2,9 @@
 
 > Part of the [Virtualmin Web Apps Suite](../../README.md). [← Back to Main Directory](../../README.md#classification-directory)
 
-Specialized developer utilities, encrypted pastebins, link hubs, and URL shorteners.
+Specialized developer utilities, home pantry ERP, PDF manipulation tools, privacy metasearch engines, encrypted pastebins, link hubs, and URL shorteners.
 
-This classification includes **6 Applications** ready for 1-click deployment on Virtualmin servers.
+This classification includes **9 Applications** ready for 1-click deployment on Virtualmin servers.
 
 ---
 
@@ -13,9 +13,12 @@ This classification includes **6 Applications** ready for 1-click deployment on 
 | Application | App Version | Build | Architecture / Type | Documentation |
 | :--- | :--- | :--- | :--- | :--- |
 | **CyberChef** | `11.5.0` | `3` | Client-Side Cyber Security Swiss Army Knife | [App Readme](../../apps/cyberchef/README.md) |
+| **Grocy** | `4.4.2` | `1` | Home Pantry & Asset Management ERP (PHP / SQLite) | [App Readme](../../apps/grocy/README.md) |
 | **LinkStack** | `4.8.8` | `3` | Open-Source Linktree Alternative & Bio Link Hub (PHP) | [App Readme](../../apps/linkstack/README.md) |
 | **Microbin** | `2.1.0` | `3` | Lightweight Encrypted Pastebin & File Sharing (Rust Binary) | [App Readme](../../apps/microbin/README.md) |
+| **SearXNG** | `2024.11.20` | `1` | Privacy-Respecting Metasearch Engine (Container Daemon) | [App Readme](../../apps/searxng/README.md) |
 | **Shaarli** | `0.16.10` | `3` | Personal Minimalist Bookmarking & Link Sharing | [App Readme](../../apps/shaarli/README.md) |
+| **Stirling-PDF** | `0.44.0` | `1` | Web-Based PDF Tools Suite (Container Daemon) | [App Readme](../../apps/stirling_pdf/README.md) |
 | **Wallabag** | `2.6.17` | `3` | Self-Hosted Read-It-Later & Article Archiver (PHP / MariaDB) | [App Readme](../../apps/wallabag/README.md) |
 | **YOURLS** | `1.10.6` | `3` | Your Own URL Shortener with Click Analytics & API | [App Readme](../../apps/yourls/README.md) |
 
@@ -29,6 +32,15 @@ This classification includes **6 Applications** ready for 1-click deployment on 
 * **Version**: `11.5.0` | **Build**: `3`
 * **Upstream**: [https://gchq.github.io/CyberChef/](https://gchq.github.io/CyberChef/)
 * **Architecture**: GCHQ's "Cyber Swiss Army Knife" — 100% client-side HTML5 & WebAssembly web app. Zero server-side runtime or database requirement.
+
+
+### Grocy
+
+* **Category**: Utilities
+* **Version**: `4.4.2` | **Build**: `1`
+* **Upstream**: [https://grocy.info](https://grocy.info)
+* **Architecture**: Web-based ERP for home and household management (groceries, pantry inventory, recipes, tasks, and battery tracking). Pure PHP application with embedded SQLite database.
+* **Database**: Embedded SQLite.
 
 
 ### LinkStack
@@ -49,6 +61,15 @@ This classification includes **6 Applications** ready for 1-click deployment on 
 * **Database**: Filesystem / Embedded.
 
 
+### SearXNG
+
+* **Category**: Utilities
+* **Version**: `2024.11.20` | **Build**: `1`
+* **Upstream**: [https://github.com/searxng/searxng](https://github.com/searxng/searxng)
+* **Architecture**: Privacy-respecting metasearch engine aggregating results from over 70 search services with zero query profiling or IP logging. Supervised by systemd and reverse-proxied.
+* **Database**: None.
+
+
 ### Shaarli
 
 * **Category**: Utilities
@@ -56,6 +77,15 @@ This classification includes **6 Applications** ready for 1-click deployment on 
 * **Upstream**: [https://shaarli.readthedocs.io](https://shaarli.readthedocs.io)
 * **Architecture**: Personal, minimalist, zero-SQL link sharing and bookmarking service with built-in tagging, full privacy, and flat-file storage.
 * **Database**: Flat-file JSON/datastore.
+
+
+### Stirling-PDF
+
+* **Category**: Utilities
+* **Version**: `0.44.0` | **Build**: `1`
+* **Upstream**: [https://github.com/Stirling-Tools/Stirling-PDF](https://github.com/Stirling-Tools/Stirling-PDF)
+* **Architecture**: Locally hosted, browser-based PDF manipulation tools (merging, splitting, OCR, conversions, signing). Operates as an isolated container supervised by systemd and reverse-proxied.
+* **Database**: None (stateless file processor).
 
 
 ### Wallabag

@@ -212,8 +212,8 @@ The repository includes a comprehensive 1,000+ assertion automated TAP unit test
 * `tests/03_port_manager.t`: Port manager unit tests (range scanning, input validation).
 * `tests/04_systemd_helper.t`: Systemd helper unit tests (service name validation, injection rejection).
 * `tests/05_proxy_helper.t`: Reverse proxy unit tests (Apache/Nginx blocks, CRLF injection prevention).
-* `tests/06_app_metadata.t`: Metadata and lifecycle hook verification for all 69 applications.
-* `tests/07_security_input_filtering.t`: Security fuzzing and input filtering test suite for all 69 applications.
+* `tests/06_app_metadata.t`: Metadata and lifecycle hook verification for all 87 applications.
+* `tests/07_security_input_filtering.t`: Security fuzzing and input filtering test suite for all 87 applications.
 
 To run the complete test suite:
 ```bash

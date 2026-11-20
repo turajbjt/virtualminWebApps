@@ -7,7 +7,31 @@ and this project adheres to Semantic Versioning.
 
 ---
 
-## [1.12.1] - 2026-11-17
+## [1.13.0] - 2026-11-20
+
+### Added
+- **18 New Web Application Installers (Suite Expanded from 69 to 87 Applications across 24 Classifications)**:
+  - **phpRedisAdmin (`apps/phpredisadmin/`)**: Lightweight web GUI for Redis databases written in PHP, enabling key search, structure inspection, memory metrics, and CLI command execution.
+  - **Woodpecker CI (`apps/woodpecker/`)**: Standalone Go binary continuous integration engine with declarative `.woodpecker.yml` pipelines, native Forgejo/Gitea webhook wiring, and systemd supervision (`woodpecker-<dom>.service`).
+  - **Calibre-Web (`apps/calibre_web/`)**: Clean web UI for browsing, in-browser reading (ePub, PDF, CBR), and downloading eBooks using a Calibre database. Supervised by systemd (`calibre-web-<dom>.service`) and reverse-proxied.
+  - **n8n (`apps/n8n/`)**: Fair-code workflow automation and integration platform (Zapier alternative) connecting webhooks, APIs, databases, and AI agents via visual canvas (`n8n-<dom>.service`).
+  - **Homepage (`apps/homepage/`)**: Modern application dashboard and service status portal organizing apps into categorized tiles with live server metrics and service widgets (`homepage-<dom>.service`).
+  - **SearXNG (`apps/searxng/`)**: Privacy-first metasearch engine combining 70+ search services with zero profiling, cookies, or query logging (`searxng-<dom>.service`).
+  - **Wiki.js (`apps/wikijs/`)**: Modern documentation wiki engine with Markdown, Visual WYSIWYG, AsciiDoc, full-text search, and automated two-way Git synchronization (`wikijs-<dom>.service`).
+  - **pgAdmin 4 (`apps/pgadmin4/`)**: The premier web-based management tool for PostgreSQL databases featuring graphical schema inspection, SQL query runner, and server monitoring (`pgadmin4-<dom>.service`).
+  - **RustDesk Server (`apps/rustdesk/`)**: High-performance, self-hosted remote desktop rendezvous and relay server in Rust (`hbbs` / `hbbr`) for encrypted remote desktop clients (`rustdesk-<dom>.service`).
+  - **Audiobookshelf (`apps/audiobookshelf/`)**: Self-hosted audiobook and podcast server with streaming, progress sync, multi-user accounts, and mobile companion app support (`audiobookshelf-<dom>.service`).
+  - **Grocy (`apps/grocy/`)**: Web-based ERP for home and household management (groceries, pantry inventory, recipes, tasks, and battery tracking). Pure PHP application with embedded SQLite database.
+  - **Stirling-PDF (`apps/stirling_pdf/`)**: Powerful locally hosted, browser-based PDF manipulation tools (merging, splitting, OCR, conversions, signing) running via systemd (`stirling-pdf-<dom>.service`).
+  - **osTicket (`apps/osticket/`)**: Battle-tested open-source customer support ticketing system with SLA plans, auto-responders, staff routing, and background email polling via user crontab.
+  - **FreeScout (`apps/freescout/`)**: Self-hosted Help Scout alternative written in PHP (Laravel) with MariaDB backend, shared mailboxes, automated background queue/email polling via user crontab, and PCI DSS restricted `.env` permissions (`0600`).
+  - **PocketBase (`apps/pocketbase/`)**: Single-binary Go backend with embedded SQLite database, realtime subscriptions via SSE/WebSockets, built-in auth, file storage, systemd daemon management (`pocketbase-<dom>.service`), and reverse proxying with WebSocket support.
+  - **Syncthing (`apps/syncthing/`)**: Continuous, decentralized, peer-to-peer file synchronization engine written in Go with TLS mutual authentication and web management GUI. Managed via systemd (`syncthing-<dom>.service`) and reverse-proxied.
+  - **Kimai (`apps/kimai/`)**: Open-source time tracking, timesheet recording, and customer invoicing web application built with Symfony and PHP with MariaDB database backend and secured `.env.local` permissions (`0600`).
+  - **GoToSocial (`apps/gotosocial/`)**: Lightweight ActivityPub social network server in Go federating with Mastodon and the Fediverse with embedded SQLite database, systemd daemon unit (`gotosocial-<dom>.service`), and HTTPS reverse proxying with WebSockets.
+- **Automated Test Suite Expansion**:
+  - Expanded automated test coverage from 1,248 to **1,554 tests** across 9 test suites with 100% PASS rate.
+  - Verified syntax, metadata, security fuzzing, input validation, and Virtualmin loader compatibility across all 87 applications.
 
 ### Changed
 - **UI Readability & Module Titles (All 69 Applications)**:

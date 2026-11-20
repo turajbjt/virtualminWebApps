@@ -1,0 +1,1 @@
+../apps/rustdesk/rustdesk.pl
