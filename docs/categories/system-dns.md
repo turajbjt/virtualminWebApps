@@ -4,7 +4,7 @@
 
 Network-wide DNS sinkholes, monitoring dashboards, notification servers, application status portals, remote desktop relays, and web file managers.
 
-This classification includes **8 Applications** ready for 1-click deployment on Virtualmin servers.
+This classification includes **10 Applications** ready for 1-click deployment on Virtualmin servers.
 
 ---
 
@@ -14,8 +14,10 @@ This classification includes **8 Applications** ready for 1-click deployment on 
 | :--- | :--- | :--- | :--- | :--- |
 | **AdGuard Home** | `0.107.80` | `3` | Standalone Go Binary + Systemd + Web Reverse Proxy | [App Readme](../../apps/adguard_home/README.md) |
 | **File Browser** | `2.30.0` | `3` | Standalone Go Binary + Systemd + Web Reverse Proxy | [App Readme](../../apps/filebrowser/README.md) |
+| **Gatus** | `5.13.1` | `1` | Automated Service Health Dashboard (Go Binary + Systemd) | [App Readme](../../apps/gatus/README.md) |
 | **Gotify** | `3.1.1` | `3` | Real-Time Push Notification Server (Go Binary + WebSockets) | [App Readme](../../apps/gotify/README.md) |
 | **Homepage** | `0.10.9` | `1` | Application Dashboard & Service Status Portal (Container Daemon) | [App Readme](../../apps/homepage/README.md) |
+| **Kopia** | `0.18.2` | `1` | Encrypted Backup Management & Web UI (Go Binary + Systemd) | [App Readme](../../apps/kopia/README.md) |
 | **Netdata** | `latest` | `3` | Real-Time Metrics & Observability Daemon + Reverse Proxy | [App Readme](../../apps/netdata/README.md) |
 | **Pi-hole** | `latest` | `3` | Containerized Daemon + Systemd + Web Reverse Proxy | [App Readme](../../apps/pihole/README.md) |
 | **RustDesk Server** | `1.1.12` | `1` | Remote Desktop Rendezvous & Relay Server (Rust Binary) | [App Readme](../../apps/rustdesk/README.md) |
@@ -48,6 +50,15 @@ This classification includes **8 Applications** ready for 1-click deployment on 
 * **Default Credentials**: `admin` / `admin`.
 
 
+### Gatus
+
+* **Category**: System / DNS
+* **Version**: `5.13.1` | **Build**: `1`
+* **Upstream**: [https://gatus.io](https://gatus.io)
+* **Architecture**: Automated service health monitoring dashboard and public status page daemon written in Go with YAML configuration. Supervised by systemd and reverse-proxied.
+* **Database**: Embedded SQLite.
+
+
 ### Gotify
 
 * **Category**: System
@@ -64,6 +75,15 @@ This classification includes **8 Applications** ready for 1-click deployment on 
 * **Upstream**: [https://gethomepage.dev](https://gethomepage.dev)
 * **Architecture**: Modern, customizable application dashboard and service status portal. Organizes apps into categorized visual tiles and queries hardware metrics and status APIs.
 * **Database**: None (YAML configuration).
+
+
+### Kopia
+
+* **Category**: System / DNS
+* **Version**: `0.18.2` | **Build**: `1`
+* **Upstream**: [https://kopia.io](https://kopia.io)
+* **Architecture**: Fast, secure, end-to-end encrypted and deduplicated server backup management suite with built-in Web UI. Supervised by systemd and reverse-proxied with WebSockets.
+* **Database**: Embedded SQLite.
 
 
 ### Netdata

@@ -1,6 +1,6 @@
 # Applications Reference Manual
 
-A comprehensive technical reference for all 87 web application installers provided by the **Virtualmin Web Apps Suite**.
+A comprehensive technical reference for all 100 web application installers provided by the **Virtualmin Web Apps Suite**.
 
 ---
 
@@ -95,6 +95,19 @@ A comprehensive technical reference for all 87 web application installers provid
 | **Wiki.js** | Wiki | Container Daemon | SQLite | `3000` | `~/wikijs-data/` | `wikijs-<dom>.service` |
 | **pgAdmin 4** | Database | Container Daemon | None | `5050` | `~/pgadmin4-data/` | `pgadmin4-<dom>.service` |
 | **RustDesk Server** | System | Standalone Rust Binary | None | `21116` | `~/rustdesk/` | `rustdesk-<dom>.service` |
+| **Jellyfin** | Media | Container Daemon | None | `8096` | `~/jellyfin/` | `jellyfin-<dom>.service` |
+| **Meilisearch** | Utilities | Standalone Rust Binary | Embedded | `7700` | `~/meilisearch/data/` | `meilisearch-<dom>.service` |
+| **PhotoPrism** | Media | Container Daemon | SQLite | `2342` | `~/photoprism/storage/` | `photoprism-<dom>.service` |
+| **MinIO** | Cloud | Standalone Go Binary | None | `9000` | `~/minio/data/` | `minio-<dom>.service` |
+| **Conduit** | Chat | Standalone Rust Binary | SQLite | `6167` | `~/conduit/data/` | `conduit-<dom>.service` |
+| **Changedetection.io** | Utilities | Container Daemon | None | `5000` | `~/changedetection/datastore/` | `changedetection-<dom>.service` |
+| **Gatus** | System / DNS | Standalone Go Binary | SQLite | `8085` | `~/gatus/config/` | `gatus-<dom>.service` |
+| **Shlink** | Utilities | PHP 8.1+ / Webserver | MariaDB | Webserver | `~/public_html/<dir>/` | PHP-FPM / Webserver |
+| **Linkding** | Utilities | Container Daemon | SQLite | `9090` | `~/linkding/data/` | `linkding-<dom>.service` |
+| **Directus** | CMS | Container Daemon | SQLite | `8055` | `~/directus/data/` | `directus-<dom>.service` |
+| **Kopia** | System / DNS | Standalone Go Binary | SQLite | `51515` | `~/kopia/` | `kopia-<dom>.service` |
+| **Actual Budget** | Finance | Container Daemon | SQLite | `5006` | `~/actual-budget/data/` | `actual-budget-<dom>.service` |
+| **Planka** | Project | Container Daemon | SQLite | `1337` | `~/planka/` | `planka-<dom>.service` |
 
 ---
 
@@ -886,6 +899,124 @@ A comprehensive technical reference for all 87 web application installers provid
 * **Upstream**: [https://rustdesk.com](https://rustdesk.com)
 * **Architecture**: Full-featured, self-hosted remote desktop server written in async Rust. Operates as an on-premises rendezvous and relay server (`hbbs` / `hbbr`) for encrypted remote desktop clients. Supervised by systemd and reverse-proxied.
 * **Database**: None.
+
+---
+
+### 88. Jellyfin
+* **Category**: Media
+* **Version**: `10.9.11` | **Build**: `1`
+* **Upstream**: [https://jellyfin.org](https://jellyfin.org)
+* **Architecture**: Volunteer-built media streaming server putting you in complete control of movies, shows, music, and live TV. Supervised by systemd and reverse-proxied with WebSockets.
+* **Database**: None.
+
+---
+
+### 89. Meilisearch
+* **Category**: Utilities
+* **Version**: `1.12.0` | **Build**: `1`
+* **Upstream**: [https://www.meilisearch.com](https://www.meilisearch.com)
+* **Architecture**: Lightning-fast, typo-tolerant open-source search engine in Rust with instant search-as-you-type (<50ms). Supervised by systemd and reverse-proxied.
+* **Database**: Embedded LMDB.
+
+---
+
+### 90. PhotoPrism
+* **Category**: Media
+* **Version**: `240915` | **Build**: `1`
+* **Upstream**: [https://www.photoprism.app](https://www.photoprism.app)
+* **Architecture**: AI-powered personal photo library and visual asset manager with automatic categorization, facial recognition, and geolocation tagging. Supervised by systemd and reverse-proxied.
+* **Database**: Embedded SQLite.
+
+---
+
+### 91. MinIO
+* **Category**: Cloud
+* **Version**: `2024.11.07` | **Build**: `1`
+* **Upstream**: [https://min.io](https://min.io)
+* **Architecture**: High-performance, S3-compatible multi-cloud object storage daemon written in Go with built-in Web Console and PRNG credentials. Supervised by systemd and reverse-proxied with WebSockets.
+* **Database**: None.
+
+---
+
+### 92. Conduit
+* **Category**: Chat
+* **Version**: `0.8.0` | **Build**: `1`
+* **Upstream**: [https://conduit.rs](https://conduit.rs)
+* **Architecture**: Ultra-lightweight, high-performance Matrix homeserver in Rust designed for minimal RAM usage and rapid federation. Supervised by systemd and reverse-proxied with WebSockets.
+* **Database**: Embedded SQLite.
+
+---
+
+### 93. Changedetection.io
+* **Category**: Utilities
+* **Version**: `0.47.06` | **Build**: `1`
+* **Upstream**: [https://changedetection.io](https://changedetection.io)
+* **Architecture**: Automated website change detection, price alert, and restock tracking service with multi-channel notifications. Supervised by systemd and reverse-proxied with WebSockets.
+* **Database**: None.
+
+---
+
+### 94. Gatus
+* **Category**: System / DNS
+* **Version**: `5.13.1` | **Build**: `1`
+* **Upstream**: [https://gatus.io](https://gatus.io)
+* **Architecture**: Automated service health monitoring dashboard and public status page daemon written in Go with YAML configuration. Supervised by systemd and reverse-proxied.
+* **Database**: Embedded SQLite.
+
+---
+
+### 95. Shlink
+* **Category**: Utilities
+* **Version**: `4.2.1` | **Build**: `1`
+* **Upstream**: [https://shlink.io](https://shlink.io)
+* **Architecture**: Open-source self-hosted URL shortener with REST API, detailed geolocated analytics, QR codes, and multi-domain support.
+* **Database**: MariaDB / MySQL.
+
+---
+
+### 96. Linkding
+* **Category**: Utilities
+* **Version**: `1.38.1` | **Build**: `1`
+* **Upstream**: [https://github.com/sissbruecker/linkding](https://github.com/sissbruecker/linkding)
+* **Architecture**: Minimalist, fast, tag-based self-hosted bookmark manager with archive snapshotting and browser extensions. Supervised by systemd and reverse-proxied with WebSockets.
+* **Database**: Embedded SQLite.
+
+---
+
+### 97. Directus
+* **Category**: CMS
+* **Version**: `11.1.1` | **Build**: `1`
+* **Upstream**: [https://directus.io](https://directus.io)
+* **Architecture**: Instant open-source REST & GraphQL API engine and headless CMS data studio wrapping any SQL database with dynamic permissions. Supervised by systemd and reverse-proxied with WebSockets.
+* **Database**: SQLite / MariaDB.
+
+---
+
+### 98. Kopia
+* **Category**: System / DNS
+* **Version**: `0.18.2` | **Build**: `1`
+* **Upstream**: [https://kopia.io](https://kopia.io)
+* **Architecture**: Fast, secure, end-to-end encrypted and deduplicated server backup management suite with built-in Web UI. Supervised by systemd and reverse-proxied with WebSockets.
+* **Database**: Embedded SQLite.
+
+---
+
+### 99. Actual Budget
+* **Category**: Finance
+* **Version**: `24.11.0` | **Build**: `1`
+* **Upstream**: [https://actualbudget.org](https://actualbudget.org)
+* **Architecture**: Super fast, privacy-first personal finance app and zero-leak envelope budgeting system with multi-device sync. Supervised by systemd and reverse-proxied with WebSockets.
+* **Database**: Embedded SQLite.
+
+---
+
+### 100. Planka
+* **Category**: Project
+* **Version**: `1.22.1` | **Build**: `1`
+* **Upstream**: [https://planka.app](https://planka.app)
+* **Architecture**: Real-time collaborative kanban board for agile project and task management with cards, checklists, labels, and attachments. Supervised by systemd and reverse-proxied with WebSockets.
+* **Database**: Embedded SQLite.
+
 
 
 

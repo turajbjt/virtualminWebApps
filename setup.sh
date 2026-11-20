@@ -103,7 +103,9 @@ do_install() {
         # Symlink shared library directory into Virtualmin custom scripts directory
         ln -sfn "${LIB_DIR}" "${VIRTUALMIN_SCRIPTS_DIR}/lib"
 
-        # Symlink all 69 app installer scripts directly into Virtualmin's custom scripts directory
+        local total_apps
+        total_apps=$(find "${APPS_DIR}" -mindepth 1 -maxdepth 1 -type d | wc -l)
+        # Symlink all app installer scripts directly into Virtualmin's custom scripts directory
         local count=0
         for app_dir in "${APPS_DIR}"/*; do
             if [[ -d "${app_dir}" ]]; then
@@ -158,7 +160,7 @@ do_install() {
         echo -e "  2. Click on ${BOLD}Manage Web Apps${NC} (or ${BOLD}Install Scripts${NC})."
         echo -e "  3. Click the ${BOLD}Available Scripts${NC} (or ${BOLD}Install Script${NC}) tab."
         echo -e "     ${YELLOW}(Note: Virtualmin opens on the 'Installed Scripts' tab by default if apps already exist on the domain).${NC}"
-        echo -e "  4. All 69 applications will appear organized by category, ready to install with 1 click!"
+        echo -e "  4. All applications will appear organized by category, ready to install with 1 click!"
         echo -e "  (To manage global script visibility: Virtualmin -> System Settings -> Script Installers)"
     else
         echo -e "${GREEN}[+] Local scripts directory prepared at ${SCRIPTS_DIR}.${NC}"
@@ -239,7 +241,9 @@ do_status() {
                 fi
             fi
         done
-        echo -e "  Virtualmin Scripts Dir: ${GREEN}${VIRTUALMIN_SCRIPTS_DIR}${NC} (${linked_count}/69 apps linked)"
+        local total_apps
+        total_apps=$(find "${APPS_DIR}" -mindepth 1 -maxdepth 1 -type d | wc -l)
+        echo -e "  Virtualmin Scripts Dir: ${GREEN}${VIRTUALMIN_SCRIPTS_DIR}${NC} (${linked_count}/${total_apps} apps linked)"
     else
         echo -e "  Virtualmin Scripts Dir: ${YELLOW}${VIRTUALMIN_SCRIPTS_DIR} (Not yet created)${NC}"
     fi
@@ -357,6 +361,144 @@ do_test() {
     echo -e "${GREEN}${BOLD}[SUCCESS] All unit tests, security verifications, and PCI DSS assertions passed!${NC}"
 }
 
+do_doctor() {
+    print_banner
+    echo -e "${CYAN}${BOLD}[*] Running Virtualmin Web Apps Suite System & Health Diagnostics...${NC}\n"
+
+    local issues=0
+
+    # 1. Host and Kernel
+    echo -e "${BOLD}[System Environment]${NC}"
+    echo -e "  OS / Host:            $(uname -s) $(uname -r) ($(uname -m))"
+
+    # 2. Perl Environment & Core Modules
+    echo -e "\n${BOLD}[Perl Runtime]${NC}"
+    if command -v perl >/dev/null 2>&1; then
+        local perl_ver
+        perl_ver=$(perl -e 'print $^V')
+        echo -e "  Perl Binary:          ${GREEN}$(command -v perl)${NC} (${perl_ver})"
+
+        local modules=("File::Basename" "File::Path" "Cwd" "POSIX" "Digest::SHA" "File::Copy" "Test::Simple" "Test::More")
+        for mod in "${modules[@]}"; do
+            if perl -M"${mod}" -e 1 >/dev/null 2>&1; then
+                echo -e "  Module ${mod}: ${GREEN}OK${NC}"
+            else
+                echo -e "  Module ${mod}: ${RED}MISSING${NC}"
+                issues=$((issues + 1))
+            fi
+        done
+    else
+        echo -e "  Perl Binary:          ${RED}NOT FOUND${NC}"
+        issues=$((issues + 1))
+    fi
+
+    # 3. Virtualmin / Webmin Integration
+    echo -e "\n${BOLD}[Virtualmin / Webmin Integration]${NC}"
+    if [[ -d "${WEBMIN_CONFIG_DIR}" ]]; then
+        echo -e "  Webmin Config:        ${GREEN}${WEBMIN_CONFIG_DIR} (Found)${NC}"
+    else
+        echo -e "  Webmin Config:        ${YELLOW}${WEBMIN_CONFIG_DIR} (Not detected - development host)${NC}"
+    fi
+
+    if [[ -d "${VIRTUALMIN_MODULE_DIR}" ]]; then
+        echo -e "  Virtualmin Module:    ${GREEN}${VIRTUALMIN_MODULE_DIR} (Found)${NC}"
+    else
+        echo -e "  Virtualmin Module:    ${YELLOW}${VIRTUALMIN_MODULE_DIR} (Not detected - development host)${NC}"
+    fi
+
+    if command -v virtualmin >/dev/null 2>&1; then
+        echo -e "  Virtualmin CLI:       ${GREEN}Available${NC}"
+    else
+        echo -e "  Virtualmin CLI:       ${YELLOW}Not in PATH (standard if not on live server)${NC}"
+    fi
+
+    # 4. Command-Line Utilities
+    echo -e "\n${BOLD}[Required & Recommended CLI Utilities]${NC}"
+    local utils=("curl" "wget" "tar" "unzip" "gzip" "sed" "grep" "systemctl")
+    for u in "${utils[@]}"; do
+        if command -v "${u}" >/dev/null 2>&1; then
+            echo -e "  Command '${u}':       ${GREEN}Installed${NC} ($(command -v "${u}"))"
+        else
+            echo -e "  Command '${u}':       ${YELLOW}Missing${NC}"
+        fi
+    done
+
+    # 5. Container Engines (for container-based apps)
+    echo -e "\n${BOLD}[Container Runtimes (for containerized apps)]${NC}"
+    local has_container=0
+    if command -v podman >/dev/null 2>&1; then
+        echo -e "  Podman:               ${GREEN}Installed${NC} ($(podman --version 2>/dev/null | head -n1))"
+        has_container=1
+    else
+        echo -e "  Podman:               ${YELLOW}Not installed${NC}"
+    fi
+
+    if command -v docker >/dev/null 2>&1; then
+        echo -e "  Docker:               ${GREEN}Installed${NC} ($(docker --version 2>/dev/null | head -n1))"
+        has_container=1
+    else
+        echo -e "  Docker:               ${YELLOW}Not installed${NC}"
+    fi
+
+    if [[ ${has_container} -eq 0 ]]; then
+        echo -e "  ${YELLOW}[NOTE] Container-based apps require Podman or Docker to be installed.${NC}"
+    fi
+
+    # 6. Repository Integrity & Symlink Health
+    echo -e "\n${BOLD}[Repository Health & Symlinks]${NC}"
+    local broken_links
+    broken_links=$(find "${SCRIPTS_DIR}" -xtype l 2>/dev/null | wc -l || echo 0)
+    if [[ ${broken_links} -eq 0 ]]; then
+        echo -e "  Broken Symlinks:      ${GREEN}0 (All valid)${NC}"
+    else
+        echo -e "  Broken Symlinks:      ${RED}${broken_links} detected!${NC}"
+        issues=$((issues + 1))
+    fi
+
+    local total_apps
+    total_apps=$(find "${APPS_DIR}" -mindepth 1 -maxdepth 1 -type d | wc -l)
+    local total_scripts
+    total_scripts=$(find "${SCRIPTS_DIR}" -maxdepth 1 -name "*.pl" | wc -l)
+    echo -e "  Total Apps in apps/:  ${GREEN}${total_apps}${NC}"
+    echo -e "  Total in scripts/:    ${GREEN}${total_scripts}${NC}"
+    if [[ ${total_apps} -ne ${total_scripts} ]]; then
+        echo -e "  ${YELLOW}[WARNING] apps/ count (${total_apps}) does not match scripts/ count (${total_scripts}). Run './setup.sh update' to sync.${NC}"
+    fi
+
+    echo ""
+    if [[ ${issues} -eq 0 ]]; then
+        echo -e "${GREEN}${BOLD}[SUCCESS] Doctor diagnosis complete: No critical issues detected!${NC}"
+    else
+        echo -e "${YELLOW}${BOLD}[NOTICE] Doctor diagnosis complete: ${issues} issue(s) detected.${NC}"
+    fi
+}
+
+do_package() {
+    print_banner
+    local version="2.0.0"
+    local pkg_file="${SCRIPT_DIR}/virtualmin-webapps-v${version}.tar.gz"
+    echo -e "${CYAN}[*] Creating standalone release package for Virtualmin Web Apps Suite v${version}...${NC}"
+
+    # Sync scripts directory first
+    sync_scripts_directory >/dev/null 2>&1
+
+    # Create tar.gz excluding git metadata via temp file
+    local tmp_pkg="/tmp/virtualmin-webapps-v${version}-$$.tar.gz"
+    tar --exclude='.git' --exclude='.github' --exclude='*.tar.gz' -czf "${tmp_pkg}" -C "$(dirname "${SCRIPT_DIR}")" "$(basename "${SCRIPT_DIR}")"
+    mv "${tmp_pkg}" "${pkg_file}"
+
+    if [[ -f "${pkg_file}" ]]; then
+        local sz
+        sz=$(du -h "${pkg_file}" | cut -f1)
+        echo -e "${GREEN}${BOLD}[SUCCESS] Release package created successfully!${NC}"
+        echo -e "  Archive: ${pkg_file} (${sz})"
+        echo -e "  Usage: Extract on any Virtualmin server and run './setup.sh install'"
+    else
+        echo -e "${RED}[ERROR] Failed to create package.${NC}"
+        exit 1
+    fi
+}
+
 show_help() {
     print_banner
     echo -e "Usage: $0 [command]"
@@ -368,6 +510,8 @@ show_help() {
     echo "  status     Display integration status and configured script directory"
     echo "  list       Show table of all available web apps in this repository"
     echo "  test       Run perl syntax verification on all scripts and shared libs"
+    echo "  doctor     Run diagnostic health check on system, perl modules, and repository"
+    echo "  package    Generate standalone release distribution archive (.tar.gz)"
     echo "  help       Show this help message"
     echo ""
 }
@@ -390,6 +534,12 @@ case "$1" in
         ;;
     test)
         do_test
+        ;;
+    doctor)
+        do_doctor
+        ;;
+    package)
+        do_package
         ;;
     help|--help|-h|"")
         show_help

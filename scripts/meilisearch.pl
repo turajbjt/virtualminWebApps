@@ -1,0 +1,1 @@
+../apps/meilisearch/meilisearch.pl

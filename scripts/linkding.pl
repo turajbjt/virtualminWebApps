@@ -1,0 +1,1 @@
+../apps/linkding/linkding.pl

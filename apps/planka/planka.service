@@ -1,0 +1,19 @@
+[Unit]
+Description=Planka Realtime Kanban Board for Virtualmin domain
+After=network.target
+
+[Service]
+Type=simple
+User=${USER}
+WorkingDirectory=${APP_DIR}
+Environment="SECRET_KEY=${SECRET_KEY}"
+Environment="BASE_URL=${URL}"
+Environment="DATABASE_URL=sqlite:///app/data/planka.db"
+ExecStart=/usr/bin/${ENGINE} run --rm --name planka-${USER} -p 127.0.0.1:${PORT}:1337 -e SECRET_KEY=${SECRET_KEY} -e BASE_URL=${URL} -e DATABASE_URL=sqlite:///app/data/planka.db -v ${APP_DIR}:/app/data:Z -v ${AVATARS}:/app/public/user-avatars:Z -v ${BACKGROUNDS}:/app/public/project-background-images:Z -v ${ATTACHMENTS}:/app/public/attachments:Z ghcr.io/plankanban/planka:${VERSION}
+ExecStop=/usr/bin/${ENGINE} stop planka-${USER}
+Restart=always
+RestartSec=10
+LimitNOFILE=65536
+
+[Install]
+WantedBy=multi-user.target

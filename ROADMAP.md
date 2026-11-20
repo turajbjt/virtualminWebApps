@@ -150,6 +150,25 @@ A modular collection of open-source web application installers for [Virtualmin](
 
 ---
 
+### Phase 12: The Century Milestone (100 Web Applications & Diagnostics CLI)
+- [x] **Jellyfin** (Open-source home media streaming server for movies, shows, and music)
+- [x] **Meilisearch** (Ultra-fast, typo-tolerant open-source instant search engine in Rust)
+- [x] **PhotoPrism** (AI-powered personal photo library and visual asset manager)
+- [x] **MinIO** (High-performance, S3-compatible multi-cloud object storage daemon in Go)
+- [x] **Conduit** (Ultra-lightweight, high-performance Matrix homeserver in Rust)
+- [x] **Changedetection.io** (Automated website change detection, price tracking, and notification monitor)
+- [x] **Gatus** (Automated service health monitoring dashboard and status page)
+- [x] **Shlink** (Self-hosted URL shortener with REST API and detailed geolocated analytics)
+- [x] **Linkding** (Minimalist, fast, tag-based self-hosted bookmark manager)
+- [x] **Directus** (Instant REST & GraphQL API and data studio on top of SQL databases)
+- [x] **Kopia** (Fast, encrypted, deduplicated server backup management with web UI)
+- [x] **Actual Budget** (Privacy-first personal finance and envelope budgeting system)
+- [x] **Planka** (Real-time collaborative kanban board for teams and agile task management)
+- [x] **`setup.sh doctor`**: Automated system, perl module, container runtime, and repository integrity diagnostic CLI
+
+
+---
+
 ## 3. Directory Layout Standard
 
 ```text

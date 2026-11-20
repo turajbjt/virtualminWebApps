@@ -1,0 +1,1 @@
+../apps/minio/minio.pl

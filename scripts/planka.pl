@@ -1,0 +1,1 @@
+../apps/planka/planka.pl

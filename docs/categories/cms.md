@@ -4,7 +4,7 @@
 
 Content Management Systems for corporate portals, community websites, and online publishing.
 
-This classification includes **3 Applications** ready for 1-click deployment on Virtualmin servers.
+This classification includes **4 Applications** ready for 1-click deployment on Virtualmin servers.
 
 ---
 
@@ -12,6 +12,7 @@ This classification includes **3 Applications** ready for 1-click deployment on 
 
 | Application | App Version | Build | Architecture / Type | Documentation |
 | :--- | :--- | :--- | :--- | :--- |
+| **Directus** | `11.1.1` | `1` | Headless CMS & Instant REST/GraphQL API Studio (Container + Systemd) | [App Readme](../../apps/directus/README.md) |
 | **Drupal** | `10.3.5` | `3` | Enterprise PHP / MariaDB CMS (Pro Equivalent) | [App Readme](../../apps/drupal/README.md) |
 | **Grav** | `2.2.30` | `3` | Modern Fast Flat-File CMS with Admin Panel | [App Readme](../../apps/grav/README.md) |
 | **Joomla!** | `5.1.4` | `3` | Mobile-Ready PHP / MariaDB CMS (Pro Equivalent) | [App Readme](../../apps/joomla/README.md) |
@@ -19,6 +20,16 @@ This classification includes **3 Applications** ready for 1-click deployment on 
 ---
 
 ## Technical Details
+
+### Directus
+
+* **Category**: CMS
+* **Version**: `11.1.1` | **Build**: `1`
+* **Upstream**: [https://directus.io](https://directus.io)
+* **Architecture**: Instant open-source REST & GraphQL API engine and headless CMS data studio wrapping any SQL database with dynamic permissions. Supervised by systemd and reverse-proxied with WebSockets.
+* **Database**: SQLite / MariaDB.
+
+---
 
 ### Drupal
 

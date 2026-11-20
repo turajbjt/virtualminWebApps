@@ -1,0 +1,18 @@
+[Unit]
+Description=PhotoPrism AI Photos App for Virtualmin domain
+After=network.target
+
+[Service]
+Type=simple
+User=${USER}
+WorkingDirectory=${APP_DIR}
+Environment="PHOTOPRISM_ADMIN_PASSWORD=${ADMIN_PASS}"
+Environment="PHOTOPRISM_SITE_URL=${URL}"
+ExecStart=/usr/bin/${ENGINE} run --rm --name photoprism-${USER} -p 127.0.0.1:${PORT}:2342 -e PHOTOPRISM_ADMIN_PASSWORD=${ADMIN_PASS} -e PHOTOPRISM_SITE_URL=${URL} -v ${STORAGE_DIR}:/photoprism/storage:Z -v ${ORIGINALS_DIR}:/photoprism/originals:Z -v ${IMPORT_DIR}:/photoprism/import:Z photoprism/photoprism:${VERSION}
+ExecStop=/usr/bin/${ENGINE} stop photoprism-${USER}
+Restart=always
+RestartSec=10
+LimitNOFILE=65536
+
+[Install]
+WantedBy=multi-user.target

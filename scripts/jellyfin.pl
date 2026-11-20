@@ -1,0 +1,1 @@
+../apps/jellyfin/jellyfin.pl

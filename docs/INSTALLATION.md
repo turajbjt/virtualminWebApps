@@ -41,7 +41,7 @@ Optional dependencies for specific application types:
 
 ### What `setup.sh install` does:
 * Discovers all application modules in `apps/` and synchronizes their `.pl` script links into local `scripts/`.
-* Registers and symlinks all 87 application installer scripts directly into Virtualmin's official custom scripts directory: `/etc/webmin/virtual-server/scripts/`.
+* Registers and symlinks all 100 application installer scripts directly into Virtualmin's official custom scripts directory: `/etc/webmin/virtual-server/scripts/`.
 * Connects `lib/` so all shared helper libraries and PCI DSS modules are instantly accessible to Virtualmin.
 * Checks `/etc/webmin/virtual-server/scriptsunavail` and automatically whitelists all scripts if a global `denydefault=1` restriction is active.
 * Automatically restarts Webmin so the changes take effect immediately.

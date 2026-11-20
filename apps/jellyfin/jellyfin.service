@@ -1,0 +1,16 @@
+[Unit]
+Description=Jellyfin Media Server for Virtualmin domain
+After=network.target
+
+[Service]
+Type=simple
+User=${USER}
+WorkingDirectory=${APP_DIR}
+ExecStart=/usr/bin/${ENGINE} run --rm --name jellyfin-${USER} -p 127.0.0.1:${PORT}:8096 -v ${CONFIG_DIR}:/config:Z -v ${CACHE_DIR}:/cache:Z -v ${MEDIA_DIR}:/media:Z jellyfin/jellyfin:${VERSION}
+ExecStop=/usr/bin/${ENGINE} stop jellyfin-${USER}
+Restart=always
+RestartSec=10
+LimitNOFILE=65536
+
+[Install]
+WantedBy=multi-user.target

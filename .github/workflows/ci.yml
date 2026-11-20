@@ -24,6 +24,10 @@ jobs:
         run: |
           ./setup.sh update
 
+      - name: Run System and Repository Diagnostics
+        run: |
+          ./setup.sh doctor
+
       - name: Run Syntax, Security & Unit Test Suite
         run: |
           ./setup.sh test

@@ -1,0 +1,1 @@
+../apps/photoprism/photoprism.pl

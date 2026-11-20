@@ -1,0 +1,21 @@
+[Unit]
+Description=Directus Headless CMS & Backend for Virtualmin domain
+After=network.target
+
+[Service]
+Type=simple
+User=${USER}
+WorkingDirectory=${APP_DIR}
+Environment="KEY=${SECRET}"
+Environment="SECRET=${SECRET}"
+Environment="ADMIN_EMAIL=${ADMIN_EMAIL}"
+Environment="ADMIN_PASSWORD=${ADMIN_PASS}"
+Environment="PUBLIC_URL=${URL}"
+ExecStart=/usr/bin/${ENGINE} run --rm --name directus-${USER} -p 127.0.0.1:${PORT}:8055 -e KEY=${SECRET} -e SECRET=${SECRET} -e ADMIN_EMAIL=${ADMIN_EMAIL} -e ADMIN_PASSWORD=${ADMIN_PASS} -e PUBLIC_URL=${URL} -e DB_CLIENT=sqlite3 -e DB_FILENAME=/directus/data/data.db -v ${DATA_DIR}:/directus/data:Z -v ${UPLOADS_DIR}:/directus/uploads:Z -v ${EXTENSIONS_DIR}:/directus/extensions:Z directus/directus:${VERSION}
+ExecStop=/usr/bin/${ENGINE} stop directus-${USER}
+Restart=always
+RestartSec=10
+LimitNOFILE=65536
+
+[Install]
+WantedBy=multi-user.target

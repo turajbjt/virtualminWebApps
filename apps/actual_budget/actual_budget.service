@@ -1,0 +1,16 @@
+[Unit]
+Description=Actual Budget Privacy-First Finance System for Virtualmin domain
+After=network.target
+
+[Service]
+Type=simple
+User=${USER}
+WorkingDirectory=${APP_DIR}
+ExecStart=/usr/bin/${ENGINE} run --rm --name actual-budget-${USER} -p 127.0.0.1:${PORT}:5006 -v ${DATA_DIR}:/data:Z actualbudget/actual-server:${VERSION}
+ExecStop=/usr/bin/${ENGINE} stop actual-budget-${USER}
+Restart=always
+RestartSec=10
+LimitNOFILE=65536
+
+[Install]
+WantedBy=multi-user.target

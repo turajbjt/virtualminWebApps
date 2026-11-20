@@ -1,0 +1,16 @@
+[Unit]
+Description=Gatus Automated Service Health Dashboard for Virtualmin domain
+After=network.target
+
+[Service]
+Type=simple
+User=${USER}
+WorkingDirectory=${APP_DIR}
+Environment="GATUS_CONFIG_PATH=${CONFIG_FILE}"
+ExecStart=${BIN_PATH}
+Restart=always
+RestartSec=5
+LimitNOFILE=65536
+
+[Install]
+WantedBy=multi-user.target

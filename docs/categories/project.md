@@ -4,7 +4,7 @@
 
 Visual Kanban project management, issue tracking, milestones, and task boards.
 
-This classification includes **4 Applications** ready for 1-click deployment on Virtualmin servers.
+This classification includes **5 Applications** ready for 1-click deployment on Virtualmin servers.
 
 ---
 
@@ -15,6 +15,7 @@ This classification includes **4 Applications** ready for 1-click deployment on 
 | **Kanboard** | `1.2.40` | `3` | Minimalist Visual Kanban Project Management | [App Readme](../../apps/kanboard/README.md) |
 | **Leantime** | `3.4.6` | `3` | Strategic & Agile Project Management (Kanban, Milestones) | [App Readme](../../apps/leantime/README.md) |
 | **MantisBT** | `2.28.4` | `3` | Web-Based Issue & Bug Tracking System (PHP / MariaDB) | [App Readme](../../apps/mantisbt/README.md) |
+| **Planka** | `1.22.1` | `1` | Realtime Collaborative Kanban Board (Container + Systemd) | [App Readme](../../apps/planka/README.md) |
 | **Vikunja** | `2.8.0` | `3` | To-Do & Task Management + Kanban/Gantt (Go Binary + Systemd) | [App Readme](../../apps/vikunja/README.md) |
 
 ---
@@ -46,6 +47,15 @@ This classification includes **4 Applications** ready for 1-click deployment on 
 * **Upstream**: [https://www.mantisbt.org](https://www.mantisbt.org)
 * **Architecture**: Web-based bug and issue tracking system with customizable issue workflows, role-based project access control, email notifications, and REST API support.
 * **Database**: MariaDB / MySQL.
+
+
+### Planka
+
+* **Category**: Project
+* **Version**: `1.22.1` | **Build**: `1`
+* **Upstream**: [https://planka.app](https://planka.app)
+* **Architecture**: Real-time collaborative kanban board for agile project and task management with cards, checklists, labels, and attachments. Supervised by systemd and reverse-proxied with WebSockets.
+* **Database**: Embedded SQLite.
 
 
 ### Vikunja

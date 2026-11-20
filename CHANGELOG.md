@@ -7,6 +7,32 @@ and this project adheres to Semantic Versioning.
 
 ---
 
+## [2.0.0] - 2026-11-20
+
+### Added
+- **The Century Milestone: 13 New Web Application Installers (Suite Expanded from 87 to 100 Applications across 24 Classifications)**:
+  - **Jellyfin (`apps/jellyfin/`)**: Open-source home media streaming server for movies, shows, music, and live TV. Full WebSocket reverse proxying and systemd supervision (`jellyfin-<dom>.service`).
+  - **Meilisearch (`apps/meilisearch/`)**: Lightning-fast, typo-tolerant open-source search engine in Rust with instant search-as-you-type (<50ms) and master API key generation (`meilisearch-<dom>.service`).
+  - **PhotoPrism (`apps/photoprism/`)**: AI-powered personal photo library and visual asset management system with automatic image categorization and facial recognition (`photoprism-<dom>.service`).
+  - **MinIO (`apps/minio/`)**: High-performance, S3-compatible multi-cloud object storage daemon in Go with web console and PRNG credentials (`minio-<dom>.service`).
+  - **Conduit (`apps/conduit/`)**: Ultra-lightweight, high-performance Matrix homeserver written in Rust with minimal memory footprint and systemd service supervision (`conduit-<dom>.service`).
+  - **Changedetection.io (`apps/changedetection/`)**: Automated web page change monitoring, price alerts, and restock tracking with notifications across 70+ notification services (`changedetection-<dom>.service`).
+  - **Gatus (`apps/gatus/`)**: Automated service health monitoring dashboard and status page with YAML configuration and WebSocket reverse proxying (`gatus-<dom>.service`).
+  - **Shlink (`apps/shlink/`)**: Self-hosted URL shortener with REST API, geolocated analytics, QR codes, and native PHP/MariaDB execution.
+  - **Linkding (`apps/linkding/`)**: Minimalist, fast, tag-based self-hosted bookmark manager with Wayback Machine archiving (`linkding-<dom>.service`).
+  - **Directus (`apps/directus/`)**: Instant open-source REST & GraphQL API engine and headless CMS on top of SQL databases with role-based access control (`directus-<dom>.service`).
+  - **Kopia (`apps/kopia/`)**: Fast, secure, end-to-end encrypted and deduplicated server backup management suite with built-in Web UI (`kopia-<dom>.service`).
+  - **Actual Budget (`apps/actual_budget/`)**: Super fast, privacy-first personal finance app and envelope budgeting system (`actual-budget-<dom>.service`).
+  - **Planka (`apps/planka/`)**: Real-time collaborative kanban board for agile project and task management with WebSockets (`planka-<dom>.service`).
+- **`setup.sh doctor` Diagnostic Command**:
+  - Full diagnostic health check for system environment, kernel, Perl runtime, required core modules, Webmin/Virtualmin integration status, CLI utilities (curl, wget, tar, unzip, gzip, systemctl), container engines (Podman, Docker), and broken symlink detection.
+- **GitHub Actions CI/CD Integration**:
+  - Added repository and system diagnostics verification step into `.github/workflows/ci.yml`.
+- **Automated Test Suite Expansion**:
+  - Expanded automated test suite from 1,554 to **1,775 tests** across all 9 TAP test files (`01_syntax.t` through `09_virtualmin_loader.t`), maintaining a 100% PASS rate across all 100 applications.
+
+---
+
 ## [1.13.0] - 2026-11-20
 
 ### Added

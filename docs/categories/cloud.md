@@ -4,7 +4,7 @@
 
 Private cloud storage, file synchronization, document collaboration, and user portals.
 
-This classification includes **2 Applications** ready for 1-click deployment on Virtualmin servers.
+This classification includes **3 Applications** ready for 1-click deployment on Virtualmin servers.
 
 ---
 
@@ -12,12 +12,23 @@ This classification includes **2 Applications** ready for 1-click deployment on 
 
 | Application | App Version | Build | Architecture / Type | Documentation |
 | :--- | :--- | :--- | :--- | :--- |
+| **MinIO** | `2024.11.07` | `1` | High-Performance S3 Compatible Object Storage (Go Binary + Systemd) | [App Readme](../../apps/minio/README.md) |
 | **Nextcloud** | `30.0.6` | `3` | PHP 8.1+ / MariaDB + `occ` CLI Automated Installer | [App Readme](../../apps/nextcloud/README.md) |
 | **ownCloud** | `10.13.4` | `3` | PHP / MariaDB + `occ` CLI Automated Installer | [App Readme](../../apps/owncloud/README.md) |
 
 ---
 
 ## Technical Details
+
+### MinIO
+
+* **Category**: Cloud
+* **Version**: `2024.11.07` | **Build**: `1`
+* **Upstream**: [https://min.io](https://min.io)
+* **Architecture**: High-performance, S3-compatible multi-cloud object storage daemon written in Go with built-in Web Console and PRNG credentials. Supervised by systemd and reverse-proxied with WebSockets.
+* **Database**: None.
+
+---
 
 ### Nextcloud
 

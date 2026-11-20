@@ -1,0 +1,17 @@
+[Unit]
+Description=MinIO S3 Compatible Object Storage for Virtualmin domain
+After=network.target
+
+[Service]
+Type=simple
+User=${USER}
+WorkingDirectory=${APP_DIR}
+Environment="MINIO_ROOT_USER=${ROOT_USER}"
+Environment="MINIO_ROOT_PASSWORD=${ROOT_PASS}"
+ExecStart=${BIN_PATH} server ${DATA_DIR} --address 127.0.0.1:${PORT} --console-address 127.0.0.1:${CONSOLE_PORT}
+Restart=always
+RestartSec=5
+LimitNOFILE=65536
+
+[Install]
+WantedBy=multi-user.target

@@ -1,0 +1,18 @@
+[Unit]
+Description=Linkding Bookmark Manager for Virtualmin domain
+After=network.target
+
+[Service]
+Type=simple
+User=${USER}
+WorkingDirectory=${APP_DIR}
+Environment="LD_SUPERUSER_NAME=${ADMIN_USER}"
+Environment="LD_SUPERUSER_PASSWORD=${ADMIN_PASS}"
+ExecStart=/usr/bin/${ENGINE} run --rm --name linkding-${USER} -p 127.0.0.1:${PORT}:9090 -e LD_SUPERUSER_NAME=${ADMIN_USER} -e LD_SUPERUSER_PASSWORD=${ADMIN_PASS} -v ${DATA_DIR}:/etc/linkding/data:Z sissbruecker/linkding:${VERSION}
+ExecStop=/usr/bin/${ENGINE} stop linkding-${USER}
+Restart=always
+RestartSec=10
+LimitNOFILE=65536
+
+[Install]
+WantedBy=multi-user.target

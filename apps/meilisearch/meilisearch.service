@@ -1,0 +1,19 @@
+[Unit]
+Description=Meilisearch Fast Search Engine for Virtualmin domain
+After=network.target
+
+[Service]
+Type=simple
+User=${USER}
+WorkingDirectory=${APP_DIR}
+Environment="MEILI_HTTP_ADDR=127.0.0.1:${PORT}"
+Environment="MEILI_DB_PATH=${DATA_DIR}"
+Environment="MEILI_MASTER_KEY=${MASTER_KEY}"
+Environment="MEILI_ENV=production"
+ExecStart=${BIN_PATH}
+Restart=always
+RestartSec=5
+LimitNOFILE=65536
+
+[Install]
+WantedBy=multi-user.target

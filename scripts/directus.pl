@@ -1,0 +1,1 @@
+../apps/directus/directus.pl

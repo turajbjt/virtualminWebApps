@@ -1,0 +1,17 @@
+[Unit]
+Description=Kopia Fast Encrypted Backup Web UI for Virtualmin domain
+After=network.target
+
+[Service]
+Type=simple
+User=${USER}
+WorkingDirectory=${APP_DIR}
+Environment="KOPIA_CONFIG_PATH=${CONFIG_DIR}/repository.config"
+Environment="KOPIA_CACHE_DIRECTORY=${CACHE_DIR}"
+ExecStart=${BIN_PATH} server start --address 127.0.0.1:${PORT} --server-username=${USER} --server-password=${SERVER_PASS} --without-password
+Restart=always
+RestartSec=10
+LimitNOFILE=65536
+
+[Install]
+WantedBy=multi-user.target

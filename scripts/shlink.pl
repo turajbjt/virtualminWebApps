@@ -1,0 +1,1 @@
+../apps/shlink/shlink.pl

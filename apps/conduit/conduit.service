@@ -1,0 +1,16 @@
+[Unit]
+Description=Conduit Lightweight Matrix Homeserver for Virtualmin domain
+After=network.target
+
+[Service]
+Type=simple
+User=${USER}
+WorkingDirectory=${APP_DIR}
+Environment="CONDUIT_CONFIG=${CONFIG_FILE}"
+ExecStart=${BIN_PATH}
+Restart=always
+RestartSec=5
+LimitNOFILE=65536
+
+[Install]
+WantedBy=multi-user.target

@@ -4,7 +4,7 @@
 
 Real-time team collaboration, messaging, and chat platforms.
 
-This classification includes **1 Application** ready for 1-click deployment on Virtualmin servers.
+This classification includes **2 Applications** ready for 1-click deployment on Virtualmin servers.
 
 ---
 
@@ -12,11 +12,22 @@ This classification includes **1 Application** ready for 1-click deployment on V
 
 | Application | App Version | Build | Architecture / Type | Documentation |
 | :--- | :--- | :--- | :--- | :--- |
+| **Conduit** | `0.8.0` | `1` | Lightweight Matrix Homeserver (Rust Binary + Systemd) | [App Readme](../../apps/conduit/README.md) |
 | **Mattermost** | `10.5.1` | `3` | Team Collaboration & Chat Platform (Go Binary + Systemd) | [App Readme](../../apps/mattermost/README.md) |
 
 ---
 
 ## Technical Details
+
+### Conduit
+
+* **Category**: Chat
+* **Version**: `0.8.0` | **Build**: `1`
+* **Upstream**: [https://conduit.rs](https://conduit.rs)
+* **Architecture**: Ultra-lightweight, high-performance Matrix homeserver in Rust designed for minimal RAM usage and rapid federation. Supervised by systemd and reverse-proxied with WebSockets.
+* **Database**: Embedded SQLite.
+
+---
 
 ### Mattermost
 
