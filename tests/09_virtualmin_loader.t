@@ -1,6 +1,6 @@
 #!/usr/bin/env perl
 # tests/09_virtualmin_loader.t
-# Verifies that all 100 scripts can be dynamically loaded via Perl's `do` operator
+# Verifies that all 110 scripts can be dynamically loaded via Perl's `do` operator
 # when symlinked into Virtualmin's custom scripts directory (/etc/webmin/virtual-server/scripts)
 # exactly matching Virtualmin's get_script() loader routine in scripts-lib.pl.
 

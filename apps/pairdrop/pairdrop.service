@@ -1,0 +1,17 @@
+[Unit]
+Description=PairDrop Local File Sharing for Virtualmin domain
+After=network.target
+
+[Service]
+Type=simple
+User=${USER}
+WorkingDirectory=${APP_DIR}
+Environment="WS_FALLBACK=true"
+ExecStart=/usr/bin/${ENGINE} run --rm --name pairdrop-${USER} -p 127.0.0.1:${PORT}:3000 -e WS_FALLBACK=true lscr.io/linuxserver/pairdrop:${VERSION}
+ExecStop=/usr/bin/${ENGINE} stop pairdrop-${USER}
+Restart=always
+RestartSec=10
+LimitNOFILE=65536
+
+[Install]
+WantedBy=multi-user.target

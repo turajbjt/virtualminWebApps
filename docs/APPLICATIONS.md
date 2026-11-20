@@ -1,6 +1,6 @@
 # Applications Reference Manual
 
-A comprehensive technical reference for all 100 web application installers provided by the **Virtualmin Web Apps Suite**.
+A comprehensive technical reference for all 110 web application installers provided by the **Virtualmin Web Apps Suite**.
 
 ---
 
@@ -108,6 +108,16 @@ A comprehensive technical reference for all 100 web application installers provi
 | **Kopia** | System / DNS | Standalone Go Binary | SQLite | `51515` | `~/kopia/` | `kopia-<dom>.service` |
 | **Actual Budget** | Finance | Container Daemon | SQLite | `5006` | `~/actual-budget/data/` | `actual-budget-<dom>.service` |
 | **Planka** | Project | Container Daemon | SQLite | `1337` | `~/planka/` | `planka-<dom>.service` |
+| **Immich** | Media | Container Daemon | SQLite / Postgres | `2283` | `~/immich/` | `immich-<dom>.service` |
+| **HedgeDoc** | Documents | Container Daemon | SQLite / MariaDB | `3010` | `~/hedgedoc/` | `hedgedoc-<dom>.service` |
+| **ArchiveBox** | Utilities | Container Daemon | SQLite | `8020` | `~/archivebox/` | `archivebox-<dom>.service` |
+| **PairDrop** | Utilities | Container Daemon | None | `3020` | `~/pairdrop/` | `pairdrop-<dom>.service` |
+| **Ghostfolio** | Finance | Container Daemon | SQLite / Postgres | `3333` | `~/ghostfolio/` | `ghostfolio-<dom>.service` |
+| **RomM** | Media | Container Daemon | SQLite / MariaDB | `8070` | `~/romm/` | `romm-<dom>.service` |
+| **Stump** | Media | Standalone Rust Binary | SQLite | `10801` | `~/stump/` | `stump-<dom>.service` |
+| **Appwrite** | Development | Container Daemon | SQLite / MariaDB | `8095` | `~/appwrite/` | `appwrite-<dom>.service` |
+| **Mumble** | Chat | Standalone Daemon | SQLite | `64738` | `~/mumble/` | `mumble-<dom>.service` |
+| **Borgmatic** | System | Standalone Python Daemon | SQLite | `8092` | `~/borgmatic/` | `borgmatic-<dom>.service` |
 
 ---
 
@@ -1016,6 +1026,97 @@ A comprehensive technical reference for all 100 web application installers provi
 * **Upstream**: [https://planka.app](https://planka.app)
 * **Architecture**: Real-time collaborative kanban board for agile project and task management with cards, checklists, labels, and attachments. Supervised by systemd and reverse-proxied with WebSockets.
 * **Database**: Embedded SQLite.
+
+---
+
+### 101. Immich
+* **Category**: Media
+* **Version**: `1.121.0` | **Build**: `1`
+* **Upstream**: [https://immich.app](https://immich.app)
+* **Architecture**: High-performance self-hosted photo and video backup solution with AI facial recognition, object detection, and mobile sync. Supervised by systemd and reverse-proxied with WebSockets.
+* **Database**: Embedded SQLite / PostgreSQL.
+
+---
+
+### 102. HedgeDoc
+* **Category**: Documents
+* **Version**: `1.9.9` | **Build**: `1`
+* **Upstream**: [https://hedgedoc.org](https://hedgedoc.org)
+* **Architecture**: Realtime collaborative markdown notes platform with live preview, math rendering, and permission controls. Supervised by systemd and reverse-proxied with WebSockets.
+* **Database**: Embedded SQLite / MariaDB.
+
+---
+
+### 103. ArchiveBox
+* **Category**: Utilities
+* **Version**: `0.7.2` | **Build**: `1`
+* **Upstream**: [https://archivebox.io](https://archivebox.io)
+* **Architecture**: Powerful, self-hosted web archiving solution preserving HTML, PDF, screenshots, WARC, and media. Supervised by systemd and reverse-proxied.
+* **Database**: Embedded SQLite.
+
+---
+
+### 104. PairDrop
+* **Category**: Utilities
+* **Version**: `1.10.8` | **Build**: `1`
+* **Upstream**: [https://pairdrop.net](https://pairdrop.net)
+* **Architecture**: Local and peer-to-peer web-based file sharing across devices via WebRTC, zero-install instant transfer. Supervised by systemd and reverse-proxied with WebSockets.
+* **Database**: None.
+
+---
+
+### 105. Ghostfolio
+* **Category**: Finance
+* **Version**: `2.133.0` | **Build**: `1`
+* **Upstream**: [https://ghostfol.io](https://ghostfol.io)
+* **Architecture**: Open-source privacy-first wealth management dashboard for personal finances, stocks, ETFs, and crypto. Supervised by systemd and reverse-proxied with WebSockets.
+* **Database**: Embedded SQLite / PostgreSQL.
+
+---
+
+### 106. RomM
+* **Category**: Media
+* **Version**: `3.7.2` | **Build**: `1`
+* **Upstream**: [https://github.com/rommapp/romm](https://github.com/rommapp/romm)
+* **Architecture**: Retrogaming Rom Manager with automated metadata scraping from IGDB, saves syncing, and browser gameplay emulation. Supervised by systemd and reverse-proxied with WebSockets.
+* **Database**: Embedded SQLite / MariaDB.
+
+---
+
+### 107. Stump
+* **Category**: Media
+* **Version**: `0.0.9` | **Build**: `1`
+* **Upstream**: [https://stumpapp.dev](https://stumpapp.dev)
+* **Architecture**: Fast, lightweight comic, manga, and digital book streaming server built with Rust and React with OPDS v1.2/v2.0 support. Supervised by systemd and reverse-proxied with WebSockets.
+* **Database**: Embedded SQLite.
+
+---
+
+### 108. Appwrite
+* **Category**: Development
+* **Version**: `1.6.0` | **Build**: `1`
+* **Upstream**: [https://appwrite.io](https://appwrite.io)
+* **Architecture**: Complete Backend-as-a-Service providing authentication, databases, file storage, and serverless functions. Supervised by systemd and reverse-proxied with WebSockets.
+* **Database**: Embedded SQLite / MariaDB.
+
+---
+
+### 109. Mumble
+* **Category**: Chat
+* **Version**: `1.5.634` | **Build**: `1`
+* **Upstream**: [https://www.mumble.info](https://www.mumble.info)
+* **Architecture**: Low-latency, high quality open source voice chat server (Murmur) with end-to-end encryption and administrative web interface. Supervised by systemd and reverse-proxied.
+* **Database**: Embedded SQLite.
+
+---
+
+### 110. Borgmatic
+* **Category**: System
+* **Version**: `1.9.0` | **Build**: `1`
+* **Upstream**: [https://torsion.org/borgmatic](https://torsion.org/borgmatic)
+* **Architecture**: Automated, declarative, encrypted and deduplicated backup runner for BorgBackup with monitoring hooks and health web status. Supervised by systemd and reverse-proxied.
+* **Database**: Embedded SQLite.
+
 
 
 

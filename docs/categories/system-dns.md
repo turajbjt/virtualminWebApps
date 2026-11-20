@@ -4,7 +4,7 @@
 
 Network-wide DNS sinkholes, monitoring dashboards, notification servers, application status portals, remote desktop relays, and web file managers.
 
-This classification includes **10 Applications** ready for 1-click deployment on Virtualmin servers.
+This classification includes **11 Applications** ready for 1-click deployment on Virtualmin servers.
 
 ---
 
@@ -13,6 +13,7 @@ This classification includes **10 Applications** ready for 1-click deployment on
 | Application | App Version | Build | Architecture / Type | Documentation |
 | :--- | :--- | :--- | :--- | :--- |
 | **AdGuard Home** | `0.107.80` | `3` | Standalone Go Binary + Systemd + Web Reverse Proxy | [App Readme](../../apps/adguard_home/README.md) |
+| **Borgmatic** | `1.9.0` | `1` | Automated Encrypted Backup Runner (Python Daemon + Systemd) | [App Readme](../../apps/borgmatic/README.md) |
 | **File Browser** | `2.30.0` | `3` | Standalone Go Binary + Systemd + Web Reverse Proxy | [App Readme](../../apps/filebrowser/README.md) |
 | **Gatus** | `5.13.1` | `1` | Automated Service Health Dashboard (Go Binary + Systemd) | [App Readme](../../apps/gatus/README.md) |
 | **Gotify** | `3.1.1` | `3` | Real-Time Push Notification Server (Go Binary + WebSockets) | [App Readme](../../apps/gotify/README.md) |
@@ -123,6 +124,15 @@ This classification includes **10 Applications** ready for 1-click deployment on
 * **Architecture**: High-performance Node.js service running via container and systemd.
 * **Ports**: `127.0.0.1:3001` (reverse-proxied with full WebSocket / Socket.io forwarding).
 * **Data Storage**: `/home/<domain>/uptime-kuma-data/`.
+
+
+### Borgmatic
+
+* **Category**: System
+* **Version**: `1.9.0` | **Build**: `1`
+* **Upstream**: [https://torsion.org/borgmatic](https://torsion.org/borgmatic)
+* **Architecture**: Automated, declarative, encrypted and deduplicated backup runner for BorgBackup with monitoring hooks and health web status. Supervised by systemd and reverse-proxied.
+* **Database**: Embedded SQLite.
 
 
 ---

@@ -1,0 +1,17 @@
+[Unit]
+Description=Borgmatic Encrypted Backup Management for Virtualmin domain
+After=network.target
+
+[Service]
+Type=simple
+User=${USER}
+WorkingDirectory=${APP_DIR}
+Environment="BORG_CONFIG_DIR=${CONFIG_DIR}"
+ExecStart=/usr/bin/${ENGINE} run --rm --name borgmatic-${USER} -p 127.0.0.1:${PORT}:8080 -v ${CONFIG_DIR}:/etc/borgmatic.d:Z -v ${DATA_DIR}:/mnt/borg-repository:Z b3vis/borgmatic:${VERSION}
+ExecStop=/usr/bin/${ENGINE} stop borgmatic-${USER}
+Restart=always
+RestartSec=10
+LimitNOFILE=65536
+
+[Install]
+WantedBy=multi-user.target

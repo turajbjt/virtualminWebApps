@@ -7,9 +7,24 @@ on:
     branches: [ main, master ]
 
 jobs:
-  test:
-    name: Syntax, Security & Unit Test Suite
+  lint:
+    name: Shell & Script Linting
     runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Run ShellCheck on shell scripts
+        run: |
+          shellcheck -e SC1091 -e SC2086 -e SC2155 setup.sh install.sh
+
+  test:
+    name: Test Suite (${{ matrix.os }})
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ ubuntu-22.04, ubuntu-24.04 ]
 
     steps:
       - name: Check out repository
@@ -32,9 +47,11 @@ jobs:
         run: |
           ./setup.sh test
 
-      - name: Verify catalog listing and metadata extraction
+      - name: Verify catalog listing and search CLI
         run: |
           ./setup.sh list
+          ./setup.sh search media
+          ./setup.sh info vaultwarden
 
       - name: Check for broken symlinks in scripts/
         run: |

@@ -1,0 +1,1 @@
+../apps/appwrite/appwrite.pl

@@ -1,0 +1,18 @@
+[Unit]
+Description=Appwrite Backend-as-a-Service for Virtualmin domain
+After=network.target
+
+[Service]
+Type=simple
+User=${USER}
+WorkingDirectory=${APP_DIR}
+Environment="_APP_KEY=${APP_KEY}"
+Environment="_APP_ENV=production"
+ExecStart=/usr/bin/${ENGINE} run --rm --name appwrite-${USER} -p 127.0.0.1:${PORT}:80 -e _APP_KEY=${APP_KEY} -e _APP_ENV=production -v ${DATA_DIR}:/storage/uploads:Z appwrite/appwrite:${VERSION}
+ExecStop=/usr/bin/${ENGINE} stop appwrite-${USER}
+Restart=always
+RestartSec=10
+LimitNOFILE=65536
+
+[Install]
+WantedBy=multi-user.target

@@ -1,0 +1,17 @@
+[Unit]
+Description=Immich Photo & Video Management for Virtualmin domain
+After=network.target
+
+[Service]
+Type=simple
+User=${USER}
+WorkingDirectory=${APP_DIR}
+Environment="IMMICH_PORT=${PORT}"
+ExecStart=/usr/bin/${ENGINE} run --rm --name immich-${USER} -p 127.0.0.1:${PORT}:2283 -v ${LIBRARY_DIR}:/usr/src/app/upload/library:Z -v ${UPLOAD_DIR}:/usr/src/app/upload:Z ghcr.io/immich-app/immich-server:${VERSION}
+ExecStop=/usr/bin/${ENGINE} stop immich-${USER}
+Restart=always
+RestartSec=10
+LimitNOFILE=65536
+
+[Install]
+WantedBy=multi-user.target

@@ -1,0 +1,17 @@
+[Unit]
+Description=Mumble Voice Chat Server (Murmur) for Virtualmin domain
+After=network.target
+
+[Service]
+Type=simple
+User=${USER}
+WorkingDirectory=${APP_DIR}
+Environment="MUMBLE_SUPERUSER_PASSWORD=${SUPER_PASS}"
+ExecStart=/usr/bin/${ENGINE} run --rm --name mumble-${USER} -p ${PORT}:64738 -p ${PORT}:64738/udp -e MUMBLE_SUPERUSER_PASSWORD=${SUPER_PASS} -v ${DATA_DIR}:/data:Z mumblevoip/mumble-server:${VERSION}
+ExecStop=/usr/bin/${ENGINE} stop mumble-${USER}
+Restart=always
+RestartSec=10
+LimitNOFILE=65536
+
+[Install]
+WantedBy=multi-user.target

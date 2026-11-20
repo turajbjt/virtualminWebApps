@@ -166,6 +166,25 @@ A modular collection of open-source web application installers for [Virtualmin](
 - [x] **Planka** (Real-time collaborative kanban board for teams and agile task management)
 - [x] **`setup.sh doctor`**: Automated system, perl module, container runtime, and repository integrity diagnostic CLI
 
+---
+
+### Phase 13: Expansion to 110 Apps, 1-Click Bootstrap & Developer Experience
+- [x] **Immich** (High-performance self-hosted Google Photos alternative with AI face & object recognition)
+- [x] **HedgeDoc** (Real-time collaborative Markdown notes with live rendered split preview)
+- [x] **ArchiveBox** (Self-hosted web archiving solution preserving HTML, PDF, screenshots, and WARC)
+- [x] **PairDrop** (AirDrop alternative for local network and peer-to-peer encrypted file sharing)
+- [x] **Ghostfolio** (Open-source wealth and portfolio tracker for stocks, ETFs, crypto, and net worth)
+- [x] **RomM** (Retro video game ROM library manager with IGDB metadata and in-browser emulator)
+- [x] **Stump** (High-performance digital comic, manga, and book server written in Rust)
+- [x] **Appwrite** (Complete open-source Backend-as-a-Service for web and mobile applications)
+- [x] **Mumble / Murmur** (Low-latency, encrypted high-quality voice chat server)
+- [x] **Borgmatic** (Configuration-driven encrypted backup software wrapping BorgBackup)
+- [x] **1-Click Bootstrap Installer (`install.sh`)**: One-command server setup via `curl | bash`
+- [x] **CLI Search & Info (`setup.sh search` / `setup.sh info`)**: Interactive catalog filtering and app inspector
+- [x] **Automated Release Pipeline (`.github/workflows/release.yml`)**: Automatic release tarball build and GitHub Releases publishing
+- [x] **Multi-Version CI Matrix**: Matrix testing across Ubuntu 22.04 & 24.04 and ShellCheck script linting
+
+
 
 ---
 

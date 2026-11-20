@@ -1,0 +1,18 @@
+[Unit]
+Description=RomM Retro Game Library Manager for Virtualmin domain
+After=network.target
+
+[Service]
+Type=simple
+User=${USER}
+WorkingDirectory=${APP_DIR}
+Environment="ROMM_AUTH_SECRET_KEY=${AUTH_SECRET}"
+Environment="ROMM_PORT=${PORT}"
+ExecStart=/usr/bin/${ENGINE} run --rm --name romm-${USER} -p 127.0.0.1:${PORT}:8080 -e ROMM_AUTH_SECRET_KEY=${AUTH_SECRET} -v ${ROMS_DIR}:/romm/library/roms:Z -v ${RESOURCES_DIR}:/romm/resources:Z -v ${CONFIG_DIR}:/romm/config:Z zurdi/romm:${VERSION}
+ExecStop=/usr/bin/${ENGINE} stop romm-${USER}
+Restart=always
+RestartSec=10
+LimitNOFILE=65536
+
+[Install]
+WantedBy=multi-user.target

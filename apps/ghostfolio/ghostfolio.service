@@ -1,0 +1,18 @@
+[Unit]
+Description=Ghostfolio Wealth Management Dashboard for Virtualmin domain
+After=network.target
+
+[Service]
+Type=simple
+User=${USER}
+WorkingDirectory=${APP_DIR}
+Environment="PORT=${PORT}"
+Environment="JWT_SECRET_KEY=${JWT_SECRET}"
+ExecStart=/usr/bin/${ENGINE} run --rm --name ghostfolio-${USER} -p 127.0.0.1:${PORT}:3333 -e JWT_SECRET_KEY=${JWT_SECRET} -v ${DATA_DIR}:/data:Z ghostfolio/ghostfolio:${VERSION}
+ExecStop=/usr/bin/${ENGINE} stop ghostfolio-${USER}
+Restart=always
+RestartSec=10
+LimitNOFILE=65536
+
+[Install]
+WantedBy=multi-user.target

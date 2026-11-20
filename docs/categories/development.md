@@ -4,7 +4,7 @@
 
 Self-hosted Git repositories, continuous integration, workflow automation, developer tools, and backend utilities.
 
-This classification includes **5 Applications** ready for 1-click deployment on Virtualmin servers.
+This classification includes **6 Applications** ready for 1-click deployment on Virtualmin servers.
 
 ---
 
@@ -12,6 +12,7 @@ This classification includes **5 Applications** ready for 1-click deployment on 
 
 | Application | App Version | Build | Architecture / Type | Documentation |
 | :--- | :--- | :--- | :--- | :--- |
+| **Appwrite** | `1.6.0` | `1` | Complete Backend-as-a-Service Platform (Container Daemon) | [App Readme](../../apps/appwrite/README.md) |
 | **Forgejo** | `17.0.1` | `3` | Standalone Go Binary + Systemd + Git Reverse Proxy | [App Readme](../../apps/forgejo/README.md) |
 | **IT-Tools** | `2024.10.22` | `3` | Standalone Web Developer & Sysadmin Utilities | [App Readme](../../apps/it_tools/README.md) |
 | **n8n** | `1.70.0` | `1` | Workflow Automation & Integration Platform (Container Daemon) | [App Readme](../../apps/n8n/README.md) |
@@ -68,6 +69,15 @@ This classification includes **5 Applications** ready for 1-click deployment on 
 * **Upstream**: [https://woodpecker-ci.org](https://woodpecker-ci.org)
 * **Architecture**: Community-driven, lightweight continuous integration engine in Go. Uses pipeline-as-code configuration and pairs natively with Forgejo and Gitea.
 * **Database**: Embedded SQLite.
+
+
+### Appwrite
+
+* **Category**: Development
+* **Version**: `1.6.0` | **Build**: `1`
+* **Upstream**: [https://appwrite.io](https://appwrite.io)
+* **Architecture**: Complete Backend-as-a-Service providing authentication, databases, file storage, and serverless functions. Supervised by systemd and reverse-proxied with WebSockets.
+* **Database**: Embedded SQLite / MariaDB.
 
 
 ---

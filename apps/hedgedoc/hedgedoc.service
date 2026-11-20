@@ -1,0 +1,20 @@
+[Unit]
+Description=HedgeDoc Collaborative Markdown Notes for Virtualmin domain
+After=network.target
+
+[Service]
+Type=simple
+User=${USER}
+WorkingDirectory=${APP_DIR}
+Environment="CMD_PORT=${PORT}"
+Environment="CMD_DOMAIN=${URL}"
+Environment="CMD_SESSION_SECRET=${SESSION_SECRET}"
+Environment="CMD_DB_URL=sqlite:///hedgedoc/uploads/hedgedoc.sqlite"
+ExecStart=/usr/bin/${ENGINE} run --rm --name hedgedoc-${USER} -p 127.0.0.1:${PORT}:3000 -e CMD_DOMAIN=${URL} -e CMD_SESSION_SECRET=${SESSION_SECRET} -e CMD_DB_URL=sqlite:///hedgedoc/uploads/hedgedoc.sqlite -v ${UPLOADS_DIR}:/hedgedoc/uploads:Z lscr.io/linuxserver/hedgedoc:${VERSION}
+ExecStop=/usr/bin/${ENGINE} stop hedgedoc-${USER}
+Restart=always
+RestartSec=10
+LimitNOFILE=65536
+
+[Install]
+WantedBy=multi-user.target

@@ -4,7 +4,7 @@
 
 Specialized developer utilities, home pantry ERP, PDF manipulation tools, privacy metasearch engines, encrypted pastebins, link hubs, and URL shorteners.
 
-This classification includes **13 Applications** ready for 1-click deployment on Virtualmin servers.
+This classification includes **15 Applications** ready for 1-click deployment on Virtualmin servers.
 
 ---
 
@@ -12,6 +12,7 @@ This classification includes **13 Applications** ready for 1-click deployment on
 
 | Application | App Version | Build | Architecture / Type | Documentation |
 | :--- | :--- | :--- | :--- | :--- |
+| **ArchiveBox** | `0.7.2` | `1` | Open-Source Self-Hosted Web Archiving (Container Daemon) | [App Readme](../../apps/archivebox/README.md) |
 | **Changedetection.io** | `0.47.06` | `1` | Web Page Change & Price Monitor (Container Daemon) | [App Readme](../../apps/changedetection/README.md) |
 | **CyberChef** | `11.5.0` | `3` | Client-Side Cyber Security Swiss Army Knife | [App Readme](../../apps/cyberchef/README.md) |
 | **Grocy** | `4.4.2` | `1` | Home Pantry & Asset Management ERP (PHP / SQLite) | [App Readme](../../apps/grocy/README.md) |
@@ -19,6 +20,7 @@ This classification includes **13 Applications** ready for 1-click deployment on
 | **LinkStack** | `4.8.8` | `3` | Open-Source Linktree Alternative & Bio Link Hub (PHP) | [App Readme](../../apps/linkstack/README.md) |
 | **Meilisearch** | `1.12.0` | `1` | Fast Open-Source Search Engine (Rust Binary + Systemd) | [App Readme](../../apps/meilisearch/README.md) |
 | **Microbin** | `2.1.0` | `3` | Lightweight Encrypted Pastebin & File Sharing (Rust Binary) | [App Readme](../../apps/microbin/README.md) |
+| **PairDrop** | `1.10.8` | `1` | Local File Sharing in Browser (Node.js Container + Systemd) | [App Readme](../../apps/pairdrop/README.md) |
 | **SearXNG** | `2024.11.20` | `1` | Privacy-Respecting Metasearch Engine (Container Daemon) | [App Readme](../../apps/searxng/README.md) |
 | **Shaarli** | `0.16.10` | `3` | Personal Minimalist Bookmarking & Link Sharing | [App Readme](../../apps/shaarli/README.md) |
 | **Shlink** | `4.2.1` | `1` | Self-Hosted URL Shortener with Analytics (PHP / MariaDB) | [App Readme](../../apps/shlink/README.md) |
@@ -144,6 +146,24 @@ This classification includes **13 Applications** ready for 1-click deployment on
 * **Upstream**: [https://yourls.org](https://yourls.org)
 * **Architecture**: Robust self-hosted URL shortening service providing detailed click metrics, referrer analytics, developer REST API, and custom short links.
 * **Database**: MariaDB / MySQL.
+
+
+### ArchiveBox
+
+* **Category**: Utilities
+* **Version**: `0.7.2` | **Build**: `1`
+* **Upstream**: [https://archivebox.io](https://archivebox.io)
+* **Architecture**: Open-source self-hosted web archiving solution preserving HTML, PDF, screenshots, WARC, and media. Supervised by systemd and reverse-proxied.
+* **Database**: Embedded SQLite.
+
+
+### PairDrop
+
+* **Category**: Utilities
+* **Version**: `1.10.8` | **Build**: `1`
+* **Upstream**: [https://pairdrop.net](https://pairdrop.net)
+* **Architecture**: Local and peer-to-peer web-based file sharing across devices via WebRTC, zero-install instant transfer. Supervised by systemd and reverse-proxied with WebSockets.
+* **Database**: None.
 
 
 ---

@@ -1,0 +1,17 @@
+[Unit]
+Description=ArchiveBox Web Archiving Solution for Virtualmin domain
+After=network.target
+
+[Service]
+Type=simple
+User=${USER}
+WorkingDirectory=${APP_DIR}
+Environment="ALLOWED_HOSTS=*"
+ExecStart=/usr/bin/${ENGINE} run --rm --name archivebox-${USER} -p 127.0.0.1:${PORT}:8000 -e ALLOWED_HOSTS=* -v ${DATA_DIR}:/data:Z archivebox/archivebox:${VERSION} server 0.0.0.0:8000
+ExecStop=/usr/bin/${ENGINE} stop archivebox-${USER}
+Restart=always
+RestartSec=10
+LimitNOFILE=65536
+
+[Install]
+WantedBy=multi-user.target

@@ -1,0 +1,17 @@
+[Unit]
+Description=Stump Digital Comic and Book Server for Virtualmin domain
+After=network.target
+
+[Service]
+Type=simple
+User=${USER}
+WorkingDirectory=${APP_DIR}
+Environment="STUMP_PORT=${PORT}"
+ExecStart=/usr/bin/${ENGINE} run --rm --name stump-${USER} -p 127.0.0.1:${PORT}:10801 -v ${CONFIG_DIR}:/config:Z -v ${DATA_DIR}:/data:Z aaronleopold/stump:${VERSION}
+ExecStop=/usr/bin/${ENGINE} stop stump-${USER}
+Restart=always
+RestartSec=10
+LimitNOFILE=65536
+
+[Install]
+WantedBy=multi-user.target

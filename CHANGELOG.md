@@ -7,6 +7,34 @@ and this project adheres to Semantic Versioning.
 
 ---
 
+## [2.1.0] - 2026-11-20
+
+### Added
+- **10 New Web Application Installers (Suite Expanded from 100 to 110 Applications across 24 Classifications)**:
+  - **Immich (`apps/immich/`)**: High-performance photo and video backup and management platform with AI facial recognition, object detection, and mobile sync (`immich-<dom>.service`).
+  - **HedgeDoc (`apps/hedgedoc/`)**: Real-time collaborative Markdown note-taking platform with live rendered preview and presentation mode (`hedgedoc-<dom>.service`).
+  - **ArchiveBox (`apps/archivebox/`)**: Open-source self-hosted internet archiving solution preserving web pages as HTML, PDF, screenshots, and WARC (`archivebox-<dom>.service`).
+  - **PairDrop (`apps/pairdrop/`)**: Local and cross-network encrypted file sharing in the browser (AirDrop alternative) with WebRTC and WebSockets (`pairdrop-<dom>.service`).
+  - **Ghostfolio (`apps/ghostfolio/`)**: Privacy-focused open-source wealth and portfolio management dashboard for stocks, ETFs, and crypto (`ghostfolio-<dom>.service`).
+  - **RomM (`apps/romm/`)**: Modern retro video game ROM library manager with IGDB metadata scraping and in-browser emulator integration (`romm-<dom>.service`).
+  - **Stump (`apps/stump/`)**: High-performance digital comic, manga, and book streaming server written in Rust with OPDS feed support (`stump-<dom>.service`).
+  - **Appwrite (`apps/appwrite/`)**: Complete self-hosted Backend-as-a-Service providing authentication, databases, file storage, and cloud functions (`appwrite-<dom>.service`).
+  - **Mumble / Murmur (`apps/mumble/`)**: Low-latency, encrypted high-quality voice chat server for gaming and team communications (`mumble-<dom>.service`).
+  - **Borgmatic (`apps/borgmatic/`)**: Simple, configuration-driven backup software wrapping BorgBackup with encryption, retention schedules, and prune policies (`borgmatic-<dom>.service`).
+- **1-Click Bootstrap Installer (`install.sh`)**:
+  - Portable shell installer enabling instant one-command installation on any Virtualmin server via `curl -fsSL .../install.sh | sudo bash`.
+- **Interactive CLI Catalog Tools**:
+  - `setup.sh search <query>`: Instant catalog search filtering across application names, categories, and descriptions.
+  - `setup.sh info <app>`: Technical inspector card showing author, upstream site, supported versions, build revision, dependencies, runtime mode, and service status.
+- **GitHub Release Automation (`.github/workflows/release.yml`)**:
+  - Automated release pipeline building distribution archives (`virtualmin-webapps-*.tar.gz`) and publishing GitHub Releases upon tag creation.
+- **Enhanced Continuous Integration**:
+  - Added multi-version test matrix (Ubuntu 22.04 & 24.04) and ShellCheck script linting.
+- **Automated Test Suite Expansion**:
+  - Expanded automated test suite from 1,775 to **1,945 tests** across all 9 TAP test files (`01_syntax.t` through `09_virtualmin_loader.t`), maintaining 100% PASS rate across all 110 applications.
+
+---
+
 ## [2.0.0] - 2026-11-20
 
 ### Added

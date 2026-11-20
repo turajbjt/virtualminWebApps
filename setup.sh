@@ -306,6 +306,121 @@ do_list() {
     echo ""
 }
 
+do_search() {
+    local query="$1"
+    if [[ -z "${query}" ]]; then
+        echo -e "${RED}[ERROR] Please provide a search term. Usage: $0 search <term>${NC}"
+        exit 1
+    fi
+    print_banner
+    echo -e "${CYAN}[*] Searching catalog for: ${BOLD}${query}${NC}\n"
+    printf "${BOLD}%-18s %-12s %-12s %-8s %-40s${NC}\n" "APPLICATION" "CATEGORY" "VERSION" "BUILD" "DESCRIPTION"
+    echo -e "--------------------------------------------------------------------------------------------------"
+
+    local matches=0
+    for app_dir in "${APPS_DIR}"/*; do
+        if [[ -d "${app_dir}" ]]; then
+            local name
+            name=$(basename "${app_dir}")
+            local pl_file="${app_dir}/${name}.pl"
+            if [[ -f "${pl_file}" ]]; then
+                local meta
+                meta=$(perl -e '
+                    require "'"${pl_file}"'";
+                    my $d = main->can("script_'"${name}"'_desc") ? &{"script_'"${name}"'_desc"}() : "Unknown";
+                    my $c = main->can("script_'"${name}"'_category") ? &{"script_'"${name}"'_category"}() : "General";
+                    my @v = main->can("script_'"${name}"'_versions") ? &{"script_'"${name}"'_versions"}() : ("1.0");
+                    my $r = main->can("script_'"${name}"'_release") ? &{"script_'"${name}"'_release"}() : 1;
+                    print "$c\t$v[0]\t$r\t$d";
+                ' 2>/dev/null || echo -e "Unknown\tUnknown\t1\tNo metadata")
+
+                local cat ver build desc
+                cat=$(echo "${meta}" | cut -f1)
+                ver=$(echo "${meta}" | cut -f2)
+                build=$(echo "${meta}" | cut -f3)
+                desc=$(echo "${meta}" | cut -f4)
+
+                if echo "${name} ${cat} ${desc}" | grep -qi "${query}"; then
+                    printf "%-18s %-12s %-12s %-8s %-40s\n" "${name}" "${cat}" "${ver}" "${build}" "${desc}"
+                    matches=$((matches + 1))
+                fi
+            fi
+        fi
+    done
+
+    echo ""
+    if [[ ${matches} -eq 0 ]]; then
+        echo -e "${YELLOW}No applications found matching '${query}'.${NC}"
+    else
+        echo -e "${GREEN}Found ${matches} application(s) matching '${query}'.${NC}"
+    fi
+}
+
+do_info() {
+    local app="$1"
+    if [[ -z "${app}" ]]; then
+        echo -e "${RED}[ERROR] Please provide an application name. Usage: $0 info <app-name>${NC}"
+        exit 1
+    fi
+    local pl_file="${APPS_DIR}/${app}/${app}.pl"
+    if [[ ! -f "${pl_file}" ]]; then
+        echo -e "${RED}[ERROR] Application '${app}' not found in ${APPS_DIR}.${NC}"
+        exit 1
+    fi
+
+    print_banner
+    echo -e "${CYAN}[*] Application Profile: ${BOLD}${app}${NC}\n"
+
+    perl -e '
+        require "'"${pl_file}"'";
+        my $name = "'"${app}"'";
+        my $desc = main->can("script_${name}_desc") ? &{"script_${name}_desc"}() : "N/A";
+        my $cat = main->can("script_${name}_category") ? &{"script_${name}_category"}() : "N/A";
+        my $site = main->can("script_${name}_site") ? &{"script_${name}_site"}() : "N/A";
+        my $author = main->can("script_${name}_author") ? &{"script_${name}_author"}() : "N/A";
+        my @vers = main->can("script_${name}_versions") ? &{"script_${name}_versions"}() : ("1.0");
+        my $rel = main->can("script_${name}_release") ? &{"script_${name}_release"}() : 1;
+        my @uses = main->can("script_${name}_uses") ? &{"script_${name}_uses"}() : ();
+        my $passmode = main->can("script_${name}_passmode") ? &{"script_${name}_passmode"}() : 0;
+
+        my $mode_str = ($passmode == 0) ? "Direct DocumentRoot / PHP execution" :
+                       ($passmode == 1) ? "Custom Directory" :
+                       ($passmode == 2) ? "Daemon / Standalone Service / Reverse Proxy" : "Standard";
+
+        my $uses_str = @uses ? join(", ", @uses) : "None (standalone binary / container / flat-file)";
+
+        print "  Name:         $name\n";
+        print "  Title:        $desc\n";
+        print "  Category:     $cat\n";
+        print "  Author:       $author\n";
+        print "  Website:      $site\n";
+        print "  Version(s):   " . join(", ", @vers) . "\n";
+        print "  Build Rev:    $rel\n";
+        print "  Dependencies: $uses_str\n";
+        print "  Runtime Mode: $mode_str\n";
+    '
+
+    local svc_file="${APPS_DIR}/${app}/${app}.service"
+    if [[ -f "${svc_file}" ]]; then
+        echo -e "  Systemd Unit: ${GREEN}${svc_file}${NC} (Isolated daemon)"
+    else
+        echo -e "  Systemd Unit: None (Direct web server / PHP execution)"
+    fi
+
+    local readme_file="${APPS_DIR}/${app}/README.md"
+    if [[ -f "${readme_file}" ]]; then
+        echo -e "  Documentation:${GREEN}${readme_file}${NC}"
+    fi
+
+    local symlink_file="${SCRIPTS_DIR}/${app}.pl"
+    if [[ -L "${symlink_file}" ]]; then
+        echo -e "  Symlink:      ${GREEN}${symlink_file} -> $(readlink "${symlink_file}")${NC}"
+    else
+        echo -e "  Symlink:      ${YELLOW}Not yet symlinked in scripts/${NC}"
+    fi
+    echo ""
+}
+
 do_test() {
     echo -e "${CYAN}[*] Running Perl syntax verification across all scripts and libraries...${NC}"
     local errors=0
@@ -509,6 +624,8 @@ show_help() {
     echo "  remove     Unregister web app scripts from Virtualmin configuration"
     echo "  status     Display integration status and configured script directory"
     echo "  list       Show table of all available web apps in this repository"
+    echo "  search     Filter and search apps by keyword (name, category, description)"
+    echo "  info       Show detailed technical profile and requirements for an app"
     echo "  test       Run perl syntax verification on all scripts and shared libs"
     echo "  doctor     Run diagnostic health check on system, perl modules, and repository"
     echo "  package    Generate standalone release distribution archive (.tar.gz)"
@@ -531,6 +648,12 @@ case "$1" in
         ;;
     list)
         do_list
+        ;;
+    search)
+        do_search "$2"
+        ;;
+    info)
+        do_info "$2"
         ;;
     test)
         do_test
