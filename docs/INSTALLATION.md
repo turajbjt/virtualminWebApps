@@ -21,7 +21,25 @@ Optional dependencies for specific application types:
 
 ---
 
-## 2. Automated Installation via CLI (Recommended)
+## 2. 1-Click Bootstrap Installation (Fastest)
+
+Run the standalone installer directly via `curl`:
+```bash
+curl -fsSL https://raw.githubusercontent.com/turajbjt/virtualminWebApps/main/install.sh | sudo bash
+```
+
+### What `install.sh` does automatically:
+1. Detects system package manager (`apt`, `dnf`, `yum`, or `zypper`) and installs prerequisite packages (`git`, `perl`, `tar`, `gzip`, `curl`, `wget`).
+2. Clones or updates the suite repository in `/opt/virtualminWebApps`.
+3. Sets secure permissions and generates internal symlinks across all 110 application modules.
+4. Registers and links all scripts into `/etc/webmin/virtual-server/scripts/`.
+5. Links the shared PCI DSS helper library (`lib/`).
+6. Automatically whitelists scripts in `/etc/webmin/virtual-server/scriptsunavail` if default-deny policies exist.
+7. Restarts Webmin and executes `./setup.sh doctor` to verify complete system readiness.
+
+---
+
+## 3. Automated Installation via Git Clone (Recommended)
 
 1. **Clone the repository onto your server**:
    We recommend placing the repository in `/opt/virtualminWebApps` or a central system directory:
@@ -48,7 +66,7 @@ Optional dependencies for specific application types:
 
 ---
 
-## 3. Manual Installation (Alternative)
+## 4. Manual Installation (Alternative)
 
 If you prefer configuring Virtualmin manually without the automated CLI:
 
@@ -71,11 +89,23 @@ If you prefer configuring Virtualmin manually without the automated CLI:
 
 ---
 
-## 4. Verifying Application Availability
+## 5. Verifying Application Availability & Discovery
 
-Once installed, check available applications from the terminal:
+Once installed, explore and inspect applications directly from the terminal:
 ```bash
+# Full inventory list with versions and categories
 ./setup.sh list
+
+# Full-text case-insensitive search
+./setup.sh search matrix
+./setup.sh search backup
+
+# Detailed application diagnostic profile
+./setup.sh info immich
+./setup.sh info vaultwarden
+
+# System and repository health check
+./setup.sh doctor
 ```
 
 In the Virtualmin Web GUI:
@@ -104,7 +134,7 @@ In the Virtualmin Web GUI:
 
 ---
 
-## 5. Updating the Suite
+## 6. Updating the Suite
 
 To pull the latest application definitions, new carts, and bug fixes:
 ```bash
@@ -117,7 +147,7 @@ For complete details on upgrading already-installed applications on virtual serv
 
 ---
 
-## 6. Uninstallation
+## 7. Uninstallation
 
 If you ever wish to unregister the suite from Virtualmin:
 ```bash

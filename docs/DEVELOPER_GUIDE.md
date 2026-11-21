@@ -206,14 +206,16 @@ Every installer must adhere to PCI DSS v4.0 secure engineering requirements:
 
 ## 5. Automated Unit & Security Test Suite
 
-The repository includes a comprehensive 1,000+ assertion automated TAP unit test suite:
-* `tests/01_syntax.t`: Perl syntax validation across all 73 scripts and libraries.
+The repository includes a comprehensive 1,945-assertion automated TAP unit test suite:
+* `tests/01_syntax.t`: Perl syntax validation across all 110 scripts and shared libraries.
 * `tests/02_common_lib.t`: Unit tests for Common.pl functions (path traversal rejection, port bounds, URL scheme validation, domain format, entropy).
 * `tests/03_port_manager.t`: Port manager unit tests (range scanning, input validation).
 * `tests/04_systemd_helper.t`: Systemd helper unit tests (service name validation, injection rejection).
 * `tests/05_proxy_helper.t`: Reverse proxy unit tests (Apache/Nginx blocks, CRLF injection prevention).
 * `tests/06_app_metadata.t`: Metadata and lifecycle hook verification for all 110 applications.
 * `tests/07_security_input_filtering.t`: Security fuzzing and input filtering test suite for all 110 applications.
+* `tests/08_secret_leak_prevention.t`: Secret leak and credential exposure prevention audit.
+* `tests/09_virtualmin_loader.t`: Virtualmin loader emulation and dynamic script discovery validation.
 
 To run the complete test suite:
 ```bash
@@ -221,7 +223,18 @@ To run the complete test suite:
 # Or using prove directly:
 prove -v tests/
 ```
-To verify that all apps display cleanly in the inventory table:
+
+To run system diagnostics and app discovery tools:
 ```bash
+# System & repository health check
+./setup.sh doctor
+
+# Full inventory list with versions and categories
 ./setup.sh list
+
+# Full-text case-insensitive search
+./setup.sh search <query>
+
+# Deep inspection of an app profile
+./setup.sh info <app_name>
 ```

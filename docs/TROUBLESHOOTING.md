@@ -4,7 +4,24 @@ This document covers common questions, edge cases, and troubleshooting steps for
 
 ---
 
-## 1. Webmin Not Showing Custom Scripts
+## 1. Automated Health Diagnostics (`setup.sh doctor`)
+
+Before troubleshooting individual applications, run the automated environment health checker:
+```bash
+./setup.sh doctor
+```
+
+The doctor command inspects and reports on:
+* **System Environment**: Linux distribution, kernel architecture.
+* **Perl Runtime**: Version check and verification of required core modules (`File::Basename`, `File::Path`, `Cwd`, `POSIX`, `Digest::SHA`, `File::Copy`, `Test::Simple`, `Test::More`).
+* **Webmin & Virtualmin Configuration**: Configuration directories, module paths, and CLI binary presence.
+* **CLI Utilities**: Availability of `curl`, `wget`, `tar`, `unzip`, `gzip`, `sed`, `grep`, and `systemctl`.
+* **Container Runtimes**: Operational status of `podman` or `docker` (required for containerized apps).
+* **Repository Health**: Total app count in `apps/`, total symlinks in `scripts/`, and broken symlink detection.
+
+---
+
+## 2. Webmin Not Showing Custom Scripts
 
 ### Symptoms
 After running `sudo ./setup.sh install`, the new applications do not appear under **Manage Web Apps / Install Scripts**.
@@ -45,7 +62,7 @@ After running `sudo ./setup.sh install`, the new applications do not appear unde
 
 ---
 
-## 2. Reverse Proxy & Port Conflicts
+## 3. Reverse Proxy & Port Conflicts
 
 ### Symptoms
 Daemon-based applications (Vaultwarden, AdGuard Home, Pi-hole) fail to start or display `502 Bad Gateway`.
@@ -68,7 +85,7 @@ Daemon-based applications (Vaultwarden, AdGuard Home, Pi-hole) fail to start or 
 
 ---
 
-## 3. SELinux Restrictions (RHEL / Rocky / AlmaLinux / Fedora)
+## 4. SELinux Restrictions (RHEL / Rocky / AlmaLinux / Fedora)
 
 ### Symptoms
 Apache or Nginx returns `503 Service Unavailable` or `13: Permission denied` when attempting to proxy connections to local ports.
@@ -87,7 +104,7 @@ sudo semanage port -a -t http_port_t -p tcp <port>
 
 ---
 
-## 4. Bitwarden / Vaultwarden Web Crypto Error
+## 5. Bitwarden / Vaultwarden Web Crypto Error
 
 ### Symptoms
 The Vaultwarden web interface opens, but shows an error:
@@ -99,7 +116,7 @@ Bitwarden and Vaultwarden rely on the browser's native `window.crypto.subtle` AP
 
 ---
 
-## 5. DNS Port 53 Conflicts (AdGuard Home / Pi-hole)
+## 6. DNS Port 53 Conflicts (AdGuard Home / Pi-hole)
 
 ### Symptoms
 AdGuard Home or Pi-hole fails to bind port 53 because `systemd-resolved` or `named` (BIND) is already listening on `0.0.0.0:53`.
